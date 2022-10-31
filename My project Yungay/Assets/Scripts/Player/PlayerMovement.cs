@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     {
         model.state = PlayerModel.State.run;
         model.rb.AddForce(move.normalized * model.speedRun * 10f, ForceMode.Force);
-        if (model.actualSpeed >=4.5)
+        if (model.actualSpeed >=model.speedWalk -1f)
         {
             model.isRunning = true;
         }
