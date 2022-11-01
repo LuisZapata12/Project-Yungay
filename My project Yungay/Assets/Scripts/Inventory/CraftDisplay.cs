@@ -24,7 +24,7 @@ public class CraftDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (canCraft)
+        if (canCraft && Input.GetMouseButtonDown(0))
         {
             coroutine = StartCoroutine(ChargeImage(chargeSpeed));
             isClick = true;
@@ -33,12 +33,12 @@ public class CraftDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (coroutine != null)
+        if (Input.GetMouseButtonUp(0))
         {
             StopCoroutine(coroutine);
+            imageChild.fillAmount = 0f;
+            isClick = false;
         }
-        imageChild.fillAmount = 0f;
-        isClick = false;
     }
 
     // Update is called once per frame
@@ -104,8 +104,8 @@ public class CraftDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         while (imageChild.fillAmount < 1f)
         {
-            imageChild.fillAmount += 0.001f * speed;
-            yield return new WaitForEndOfFrame();
+            imageChild.fillAmount += 0.1f * speed;
+            yield return new WaitForSecondsRealtime(0.1f);
         }
         imageChild.fillAmount = 1f;
         inventory.CraftItem(recipe);
