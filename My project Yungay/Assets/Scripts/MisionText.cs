@@ -18,6 +18,9 @@ public class MisionText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = misions[currentMision];
+        if (CinematicTutorial.playTutorial)
+        {
+            text.text = misions[currentMision];
+        }
     }
 }

@@ -39,90 +39,92 @@ public class TutorialManager : MonoBehaviour
     }
     private void Update()
     {
-        if (!moveCamera)
+        if (CinematicTutorial.playTutorial)
         {
-            CheckMoveCamera();
-            MisionText.currentMision = 0;           
-        }
-        else
-        {
-            if (!movePlayer)
+            if (!moveCamera)
             {
-                MisionText.currentMision = 1;
-                CheckMovement();
+                CheckMoveCamera();
+                MisionText.currentMision = 0;
             }
             else
             {
-                if (!grabBackpack)
+                if (!movePlayer)
                 {
-                    MisionText.currentMision = 2;
-                    grabBackpack = CheckGrabItem(backpack);
-
-                    if (!once)
-                    {
-                        backpackObjetc.AddComponent<Loot>().loot.Add(new Item(backpack,1));
-                        once = true;
-                    }
+                    MisionText.currentMision = 1;
+                    CheckMovement();
                 }
                 else
                 {
-                    if (!activateInventory)
+                    if (!grabBackpack)
                     {
-                        inventory.RestItem(backpack, 1);
-                        inventory.RemoveSlot();
-                        inventoryDisplay.enabled = !inventoryDisplay.enabled;
-                        activateInventory = true;
-                    }
+                        MisionText.currentMision = 2;
+                        grabBackpack = CheckGrabItem(backpack);
 
-                    if (!openInventory)
-                    {
-                        MisionText.currentMision = 3;
-                        if (Input.GetKeyDown(KeyCode.I))
+                        if (!once)
                         {
-                            openInventory = true;
-                            paperObject.AddComponent<Loot>().loot.Add(new Item(paper, 1));
+                            backpackObjetc.AddComponent<Loot>().loot.Add(new Item(backpack, 1));
+                            once = true;
                         }
                     }
                     else
                     {
-                        if (!grabPaper)
+                        if (!activateInventory)
                         {
-                            MisionText.currentMision = 4;
-                            grabPaper = CheckGrabItem(paper);
+                            inventory.RestItem(backpack, 1);
+                            inventory.RemoveSlot();
+                            inventoryDisplay.enabled = !inventoryDisplay.enabled;
+                            activateInventory = true;
+                        }
+
+                        if (!openInventory)
+                        {
+                            MisionText.currentMision = 3;
+                            if (Input.GetKeyDown(KeyCode.I))
+                            {
+                                openInventory = true;
+                                paperObject.AddComponent<Loot>().loot.Add(new Item(paper, 1));
+                            }
                         }
                         else
                         {
-                            if (!throwPaper)
+                            if (!grabPaper)
                             {
-                                MisionText.currentMision = 5;
-
-                                if (Input.GetMouseButtonDown(1))
-                                {
-                                    throwPaper = true;
-                                }
-
+                                MisionText.currentMision = 4;
+                                grabPaper = CheckGrabItem(paper);
                             }
                             else
                             {
-                                if (!moveBox)
+                                if (!throwPaper)
                                 {
-                                    MisionText.currentMision = 6;
-                                    box.GetComponent<Rigidbody>().isKinematic = false;
-                                    CheckMoveBox();
+                                    MisionText.currentMision = 5;
+
+                                    if (Input.GetMouseButtonDown(1))
+                                    {
+                                        throwPaper = true;
+                                    }
+
                                 }
                                 else
                                 {
-                                    MisionText.currentMision = 7;
+                                    if (!moveBox)
+                                    {
+                                        MisionText.currentMision = 6;
+                                        box.GetComponent<Rigidbody>().isKinematic = false;
+                                        CheckMoveBox();
+                                    }
+                                    else
+                                    {
+                                        MisionText.currentMision = 7;
+                                    }
                                 }
+
                             }
-                            
                         }
                     }
                 }
-            }
 
+            }
         }
-     
     }
 
     private void CheckMoveCamera()

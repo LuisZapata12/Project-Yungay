@@ -9,6 +9,7 @@ public class CinematicTutorial : MonoBehaviour
     public Camera cinematicCamera;
     public Camera playerCamera;
     public PlayerModel playerModel;
+    public static bool playTutorial = false;
 
 
     //public GameObject controlPanel;
@@ -59,5 +60,6 @@ public class CinematicTutorial : MonoBehaviour
         playerCamera.targetDisplay = 0;
         GameManager.inPause = false;
         playerModel.state = PlayerModel.State.idle;
+        playTutorial = true;
     }
 }
