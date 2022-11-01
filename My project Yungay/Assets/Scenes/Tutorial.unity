@@ -208,18 +208,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8927300428184000455, guid: 21423cde304bdb142a037a6713bd7efc, type: 3}
---- !u!114 &78741245 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3741045180601220618, guid: fa9ca198d9416704780e5ee1bd7b755c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1469395825}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33eadc4c6ae41cb499244fb970530822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &97794057
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2461,6 +2449,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8598745279674192052, guid: 21423cde304bdb142a037a6713bd7efc, type: 3}
+--- !u!1 &1266275083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266275085}
+  - component: {fileID: 1266275084}
+  m_Layer: 0
+  m_Name: CinematicController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266275084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266275083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f002c76fbadb814aa169fe93f2a14f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1266275085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266275083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.996811, y: 1.3697369, z: -6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1272490804
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3428,8 +3460,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 78741245}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1266275084}
+          m_TargetAssemblyTypeName: CinematicController, Assembly-CSharp
           m_MethodName: GetDirector
           m_Mode: 2
           m_Arguments:
@@ -3437,7 +3469,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableDirector,
               UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 30
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2

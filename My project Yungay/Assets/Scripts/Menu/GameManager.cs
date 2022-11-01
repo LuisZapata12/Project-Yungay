@@ -13,12 +13,6 @@ public class GameManager : MonoBehaviour
     public bool inPase = false;
     public static string actualScene;
 
-    [Header("Cinematics")]
-    public static bool inCinematic;
-
-    private PlayableDirector currentDirector;
-    private bool cinematicSkipped;
-    private float timeToSkipTo;
 
     public bool pause;
     //public static string actualScene;
@@ -37,21 +31,6 @@ public class GameManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !cinematicSkipped)
-        {
-            if (currentDirector?true:false) 
-            {
-                currentDirector.time = 30.0f;
-                cinematicSkipped = true;
-            }
-            else
-            {
-
-            }
-        }
-        {
-
-        }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !InventoryDisplay.isOpen)
         {
@@ -122,13 +101,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GetDirector(PlayableDirector director)
-    {
-        cinematicSkipped = false;
-        currentDirector = director;
-    }
-    public void GetSkipTime(float skipTime)
-    {
-        timeToSkipTo = skipTime;
-    }
 }
