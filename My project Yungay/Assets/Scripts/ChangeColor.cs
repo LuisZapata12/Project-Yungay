@@ -6,22 +6,22 @@ public class ChangeColor : MonoBehaviour
 {
     private Color colorDefault;
     public Color newColor;
-    private Renderer renderer;
+    private Renderer rdr;
     
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<Renderer>();
-        colorDefault = renderer.material.color;
+        rdr = GetComponent<Renderer>();
+        colorDefault = rdr.material.color;
     }
 
     private void OnMouseOver()
     {
-        renderer.material.color = newColor;
+        rdr.material.color = newColor;
     }
 
     private void OnMouseExit()
     {
-        renderer.material.color = colorDefault;
+        rdr.material.color = colorDefault;
     }
 }

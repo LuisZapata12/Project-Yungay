@@ -23,3 +23,4 @@ MonoBehaviour:
   itemMaterial: {fileID: -183530207247392898, guid: 81b110a8114c7a749a4d36ee08e2dab6,
     type: 3}
   equipmentType: 0
+  idleClip: {fileID: 7400000, guid: e9a9b1e422e438d4f8006a72e320ccdb, type: 2}

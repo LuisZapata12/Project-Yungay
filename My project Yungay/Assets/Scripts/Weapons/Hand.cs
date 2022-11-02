@@ -201,7 +201,7 @@ public class Hand : MonoBehaviour
                 canAttack = true;
                 gameObject.tag = _.itemName;
 
-                if (!once)
+                if (!once && _.idleClip != null)
                 {
                     anim.Play(_.idleClip.name);
                     once = true;

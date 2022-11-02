@@ -22,13 +22,17 @@ public class Box : MonoBehaviour
     public void Destroy()
     {
         Instantiate(boxFullPieces, transform.position, Quaternion.identity);
-        GameObject clone = Instantiate(lootPrefab, transform.position, Quaternion.identity);
-        Loot loot = clone.GetComponent<Loot>();
-        for (int i = 0; i < items.Count; i++)
+
+        if (items.Count != 0)
         {
-            loot.loot.Add(new Item(items[i], 0));
+            GameObject clone = Instantiate(lootPrefab, transform.position, Quaternion.identity);
+            Loot loot = clone.GetComponent<Loot>();
+            for (int i = 0; i < items.Count; i++)
+            {
+                loot.loot.Add(new Item(items[i], 0));
+            }
+            loot.RandomAmount();
         }
-        loot.RandomAmount();
         Destroy(this.gameObject);
     }
 
