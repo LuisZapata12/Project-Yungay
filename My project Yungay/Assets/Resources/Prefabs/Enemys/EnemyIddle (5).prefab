@@ -1057,7 +1057,7 @@ Transform:
   - {fileID: 2496656329205999421}
   - {fileID: 2496656330427947937}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2496656329862639532
 CapsuleCollider:
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 5
   items:
-  - {fileID: 11400000, guid: 72443fe3c41252744b442bbd4294631e, type: 2}
+  - {fileID: 11400000, guid: db7f453e65333654880eaab7026e1f1d, type: 2}
   - {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
   - {fileID: 11400000, guid: f0fa9460d49089a4ea35bd2b26307673, type: 2}
   timer: 0
@@ -1177,8 +1177,8 @@ MonoBehaviour:
   Target: {fileID: 0}
   Agent: {fileID: 0}
   speed: 3
-  Weapon: {fileID: 11400000, guid: 9328765420afc1f43b1223775995af40, type: 2}
-  Vision: 7
+  Weapon: {fileID: 0}
+  Vision: 5
   anim: {fileID: 0}
   Near: 0
   DetectPlayer: 0
