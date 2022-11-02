@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5166149738228124165}
   - component: {fileID: 1280772390961230098}
   - component: {fileID: 6947104447989185562}
+  - component: {fileID: 1703357494}
   m_Layer: 0
   m_Name: FBX_Piedra
   m_TagString: Untagged
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3299538024013844753}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.781513, y: -0.025249958, z: 1.8166488}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1238027416396497934
 MeshFilter:
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: bb59cfad6a367e34fb827f3312f5cfcc, type: 3}
+  - {fileID: 2100000, guid: f01b3ce5d80ec6448935a91000eb8abf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,5 +130,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loot:
   - item: {fileID: 11400000, guid: 119346295b0e69645b57984906d78f5f, type: 2}
-    amount: 0
+    amount: 1
   isRandom: 0
+--- !u!114 &1703357494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299538024013844753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newColor: {r: 0.93590707, g: 0.9622642, b: 0.31318974, a: 0}

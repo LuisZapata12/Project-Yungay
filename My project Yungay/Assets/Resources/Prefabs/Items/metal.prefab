@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9131054301058522257}
   - component: {fileID: 2039615875284922237}
   - component: {fileID: 1660408932200035811}
+  - component: {fileID: 929999707392349194}
   m_Layer: 0
   m_Name: metal
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8190712958286563309
 MeshFilter:
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 0553b3ab3e12a0a4694c10ec1973b07c, type: 3}
+  - {fileID: 2100000, guid: b4fd089735f920a4fb659186ebe07bc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,3 +132,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25.652296, y: 15.089571, z: 27.809727}
   m_Center: {x: -0.9499912, y: 1.0705328, z: 0}
+--- !u!114 &929999707392349194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570751751019254514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newColor: {r: 0.9372549, g: 0.9607843, b: 0.3137255, a: 0}

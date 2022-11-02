@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1371420265575688242}
   - component: {fileID: 4881848289608850718}
   - component: {fileID: 3222671045299257120}
+  - component: {fileID: 4711531629778024631}
   m_Layer: 0
   m_Name: cable rollo
   m_TagString: Untagged
@@ -131,3 +132,16 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: abc6655494af5b949967c0721deff67a, type: 2}
     amount: 1
   isRandom: 0
+--- !u!114 &4711531629778024631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983355501430589110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newColor: {r: 0.9372549, g: 0.9607843, b: 0.3137255, a: 0}
