@@ -79,7 +79,7 @@ public class TutorialManager : MonoBehaviour
                         if (!openInventory)
                         {
                             MisionText.currentMision = 3;
-                            if (Input.GetKeyDown(KeyCode.I))
+                            if (Input.GetKeyDown(KeyCode.Tab))
                             {
                                 openInventory = true;
                                 paperObject.AddComponent<Loot>().loot.Add(new Item(paper, 1));
