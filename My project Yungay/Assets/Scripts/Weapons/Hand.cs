@@ -26,6 +26,7 @@ public class Hand : MonoBehaviour
     private AudioSource audioSource;
     public Sprite defaultCursor, weaponsCursor, aimCursor;
     public static Image imageCursor;
+    private bool once = false;
 
     public ItemObject itemxd;
     // Start is called before the first frame update
@@ -67,22 +68,27 @@ public class Hand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             slotIndex = 0;
+            once = false;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             slotIndex = 1;
+            once = false;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             slotIndex = 2;
+            once = false;
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             slotIndex = 3;
+            once = false;
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             slotIndex = 4;
+            once = false;
         }
 
         canAim = false;
@@ -194,7 +200,12 @@ public class Hand : MonoBehaviour
                 meshRenderer.sharedMaterial = _.itemMaterial;
                 canAttack = true;
                 gameObject.tag = _.itemName;
-                anim.Play(_.idleClip.name);
+
+                if (!once)
+                {
+                    anim.Play(_.idleClip.name);
+                    once = true;
+                }
             }
             else
             {
@@ -202,6 +213,7 @@ public class Hand : MonoBehaviour
                 meshRenderer.sharedMaterial = null;
                 canAttack = false;
                 anim.Play("idle");
+                once = false;
             }
         }
         else
@@ -265,6 +277,7 @@ public class Hand : MonoBehaviour
                     canAttack = false;
                     EquipmentMelee melee = _ as EquipmentMelee;
                     AudioManager.Instance.PlaySFX("Throw");
+                    once = false;
                 }
             }
         }
