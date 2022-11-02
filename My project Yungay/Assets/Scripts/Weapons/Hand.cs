@@ -194,12 +194,14 @@ public class Hand : MonoBehaviour
                 meshRenderer.sharedMaterial = _.itemMaterial;
                 canAttack = true;
                 gameObject.tag = _.itemName;
+                anim.Play(_.idleClip.name);
             }
             else
             {
                 meshFilter.sharedMesh = null;
                 meshRenderer.sharedMaterial = null;
                 canAttack = false;
+                anim.Play("idle");
             }
         }
         else

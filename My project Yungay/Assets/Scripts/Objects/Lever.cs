@@ -11,10 +11,12 @@ public class Lever : MonoBehaviour
 
     public ItemObject axe;
     public Inventory inventory;
+    public InventoryDisplay inventoryDisplay;
 
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        inventoryDisplay = GameObject.Find("Canvas").GetComponent<InventoryDisplay>();
         EventManager.current.useLeverEvent += StartCinematic;
     }
 
@@ -27,6 +29,9 @@ public class Lever : MonoBehaviour
             if (inventory.CheckItem(axe) && Input.GetKeyDown(KeyCode.E))
             {
                 inventory.RestItem(axe, 1);
+                inventory.RemoveSlot();
+                inventoryDisplay.UpdateDisplay();
+
                 EventManager.current.StartUseLeverEvent(leverID);
                 anim.SetBool("isUse", true);
                 Debug.Log(inventory.CheckItem(axe));

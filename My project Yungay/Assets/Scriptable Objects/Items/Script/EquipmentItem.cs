@@ -14,6 +14,8 @@ public class EquipmentItem : ItemObject
     public Mesh itemMesh;
     public Material itemMaterial;
     [HideInInspector]public EquipmentType equipmentType;
+
+    public AnimationClip idleClip;
     private void Awake()
     {
         type = ItemType.Equipment;
