@@ -23,6 +23,7 @@ MonoBehaviour:
   itemMaterial: {fileID: 5561349426305759274, guid: 6e74603fdba2bf740a5d678063c594aa,
     type: 3}
   equipmentType: 1
+  idleClip: {fileID: 7400000, guid: efe821b6c3f995744927a3946d639f58, type: 2}
   lastShootTime: 0
   shootDelay: 1
   bulletSpreadVarianceDis: 0
