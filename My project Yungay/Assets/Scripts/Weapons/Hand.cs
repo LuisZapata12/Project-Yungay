@@ -26,6 +26,8 @@ public class Hand : MonoBehaviour
     private AudioSource audioSource;
     public Sprite defaultCursor, weaponsCursor, aimCursor;
     public static Image imageCursor;
+
+    public ItemObject itemxd;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        itemxd = currentItem;
         ChangeItem();
         ChangeMesh();
         if (canAttack)
@@ -229,6 +232,7 @@ public class Hand : MonoBehaviour
                     EquipmentMelee melee = (EquipmentMelee)currentItem;
                     if (melee.animation != null)
                     {
+                        melee.durability -= 1;
                         anim.Play(melee.animation.name);
                         isAttacking = true;
                     }

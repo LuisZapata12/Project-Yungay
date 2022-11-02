@@ -9,8 +9,12 @@ public class Lever : MonoBehaviour
     public Animator anim;
     public Animator fade;
 
+    public ItemObject axe;
+    public Inventory inventory;
+
     private void Start()
     {
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         EventManager.current.useLeverEvent += StartCinematic;
     }
 
@@ -18,9 +22,16 @@ public class Lever : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
-            EventManager.current.StartUseLeverEvent(leverID);
-            anim.SetBool("isUse", true);
-
+            inventory.UpdateInventory();
+            inventory.CheckItem(axe);
+            if (inventory.CheckItem(axe) && Input.GetKeyDown(KeyCode.E))
+            {
+                inventory.RestItem(axe, 1);
+                EventManager.current.StartUseLeverEvent(leverID);
+                anim.SetBool("isUse", true);
+                Debug.Log(inventory.CheckItem(axe));
+            }
+           
         }
     }
 
