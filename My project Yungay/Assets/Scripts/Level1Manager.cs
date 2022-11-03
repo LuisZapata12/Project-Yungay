@@ -6,8 +6,9 @@ public class Level1Manager : MonoBehaviour
 {
     public bool start;
     public static bool isTravel = false;
-    public ItemObject axe;
+    public ItemObject axe, pistol;   
     private Inventory inventory;
+    private int count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,22 +19,51 @@ public class Level1Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if (checkItem())
-         {
-             MisionText.currentMision = 0;
+        MisionManager();
+    }
 
-            if (Lever.endTravel)
-            {
-                 MisionText.currentMision = 2;
-            }
-         }
-         else
-         {
-            MisionText.currentMision = 1;
-         }
+    private void MisionManager()
+    {
+        switch (count)
+        {
+            case 0:
+                MisionText.currentMision = 0;
+                if (inventory.CheckItem(axe))
+                {
+                    count = 1;
+                }
+                break;
 
-        
+            case 1:
+                if (Lever.endTravel)
+                {
+                    MisionText.currentMision = 1;
+                    if (inventory.CheckItem(axe))
+                    {
+                        count = 2;
+                    }
+                }
+                else
+                {
+                    MisionText.currentMision = 3;
+                }
+                break;
 
+            case 2:
+                MisionText.currentMision = 2;
+                if (inventory.CheckItem(pistol))
+                {
+                    count = 3;
+                }
+                break;
+
+            case 3:
+                MisionText.currentMision = 3;
+                break;
+
+            default:
+                break;
+        }
     }
 
     IEnumerator StartLv1()
