@@ -9,6 +9,7 @@ public class MisionText : MonoBehaviour
     public List<string> misions = new List<string>();
     public static int currentMision = 0;
     TMP_Text text;
+    public bool isTutorial, isLevel1;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,11 @@ public class MisionText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CinematicTutorial.playTutorial)
+        if (CinematicTutorial.playTutorial && isTutorial)
+        {
+            text.text = misions[currentMision];
+        }
+        else if (!isTutorial) 
         {
             text.text = misions[currentMision];
         }

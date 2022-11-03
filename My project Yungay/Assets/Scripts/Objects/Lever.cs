@@ -12,7 +12,7 @@ public class Lever : MonoBehaviour
     public ItemObject axe;
     public Inventory inventory;
     public InventoryDisplay inventoryDisplay;
-
+    public static bool endTravel = false;
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -63,6 +63,7 @@ public class Lever : MonoBehaviour
         fade.SetBool("isFade", true);
         yield return new WaitForSeconds(3f);
         fade.SetBool("isFade", false);
+        endTravel = true;
     }
 
     public void TravelSound()
