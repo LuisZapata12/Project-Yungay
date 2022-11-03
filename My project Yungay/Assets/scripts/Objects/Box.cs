@@ -32,6 +32,7 @@ public class Box : MonoBehaviour
                 loot.loot.Add(new Item(items[i], 0));
             }
             loot.RandomAmount();
+            
         }
         Destroy(this.gameObject);
     }
@@ -45,6 +46,14 @@ public class Box : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Axe"))
+        {
+            Destroy();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Axe"))
         {
             Destroy();
         }

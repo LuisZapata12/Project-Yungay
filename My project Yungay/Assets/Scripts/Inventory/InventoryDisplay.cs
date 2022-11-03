@@ -32,6 +32,10 @@ public class InventoryDisplay : MonoBehaviour
         {
             OpenDisplay();
             GameManager.ShowCursor();
+            if (AudioManager.Instance.sfxSource.isPlaying)
+            {
+                AudioManager.Instance.sfxSource.Stop();
+            }
             AudioManager.Instance.PlaySFX("Abrir");
 
         }
@@ -41,6 +45,10 @@ public class InventoryDisplay : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             GameManager.inPause = false;
             Time.timeScale = 1f;
+            if (AudioManager.Instance.sfxSource.isPlaying)
+            {
+                AudioManager.Instance.sfxSource.Stop();
+            }
             AudioManager.Instance.PlaySFX("Cerrar");
         }
     }
