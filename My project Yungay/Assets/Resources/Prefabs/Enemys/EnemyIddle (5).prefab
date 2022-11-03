@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ani: {fileID: 2496656329862639533}
-  Enemy: {fileID: 2496656329862639507}
+  Enemy: {fileID: 0}
 --- !u!1 &2496656329722555846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1030,6 @@ GameObject:
   - component: {fileID: 2496656329862639532}
   - component: {fileID: 2496656329862639533}
   - component: {fileID: 2496656329862639504}
-  - component: {fileID: 2496656329862639507}
   - component: {fileID: 2496656329862639506}
   - component: {fileID: 2496656329862639534}
   m_Layer: 10
@@ -1057,7 +1056,7 @@ Transform:
   - {fileID: 2496656329205999421}
   - {fileID: 2496656330427947937}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2496656329862639532
 CapsuleCollider:
@@ -1106,38 +1105,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 5
-  items:
+  staticItems: []
+  Randomitems:
   - {fileID: 11400000, guid: db7f453e65333654880eaab7026e1f1d, type: 2}
-  - {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
-  - {fileID: 11400000, guid: f0fa9460d49089a4ea35bd2b26307673, type: 2}
+  - {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d, type: 2}
+  - {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
   timer: 0
   dead: 0
---- !u!114 &2496656329862639507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3342953390193528592}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d52a01cba311d549acb8aa04adcb426, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rutine: 0
-  timer: 0
-  speedWalk: 0
-  target: {fileID: 0}
-  RunSpeed: 0
-  atack: 0
-  Range: {fileID: 2496656329205999395}
-  agent: {fileID: 2496656329862639506}
-  AtackDistance: 1.5
-  Vision: 10
-  layerWall:
-    serializedVersion: 2
-    m_Bits: 64
-  inContact: 0
 --- !u!195 &2496656329862639506
 NavMeshAgent:
   m_ObjectHideFlags: 0

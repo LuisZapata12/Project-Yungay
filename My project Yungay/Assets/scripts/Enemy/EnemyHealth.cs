@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float life;
-    public List<ItemObject> items = new();
+    public List<Item> staticItems = new();
+    public List<ItemObject> Randomitems = new();
     private Animator anim;
     public  float timer;
     public bool dead;
     private Loot enemyLoot;
+    private int count = 0;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -40,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
             anim.Play("Dead");
             enemyLoot = gameObject.AddComponent<Loot>();
             RandomLoot();
+            StaticItems();
             CheckItem();
         }
     }
@@ -53,12 +56,25 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    private void RandomLoot()
+    private void StaticItems()
     {
-        for (int i = 0; i <= (int)Random.Range(0,items.Count); i++)
+        for (int i = 0; i < staticItems.Count; i++)
         {
             enemyLoot.loot.Add(new Item(null,0));
-            enemyLoot.loot[i].item = items[i];
+            enemyLoot.loot[count].item = staticItems[i].item;
+            enemyLoot.loot[count].amount = staticItems[i].amount;
+            count++;
+        }
+    }
+
+    private void RandomLoot()
+    {
+        count = 0;
+        for (int i = 0; i <= (int)Random.Range(0,Randomitems.Count); i++)
+        {
+            enemyLoot.loot.Add(new Item(null,0));
+            enemyLoot.loot[i].item = Randomitems[i];
+            count++;
         }
         enemyLoot.RandomAmount();
     }
