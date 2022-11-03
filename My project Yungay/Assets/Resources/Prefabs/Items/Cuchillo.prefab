@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6405616433989943215}
   - component: {fileID: 5703564332411424230}
   - component: {fileID: 5010225145030588910}
+  - component: {fileID: -1163414083098776920}
   m_Layer: 0
   m_Name: Cuchillo
   m_TagString: Untagged
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a254eb0557c20142b4fbc078b1dd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1163414083098776920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307348409968054201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newColor: {r: 0.93590707, g: 0.9622642, b: 0.31318974, a: 0}

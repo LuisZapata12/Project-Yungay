@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6652158628170346328}
   - component: {fileID: 7146605901338882860}
   - component: {fileID: 1395052445872034944}
+  - component: {fileID: -5489035418970709095}
   m_Layer: 0
   m_Name: FBX_vendaje
   m_TagString: Untagged
@@ -145,3 +146,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0.9372549, g: 0.9607843, b: 0.3137255, a: 0}
+--- !u!114 &-5489035418970709095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813296409211751550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newColor: {r: 0.93590707, g: 0.9622642, b: 0.31318974, a: 0}

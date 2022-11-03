@@ -58,7 +58,7 @@ public class Level1Manager : MonoBehaviour
                 break;
 
             case 3:
-                MisionText.currentMision = 3;
+                MisionText.currentMision = 4;
                 break;
 
             default:

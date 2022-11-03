@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 173102966727553168}
   - component: {fileID: 792991904567621731}
   - component: {fileID: -6876113848884568309}
+  - component: {fileID: 4759955967005969944}
   m_Layer: 14
   m_Name: Hacha
   m_TagString: Axe
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a254eb0557c20142b4fbc078b1dd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4759955967005969944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3930251777971428299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newColor: {r: 0.93590707, g: 0.9622642, b: 0.31318974, a: 0}
