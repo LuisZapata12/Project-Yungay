@@ -8,7 +8,7 @@ public class RangeWeapons : MonoBehaviour
     public Camera cam;
     public GameObject beggin;
 
-    private float BulletSpeed = 100f;
+    private float BulletSpeed = 300f;
 
     [SerializeField]
     private TrailRenderer bulletTrail;

@@ -23,7 +23,8 @@ public class TutorialManager : MonoBehaviour
     private Inventory inventory;
     private InventoryDisplay inventoryDisplay;
     private bool activateInventory = false;
-    private GameObject backpackObjetc, paperObject;
+    private GameObject backpackObjetc;
+    private GameObject[] paperObject;
     private bool once = false;
     public GameObject box;
     private void Start()
@@ -34,8 +35,8 @@ public class TutorialManager : MonoBehaviour
         inventory = _.GetComponent<Inventory>();
         inventoryDisplay = GameObject.Find("Canvas").GetComponent<InventoryDisplay>();
         inventoryDisplay.enabled = !inventoryDisplay.enabled;
+        paperObject = GameObject.FindGameObjectsWithTag("Paper");
         backpackObjetc = GameObject.Find("Backpack");
-        paperObject = GameObject.Find("Paper");
     }
     private void Update()
     {
@@ -81,8 +82,11 @@ public class TutorialManager : MonoBehaviour
                             MisionText.currentMision = 3;
                             if (Input.GetKeyDown(KeyCode.Tab))
                             {
-                                openInventory = true;
-                                paperObject.AddComponent<Loot>().loot.Add(new Item(paper, 1));
+                                openInventory = true; foreach (GameObject Papers in paperObject)
+                                {
+                                    Papers.AddComponent<Loot>().loot.Add(new Item(paper, 1));
+                                }
+                                
                             }
                         }
                         else
@@ -124,6 +128,10 @@ public class TutorialManager : MonoBehaviour
                 }
 
             }
+        }
+        else
+        {
+            MisionText.currentMision = 8;
         }
     }
 

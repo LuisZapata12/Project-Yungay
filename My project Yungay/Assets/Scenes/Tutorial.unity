@@ -733,6 +733,7 @@ MonoBehaviour:
   - Lanza el papel (click derecho)
   - Mueve la caja
   - Sal de la casa(E)
+  - 
   isTutorial: 0
   isLevel1: 0
 --- !u!222 &247357244
@@ -5441,6 +5442,11 @@ PrefabInstance:
     - target: {fileID: 6128415359191143606, guid: bf987ccdebf31f24aac8426f3ea55828,
         type: 3}
       propertyPath: m_Name
+      value: Paper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128415359191143606, guid: bf987ccdebf31f24aac8426f3ea55828,
+        type: 3}
+      propertyPath: m_TagString
       value: Paper
       objectReference: {fileID: 0}
     - target: {fileID: 6793488586266283532, guid: bf987ccdebf31f24aac8426f3ea55828,

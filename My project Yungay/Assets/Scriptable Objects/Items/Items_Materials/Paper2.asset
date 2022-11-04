@@ -20,10 +20,11 @@ MonoBehaviour:
   itemName: Paper
   itemMesh: {fileID: -2432090755550338912, guid: 56dd1b7cb1dac2a4a948f2ad05d35c9f,
     type: 3}
-  itemMaterial: {fileID: -3661639628750336703, guid: f761e9b0126548f4fb296c7f871b856a,
-    type: 3}
+  itemMaterial: {fileID: 2100000, guid: f01b3ce5d80ec6448935a91000eb8abf, type: 2}
   equipmentType: 0
+  idleClip: {fileID: 0}
   force: 0
   damage: 0
   animation: {fileID: 0}
   attackClip: {fileID: 0}
+  durability: 0
