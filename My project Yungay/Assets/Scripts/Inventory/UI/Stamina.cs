@@ -41,7 +41,7 @@ public class Stamina : MonoBehaviour
 
     public void IsRunning()
     {
-        if (model.actualSpeed >= model.speedRun - 1f && PlayerGroundCheck.grounded)
+        if (model.actualSpeed >= model.speedRun && PlayerGroundCheck.grounded)
         {
             model.staActual -= model.staminaDrain * Time.deltaTime;
             CheckStamina(1);
