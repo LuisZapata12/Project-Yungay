@@ -178,7 +178,9 @@ public class EnemyVigilant : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawRay(pointShoot.transform.position, pointShoot.transform.forward * Weapon.Range);
         }
-        
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, Vision);
     }
 
 
