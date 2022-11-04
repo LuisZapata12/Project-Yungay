@@ -18,7 +18,7 @@ public class Loot : MonoBehaviour
     {
         for (int i = 0; i < loot.Count; i++)
         {
-            loot[i].amount = (int)Random.Range(1f, 10f);
+            loot[i].amount = (int)Random.Range(1f, 5f);
         }
     }
 
