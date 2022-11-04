@@ -9,6 +9,7 @@ public class CinematicController : MonoBehaviour
     private PlayableDirector currentDirector;
     private bool cinematicSkipped = true;
     private float timeToSkipTo;
+    private GameObject cursor;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -16,28 +17,36 @@ public class CinematicController : MonoBehaviour
     }
     void Start()
     {
-        
+        cursor = GameObject.FindGameObjectWithTag("Cursor");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !cinematicSkipped)
+        if (!cinematicSkipped)
         {
-            if (currentDirector ? true : false)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                currentDirector.time = 30.0f;
-                cinematicSkipped = true;
-            }
-            else
-            {
+                if (currentDirector ? true : false)
+                {
+                    currentDirector.time = 30.0f;
+                    cinematicSkipped = true;
+                }
+                else
+                {
 
+                }
             }
+        }
+        else
+        {
+            cursor.SetActive(true);
         }
     }
 
     public void GetDirector(PlayableDirector director)
     {
+        cursor.SetActive(false);
         cinematicSkipped = false;
         currentDirector = director;
     }
