@@ -56,6 +56,7 @@ public class Munition : MonoBehaviour
 
     }
 
+    #region basura
     //public void RechargeAmmo(ItemObject itemObject)
     //{
     //    EquipmentRange _ = (EquipmentRange)itemObject;
@@ -142,7 +143,7 @@ public class Munition : MonoBehaviour
     //            }
     //        }
     //    }
-        
+
     //    //switch (itemObject)
     //    //{
     //    //    case pistol:
@@ -227,9 +228,23 @@ public class Munition : MonoBehaviour
     //    //        break;
     //    //}
     //}
-
+    #endregion
     public void ReloadMunition(ItemObject item)
-    {
+    {/*
+        MunitonSlot result = item.munitions.Find();
+        if(item.munitions[result].munition== hand.currentMunition)
+        {
+            int maxCharge = item.munitions[result].charge;
+            if (inventory.CheckAmount(hand.currentMunition) < maxCharge)
+            {
+                for (int m = inventory.CheckAmount(hand.currentMunition); m > 0; m--)
+                {
+                    inventory.RestItem(item, 1);
+                    inventory.RemoveSlot();
+                }
+            }
+
+        }*/
         if (inventory.CheckItem(item))
         {
             for (int i = 0; i < hand.weaponSlots.Count; i++)
