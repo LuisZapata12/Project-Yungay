@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Metralleta
   m_EditorClassIdentifier: 
   damage: 1
-  Range: 3
-  Munition: 5
+  Range: 5
+  Munition: 18
   charger: 25
   timeToShoot: 0.5
   timetoRecharge: 5

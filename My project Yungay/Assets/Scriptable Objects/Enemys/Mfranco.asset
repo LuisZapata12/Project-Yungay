@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Mfranco
   m_EditorClassIdentifier: 
   damage: 10
-  Range: 5
-  Munition: 10
+  Range: 20
+  Munition: 5
   charger: 10
-  timeToShoot: 5
-  timetoRecharge: 10
+  timeToShoot: 3
+  timetoRecharge: 6
   Drop: []
