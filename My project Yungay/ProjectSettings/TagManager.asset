@@ -16,6 +16,9 @@ TagManager:
   - Checkpoint
   - Spear
   - UI
+  - Wall
+  - Equipment
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -34,7 +37,7 @@ TagManager:
   - Equiptment Item
   - Camera
   - Model
-  - 
+  - Box
   - 
   - 
   - 
