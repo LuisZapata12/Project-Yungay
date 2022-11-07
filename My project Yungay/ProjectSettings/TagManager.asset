@@ -19,6 +19,8 @@ TagManager:
   - Wall
   - Equipment
   - Box
+  - Pistol
+  - Submachine
   layers:
   - Default
   - TransparentFX

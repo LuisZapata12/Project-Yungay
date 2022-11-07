@@ -265,10 +265,10 @@ public class Munition : MonoBehaviour
                                     break;
                                 }
                             }
-
+                            /*
                             if (inventory.CheckAmount(hand.currentMunition) < maxCharge)
                             {
-                                for (int m = inventory.CheckAmount(hand.currentMunition); m > 0;m --)
+                                for (int m = inventory.CheckAmount(hand.currentMunition); m > 0; m--)
                                 {
                                     hand.weaponSlots[i].munitions[j].charge++;
                                     inventory.RestItem(item, 1);
@@ -297,11 +297,23 @@ public class Munition : MonoBehaviour
                                     }
                                 }
                             }
-                            inventoryDisplay.UpdateDisplay();
-                            break;
+                            */
+                            if (inventory.CheckAmount(hand.currentMunition) - (maxCharge - hand.weaponSlots[i].munitions[j].charge) > 0)
+                            {
+                                inventory.RestItem(item, maxCharge - hand.weaponSlots[i].munitions[j].charge);
+                                hand.weaponSlots[i].munitions[j].charge = maxCharge;
+                                Debug.Log(maxCharge);
+                                Debug.Log(hand.GetCharge(hand.currentMunition));
+                            }
+                            else
+                            {
+                                hand.weaponSlots[i].munitions[j].charge += inventory.CheckAmount(hand.currentMunition);
+                                inventory.RestItem(item, inventory.CheckAmount(hand.currentMunition));
+                            }
+                                inventoryDisplay.UpdateDisplay();
+                                break;
                         }
                     }
-
                     break;
                 }
             }

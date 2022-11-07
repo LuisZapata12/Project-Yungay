@@ -144,7 +144,7 @@ public class Hand : MonoBehaviour
         }
     }
 
-    private int GetCharge(ItemObject item)
+    public int GetCharge(ItemObject item)
     {
         int charge = 0;
         for (int i = 0; i < weaponSlots.Count; i++)
