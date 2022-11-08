@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         model.states = new Dictionary<PlayerModel.State,PlayerModel.OnState >()
         {
             { PlayerModel.State.idle, Iddle },
+            { PlayerModel.State.crounching, Crouch },
             { PlayerModel.State.move, Movement },
             { PlayerModel.State.walk, Walk },
             { PlayerModel.State.run, Run },
@@ -56,13 +57,18 @@ public class PlayerMovement : MonoBehaviour
     {
         
     }
+    private void Crouch()
+    {
+        model.rb.AddForce(move.normalized * model.speedWalk * 10f, ForceMode.Force);
+        model.isRunning = false;
+    }
     private void Iddle()
     {
-        if(GameManager.inPause == false && model.isDeath == false)
+        if (GameManager.inPause == false && model.isDeath == false)
         {
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");
-            Movement(); 
+            Movement();
         }
         else
         {
@@ -71,47 +77,86 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
+
     private void Movement()
     {
         move = orientation.forward * ver + orientation.right * hor;
-        if (move == checkMove)
+        if(!model.isCrouching)
         {
-            model.state = PlayerModel.State.idle;
-            if (hor == 0 || ver == 0)
+            if (move == checkMove)
             {
-                model.sourceSound.SetActive(false);
-            }
-        }
-        else if (move != checkMove)
-        {
-            if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
-            {
-
-                if (Input.GetKey(KeyCode.LeftShift) && model.staActual >= 0 && !model.isCrouching)
+                model.state = PlayerModel.State.idle;
+                if (hor == 0 || ver == 0)
                 {
-                    //Run();
-                    model.state = PlayerModel.State.run;
-                }
-
-                else
-                {
-                    // Walk();
-                    model.state = PlayerModel.State.walk;
+                    model.sourceSound.SetActive(false);
                 }
             }
-
-            else if (!PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+            else if (move != checkMove)
             {
-                model.rb.AddForce(move.normalized * model.speedWalk * 10f * airMultiplier, ForceMode.Force);
+                if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+                {
+                    if (Input.GetKey(KeyCode.LeftShift) && model.staActual >= 0 && !model.isCrouching)
+                    {
+                        //Run();
+                        model.state = PlayerModel.State.run;
+                    }
 
-            }
+                    else
+                    {
+                        // Walk();
+                        model.state = PlayerModel.State.walk;
+                    }
 
-            if (hor != 0 || ver != 0)
-            {
-                model.sourceSound.SetActive(true);
+                }
+
+
+                else if (!PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+                {
+                    model.rb.AddForce(move.normalized * model.speedWalk * 10f * airMultiplier, ForceMode.Force);
+
+
+                }
+                if (hor != 0 || ver != 0)
+                {
+                    model.sourceSound.SetActive(true);
+                }
             }
         }
+        else
+        {
+            if (move == checkMove)
+            {
+                if (hor == 0 || ver == 0)
+                {
+                    model.sourceSound.SetActive(false);
+                }
+            }
+            else if (move != checkMove)
+            {
+                if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+                {
+                    if(model.staActual <= 0)
+                    {
+                        // Walk();
+                        model.state = PlayerModel.State.crounching;
+                    }
+                }
+
+
+                else if (!PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+                {
+                    model.rb.AddForce(move.normalized * model.speedWalk * 10f * airMultiplier, ForceMode.Force);
+                }
+                if (hor != 0 || ver != 0)
+                {
+                    model.sourceSound.SetActive(true);
+                }
+            }
+        }
+        
     }
+    
 
     private void Walk()
     {

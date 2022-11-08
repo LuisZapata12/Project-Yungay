@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HudTest : MonoBehaviour
 {
@@ -9,16 +10,21 @@ public class HudTest : MonoBehaviour
     public bool testing;
     public float timer;
     public float maxTimer;
+    private PlayerModel player;
     private Inventory inventory;
+    public RawImage image;
+    public List<Sprite> sprite = new();
 
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModel>();
     }
 
     private void Update()
     {
-        CleanTexts();
+        CleanTexts(); 
+        State();
     }
     public void TextHud(ItemObject itemObject, int cantidad)
     {
@@ -63,4 +69,28 @@ public class HudTest : MonoBehaviour
             testing = false;
         }
     }
+
+    private void State()
+    {
+        switch (player.state)
+        {
+            case PlayerModel.State.idle:
+                image.texture = sprite[0].texture;
+                break;
+            case PlayerModel.State.walk:
+                image.texture = sprite[1].texture;
+                break;
+            case PlayerModel.State.run:
+                image.texture = sprite[2].texture;
+                break;
+            case PlayerModel.State.crounching:
+                image.texture = sprite[3].texture;
+                break;
+            case PlayerModel.State.healing:
+                image.texture = sprite[4].texture;
+                break;
+
+        }
+    }
+
 }

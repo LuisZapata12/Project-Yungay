@@ -32,6 +32,7 @@ public class Cure : MonoBehaviour
             if(timer < maxTime)
             {
                 timer = 0;
+                playerHealth.mb.state = PlayerModel.State.idle;
                 charge = false;
             }
         }
@@ -46,6 +47,7 @@ public class Cure : MonoBehaviour
         if (charge)
         {
             timer += Time.deltaTime;
+            playerHealth.mb.state = PlayerModel.State.healing;
         }
     }
     public void Heal()
@@ -53,6 +55,7 @@ public class Cure : MonoBehaviour
         health = playerHealth.mb.maxHealth * (percentageCure/100);
         StartCoroutine(healing(playerHealth.mb.health + health));
 
+        playerHealth.mb.state = PlayerModel.State.idle;
         //playerHealth.mb.health += health;
         inventory.RestItem(bandageItem, 1);
         inventory.RemoveSlot();
