@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class PlayerLooting : MonoBehaviour
 {
-    public Camera cam;
-    public Inventory inventory;
+    private Camera cam;
+    private Inventory inventory;
     public GameObject lootText;
     public float rayDistance;
+    public Color changeColor;
+    private Color oldColor;
+    private bool once;
+    private GameObject item;
     // Start is called before the first frame update
     void Awake()
     {
         inventory = GetComponent<Inventory>();
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -47,11 +52,21 @@ public class PlayerLooting : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 1.5f) && hit.collider.gameObject.GetComponent<Loot>())
+        if (Physics.Raycast(ray, out hit, rayDistance) && hit.collider.gameObject.GetComponent<Loot>())
         {
             var loot = hit.collider.gameObject.GetComponent<Loot>();
+
             if (CheckLoot(loot))
             {
+                if (!once)
+                {
+                    oldColor = hit.collider.GetComponent<Renderer>().material.color;
+                    once = true;
+                }
+
+                item = hit.collider.gameObject;
+                hit.collider.GetComponent<Renderer>().material.color = changeColor;
+
                 lootText.GetComponent<Animator>().SetBool("Show", true);
 
                 if (Input.GetKeyDown(KeyCode.F))
@@ -69,6 +84,12 @@ public class PlayerLooting : MonoBehaviour
         else
         {
             lootText.GetComponent<Animator>().SetBool("Show", false);
+
+            if (once && item != null)
+            {
+                item.GetComponent<Renderer>().material.color = oldColor;
+                once = false;
+            }
         }
     }
 }
