@@ -29,6 +29,7 @@ public class PlayerCrouching : MonoBehaviour
             if (!model.isCrouching)
             {
                 model.isCrouching = true;
+                model.state = PlayerModel.State.crounching;
                 model.canJump = false;
                 model.cap.height = model.crouchHeight;
                 model.cap.center = new Vector3(model.cap.center.x, model.CrouchY, model.cap.center.z);
@@ -37,6 +38,8 @@ public class PlayerCrouching : MonoBehaviour
 
         else if (Input.GetKeyUp(KeyCode.LeftControl) && model.isCrouching && playerHeadCheck.headCheck == false)
         {
+
+            model.state = PlayerModel.State.idle;
             model.isCrouching = false;
             model.canJump = true;
             model.cap.height = model.standHeight;
@@ -46,6 +49,7 @@ public class PlayerCrouching : MonoBehaviour
         else if (!Input.GetKey(KeyCode.LeftControl) && model.isCrouching && playerHeadCheck.headCheck == false)
         {
             model.isCrouching = false;
+            model.state = PlayerModel.State.idle;
             model.canJump = true;
             model.cap.height = model.standHeight;
             model.cap.center = new Vector3(model.cap.center.x, model.standY, model.cap.center.z);

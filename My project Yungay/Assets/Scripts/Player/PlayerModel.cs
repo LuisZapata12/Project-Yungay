@@ -7,7 +7,7 @@ public class PlayerModel : MonoBehaviour
 {
     public enum State
     {
-        cinematica,death, idle,move, walk, run,jump, jumping
+        cinematica,death, idle,move, walk, run,jump, jumping,healing,crounching
     }
 
     [Header("State")]

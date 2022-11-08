@@ -42,11 +42,14 @@ public class Cure : MonoBehaviour
                 chargeBar.SetActive(false);
             }
         }
+
+
     }
     public void Heal()
     {
         health = playerHealth.mb.maxHealth * (itemHealing.restoreHealthPercentage/100);
         StartCoroutine(healing(playerHealth.mb.health + health));
+
         inventory.RestItem(Hand.currentItem, 1);
         inventory.RemoveSlot();
         inventoryDisplay.UpdateDisplay();
@@ -63,17 +66,3 @@ public class Cure : MonoBehaviour
 
     }
 
-    IEnumerator FillBar()
-    {
-        while(image.fillAmount < 1)
-        {
-            chargeBar.SetActive(true);
-            image.fillAmount += speedBar * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-        chargeBar.SetActive(false);
-        image.fillAmount = 0;
-        Heal();
-        yield break;
-    }
-}
