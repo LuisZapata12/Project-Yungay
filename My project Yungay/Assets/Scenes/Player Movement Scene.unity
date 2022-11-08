@@ -1686,7 +1686,7 @@ MonoBehaviour:
     amount: 10
   - item: {fileID: 11400000, guid: 0bb9a95ab51836e4f91a932743a6b75e, type: 2}
     amount: 10
-  - item: {fileID: 11400000, guid: db7f453e65333654880eaab7026e1f1d, type: 2}
+  - item: {fileID: 11400000, guid: 13f2223c0fe26b74b8caef09e3a9d0f2, type: 2}
     amount: 2
   isRandom: 0
 --- !u!1 &176911176
@@ -26077,13 +26077,11 @@ MonoBehaviour:
   inventory: {fileID: 8949097853262754770}
   inventoryDisplay: {fileID: 0}
   bandageItem: {fileID: 11400000, guid: db7f453e65333654880eaab7026e1f1d, type: 2}
+  itemHealing: {fileID: 0}
   percentageCure: 30
   speed: 3
-  timer: 0
-  maxTime: 3
   chargeBar: {fileID: 765749421}
-  speedBar: 1
-  image: {fileID: 0}
+  speedBar: 0.5
 --- !u!114 &8949097853262754778
 MonoBehaviour:
   m_ObjectHideFlags: 0

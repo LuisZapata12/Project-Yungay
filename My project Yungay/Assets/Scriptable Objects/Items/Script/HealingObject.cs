@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Healing Item", menuName = "Inventory System/Items/Healing")]
 public class HealingObject : ItemObject
 {
-    public float restoreHealthValue;
+    public float restoreHealthPercentage;
     private void Awake()
     {
         type = ItemType.Healing;

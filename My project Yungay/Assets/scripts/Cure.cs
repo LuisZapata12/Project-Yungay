@@ -8,16 +8,13 @@ public class Cure : MonoBehaviour
     public Inventory inventory;
     public InventoryDisplay inventoryDisplay;
     public ItemObject bandageItem;
-    private bool hasBandage;
+    public EquipmentHealing itemHealing;
     private float health;
     public float percentageCure;
     public float speed;
-    public float timer;
-    public float maxTime;
-    private bool charge;
     public GameObject chargeBar;
     public float speedBar;
-    public Image image;
+    private Image image;
     private Coroutine coroutine;
 
     private void Start()
@@ -29,60 +26,28 @@ public class Cure : MonoBehaviour
 
     private void Update()
     {
-        if (inventory.CheckItem(bandageItem) && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0)) 
+        itemHealing = (EquipmentHealing)Hand.currentItem;
+        
+        if (itemHealing != null && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0)) 
         {
-            charge = true;
+
             coroutine = StartCoroutine(FillBar());
         }
         else if(Input.GetMouseButtonUp(0))
         {
-            if(timer < maxTime)
-            {
-                timer = 0;
-                charge = false;
-            }
-
             if (coroutine != null)
             {
                 StopCoroutine(coroutine);
                 image.fillAmount = 0;
                 chargeBar.SetActive(false);
             }
-
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            coroutine = StartCoroutine(FillBar());
-        }
-
-        if (Input.GetMouseButtonUp(0) && coroutine != null)
-        {
-            StopCoroutine(coroutine);
-            image.fillAmount = 0;
-            chargeBar.SetActive(false);
-
-        }
-
-        if (timer >= maxTime)
-        {
-            timer = 0;
-            charge = false;
-            Heal();
-        }
-
-        if (charge)
-        {
-            timer += Time.deltaTime;
         }
     }
     public void Heal()
     {
-        health = playerHealth.mb.maxHealth * (percentageCure/100);
+        health = playerHealth.mb.maxHealth * (itemHealing.restoreHealthPercentage/100);
         StartCoroutine(healing(playerHealth.mb.health + health));
-
-        //playerHealth.mb.health += health;
-        inventory.RestItem(bandageItem, 1);
+        inventory.RestItem(Hand.currentItem, 1);
         inventory.RemoveSlot();
         inventoryDisplay.UpdateDisplay();
     }
@@ -108,6 +73,7 @@ public class Cure : MonoBehaviour
         }
         chargeBar.SetActive(false);
         image.fillAmount = 0;
+        Heal();
         yield break;
     }
 }

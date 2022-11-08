@@ -244,7 +244,7 @@ public class Hand : MonoBehaviour
                 if (_.equipmentType == EquipmentType.Melee)
                 {
                     EquipmentMelee melee = (EquipmentMelee)currentItem;
-                    if (melee.animation != null)
+                    if (melee != null && melee.animation != null)
                     {
                         melee.durability -= 1;
                         anim.Play(melee.animation.name);

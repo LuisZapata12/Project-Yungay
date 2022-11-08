@@ -5,7 +5,8 @@ using UnityEngine;
 public enum EquipmentType
 {
     Melee,
-    Range
+    Range,
+    Healing
 }
 //[CreateAssetMenu(fileName = "New Equipment Item", menuName = "Inventory System/Items/Equipment")]
 public class EquipmentItem : ItemObject
@@ -14,7 +15,6 @@ public class EquipmentItem : ItemObject
     public Mesh itemMesh;
     public Material itemMaterial;
     [HideInInspector]public EquipmentType equipmentType;
-
     public AnimationClip idleClip;
     private void Awake()
     {
