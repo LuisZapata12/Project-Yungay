@@ -27,13 +27,13 @@ public class Cure : MonoBehaviour
     private void Update()
     {
         itemHealing = (EquipmentHealing)Hand.currentItem;
-        
-        if (itemHealing != null && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0)) 
+
+        if (itemHealing != null && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0))
         {
 
             coroutine = StartCoroutine(FillBar());
         }
-        else if(Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             if (coroutine != null)
             {
@@ -47,7 +47,7 @@ public class Cure : MonoBehaviour
     }
     public void Heal()
     {
-        health = playerHealth.mb.maxHealth * (itemHealing.restoreHealthPercentage/100);
+        health = playerHealth.mb.maxHealth * (itemHealing.restoreHealthPercentage / 100);
         StartCoroutine(healing(playerHealth.mb.health + health));
 
         inventory.RestItem(Hand.currentItem, 1);
@@ -57,7 +57,7 @@ public class Cure : MonoBehaviour
 
     IEnumerator healing(float heal)
     {
-        while(playerHealth.mb.health < heal)
+        while (playerHealth.mb.health < heal)
         {
             playerHealth.mb.health += speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
@@ -66,3 +66,4 @@ public class Cure : MonoBehaviour
 
     }
 
+}
