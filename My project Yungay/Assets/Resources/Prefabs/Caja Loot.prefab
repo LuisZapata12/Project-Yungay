@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6440331050307724022}
   - component: {fileID: 6440331050307724023}
   - component: {fileID: 6440331050307723528}
+  - component: {fileID: 3612273017054157930}
   m_Layer: 9
   m_Name: Caja Loot
   m_TagString: Box
@@ -118,3 +119,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 916a62b47d553554185606c8ccf38189, type: 2}
   - {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d, type: 2}
   - {fileID: 11400000, guid: abc6655494af5b949967c0721deff67a, type: 2}
+--- !u!54 &3612273017054157930
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440331050307723529}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

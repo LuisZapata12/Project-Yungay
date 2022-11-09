@@ -60,6 +60,7 @@ public class Hand : MonoBehaviour
                 muni.ReloadMunition(currentMunition);
             }
         }
+
         UpdateText();
     }
 
@@ -127,7 +128,9 @@ public class Hand : MonoBehaviour
             }
         }
     }
-
+    public void Desgaste()
+    {
+    }
     private void UpdateText()
     {
         if (canAim)
@@ -228,7 +231,7 @@ public class Hand : MonoBehaviour
     {
         EquipmentItem _ = currentItem as EquipmentItem;
 
-        if (_?true:false)
+        if (_ ? true : false)
         {
             if (_.equipmentType == EquipmentType.Range)
             {
@@ -244,16 +247,16 @@ public class Hand : MonoBehaviour
                 if (_.equipmentType == EquipmentType.Melee)
                 {
                     EquipmentMelee melee = (EquipmentMelee)currentItem;
+
                     if (melee != null && melee.animation != null)
                     {
-                        melee.durability -= 1;
+                        Debug.Log(Time.deltaTime);
                         anim.Play(melee.animation.name);
                         isAttacking = true;
                     }
                 }
             }
         }
-
     }
 
     private void Throw()

@@ -27,7 +27,7 @@ public class PlayerLooting : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(cam.transform.position, cam.transform.forward * rayDistance);
+       // Gizmos.DrawRay(cam.transform.position, cam.transform.forward * rayDistance);
 
     }
 
