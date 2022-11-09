@@ -66,4 +66,13 @@ public class Cure : MonoBehaviour
 
     }
 
+    IEnumerator FillBar()
+    {
+        while (image.fillAmount < 1 )
+        {
+            image.fillAmount += speedBar * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        yield break;
+    }
 }
