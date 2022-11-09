@@ -73,6 +73,8 @@ public class Cure : MonoBehaviour
             image.fillAmount += speedBar * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        chargeBar.SetActive(false);
+        image.fillAmount = 0;
         yield break;
     }
 }
