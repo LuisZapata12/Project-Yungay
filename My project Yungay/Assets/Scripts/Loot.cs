@@ -67,9 +67,11 @@ public class Item
 {
     public ItemObject item;
     public int amount;
-    public Item(ItemObject item, int amount)
+    public int durability;
+    public Item(ItemObject item, int amount, int durability)
     {
         this.item = item;
         this.amount = amount;
+        this.durability = durability;
     }
 }

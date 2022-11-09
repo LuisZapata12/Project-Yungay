@@ -59,18 +59,27 @@ public class InventoryDisplay : MonoBehaviour
         {
             if (inventory.slots[i] != null)
             {
+                TMP_Text text = slotsUI[i].transform.GetChild(0).GetComponent<TMP_Text>();
+                Image durability = slotsUI[i].transform.GetChild(1).GetComponent<Image>();
                 if (inventory.slots[i].item != null)
                 {
                     slotsUI[i].GetComponent<Slot>().slot = inventory.slots[i];
                     slotsUI[i].GetComponent<Image>().sprite = inventory.slots[i].item.itemSprite;
-                    TMP_Text text = slotsUI[i].transform.GetChild(0).GetComponent<TMP_Text>();
                     if (inventory.slots[i].item.maxStack != 1)
                     {
                         text.text = inventory.slots[i].amount.ToString();
+                        durability.gameObject.SetActive(false);
                     }
                     else
                     {
                         text.text = "";
+                        durability.gameObject.SetActive(true);
+                        EquipmentMelee _ = inventory.slots[i].item as EquipmentMelee;
+
+                        if (_ != null)
+                        {
+                            durability.fillAmount =  (float)inventory.slots[i].durability /(float)_.durability;
+                        }
                     }
                 }
                 else
@@ -78,8 +87,8 @@ public class InventoryDisplay : MonoBehaviour
                     slotsUI[i].GetComponent<Slot>().slot.item = null;
                     slotsUI[i].GetComponent<Slot>().slot.amount = 0;
                     slotsUI[i].GetComponent<Image>().sprite = null;
-                    TMP_Text text = slotsUI[i].transform.GetChild(0).GetComponent<TMP_Text>();
                     text.text = null;
+                    durability.gameObject.SetActive(false);
                 }
             }
         }

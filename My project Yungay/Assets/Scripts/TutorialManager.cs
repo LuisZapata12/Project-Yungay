@@ -63,7 +63,7 @@ public class TutorialManager : MonoBehaviour
 
                         if (!once)
                         {
-                            backpackObjetc.AddComponent<Loot>().loot.Add(new Item(backpack, 1));
+                            backpackObjetc.AddComponent<Loot>().loot.Add(new Item(backpack, 1,0));
                             once = true;
                         }
                     }
@@ -84,7 +84,7 @@ public class TutorialManager : MonoBehaviour
                             {
                                 openInventory = true; foreach (GameObject Papers in paperObject)
                                 {
-                                    Papers.AddComponent<Loot>().loot.Add(new Item(paper, 1));
+                                    Papers.AddComponent<Loot>().loot.Add(new Item(paper, 1,0));
                                 }
                                 
                             }

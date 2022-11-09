@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
     {
         for (int i = 0; i < staticItems.Count; i++)
         {
-            enemyLoot.loot.Add(new Item(null,0));
+            enemyLoot.loot.Add(new Item(null,0,0));
             enemyLoot.loot[count].item = staticItems[i].item;
             enemyLoot.loot[count].amount = staticItems[i].amount;
             count++;
@@ -72,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
         count = 0;
         for (int i = 0; i <= (int)Random.Range(0,Randomitems.Count); i++)
         {
-            enemyLoot.loot.Add(new Item(null,0));
+            enemyLoot.loot.Add(new Item(null,0,0));
             enemyLoot.loot[i].item = Randomitems[i];
             count++;
         }
@@ -88,7 +88,7 @@ public class EnemyHealth : MonoBehaviour
             Loot loot = transform.GetComponent<Loot>();
             if (_? true:false)
             {
-                loot.loot.Add(new Item(_.loot[0].item, _.loot[0].amount));
+                loot.loot.Add(new Item(_.loot[0].item, _.loot[0].amount, _.loot[0].durability));
                 _.gameObject.SetActive(false);
             }
         }

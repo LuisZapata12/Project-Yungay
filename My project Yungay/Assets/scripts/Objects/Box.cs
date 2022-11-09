@@ -29,7 +29,7 @@ public class Box : MonoBehaviour
             Loot loot = clone.GetComponent<Loot>();
             for (int i = 0; i < items.Count; i++)
             {
-                loot.loot.Add(new Item(items[i], 0));
+                loot.loot.Add(new Item(items[i], 0,0));
             }
             loot.RandomAmount();
             

@@ -74,7 +74,7 @@ public class PlayerLooting : MonoBehaviour
                     for (int i = 0; i < loot.loot.Count; i++)
                     {
                         var _ = loot.loot[i];
-                        inventory.AddItem(_, _.item, _.amount);
+                        inventory.AddItem(_, _.item, _.amount, _.durability);
                     }
                     loot.DeleteObject();
                     lootText.GetComponent<Animator>().SetBool("Show", false);

@@ -13,12 +13,12 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < maxSlots; i++)
         {
-            slots.Add(new InventorySlot(null, 0));
+            slots.Add(new InventorySlot(null, 0,0));
         }
         hudTest = GameObject.Find("Canvas").GetComponent<HudTest>();
     }
 
-    public void AddItem(Item item, ItemObject itemObject, int amount)
+    public void AddItem(Item item, ItemObject itemObject, int amount, int durability)
     {
         bool hasItem = CheckItem(itemObject);
 
@@ -57,6 +57,7 @@ public class Inventory : MonoBehaviour
                     {
                         slots[i].item = itemObject;
                         slots[i].amount = amount;
+                        slots[i].durability = durability;
                         break;
                     }
 
@@ -142,7 +143,21 @@ public class Inventory : MonoBehaviour
         {
             RemoveSlot();
         }
-        AddItem(null, recipe.result, recipe.amount);
+
+        if (recipe.result.type == ItemType.Equipment)
+        {
+            EquipmentItem _ = (EquipmentItem)recipe.result;
+            if (_.equipmentType == EquipmentType.Melee)
+            {
+                EquipmentMelee item = (EquipmentMelee)recipe.result;
+                AddItem(null, recipe.result, recipe.amount, item.durability);
+                Debug.Log(item.durability);
+            }
+        }
+        else
+        {
+            AddItem(null, recipe.result, recipe.amount, 0);
+        }
     }
     public void RemoveSlot()
     {
@@ -152,7 +167,27 @@ public class Inventory : MonoBehaviour
             {
                 slots[i].item = null;
                 slots[i].amount = 0;
+                slots[i].durability = 0;
             }
+        }
+        inventoryDisplay.UpdateDisplay();
+    }
+
+    public void RemoveSlotDurability()
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+                EquipmentItem _ = slots[i].item as EquipmentItem;
+                
+                if (_!=null && _.equipmentType == EquipmentType.Melee)
+                {
+                    if (slots[i].durability <= 0)
+                    {
+                        slots[i].item = null;
+                        slots[i].amount = 0;
+                        slots[i].durability = 0;
+                    }
+                }
         }
         inventoryDisplay.UpdateDisplay();
     }
@@ -291,11 +326,13 @@ public class InventorySlot
 {
     public ItemObject item;
     public int amount;
+    public int durability;
 
-    public InventorySlot(ItemObject item, int amount)
+    public InventorySlot(ItemObject item, int amount, int durability)
     {
         this.item = item;
         this.amount = amount;
+        this.durability = durability;
     }
 
     public void AddAmount(int value)

@@ -250,7 +250,6 @@ public class Hand : MonoBehaviour
 
                     if (melee != null && melee.animation != null)
                     {
-                        Debug.Log(Time.deltaTime);
                         anim.Play(melee.animation.name);
                         isAttacking = true;
                     }
@@ -271,12 +270,11 @@ public class Hand : MonoBehaviour
                 {
                     GameObject clone = Instantiate(currentItem.prefab, transform.position, transform.rotation);
                     clone.GetComponent<Loot>().loot[0].amount = inventory.slots[slotIndex].amount;
+                    clone.GetComponent<Loot>().loot[0].durability = inventory.slots[slotIndex].durability;
                     clone.GetComponent<Rigidbody>().isKinematic = false;
                     clone.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * force, ForceMode.Impulse);
                     inventory.slots[slotIndex].item = null;
                     inventory.slots[slotIndex].amount = 0;
-                    inventory.UpdateInventory();
-                    inventoryDisplay.UpdateDisplay();
                     canAttack = false;
                     EquipmentMelee melee = _ as EquipmentMelee;
                     AudioManager.Instance.PlaySFX("Throw");
@@ -301,6 +299,13 @@ public class Hand : MonoBehaviour
     {
         EquipmentMelee melee = (EquipmentMelee)currentItem;
         AudioManager.Instance.PlaySFX(melee.attackClip.name);
+    }
+
+    public void Durability()
+    {
+        int index = inventory.GetItemIndex(Hand.currentItem);
+        inventory.slots[index].durability -= 1;
+        inventory.RemoveSlotDurability();
     }
 
     public int GetMunitionIndex(ItemObject item)

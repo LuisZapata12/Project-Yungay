@@ -10,6 +10,7 @@ public class EquipmentMelee : EquipmentItem
     public float damage;
     public AnimationClip animation;
     public AudioClip attackClip;
+    public int durability;
     private void Awake()
     {
         equipmentType = EquipmentType.Melee;

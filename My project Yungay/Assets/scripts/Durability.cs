@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class Durability : MonoBehaviour
 {
-    public int durability = 100;
-
+    public int durability;
 }

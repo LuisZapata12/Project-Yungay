@@ -116,6 +116,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
     {
         ItemObject item2 = slot2.slot.item;
         int amount2 = slot2.slot.amount;
+        int durability2 = slot2.slot.durability;
 
         if (slot1.slot != null)
         {
@@ -123,16 +124,19 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
             {
                 ItemObject item1 = slot1.slot.item;
                 int amount1 = slot1.slot.amount;
+                int durability = slot1.slot.durability;
                 slot2.slot.item = item1;
                 slot2.slot.amount = amount1;
+                slot2.slot.durability = durability; 
                 slot1.slot.item = item2;
                 slot1.slot.amount = amount2;
+                slot1.slot.durability = durability2;
             }
             else
             {
                 slot2.slot.item = null;
                 slot2.slot.amount = 0;
-                slot1.slot = new InventorySlot(item2,amount2);
+                slot1.slot = new InventorySlot(item2,amount2,durability2);
             }
         }
 
