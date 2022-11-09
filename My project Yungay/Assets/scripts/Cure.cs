@@ -8,10 +8,10 @@ public class Cure : MonoBehaviour
     public Inventory inventory;
     public InventoryDisplay inventoryDisplay;
     public ItemObject bandageItem;
-    public EquipmentHealing itemHealing;
     private float health;
     public float percentageCure;
     public float speed;
+    public EquipmentHealing itemHealing;
     public GameObject chargeBar;
     public float speedBar;
     private Image image;
@@ -26,11 +26,10 @@ public class Cure : MonoBehaviour
 
     private void Update()
     {
-        itemHealing = (EquipmentHealing)Hand.currentItem;
+        itemHealing = Hand.currentItem as EquipmentHealing;
 
         if (itemHealing != null && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0))
         {
-
             coroutine = StartCoroutine(FillBar());
         }
         else if (Input.GetMouseButtonUp(0))
@@ -70,10 +69,12 @@ public class Cure : MonoBehaviour
     {
         while (image.fillAmount < 1 )
         {
+            chargeBar.SetActive(true);
             image.fillAmount += speedBar * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         chargeBar.SetActive(false);
+        Heal();
         image.fillAmount = 0;
         yield break;
     }
