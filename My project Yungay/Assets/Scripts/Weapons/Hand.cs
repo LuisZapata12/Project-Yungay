@@ -275,10 +275,12 @@ public class Hand : MonoBehaviour
                     clone.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * force, ForceMode.Impulse);
                     inventory.slots[slotIndex].item = null;
                     inventory.slots[slotIndex].amount = 0;
+                    inventory.slots[slotIndex].durability = 0;
                     canAttack = false;
                     EquipmentMelee melee = _ as EquipmentMelee;
                     AudioManager.Instance.PlaySFX("Throw");
                     once = false;
+                    inventoryDisplay.UpdateDisplay();
                 }
             }
         }
