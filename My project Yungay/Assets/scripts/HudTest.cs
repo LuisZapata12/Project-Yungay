@@ -14,6 +14,8 @@ public class HudTest : MonoBehaviour
     private Inventory inventory;
     public RawImage image;
     public List<Sprite> sprite = new();
+    public GameObject prefabText;
+    public Transform viewPort;
 
     private void Start()
     {
@@ -28,24 +30,27 @@ public class HudTest : MonoBehaviour
     }
     public void TextHud(ItemObject itemObject, int cantidad)
     {
-        testing = false;
-        for (int i = 0; i < texto.Count; i++)
-        {
-            if(texto[i].text == "")
-            {
-                if (cantidad != 0)
-                {
-                    texto[i].text = "Recogido: " + itemObject.name + " (X" + cantidad.ToString() + ")";
-                }
-                else
-                {
-                    texto[i].text =  itemObject.name + " (maxStack)";
-                }
-                
-                break;
-            }
-        }
-        testing = true;
+        GameObject Text = Instantiate(prefabText, viewPort);
+        Text.GetComponent<TMP_Text>(). text = "Recogido: " + itemObject.name + " (X" + cantidad.ToString() + ")";
+
+        //testing = false;
+        //for (int i = 0; i < texto.Count; i++)
+        //{
+        //    if(texto[i].text == "")
+        //    {
+        //        if (cantidad != 0)
+        //        {
+        //            texto[i].text = "Recogido: " + itemObject.name + " (X" + cantidad.ToString() + ")";
+        //        }
+        //        else
+        //        {
+        //            texto[i].text =  itemObject.name + " (maxStack)";
+        //        }
+
+        //        break;
+        //    }
+        //}
+        //testing = true;
     }
 
     public void CleanTexts()
