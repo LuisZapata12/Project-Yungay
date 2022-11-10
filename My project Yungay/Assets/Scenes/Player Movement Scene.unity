@@ -2131,6 +2131,18 @@ Transform:
   m_Father: {fileID: 803657612}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -42.269, z: 0}
+--- !u!114 &318319739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 605092259, guid: a05d18ca61c83a14e901fe7c4d02fa7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1819363734706315750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &328102877
 GameObject:
   m_ObjectHideFlags: 0
@@ -16919,7 +16931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  health: 50
+  health: 2
   maxHealth: 100
   isDeath: 0
   armor: 0
@@ -17098,6 +17110,7 @@ MonoBehaviour:
   speed: 3
   itemHealing: {fileID: 0}
   chargeBar: {fileID: 765749421}
+  feed: {fileID: 318319739}
   speedBar: 0.5
 --- !u!114 &8949097853262754778
 MonoBehaviour:

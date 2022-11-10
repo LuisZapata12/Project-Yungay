@@ -13,6 +13,7 @@ public class Cure : MonoBehaviour
     public float speed;
     public EquipmentHealing itemHealing;
     public GameObject chargeBar;
+    public Image feed;
     public float speedBar;
     private Image image;
     private Coroutine coroutine;
@@ -22,6 +23,7 @@ public class Cure : MonoBehaviour
         inventoryDisplay = InventoryDisplay.instance;
         chargeBar.SetActive(false);
         image = chargeBar.transform.GetChild(0).GetComponent<Image>();
+        feed.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -32,9 +34,9 @@ public class Cure : MonoBehaviour
         {
             coroutine = StartCoroutine(FillBar());
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (coroutine!=null)
         {
-            if (coroutine != null)
+            if (Input.GetMouseButtonUp(0))
             {
                 StopCoroutine(coroutine);
                 image.fillAmount = 0;
@@ -42,11 +44,9 @@ public class Cure : MonoBehaviour
             }
         }
 
-
     }
     public void Heal()
     {
-        health = playerHealth.mb.maxHealth * (itemHealing.restoreHealthPercentage / 100);
         StartCoroutine(healing(playerHealth.mb.health + health));
 
         inventory.RestItem(Hand.currentItem, 1);
@@ -61,12 +61,16 @@ public class Cure : MonoBehaviour
             playerHealth.mb.health += speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        feed.gameObject.SetActive(false);
         yield break;
 
     }
 
     IEnumerator FillBar()
     {
+        health = playerHealth.mb.maxHealth * (itemHealing.restoreHealthPercentage / 100);
+        feed.fillAmount =(playerHealth.mb.health + health)/playerHealth.mb.maxHealth;
+        feed.gameObject.SetActive(true);
         while (image.fillAmount < 1 )
         {
             chargeBar.SetActive(true);
