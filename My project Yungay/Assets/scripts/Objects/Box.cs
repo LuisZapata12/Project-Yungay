@@ -7,10 +7,11 @@ public class Box : MonoBehaviour
     public GameObject boxFullPieces;
     public GameObject lootPrefab;
     public List<ItemObject> items = new List<ItemObject>();
+    private Inventory inventory;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -48,6 +49,9 @@ public class Box : MonoBehaviour
         if (other.CompareTag("Axe"))
         {
             Destroy();
+            int index = inventory.GetItemIndex(Hand.currentItem);
+            inventory.slots[index].durability -= 1;
+            inventory.RemoveSlotDurability();
         }
     }
 
