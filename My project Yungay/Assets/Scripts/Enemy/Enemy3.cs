@@ -68,7 +68,8 @@ public class Enemy3 : MonoBehaviour
             //Agent.SetDestination(Target.transform.position);
             //Agent.speed = speed;
             DetectPlayer = true;
-
+            anim.SetBool("RunP", true);
+            anim.SetBool("Iddlep", true);
             
         }
         else
@@ -93,6 +94,7 @@ public class Enemy3 : MonoBehaviour
                     Timer += Time.deltaTime;
                     if (Timer > Weapon.timeToShoot)
                     {
+                        anim.SetBool("Shoot", true);
                         Debug.Log("Shot");
                         TrailRenderer trail = Instantiate(bulletTrail, pointShoot.transform.position, Quaternion.identity);
                         StartCoroutine(SpawnTrail(trail, hit.point));
@@ -100,6 +102,10 @@ public class Enemy3 : MonoBehaviour
                         Timer = 0;
                         Life.Damage(Weapon.damage);
 
+                    }
+                    else
+                    {
+                        anim.SetBool("Shoot", false);
                     }
 
 
@@ -111,11 +117,13 @@ public class Enemy3 : MonoBehaviour
         }
         if (Weapon.Munition == 0)
         {
+            anim.SetBool("Reload", true);
             Timer += Time.deltaTime;
             if (Timer >= Weapon.timetoRecharge)
             {
                 Weapon.Munition += Weapon.charger;
                 Timer = 0;
+                anim.SetBool("Reload", false);
                 Debug.Log("Masmunicion");
             }
         }
