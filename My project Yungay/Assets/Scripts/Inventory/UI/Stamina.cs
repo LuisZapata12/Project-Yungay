@@ -8,10 +8,14 @@ public class Stamina : MonoBehaviour
     public PlayerModel model;
     public Image imageStamina;
     public CanvasGroup staminaGroup;
-    
+    public float Timer;
 
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        model = FindObjectOfType<PlayerModel>();
+    }
     void Start()
     {
         model.staActual = model.staMax;
@@ -21,12 +25,16 @@ public class Stamina : MonoBehaviour
     void Update()
     {
         model.staActual = Mathf.Clamp(model.staActual, -1f, model.staMax);
-
+        if (model.actualSpeed >= model.speedRun || model.staActual >= model.staMax)
+        {
+            Timer = 0f;
+        }
         if (!model.isRunning)
         {
-            if (model.staActual <= model.staMax)
+            if (model.staActual <= model.staMax /*&& model.staActual <= 0*/)
             {
-                StaminaRegen();
+                Test();
+                //StaminaRegen();
                 CheckStamina(1);
             }
 
@@ -50,7 +58,7 @@ public class Stamina : MonoBehaviour
 
     public void StaminaRegen()
     {
-        if(!Input.GetKey(KeyCode.LeftShift) && !model.isRunning && model.actualSpeed <= 5f)
+        if(/*!Input.GetKey(KeyCode.LeftShift) && */!model.isRunning && model.actualSpeed < model.speedRun)
         {
             model.staActual += model.staRegen * Time.deltaTime;
             CheckStamina(1);
@@ -69,6 +77,20 @@ public class Stamina : MonoBehaviour
         else
         {
             staminaGroup.alpha = 1;
+        }
+    }
+
+    void Test()
+    {
+        Timer += Time.fixedDeltaTime;
+        if (Timer >= 2f)
+        {
+            model.staActual += model.staRegen * Time.deltaTime;
+            CheckStamina(1);
+            //if (model.actualSpeed >= model.speedRun || model.staActual >= model.staMax)
+            //{
+            //    Timer = 0f;
+            //}
         }
     }
 }

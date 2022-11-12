@@ -48,6 +48,24 @@ public class PlayerMovement : MonoBehaviour
         {
             model.sourceSound.SetActive(false);
         }
+
+
+
+        if (model.actualSpeed >= model.speedRun -0.5f)
+        {
+            model.isRunning = true;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            model.isRunning = false;
+            //model.state = PlayerModel.State.idle;
+        }
+        else
+        {
+            model.isRunning = false;
+            //model.state = PlayerModel.State.idle;
+        }
     }
     void FixedUpdate()
     {
@@ -172,9 +190,15 @@ public class PlayerMovement : MonoBehaviour
     {
         model.state = PlayerModel.State.run;
         model.rb.AddForce(move.normalized * model.speedRun * 10f, ForceMode.Force);
-        if (model.actualSpeed >=model.speedWalk)
+        if (model.actualSpeed >= model.speedRun -0.5f)
         {
             model.isRunning = true;
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            model.isRunning = false;
+            model.state = PlayerModel.State.idle;
         }
         else
         {
@@ -189,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 flatVel = new Vector3(model.rb.velocity.x, 0f, model.rb.velocity.z);
 
-        if(model.isRunning)
+        if(Input.GetKey(KeyCode.LeftShift) && model.staActual >= 0 && !model.isCrouching)
         {
             if (flatVel.magnitude > model.speedRun)
             {
