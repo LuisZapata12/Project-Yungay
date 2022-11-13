@@ -19,13 +19,13 @@ public class PlayerJump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && model.canJump && PlayerGroundCheck.grounded && GameManager.inPause == false)/*playerGroundCheck.grounded*/
         {
             Jump();
-            
             Invoke(nameof(ResetJump), model.jumpCooldown);
         }
     }
 
     private void Jump()
     {
+
         model.rb.velocity = new Vector3(model.rb.velocity.x, 0f, model.rb.velocity.z);
 
         model.rb.AddForce(transform.up * model.jumpForce, ForceMode.Impulse);

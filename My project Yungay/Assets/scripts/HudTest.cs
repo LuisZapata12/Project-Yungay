@@ -91,8 +91,11 @@ public class HudTest : MonoBehaviour
             case PlayerModel.State.crounching:
                 image.texture = sprite[3].texture;
                 break;
-            case PlayerModel.State.healing:
+            case PlayerModel.State.jumping:
                 image.texture = sprite[4].texture;
+                break;
+            case PlayerModel.State.healing:
+                image.texture = sprite[5].texture;
                 break;
 
         }

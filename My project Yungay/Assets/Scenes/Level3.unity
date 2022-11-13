@@ -19829,6 +19829,11 @@ PrefabInstance:
       propertyPath: speedWalk
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5615506131684295713, guid: fe180b8f4fa2d5849977a89522d0b300,
+        type: 3}
+      propertyPath: prueba
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5615506132126325891, guid: fe180b8f4fa2d5849977a89522d0b300,
         type: 3}
       propertyPath: ammotext
@@ -35712,7 +35717,7 @@ PrefabInstance:
     - target: {fileID: 5818941104148653269, guid: 7dbc665054e54d945920b965b722a6cf,
         type: 3}
       propertyPath: sprite.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5818941104148653269, guid: 7dbc665054e54d945920b965b722a6cf,
         type: 3}
@@ -35741,6 +35746,12 @@ PrefabInstance:
     - target: {fileID: 5818941104148653269, guid: 7dbc665054e54d945920b965b722a6cf,
         type: 3}
       propertyPath: sprite.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 43339b7eddbe1ea488a4940c9c1c3aba,
+        type: 3}
+    - target: {fileID: 5818941104148653269, guid: 7dbc665054e54d945920b965b722a6cf,
+        type: 3}
+      propertyPath: sprite.Array.data[5]
       value: 
       objectReference: {fileID: 21300000, guid: 0751f0858d3b38945b59b6e7e7e34e56,
         type: 3}

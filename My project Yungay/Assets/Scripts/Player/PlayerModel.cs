@@ -7,7 +7,7 @@ public class PlayerModel : MonoBehaviour
 {
     public enum State
     {
-        cinematica,death, idle,move, walk, run,jump, jumping,healing,crounching
+        cinematica,death, idle,move, walk, run,jumping,healing,crounching
     }
 
     [Header("State")]
@@ -23,6 +23,9 @@ public class PlayerModel : MonoBehaviour
     [HideInInspector]
     public float armor;
 
+    [Header("Jump")]
+
+    public bool isJump;
 
     [Header("Movement")]
     public float actualSpeed;
