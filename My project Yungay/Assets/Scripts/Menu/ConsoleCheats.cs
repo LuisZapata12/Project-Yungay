@@ -108,9 +108,7 @@ public class ConsoleCheats : MonoBehaviour
 
     public void SpawnObject(GameObject PrefabItem)
     {
-        Debug.Log(PrefabItem.name);
-        var clone = Instantiate(PrefabItem, null,spwanPos);
-
+        Instantiate(PrefabItem, spwanPos.position, Quaternion.identity);
     }
 }
 

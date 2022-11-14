@@ -153,6 +153,10 @@ public class Inventory : MonoBehaviour
                 AddItem(null, recipe.result, recipe.amount, item.durability);
                 Debug.Log(item.durability);
             }
+            else
+            {
+                AddItem(null, recipe.result, recipe.amount, 0);
+            }
         }
         else
         {

@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Damage(float damage)
     {
-        if (mb.health >= 0)
+        if (mb.health >= 0 && !ConsoleCheats.godMode)
         {
             if (mb.armor > 0f)
             {
@@ -35,10 +35,6 @@ public class PlayerHealth : MonoBehaviour
             {
                 mb.health -= damage;
             }
-        }
-        else
-        {
-           // Debug.Log("Tiezo");
         }
     }
     public void LifeUpdate()
