@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loot:
-  - item: {fileID: 11400000, guid: db7f453e65333654880eaab7026e1f1d, type: 2}
+  - item: {fileID: 11400000, guid: 13f2223c0fe26b74b8caef09e3a9d0f2, type: 2}
     amount: 1
     durability: 0
   isRandom: 0
