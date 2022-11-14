@@ -64,24 +64,25 @@ public class RangeWeapons : MonoBehaviour
             if (Physics.Raycast(Camera.main.transform.position,direction, out hit, /*_.range,*/ enemyMask))
             {
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(trail, hit.point));
+                
                 if (hit.collider.CompareTag("Enemy"))
                 {
-                    hit.collider.gameObject.GetComponent<EnemyHealth>().lifeE(_.damage);
+                    StartCoroutine(SpawnTrail(trail, hit.point,true,hit,_));
+                    Debug.Log("si");
                 }
 
                 if (hit.collider.CompareTag("Box"))
                 {
                     hit.collider.gameObject.GetComponent<Box>().DestroyByOthers();
                 }
-
+               
                 lastShootTime = Time.time;
                 AudioManager.Instance.PlaySFX("Pistol");
             }
             else
             {
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(trail, cam.transform.forward * _.range));
+                StartCoroutine(SpawnTrail(trail, cam.transform.forward * _.range, false,hit,_));
                 lastShootTime = Time.time;
                 AudioManager.Instance.PlaySFX("Pistol");
             }
@@ -105,7 +106,7 @@ public class RangeWeapons : MonoBehaviour
 
         return direction;
     }
-    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint)
+    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, bool Impact,RaycastHit hit,EquipmentRange _)
     {
         Vector3 startPosition = Trail.transform.position;
         float distance = Vector3.Distance(Trail.transform.position, HitPoint);
@@ -120,6 +121,10 @@ public class RangeWeapons : MonoBehaviour
             yield return null;
         }
         Trail.transform.position = HitPoint;
+        if(Impact)
+        {
+            hit.collider.gameObject.GetComponent<EnemyHealth>().lifeE(_.damage);
+        }
 
         Destroy(Trail.gameObject, Trail.time);
     }

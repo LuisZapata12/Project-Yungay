@@ -20,7 +20,6 @@ public class Simularcaminar : MonoBehaviour
         {
             audio.Play();
            //a=AudioManager.Instance.SelecSfx(a, 0, 1,false,1);
-            Debug.Log("a");
         }
         else if(Input.GetKeyUp(KeyCode.W))
         {

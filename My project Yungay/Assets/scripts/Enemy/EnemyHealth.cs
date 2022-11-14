@@ -49,11 +49,15 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EquipmentMelee _ = (EquipmentMelee)Hand.currentItem;
+        if (other.CompareTag("Bala"))
+        {
+            lifeE(10);
+        }
+       /* EquipmentMelee _ = (EquipmentMelee)Hand.currentItem;
         if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
         {
             lifeE(_.damage);
-        }
+        }*/
     }
 
     private void StaticItems()

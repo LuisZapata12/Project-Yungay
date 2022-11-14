@@ -302,7 +302,6 @@ public class Munition : MonoBehaviour
                             {
                                 inventory.RestItem(item, maxCharge - hand.weaponSlots[i].munitions[j].charge);
                                 hand.weaponSlots[i].munitions[j].charge = maxCharge;
-                                Debug.Log(maxCharge);
                                 Debug.Log(hand.GetCharge(hand.currentMunition));
                             }
                             else
@@ -331,7 +330,6 @@ public class Munition : MonoBehaviour
             {
                 for (int j = 0; j < hand.weaponSlots[i].munitions.Count; j++)
                 {
-                    Debug.Log(j);
                     if (hand.weaponSlots[i].munitions[j].munition == item)
                     {
                         if (hand.weaponSlots[i].munitions[j].charge > 0)

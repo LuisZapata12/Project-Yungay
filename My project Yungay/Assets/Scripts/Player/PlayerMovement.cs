@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         model.states[model.state]?.Invoke();
-        Debug.Log(PlayerGroundCheck.grounded);
 
         ControlSpeed();
             
