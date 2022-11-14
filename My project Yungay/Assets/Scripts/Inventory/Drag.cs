@@ -136,6 +136,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
             {
                 slot2.slot.item = null;
                 slot2.slot.amount = 0;
+                slot2.slot.durability = 0;
                 slot1.slot = new InventorySlot(item2,amount2,durability2);
             }
         }
