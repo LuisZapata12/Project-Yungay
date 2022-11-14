@@ -45,7 +45,6 @@ public class RangeWeapons : MonoBehaviour
             {
                 if (munition.CheckAmmo(hand.currentMunition))
                 {
-                    //Shoot(Hand.currentItem);
                     Disparo(Hand.currentItem);
                 }
             }
@@ -86,7 +85,11 @@ public class RangeWeapons : MonoBehaviour
                 lastShootTime = Time.time;
                 AudioManager.Instance.PlaySFX("Pistol");
             }
-            munition.RestMunition(hand.currentMunition);
+
+            if (!ConsoleCheats.unlimitedAmmo)
+            {
+                munition.RestMunition(hand.currentMunition);
+            }
             inventory.RemoveSlot();
         }
     }

@@ -6,13 +6,17 @@ public class ConsoleCheats : MonoBehaviour
 {
     public GameObject consoleCanvas;
     public GameObject ObjectScroll;
-    public bool isOpen = false;
+    bool isOpen = false;
     public Transform spwanPos;
+    public static bool godMode, unlimitedAmmo, noClip, showSl;
+    Inventory inventory;
+    public ItemObject nails, bullets;
     // Start is called before the first frame update
     void Start()
     {
         consoleCanvas.SetActive(false);
         ObjectScroll.SetActive(false);
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -22,11 +26,15 @@ public class ConsoleCheats : MonoBehaviour
         {
             consoleCanvas.SetActive(true);
             isOpen = true;
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
         }
         else if(Input.GetKeyDown(KeyCode.F5) && isOpen)
         {
             consoleCanvas.SetActive(false);
             isOpen = false;
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
@@ -34,23 +42,28 @@ public class ConsoleCheats : MonoBehaviour
     {
         if (tog)
         {
-            Debug.Log("GodMode");
+            godMode = true;
         }
         else
         {
-            Debug.Log("NO GodMode");
+            godMode = false;
         }
     }
 
-    public void UnlimetdAmmo(bool tog)
+    public void UnlimitedAmmo(bool tog)
     {
         if (tog)
         {
-            Debug.Log("UnlimetdAmmo");
+            unlimitedAmmo = true;
+            Debug.Log(unlimitedAmmo);
+            inventory.AddItem(null, nails, 50, 0);
+            inventory.AddItem(null, bullets, 50, 0);
+
         }
         else
         {
-            Debug.Log("No UnlimetdAmmo");
+            unlimitedAmmo = false;
+            Debug.Log(unlimitedAmmo);
         }
         
     }
@@ -59,11 +72,11 @@ public class ConsoleCheats : MonoBehaviour
     {
         if (tog)
         {
-            Debug.Log("NoClip");
+            noClip = true;
         }
         else
         {
-            Debug.Log("No NoClip");
+            noClip = false;
         }
     }
 
@@ -71,12 +84,11 @@ public class ConsoleCheats : MonoBehaviour
     {
         if (tog)
         {
-            Debug.Log("ShowSl");
+            showSl = true;
         }
         else
         {
-            Debug.Log("No ShowSl");
-
+            showSl = false;
         }
     }
 
