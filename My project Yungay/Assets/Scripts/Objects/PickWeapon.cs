@@ -20,13 +20,16 @@ public class PickWeapon : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             rdbd.isKinematic = true;
+            loot.loot[0].durability--;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             rdbd.isKinematic = true;
+            loot.loot[0].durability--;
             transform.SetParent(collision.transform);
             collision.gameObject.GetComponent<EnemyHealth>().lifeE(item.damage);
+            
         }
     }
 }
