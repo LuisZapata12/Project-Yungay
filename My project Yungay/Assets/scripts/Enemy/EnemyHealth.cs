@@ -53,11 +53,15 @@ public class EnemyHealth : MonoBehaviour
         {
             lifeE(10);
         }
-       /* EquipmentMelee _ = (EquipmentMelee)Hand.currentItem;
-        if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
+        EquipmentMelee _ = (EquipmentMelee)Hand.currentItem;
+
+        if (_!=null)
         {
-            lifeE(_.damage);
-        }*/
+            if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
+            {
+                lifeE(_.damage);
+            }
+        }
     }
 
     private void StaticItems()

@@ -15400,6 +15400,33 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 2147483647
+--- !u!1 &1992610594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3342953390193528592, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2496656329345397325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1992610595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992610594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a76ae4578408304a851412b70bf200e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 5.07
+  viewAngle: 137
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  visibleTargets: []
 --- !u!1 &2010564339
 GameObject:
   m_ObjectHideFlags: 0
@@ -17972,6 +17999,23 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 8949097853262754774}
+    - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+        type: 3}
+      propertyPath: Randomitems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+        type: 3}
+      propertyPath: Randomitems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d,
+        type: 2}
+    - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+        type: 3}
+      propertyPath: Randomitems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f,
+        type: 2}
     - target: {fileID: 2496656329862639507, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: target
@@ -17995,17 +18039,17 @@ PrefabInstance:
     - target: {fileID: 2679464520985613738, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.29
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 2679464520985613738, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2679464520985613738, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.21
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2679464520985613738, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
