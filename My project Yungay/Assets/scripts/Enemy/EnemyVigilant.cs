@@ -6,9 +6,8 @@ using UnityEngine.AI;
 public class EnemyVigilant : MonoBehaviour
 {
     public PlayerHealth Life;
-    //public LayerMask Player;
     public GameObject pointShoot;
-    public GameObject Target;
+    public Transform Target;
     public  NavMeshAgent Agent;
     public float speed;
     public EnemyWeapon Weapon;
@@ -18,18 +17,37 @@ public class EnemyVigilant : MonoBehaviour
     public bool DetectPlayer;
     public float Timer;
     public  EnemyHealth dead;
-    
+    private FieldOfView fov;
+    private Transform player;
+    public Transform lastPosition;
     
     void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        fov = GetComponent<FieldOfView>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (!dead.dead)
+        if (fov.visibleTargets.Count > 0)
+        {
+            Target = fov.visibleTargets[0];
+        }
+        else if (fov.AlertTargets.Count > 0)
+        {
+            Target = fov.AlertTargets[0];
+        }
+        else if(fov.AlertTargets.Count == 0 && fov.visibleTargets.Count == 0 && Target != null)
+        {
+            lastPosition = Target;
+            Target = null;
+        }
+        
+        
+        
+        if (!dead.dead)
         {
 
             if (Weapon != null)
@@ -47,18 +65,13 @@ public class EnemyVigilant : MonoBehaviour
 
             }
         }
-        
-      
-
-
-
 
     }
     public void ToPlayerWithWeapon()
     {
-        if (Vector3.Distance(transform.position, Target.transform.position) < Vision)
+        if (Vector3.Distance(transform.position, Target.position) < Vision)
         {
-            var lookpos = Target.transform.position - transform.position;
+            var lookpos = Target.position - transform.position;
             lookpos.y = 0;
             var rotation = Quaternion.LookRotation(lookpos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
@@ -94,7 +107,7 @@ public class EnemyVigilant : MonoBehaviour
     }
     public void ToPlayWithouthWeapon()
     {
-        if (Vector3.Distance(transform.position, Target.transform.position) < Vision)
+        if (Vector3.Distance(transform.position, Target.transform.position) < Vision && Target != null)
         {
             var lookpos = Target.transform.position - transform.position;
             lookpos.y = 0;
@@ -108,7 +121,7 @@ public class EnemyVigilant : MonoBehaviour
 
 
 
-            if ((Vector3.Distance(transform.position, Target.transform.position) < 2f))
+            if ((Vector3.Distance(transform.position, Target.transform.position) < 1.5f))
             {
                 Near = true;
                Agent.enabled = false;
@@ -122,6 +135,20 @@ public class EnemyVigilant : MonoBehaviour
                 Agent.enabled = true;
                 anim.SetBool("Atack", false);
             }
+        }
+        else if(lastPosition != null)
+        {
+            if ((Vector3.Distance(transform.position, lastPosition.position) > 0.1f))
+            {
+                Agent.SetDestination(lastPosition.position);
+                anim.SetBool("Run", true);
+                Debug.Log(Vector3.Distance(transform.position, lastPosition.position));
+            }
+            else
+            {
+                lastPosition = null;
+            }
+
         }
         else
         {
@@ -144,17 +171,12 @@ public class EnemyVigilant : MonoBehaviour
                     Timer += Time.deltaTime;
                     if (Timer > Weapon.timeToShoot)
                     {
-                        Debug.Log("Shot");
                         Weapon.Munition--;
                         Timer = 0;
                         Life.Damage(Weapon.damage);
 
                     }
-                    
-                
                 }
-                
-                
             }
 
         }
@@ -165,24 +187,7 @@ public class EnemyVigilant : MonoBehaviour
             {
                 Weapon.Munition +=Weapon.charger;
                 Timer = 0;
-                Debug.Log("Masmunicion");
             }
         }
     }
-  
-
-    private void OnDrawGizmos()
-    {
-        if (Weapon != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(pointShoot.transform.position, pointShoot.transform.forward * Weapon.Range);
-        }
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, Vision);
-    }
-
-
-
 }

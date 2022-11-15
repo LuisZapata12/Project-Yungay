@@ -11,11 +11,11 @@ public class FieldOfView : MonoBehaviour {
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 
-	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
+	public List<Transform> AlertTargets = new();
 
 	void Start() {
-		StartCoroutine ("FindTargetsWithDelay", .2f);
+		StartCoroutine (FindTargetsWithDelay(0.2f));
 	}
 
 
@@ -28,10 +28,12 @@ public class FieldOfView : MonoBehaviour {
 
 	void FindVisibleTargets() {
 		visibleTargets.Clear ();
+		AlertTargets.Clear();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
+		Collider[] targetsInAlertRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
 		for (int i = 0; i < targetsInViewRadius.Length; i++) {
-			Transform target = targetsInViewRadius [i].transform;
+			Transform target = targetsInViewRadius[i].transform;
 			Vector3 dirToTarget = (target.position - transform.position).normalized;
 			if (Vector3.Angle (transform.forward, dirToTarget) < viewAngle / 2) {
 				float dstToTarget = Vector3.Distance (transform.position, target.position);
@@ -41,6 +43,25 @@ public class FieldOfView : MonoBehaviour {
 				}
 			}
 		}
+
+        for (int i = 0; i <targetsInAlertRadius.Length; i++)
+        {
+			Transform target = targetsInAlertRadius[i].transform;
+			Vector3 dirToTarget = (target.position - transform.position).normalized;
+			float dstToTarget = Vector3.Distance(transform.position, target.position);
+			if (dstToTarget < viewRadius)
+            {
+                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                {
+					PlayerModel model = target.GetComponent<PlayerModel>();
+
+					if (!model.isCrouching && model.actualSpeed > 0) 
+                    {
+						AlertTargets.Add(target);
+					}
+                }
+            }
+        }
 	}
 
 
