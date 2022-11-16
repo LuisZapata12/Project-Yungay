@@ -11,12 +11,21 @@ public class ConsoleCheats : MonoBehaviour
     public static bool godMode, unlimitedAmmo, noClip, showSl;
     Inventory inventory;
     public ItemObject nails, bullets;
+    private GameObject player;
+    private PlayerMovement movement;
+    private PlayerJump jump;
+    private PlayerCrouching crouching;
     // Start is called before the first frame update
     void Start()
     {
         consoleCanvas.SetActive(false);
         ObjectScroll.SetActive(false);
-        inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        player = GameObject.Find("Player");
+        inventory = player.GetComponent<Inventory>();
+        movement = player.GetComponent<PlayerMovement>();
+        jump = player.GetComponent<PlayerJump>();
+        crouching = player.GetComponent<PlayerCrouching>();
+
     }
 
     // Update is called once per frame
@@ -73,10 +82,20 @@ public class ConsoleCheats : MonoBehaviour
         if (tog)
         {
             noClip = true;
+            movement.enabled = !movement.enabled;
+            jump.enabled = !jump.enabled;
+            crouching.enabled = !crouching.enabled;
+            player.GetComponent<Rigidbody>().useGravity = false;
+            player.GetComponent<CapsuleCollider>().isTrigger = true;
         }
         else
         {
             noClip = false;
+            movement.enabled = !movement.enabled;
+            jump.enabled = !jump.enabled;
+            crouching.enabled = !crouching.enabled;
+            player.GetComponent<Rigidbody>().useGravity = true;
+            player.GetComponent<CapsuleCollider>().isTrigger = false;
         }
     }
 

@@ -85,6 +85,14 @@ public class PlayerModel : MonoBehaviour
         state = State.idle;
     }
 
+    private void Update()
+    {
+        if (ConsoleCheats.noClip)
+        {
+            Noclip();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Checkpoint"))
@@ -93,5 +101,11 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-
+    private void Noclip()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(Vector3.forward * 10 * Time.deltaTime, Camera.main.transform);
+        }
+    }
 }
