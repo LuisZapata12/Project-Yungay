@@ -18595,6 +18595,8 @@ MonoBehaviour:
   isShot: 0
   isGrab: 0
   hookback: 0
+  speedShoot: 25
+  speedBack: 25
   rayDistance: 20
   hookeableObject: {fileID: 0}
 --- !u!54 &3247230852903727498

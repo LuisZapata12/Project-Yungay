@@ -11,6 +11,7 @@ public class HookGrab : MonoBehaviour
     public bool isGrab;
     public bool hookback;
     Vector3 hitposition;
+    public float speedShoot, speedBack;
 
     public float rayDistance;
 
@@ -75,7 +76,7 @@ public class HookGrab : MonoBehaviour
 
         if (isShot == true)
         {
-            hookObject.transform.position = Vector3.MoveTowards(hookObject.transform.position, hitposition, 30f * Time.deltaTime);
+            hookObject.transform.position = Vector3.MoveTowards(hookObject.transform.position, hitposition, speedShoot * Time.deltaTime);
             hookObject.transform.SetParent(null);
         }
         else if (isShot == false && isGrab == false)
@@ -110,7 +111,7 @@ public class HookGrab : MonoBehaviour
     private void PickHook()
     {
         this.transform.SetParent(hookParent.transform);
-        this.transform.position = Vector3.MoveTowards(hookObject.transform.position, hookParent.transform.position, 50f * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(hookObject.transform.position, hookParent.transform.position, speedBack * Time.deltaTime);
         this.transform.localRotation = Quaternion.Euler(-90f, 0, 0);
     }
  
