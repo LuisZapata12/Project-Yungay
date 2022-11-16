@@ -18031,7 +18031,12 @@ PrefabInstance:
         type: 3}
       propertyPath: Target
       value: 
-      objectReference: {fileID: 2421363667948958475}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496656329862639534, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+        type: 3}
+      propertyPath: waitTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2679464520985613738, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -21198,6 +21203,7 @@ MonoBehaviour:
   mb: {fileID: 8949097853262754767}
   lifeBar: {fileID: 128424684}
   numberLife: {fileID: 254176281}
+  damageFeedback: {fileID: 0}
   deathPanel: {fileID: 162735635}
 --- !u!114 &8949097853262754775
 MonoBehaviour:
