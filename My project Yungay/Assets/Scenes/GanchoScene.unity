@@ -11401,6 +11401,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3741045179792130077, guid: fa9ca198d9416704780e5ee1bd7b755c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fa9ca198d9416704780e5ee1bd7b755c, type: 3}
@@ -15460,6 +15465,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   visibleTargets: []
+  AlertTargets: []
 --- !u!1 &2010564339
 GameObject:
   m_ObjectHideFlags: 0
@@ -18588,6 +18594,7 @@ MonoBehaviour:
   hookParent: {fileID: 1930143634}
   isShot: 0
   isGrab: 0
+  hookback: 0
   rayDistance: 20
   hookeableObject: {fileID: 0}
 --- !u!54 &3247230852903727498

@@ -37,7 +37,10 @@ public class HookGrab : MonoBehaviour
 
         if (this.transform.position == hookParent.transform.position && this.transform.parent != null && hookeableObject!= null)
         {
+            AudioManager.Instance.PlaySFX("Hook_releaseobject");
             hookeableObject.SetParent(null);
+            hookeableObject = null;
+            isGrab = false;
         }   
         
     }
@@ -51,6 +54,7 @@ public class HookGrab : MonoBehaviour
             {
                 if (hit.transform.tag != "Hook")
                 {
+                    AudioManager.Instance.PlaySFX("Hook_shoot");
                     isShot = true;
                     hitposition = hit.point;
                 }
@@ -61,9 +65,11 @@ public class HookGrab : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q) && isGrab == true)
         {
+            AudioManager.Instance.PlaySFX("Hook_releasesurface");
             PickHook();
             isGrab = false;
             hookback = true;
+            
             
         }
 
@@ -79,20 +85,25 @@ public class HookGrab : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        isShot = false;
         if (other.gameObject.tag != "Hookeable")
         {
             if (hookback==false)
             {
+                AudioManager.Instance.sfxSource.Stop();
+                AudioManager.Instance.PlaySFX("Hook_hitchsurface");
                 isGrab = true;
             }
             
         }
         else
         {
+            AudioManager.Instance.sfxSource.Stop();
+            AudioManager.Instance.PlaySFX("Hook_hitchobject");
             other.gameObject.transform.SetParent(this.transform);
             hookeableObject = other.gameObject.transform;
         }
-        isShot = false;
+        
         Debug.Log("colision");
     }
 
