@@ -78,6 +78,7 @@ public class HookGrab : MonoBehaviour
         {
             hookObject.transform.position = Vector3.MoveTowards(hookObject.transform.position, hitposition, speedShoot * Time.deltaTime);
             hookObject.transform.SetParent(null);
+            this.GetComponent<BoxCollider>().enabled = true;
         }
         else if (isShot == false && isGrab == false)
         {
@@ -113,6 +114,7 @@ public class HookGrab : MonoBehaviour
         this.transform.SetParent(hookParent.transform);
         this.transform.position = Vector3.MoveTowards(hookObject.transform.position, hookParent.transform.position, speedBack * Time.deltaTime);
         this.transform.localRotation = Quaternion.Euler(-90f, 0, 0);
+        this.GetComponent<BoxCollider>().enabled = false;
     }
  
 }

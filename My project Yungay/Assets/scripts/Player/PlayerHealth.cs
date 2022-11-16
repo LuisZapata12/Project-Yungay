@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public PlayerModel mb;
     public Image lifeBar;
     public Text numberLife;
+    public Image damageFeedback;
     float time;
 
 
@@ -30,10 +31,12 @@ public class PlayerHealth : MonoBehaviour
             if (mb.armor > 0f)
             {
                 mb.health -= damage / 2;
+                StartCoroutine(FeedBackDamage());
             }
             else
             {
                 mb.health -= damage;
+                StartCoroutine(FeedBackDamage());
             }
         }
     }
@@ -62,8 +65,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void DeathPanel()
     {
-        
-        
         deathPanel.SetActive(true);
         GameManager.ShowCursor();
     }
@@ -75,7 +76,16 @@ public class PlayerHealth : MonoBehaviour
         
         //GameManager.HideCursor();
         
-        
+    }
 
+    IEnumerator FeedBackDamage()
+    {
+        for(float i = 0.5f; i >= 0; i -= Time.deltaTime)
+            {
+            // set color with i as alpha
+            damageFeedback.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+   
     }
 }
