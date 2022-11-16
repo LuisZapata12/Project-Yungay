@@ -18,14 +18,19 @@ public class EnemyVigilant : MonoBehaviour
     public float Timer;
     public  EnemyHealth dead;
     private FieldOfView fov;
-    public Transform lastPosition;
-    public Vector3 position;
-    
+    private Vector3 lastPosition;
+    public float distance;
+    public bool followLast;
+    public float waitTime;
+    private float timer;
+    private Vector3 originalPos;
+
     void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         fov = GetComponent<FieldOfView>();
+        originalPos = transform.position;
     }
 
     // Update is called once per frame
@@ -34,24 +39,22 @@ public class EnemyVigilant : MonoBehaviour
         if (fov.visibleTargets.Count > 0)
         {
             Target = fov.visibleTargets[0];
-            lastPosition = Target;
+            lastPosition = Target.position;
         }
         else if (fov.AlertTargets.Count > 0)
         {
             Target = fov.AlertTargets[0];
-            lastPosition = Target;
+            lastPosition = Target.position;
         }
-        else if(fov.AlertTargets.Count == 0 && fov.visibleTargets.Count == 0 && Target != null && lastPosition != null)
+        else if(fov.AlertTargets.Count == 0 && fov.visibleTargets.Count == 0)
         {
-            lastPosition = Target;
-            Target = null;
+            if (Target != null)
+            {
+                lastPosition = Target.position;
+                Target = null;
+            }
         }
 
-        if (lastPosition!=null)
-        {
-            position = lastPosition.position;
-        }
-        
         if (!dead.dead)
         {
 
@@ -112,56 +115,64 @@ public class EnemyVigilant : MonoBehaviour
     }
     public void ToPlayWithouthWeapon()
     {
-        if (Vector3.Distance(transform.position, Target.transform.position) < fov.viewRadius && Target != null)
+        if (Target != null)
         {
-            var lookpos = Target.transform.position - transform.position;
-            lookpos.y = 0;
-            var rotation = Quaternion.LookRotation(lookpos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
-            Agent.enabled = true;
-            Agent.SetDestination(Target.transform.position);
-            Agent.speed = speed;
-            DetectPlayer = true;
-            anim.SetBool("Run", true);
-
-
-
-            if ((Vector3.Distance(transform.position, Target.transform.position) < 1.5f))
+            if (Vector3.Distance(transform.position, Target.transform.position) < fov.viewRadius)
             {
-                Near = true;
-               Agent.enabled = false;
-            
-                anim.SetBool("Run", false);
-                anim.SetBool("Atack", true);
-            }
-            else
-            {
-                Near = false;
+
+
+                var lookpos = Target.transform.position - transform.position;
+                lookpos.y = 0;
+                var rotation = Quaternion.LookRotation(lookpos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
                 Agent.enabled = true;
-                anim.SetBool("Atack", false);
+                Agent.SetDestination(Target.transform.position);
+                Agent.speed = speed;
+                DetectPlayer = true;
+                anim.SetBool("Run", true);
+
+
+
+                if ((Vector3.Distance(transform.position, Target.transform.position) < 1.5f))
+                {
+                    Near = true;
+                    Agent.enabled = false;
+
+                    anim.SetBool("Run", false);
+                    anim.SetBool("Atack", true);
+                }
+                else
+                {
+                    Near = false;
+                    Agent.enabled = true;
+                    anim.SetBool("Atack", false);
+                }
             }
         }
-        else if(lastPosition != null)
+        else if (DetectPlayer)
         {
-            if ((Vector3.Distance(transform.position, lastPosition.position) > 0.1f))
+            distance = Vector3.Distance(transform.position, lastPosition);
+            if (distance > 0.26f)
             {
-                Agent.SetDestination(lastPosition.position);
+                Agent.SetDestination(lastPosition);
                 anim.SetBool("Run", true);
-                Debug.Log(Vector3.Distance(transform.position, lastPosition.position));
+                followLast = true;
             }
             else
             {
-                lastPosition = null;
+                anim.SetBool("Run", false);
+                timer += Time.deltaTime;
+                if (timer >= waitTime)
+                {
+                    lastPosition = Vector3.zero;
+                    anim.SetBool("Run", true);
+                    DetectPlayer = false;
+                    Agent.SetDestination(originalPos);
+                    timer = 0f;
+                }
             }
 
         }
-        else
-        {
-            anim.SetBool("Run", false);
-            DetectPlayer = false;
-            Agent.enabled = false;
-        }
-        
     }
     public void Shoot()
     {
