@@ -18,8 +18,8 @@ public class EnemyVigilant : MonoBehaviour
     public float Timer;
     public  EnemyHealth dead;
     private FieldOfView fov;
-    private Transform player;
     public Transform lastPosition;
+    public Vector3 position;
     
     void Start()
     {
@@ -34,18 +34,23 @@ public class EnemyVigilant : MonoBehaviour
         if (fov.visibleTargets.Count > 0)
         {
             Target = fov.visibleTargets[0];
+            lastPosition = Target;
         }
         else if (fov.AlertTargets.Count > 0)
         {
             Target = fov.AlertTargets[0];
+            lastPosition = Target;
         }
-        else if(fov.AlertTargets.Count == 0 && fov.visibleTargets.Count == 0 && Target != null)
+        else if(fov.AlertTargets.Count == 0 && fov.visibleTargets.Count == 0 && Target != null && lastPosition != null)
         {
             lastPosition = Target;
             Target = null;
         }
-        
-        
+
+        if (lastPosition!=null)
+        {
+            position = lastPosition.position;
+        }
         
         if (!dead.dead)
         {
@@ -107,7 +112,7 @@ public class EnemyVigilant : MonoBehaviour
     }
     public void ToPlayWithouthWeapon()
     {
-        if (Vector3.Distance(transform.position, Target.transform.position) < Vision && Target != null)
+        if (Vector3.Distance(transform.position, Target.transform.position) < fov.viewRadius && Target != null)
         {
             var lookpos = Target.transform.position - transform.position;
             lookpos.y = 0;
