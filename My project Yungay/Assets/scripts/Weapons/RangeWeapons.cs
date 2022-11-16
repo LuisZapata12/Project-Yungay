@@ -8,7 +8,7 @@ public class RangeWeapons : MonoBehaviour
     public Camera cam;
     public GameObject beggin;
 
-    private float BulletSpeed = 300f;
+    private float BulletSpeed = 100f;
 
     [SerializeField]
     private TrailRenderer bulletTrail;
@@ -19,8 +19,6 @@ public class RangeWeapons : MonoBehaviour
 
     private float lastShootTime;
 
-    private Vector2 BulletSpreadVariance;
-
     public GameObject sound;
 
     public LayerMask enemyMask; 
@@ -28,6 +26,7 @@ public class RangeWeapons : MonoBehaviour
     public Weapon weapons;
 
     public Inventory inventory;
+    private string detect;
 
     // Start is called before the first frame update
     void Start()
@@ -60,19 +59,26 @@ public class RangeWeapons : MonoBehaviour
 
         if (lastShootTime + _.shootDelay < Time.time)
         {
-            if (Physics.Raycast(Camera.main.transform.position,direction, out hit, /*_.range,*/ enemyMask))
+            if (Physics.Raycast(Camera.main.transform.position, direction, out hit, enemyMask))
             {
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
-                
-                if (hit.collider.CompareTag("Enemy"))
-                {
-                    StartCoroutine(SpawnTrail(trail, hit.point,true,hit,_));
-                    Debug.Log("si");
-                }
 
-                if (hit.collider.CompareTag("Box"))
+                detect = hit.collider.tag;
+                Debug.Log(detect);
+                switch (detect)
                 {
-                    hit.collider.gameObject.GetComponent<Box>().DestroyByOthers();
+                    case "Enemy":
+                        StartCoroutine(SpawnTrail(trail, hit.point, true, hit, _));
+                        Debug.Log("si");
+                        break;
+                    case "Box":
+                        StartCoroutine(SpawnTrail(trail, hit.point, true, hit, _));
+                        hit.collider.gameObject.GetComponent<Box>().DestroyByOthers();
+                        break;
+
+                    default:
+                        StartCoroutine(SpawnTrail(trail, hit.point, false, hit, _));
+                        break;
                 }
                
                 lastShootTime = Time.time;
@@ -80,8 +86,9 @@ public class RangeWeapons : MonoBehaviour
             }
             else
             {
+                Debug.Log("e");
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(trail, cam.transform.forward * _.range, false,hit,_));
+                StartCoroutine(SpawnTrail(trail, beggin.transform.forward, false, hit, _));
                 lastShootTime = Time.time;
                 AudioManager.Instance.PlaySFX("Pistol");
             }
