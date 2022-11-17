@@ -31,7 +31,7 @@ public class Cure : MonoBehaviour
     {
         itemHealing = Hand.currentItem as EquipmentHealing;
 
-        if (itemHealing != null && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0))
+        if (itemHealing && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0))
         {
             coroutine = StartCoroutine(FillBar());
         }
@@ -48,7 +48,6 @@ public class Cure : MonoBehaviour
              feed.gameObject.SetActive(false);
             }
         }
-
     }
     public void Heal()
     {
@@ -68,9 +67,7 @@ public class Cure : MonoBehaviour
             a = true;
         }
         feed.gameObject.SetActive(false);
-            a = false;
-        yield break;
-
+        a = false;
     }
 
     IEnumerator FillBar()
@@ -87,6 +84,5 @@ public class Cure : MonoBehaviour
         chargeBar.SetActive(false);
         Heal();
         image.fillAmount = 0;
-        yield break;
     }
 }
