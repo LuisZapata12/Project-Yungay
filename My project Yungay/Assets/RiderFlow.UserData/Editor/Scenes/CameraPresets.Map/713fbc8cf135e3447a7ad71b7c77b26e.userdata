@@ -1,0 +1,28 @@
+{
+  "de55f1359703f614ead2f96f75585928": {
+    "sceneGuid": "713fbc8cf135e3447a7ad71b7c77b26e",
+    "uniqueCameraId": "de55f1359703f614ead2f96f75585928",
+    "name": "Top",
+    "pointX": -7.942665,
+    "pointY": -44.8930054,
+    "pointZ": -1.51915836,
+    "directionX": 0.7071068,
+    "directionY": 0.0,
+    "directionZ": 0.0,
+    "directionW": 0.7071068,
+    "zoom": 31.5854931
+  },
+  "0bdf8f29889e4de4db6dd38283d177fc": {
+    "sceneGuid": "713fbc8cf135e3447a7ad71b7c77b26e",
+    "uniqueCameraId": "0bdf8f29889e4de4db6dd38283d177fc",
+    "name": "Enemy",
+    "pointX": -2.27863121,
+    "pointY": -18.0500565,
+    "pointZ": 27.87819,
+    "directionX": 0.2635346,
+    "directionY": -0.444631934,
+    "directionZ": 0.1387099,
+    "directionW": 0.8447559,
+    "zoom": 21.50166
+  }
+}

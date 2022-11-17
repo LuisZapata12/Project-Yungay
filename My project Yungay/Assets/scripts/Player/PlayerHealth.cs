@@ -10,7 +10,11 @@ public class PlayerHealth : MonoBehaviour
     public Image lifeBar;
     public Text numberLife;
     public Image damageFeedback;
+    public GameObject lifeHud;
+    public float timeDamageMax;
     float time;
+    float timerDamage;
+    public bool d;
 
 
     public GameObject deathPanel;
@@ -23,6 +27,20 @@ public class PlayerHealth : MonoBehaviour
         {
             mb.armor -= 1 * Time.deltaTime;
         }
+        if(d)
+        {
+            lifeHud.GetComponent<CanvasGroup>().alpha = 1f;
+            timerDamage += 1* Time.deltaTime;
+            if(timerDamage >= timeDamageMax)
+            {
+                d = false;
+            }
+        }
+        else
+        {
+            lifeHud.GetComponent<CanvasGroup>().alpha = 0f;
+            timerDamage = 0;
+        }
     }
     public void Damage(float damage)
     {
@@ -31,12 +49,14 @@ public class PlayerHealth : MonoBehaviour
             if (mb.armor > 0f)
             {
                 mb.health -= damage / 2;
+                d = true;
                 StartCoroutine(FeedBackDamage());
             }
             else
             {
                 mb.health -= damage;
-                StartCoroutine(FeedBackDamage());
+                d = true;
+               // StartCoroutine(FeedBackDamage());
             }
         }
     }

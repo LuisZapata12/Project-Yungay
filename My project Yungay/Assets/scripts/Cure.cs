@@ -16,6 +16,7 @@ public class Cure : MonoBehaviour
     public Image feed;
     public float speedBar;
     private Image image;
+    private bool a;
     private Coroutine coroutine;
 
     private void Start()
@@ -42,6 +43,10 @@ public class Cure : MonoBehaviour
                 image.fillAmount = 0;
                 chargeBar.SetActive(false);
             }
+            if (Input.GetMouseButtonUp(0) && a == false)
+            {
+             feed.gameObject.SetActive(false);
+            }
         }
 
     }
@@ -60,8 +65,10 @@ public class Cure : MonoBehaviour
         {
             playerHealth.mb.health += speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
+            a = true;
         }
         feed.gameObject.SetActive(false);
+            a = false;
         yield break;
 
     }
