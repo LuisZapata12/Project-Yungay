@@ -15,6 +15,8 @@ public class CraftDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public float chargeSpeed;
     private void Awake()
     {
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        inventoryDisplay = GameObject.Find("Canvas").GetComponent<InventoryDisplay>();
         image = GetComponent<Image>();
         image.color = new Color32(255, 255, 255, 100);
         imageChild = transform.GetChild(0).GetComponent<Image>();
@@ -53,26 +55,6 @@ public class CraftDisplay : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             image.color = new Color32(255, 255, 255, 100);
         }
     }
-
-    //public void ClickImage()
-    //{
-    //    if (canCraft)
-    //    {
-    //        coroutine = StartCoroutine(ChargeImage());
-    //        isClick = true;
-    //    }
-    //}
-
-    //public void UpClick()
-    //{
-    //    if (coroutine != null)
-    //    {
-    //        StopCoroutine(coroutine);
-    //    }
-    //    imageChild.fillAmount = 0f;
-    //    isClick = false;
-    //}
-
     public void CheckIsCraftable()
     {
         if (inventory.CheckItems(recipe))
