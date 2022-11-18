@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
+        
     }
 
     // Update is called once per frame
@@ -100,5 +101,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
+
 
 }

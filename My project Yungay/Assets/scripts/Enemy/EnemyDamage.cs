@@ -12,8 +12,11 @@ public class EnemyDamage : MonoBehaviour
     public PlayerHealth
         player;
     public float damage;
-    
-   
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerHealth>();
+    }
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

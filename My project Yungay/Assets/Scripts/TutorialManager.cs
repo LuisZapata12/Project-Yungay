@@ -37,6 +37,8 @@ public class TutorialManager : MonoBehaviour
         inventoryDisplay.enabled = !inventoryDisplay.enabled;
         paperObject = GameObject.FindGameObjectsWithTag("Paper");
         backpackObjetc = GameObject.Find("Backpack");
+        AudioScene();
+
     }
     private void Update()
     {
@@ -185,5 +187,11 @@ public class TutorialManager : MonoBehaviour
         {
             moveBox = true;
         }
+    }
+
+    private void AudioScene()
+
+    { 
+        AudioManager.Instance.PlayMusic("Tutorial");
     }
 }

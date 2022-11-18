@@ -63,7 +63,8 @@ public class Pistol : MonoBehaviour
                 if (munition.thereNails && ammo == false)
                 {
                     munition.chargerNails -= 1;
-                    sound.GetComponent<AudioSource>().PlayOneShot(pistol.shoot);
+                    //sound.GetComponent<AudioSource>().PlayOneShot(pistol.shoot);
+                    AudioManager.Instance.PlaySFX("Pistol-nails");
                     if (Physics.Raycast(ray, out hit, pistol.range, enemyMask))
                     {
                         TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
@@ -84,7 +85,8 @@ public class Pistol : MonoBehaviour
                 if (munition.thereBullets == true && ammo == true)
                 {
                     munition.chargerBullets -= 1;
-                    sound.GetComponent<AudioSource>().PlayOneShot(pistol.shoot);
+                    //sound.GetComponent<AudioSource>().PlayOneShot(pistol.shoot);
+                    AudioManager.Instance.PlaySFX("Pistol");
                     if (Physics.Raycast(ray, out hit, pistol.range, enemyMask))
                     {
                         TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
