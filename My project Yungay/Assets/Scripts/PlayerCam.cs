@@ -21,20 +21,13 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (PlayerPickUp.isPushing == false && GameManager.inPause == false)
-        //{
-        //    Camera();
-        //}
-
-    }
-
-    private void FixedUpdate()
-    {
         if (PlayerPickUp.isPushing == false && GameManager.inPause == false)
         {
             Camera();
         }
+
     }
+
 
     void Camera()
     {
