@@ -119,8 +119,6 @@ public class EnemyVigilant : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, Target.transform.position) < fov.viewRadius)
             {
-
-
                 var lookpos = Target.transform.position - transform.position;
                 lookpos.y = 0;
                 var rotation = Quaternion.LookRotation(lookpos);
