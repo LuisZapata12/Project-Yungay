@@ -57,7 +57,8 @@ public class PlayerHealth : MonoBehaviour
             {
                 mb.health -= damage;
                 d = true;
-               // StartCoroutine(FeedBackDamage());
+                StartCoroutine(FeedBackDamage());
+                // StartCoroutine(FeedBackDamage());
             }
         }
     }
