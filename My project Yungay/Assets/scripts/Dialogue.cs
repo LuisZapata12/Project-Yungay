@@ -5,14 +5,14 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-    [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private GameObject dialogueTextGame;
-    [SerializeField] private GameObject pressButtonDialogue;
-    [SerializeField] private GameObject pressInitDialogue;
-    [SerializeField] private TMP_Text dialogueText;
-    [SerializeField] private bool pressInit;
+     private GameObject dialoguePanel;
+     private GameObject dialogueTextGame;
+     private GameObject pressButtonDialogue;
+     private GameObject pressInitDialogue;
+     private TMP_Text dialogueText;
+     private bool pressInit;
     [SerializeField,TextArea(3,8)]private string[] dialogueLines;
-
+    [Range(0,1f)] [Min(0)][Tooltip("Tiempo de tipeo de letras del dialogo")]
     [SerializeField] private float typingTime;
     private bool isPlayerInrange;
     private bool didDialogueStart;

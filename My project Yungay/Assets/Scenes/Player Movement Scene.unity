@@ -11329,11 +11329,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefabs Player Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2502409715991492690, guid: 32114e61cfc07574093f98f0009921c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5135068544574069408, guid: 32114e61cfc07574093f98f0009921c0,
         type: 3}
       propertyPath: deathPanel
