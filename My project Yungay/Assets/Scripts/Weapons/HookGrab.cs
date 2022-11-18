@@ -12,14 +12,14 @@ public class HookGrab : MonoBehaviour
     public bool hookback;
     Vector3 hitposition;
     public float speedShoot, speedBack;
-
+    private Inventory inventory;
     public float rayDistance;
 
     public Transform hookeableObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -38,10 +38,42 @@ public class HookGrab : MonoBehaviour
 
         if (this.transform.position == hookParent.transform.position && this.transform.parent != null && hookeableObject!= null)
         {
-            AudioManager.Instance.PlaySFX("Hook_releaseobject");
-            hookeableObject.SetParent(null);
-            hookeableObject = null;
-            isGrab = false;
+            Loot loot = hookeableObject.GetComponent<Loot>();
+            ItemObject item = loot.loot[0].item;
+            
+            if (item.type == ItemType.Equipment)
+            {
+                EquipmentItem equipment = (EquipmentItem)item;
+                if (equipment.equipmentType == EquipmentType.Melee || equipment.equipmentType == EquipmentType.Range)
+                {
+                    if (inventory.InventorySpace())
+                    {
+                        inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
+                        AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                        Destroy(hookeableObject.gameObject);
+                        isGrab = false;
+                    }
+                    else
+                    {
+                        Instantiate(Hand.currentItem.prefab, transform.position, Quaternion.identity);
+                        int a = inventory.CheckAmount(Hand.currentItem);
+                        inventory.RestItem(Hand.currentItem, a);
+                        inventory.RemoveSlot();
+                        inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
+                        AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                        Destroy(hookeableObject.gameObject);
+                        isGrab = false;
+                    }
+                }
+            }
+            else
+            {
+                AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                hookeableObject.SetParent(null);
+                hookeableObject = null;
+                isGrab = false;
+            }
+            
         }   
         
     }
@@ -117,4 +149,5 @@ public class HookGrab : MonoBehaviour
         this.GetComponent<BoxCollider>().enabled = false;
     }
  
+
 }

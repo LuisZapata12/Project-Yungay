@@ -80,6 +80,21 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public bool InventorySpace()
+    {
+        bool hasSpace = false;
+
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i].item == null)
+            {
+                hasSpace = true;
+                break;
+            }
+        }
+        return hasSpace;
+    }
+
     public void CraftItem(CraftRecipes recipe)
     {
         bool hasMaterials = false;

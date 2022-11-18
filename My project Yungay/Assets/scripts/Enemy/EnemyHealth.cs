@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -12,14 +13,22 @@ public class EnemyHealth : MonoBehaviour
     public bool dead;
     private Loot enemyLoot;
     private int count = 0;
+
+    public Image healthBar;
+
+    private float healthActual, healthMax;
     void Start()
     {
+        healthMax = life;
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthBar.fillAmount = life / healthMax;
+
+        
         if (dead)
         {
             timer += Time.deltaTime;
