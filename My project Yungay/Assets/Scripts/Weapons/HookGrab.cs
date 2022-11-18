@@ -46,10 +46,24 @@ public class HookGrab : MonoBehaviour
                 EquipmentItem equipment = (EquipmentItem)item;
                 if (equipment.equipmentType == EquipmentType.Melee || equipment.equipmentType == EquipmentType.Range)
                 {
-                    inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
-                    AudioManager.Instance.PlaySFX("Hook_releaseobject");
-                    Destroy(hookeableObject.gameObject);
-                    isGrab = false;
+                    if (inventory.InventorySpace())
+                    {
+                        inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
+                        AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                        Destroy(hookeableObject.gameObject);
+                        isGrab = false;
+                    }
+                    else
+                    {
+                        Instantiate(Hand.currentItem.prefab, transform.position, Quaternion.identity);
+                        int a = inventory.CheckAmount(Hand.currentItem);
+                        inventory.RestItem(Hand.currentItem, a);
+                        inventory.RemoveSlot();
+                        inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
+                        AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                        Destroy(hookeableObject.gameObject);
+                        isGrab = false;
+                    }
                 }
             }
             else
@@ -135,4 +149,5 @@ public class HookGrab : MonoBehaviour
         this.GetComponent<BoxCollider>().enabled = false;
     }
  
+
 }
