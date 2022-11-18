@@ -5,14 +5,14 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-     private GameObject dialoguePanel;
-     private GameObject dialogueTextGame;
-     private GameObject pressButtonDialogue;
-     private GameObject pressInitDialogue;
-     private TMP_Text dialogueText;
-     private bool pressInit;
-    [SerializeField,TextArea(3,8)]private string[] dialogueLines;
-    [Range(0,1f)] [Min(0)][Tooltip("Tiempo de tipeo de letras del dialogo")]
+    private GameObject dialoguePanel;
+    private GameObject dialogueTextGame;
+    private GameObject pressButtonDialogue;
+    private GameObject pressInitDialogue;
+    private TMP_Text dialogueText;
+    private bool pressInit;
+    [SerializeField, TextArea(3, 8)] private string[] dialogueLines;
+    [Range(0, 1f)] [Min(0)] [Tooltip("Tiempo de tipeo de letras del dialogo")]
     [SerializeField] private float typingTime;
     private bool isPlayerInrange;
     private bool didDialogueStart;
@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dialoguePanel == null)
+        if (dialoguePanel == null)
         {
             dialoguePanel = GameObject.FindGameObjectWithTag("PanelDialogue");
             dialogueTextGame = dialoguePanel.transform.GetChild(0).gameObject;
@@ -29,14 +29,14 @@ public class Dialogue : MonoBehaviour
             pressInitDialogue = dialoguePanel.transform.GetChild(2).gameObject;
             dialogueText = dialogueTextGame.GetComponent<TMP_Text>();
         }
-        if(isPlayerInrange && Input.GetKeyDown(KeyCode.X))
+        if (isPlayerInrange && Input.GetKeyDown(KeyCode.E))
         {
             if (!didDialogueStart)
             {
                 StartDialogue();
                 pressInitDialogue.SetActive(false);
             }
-            else if(dialogueText.text == dialogueLines[lineIndex])
+            else if (dialogueText.text == dialogueLines[lineIndex])
             {
                 NextDialogueLine();
             }
