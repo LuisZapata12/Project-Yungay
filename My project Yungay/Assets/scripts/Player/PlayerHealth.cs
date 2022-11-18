@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public float timeDamageMax;
     float time;
     float timerDamage;
-    public bool d;
+    public bool takeDamage;
     
 
 
@@ -28,13 +28,13 @@ public class PlayerHealth : MonoBehaviour
         {
             mb.armor -= 1 * Time.deltaTime;
         }
-        if(d)
+        if(takeDamage)
         {
             lifeHud.alpha = 1f;
             timerDamage += 1* Time.deltaTime;
             if(timerDamage >= timeDamageMax)
             {
-                d = false;
+                takeDamage = false;
             }
         }
         else
@@ -50,13 +50,15 @@ public class PlayerHealth : MonoBehaviour
             if (mb.armor > 0f)
             {
                 mb.health -= damage / 2;
-                d = true;
+                takeDamage = true;
+                timerDamage = 0;
                 StartCoroutine(FeedBackDamage());
             }
             else
             {
                 mb.health -= damage;
-                d = true;
+                takeDamage = true; 
+                timerDamage = 0;
                 StartCoroutine(FeedBackDamage());
                 // StartCoroutine(FeedBackDamage());
             }
