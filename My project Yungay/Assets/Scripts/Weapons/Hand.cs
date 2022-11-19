@@ -11,7 +11,7 @@ public class Hand : MonoBehaviour
     public ItemObject currentMunition = null;
     public List<ItemObject> itemsMunition = new();
     public List<RangeWeaponSlot> weaponSlots = new();
-    private int munitionIndex = 0;
+    public static int munitionIndex = 0;
     private int slotIndex = 0;
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;

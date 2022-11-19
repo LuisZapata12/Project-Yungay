@@ -31,13 +31,14 @@ public class HookGrab : MonoBehaviour
         }
         ShotStart();
 
-        if (hookeableObject != null)
+        if (hookeableObject != null && isShot==true)
         {
             PickHook();
         }
 
         if (this.transform.position == hookParent.transform.position && this.transform.parent != null && hookeableObject!= null)
         {
+            PickHook();
             Loot loot = hookeableObject.GetComponent<Loot>();
             ItemObject item = loot.loot[0].item;
             
@@ -87,7 +88,8 @@ public class HookGrab : MonoBehaviour
             {
                 if (hit.transform.tag != "Hook")
                 {
-                    AudioManager.Instance.PlaySFX("Hook_shoot");
+                    //AudioManager.Instance.PlaySFX("Hook_shoot");
+                    AudioManager.Instance.PlaySFX("Hook_shootrope");
                     isShot = true;
                     hitposition = hit.point;
                 }
@@ -99,6 +101,8 @@ public class HookGrab : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && isGrab == true)
         {
             AudioManager.Instance.PlaySFX("Hook_releasesurface");
+            AudioManager.Instance.PlaySFX("Hook_retraction");
+            
             PickHook();
             isGrab = false;
             hookback = true;
@@ -147,6 +151,12 @@ public class HookGrab : MonoBehaviour
         this.transform.position = Vector3.MoveTowards(hookObject.transform.position, hookParent.transform.position, speedBack * Time.deltaTime);
         this.transform.localRotation = Quaternion.Euler(-90f, 0, 0);
         this.GetComponent<BoxCollider>().enabled = false;
+        AudioManager.Instance.PlaySFX("Hook_retraction");
+        if (this.transform.position == hookParent.transform.position && hookback==true)
+        {
+            AudioManager.Instance.sfxSource.Stop();
+        }
+
     }
  
 

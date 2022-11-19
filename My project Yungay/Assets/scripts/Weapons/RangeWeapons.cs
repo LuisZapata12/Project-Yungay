@@ -28,6 +28,8 @@ public class RangeWeapons : MonoBehaviour
     public Inventory inventory;
     private string detect;
 
+    private float timer;
+    private bool hasShoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +47,23 @@ public class RangeWeapons : MonoBehaviour
                 if (munition.CheckAmmo(hand.currentMunition))
                 {
                     Disparo(Hand.currentItem);
+                    
                 }
             }
+
         }
+        EquipmentRange _ = (EquipmentRange)Hand.currentItem;
+        if (hasShoot && lastShootTime + _.shootDelay > Time.time)
+        {
+            timer = timer + Time.deltaTime;
+            if (timer >= 0.2f)
+            {
+                timer = 0;
+                AudioManager.Instance.PlaySFX("Pistol-case");
+                hasShoot = false;
+            }
+        }
+
     }
 
     public void Disparo(ItemObject item)
@@ -62,7 +78,7 @@ public class RangeWeapons : MonoBehaviour
             if (Physics.Raycast(Camera.main.transform.position, direction, out hit, enemyMask))
             {
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
-
+                hasShoot = true;
                 detect = hit.collider.tag;
                 Debug.Log(detect);
                 switch (detect)
@@ -82,7 +98,17 @@ public class RangeWeapons : MonoBehaviour
                 }
                
                 lastShootTime = Time.time;
-                AudioManager.Instance.PlaySFX("Pistol");
+                if (Hand.munitionIndex == 1)
+                {
+                    AudioManager.Instance.PlaySFX("Pistol");
+                  
+                    
+                }
+                else if (Hand.munitionIndex == 0)
+                {
+                    AudioManager.Instance.PlaySFX("Pistol-nails");
+                }
+                
             }
             else
             {
