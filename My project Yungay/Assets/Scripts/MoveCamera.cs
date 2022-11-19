@@ -9,6 +9,6 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = cameraPosition.position;
+        this.transform.eulerAngles = new Vector3(0f,cameraPosition.eulerAngles.y,0f);
     }
 }

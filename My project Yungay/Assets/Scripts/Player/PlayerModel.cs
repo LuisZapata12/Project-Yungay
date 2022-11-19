@@ -75,6 +75,7 @@ public class PlayerModel : MonoBehaviour
     private void Start()
     {
         instance = this;
+        Cursor.lockState = CursorLockMode.Locked; 
     }
     private void Awake()
     {

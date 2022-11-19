@@ -29,6 +29,7 @@ public class PlayerCam : MonoBehaviour
     }
 
 
+
     void Camera()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.fixedDeltaTime * sensX;

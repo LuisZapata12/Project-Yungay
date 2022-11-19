@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class Look : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Look : MonoBehaviour
     private Coroutine coroutine;
     private Animator anim;
     public Sprite weaponCursor,aimCursor;
+    public CinemachineCameraOffset offset;
 
     private void Start()
     {
