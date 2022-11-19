@@ -20,6 +20,8 @@ public class Look : MonoBehaviour
     private Animator anim;
     public Sprite weaponCursor,aimCursor;
     public CinemachineCameraOffset offset;
+    public float zoomValue;
+    private bool once;
 
     private void Start()
     {
@@ -55,22 +57,34 @@ public class Look : MonoBehaviour
                 Hand.imageCursor.sprite = weaponCursor;
             }
 
-            if (zoom)
+
+            if (zoom && !once)
             {
-                if (distance1 < 0.01f)
-                {
-                    camera.transform.position = endPosition;
-                }
-                camera.transform.position = Vector3.Lerp(camera.transform.position, endPosition, Time.deltaTime * smooth);
+                StartCoroutine(Zoom(zoomValue));
+                once = true;
             }
-            else
+
+            if (!zoom && once)
             {
-                camera.transform.position = Vector3.Lerp(camera.transform.position, init.transform.position, Time.deltaTime * smooth);
-                if (distance2 < 0.01f)
-                {
-                    camera.transform.position = init.transform.position;
-                }
+                StartCoroutine(Back());
+                once = false;
             }
+            //if (zoom && offset.m_Offset.z != zoomValue)
+            //{
+
+            //    offset.m_Offset.z += Time.deltaTime * smooth;
+
+            //}
+            //else if(!zoom && offset.m_Offset.z == zoomValue)
+            //{
+            //    //camera.transform.position = Vector3.Lerp(camera.transform.position, init.transform.position, Time.deltaTime * smooth);
+            //    //if (distance2 < 0.01f)
+            //    //{
+            //    //    camera.transform.position = init.transform.position;
+            //    //}
+
+            //    offset.m_Offset.z -= Time.deltaTime * smooth;
+            //}
         }
     }
 
@@ -96,5 +110,27 @@ public class Look : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator Zoom(float value)
+    {
+        while(offset.m_Offset.z < value)
+        {
+            offset.m_Offset.z += Time.deltaTime * smooth;
+            yield return new WaitForEndOfFrame();
+        }
+        offset.m_Offset = new Vector3(0f, 0f, value);
+        yield break;
+    }
+
+    IEnumerator Back()
+    {
+        while (offset.m_Offset.z > 0)
+        {
+            offset.m_Offset.z -= Time.deltaTime * smooth;
+            yield return new WaitForEndOfFrame();
+        }
+        offset.m_Offset = Vector3.zero;
+        yield break;
     }
 }
