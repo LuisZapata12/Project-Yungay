@@ -28,3 +28,4 @@ MonoBehaviour:
   damage: 10
   animation: {fileID: 7400000, guid: dec97139030c9ad408a779dab06f92e6, type: 2}
   attackClip: {fileID: 8300000, guid: 433733621d2208e408c1a844a75d74d9, type: 3}
+  durability: 30
