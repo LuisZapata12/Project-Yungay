@@ -53,14 +53,18 @@ public class RangeWeapons : MonoBehaviour
 
         }
         EquipmentRange _ = (EquipmentRange)Hand.currentItem;
-        if (hasShoot && lastShootTime + _.shootDelay > Time.time)
+
+        if (_ != null)
         {
-            timer = timer + Time.deltaTime;
-            if (timer >= 0.2f)
+            if (hasShoot && lastShootTime + _.shootDelay > Time.time)
             {
-                timer = 0;
-                AudioManager.Instance.PlaySFX("Pistol-case");
-                hasShoot = false;
+                timer = timer + Time.deltaTime;
+                if (timer >= 0.2f)
+                {
+                    timer = 0;
+                    AudioManager.Instance.PlaySFX("Pistol-case");
+                    hasShoot = false;
+                }
             }
         }
 
