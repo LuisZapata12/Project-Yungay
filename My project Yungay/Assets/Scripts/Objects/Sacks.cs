@@ -5,6 +5,7 @@ using TMPro;
 
 public class Sacks : MonoBehaviour
 {
+    public GameObject boxFullPieces;
     public GameObject lootPrefab;
     public List<ItemObject> items = new List<ItemObject>();
     private Inventory inventory;
@@ -24,19 +25,26 @@ public class Sacks : MonoBehaviour
 
     public void Destroy()
     {
-
-
         if (items.Count != 0)
         {
-            GameObject clone = Instantiate(lootPrefab, transform.position, Quaternion.identity);
-            Loot loot = clone.GetComponent<Loot>();
+            //GameObject clone = Instantiate(lootPrefab, transform.position, Quaternion.identity);
+            //Loot loot = clone.GetComponent<Loot>();
+
             for (int i = 0; i < items.Count; i++)
             {
-                loot.loot.Add(new Item(items[i], 0, 0));
+                GameObject clone = Instantiate(items[i].prefab, transform.position, Quaternion.identity);
+                Loot loot = clone.GetComponent<Loot>();
+                loot.RandomAmount();
             }
-            loot.RandomAmount();
 
         }
+        //Instantiate(boxFullPieces, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
+
+    public void DestroyByOthers()
+    {
+        //Instantiate(boxFullPieces, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
@@ -61,6 +69,8 @@ public class Sacks : MonoBehaviour
         if (collision.gameObject.CompareTag("Knife"))
         {
             Destroy();
+            Loot loot = collision.gameObject.GetComponent<Loot>();
+            loot.loot[0].durability--;
         }
         if (!collision.gameObject.CompareTag("Player"))
         {

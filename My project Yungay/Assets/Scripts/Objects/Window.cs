@@ -33,7 +33,7 @@ public class Window : MonoBehaviour
     {
         if (id == windowId)
         {
-            Instantiate(windowPieces, transform.position, Quaternion.identity);
+            Instantiate(windowPieces, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
 
