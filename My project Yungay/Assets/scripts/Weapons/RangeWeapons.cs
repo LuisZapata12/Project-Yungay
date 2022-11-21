@@ -52,6 +52,7 @@ public class RangeWeapons : MonoBehaviour
             }
 
         }
+
         EquipmentRange _ = (EquipmentRange)Hand.currentItem;
 
         if (_ != null)

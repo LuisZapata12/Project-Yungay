@@ -42139,6 +42139,7 @@ MonoBehaviour:
   lifeHud: {fileID: 1819363733493231009}
   timeDamageMax: 3
   takeDamage: 0
+  takeHeal: 0
   deathPanel: {fileID: 162735635}
 --- !u!114 &8949097853262754775
 MonoBehaviour:

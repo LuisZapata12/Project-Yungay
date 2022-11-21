@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     float time;
     float timerDamage;
     public bool takeDamage;
+    public bool takeHeal;
     
 
 
@@ -28,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         {
             mb.armor -= 1 * Time.deltaTime;
         }
-        if(takeDamage)
+        if(takeDamage && !takeHeal)
         {
             lifeHud.alpha = 1f;
             timerDamage += 1* Time.deltaTime;
@@ -42,6 +43,16 @@ public class PlayerHealth : MonoBehaviour
             lifeHud.alpha = 0f;
             timerDamage = 0;
         }
+
+        if (takeHeal && !takeDamage)
+        {
+            lifeHud.alpha = 1f;
+        }
+        else
+        {
+            lifeHud.alpha = 0f;
+        }
+
     }
     public void Damage(float damage)
     {

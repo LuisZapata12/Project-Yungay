@@ -68,6 +68,7 @@ public class Cure : MonoBehaviour
         }
         feed.gameObject.SetActive(false);
         a = false;
+        playerHealth.takeHeal = false;
     }
 
     IEnumerator FillBar()
@@ -84,5 +85,6 @@ public class Cure : MonoBehaviour
         chargeBar.SetActive(false);
         Heal();
         image.fillAmount = 0;
+        playerHealth.takeHeal = true;
     }
 }
