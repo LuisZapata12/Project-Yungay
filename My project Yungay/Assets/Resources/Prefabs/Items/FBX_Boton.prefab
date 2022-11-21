@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3866840365876425884}
   m_Layer: 0
   m_Name: FBX_Boton
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

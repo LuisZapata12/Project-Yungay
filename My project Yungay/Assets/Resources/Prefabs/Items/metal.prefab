@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 929999707392349194}
   m_Layer: 0
   m_Name: metal
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: d0fb1d5058f1ceb4ab2d1e254f8d418f, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0
 --- !u!65 &1660408932200035811
 BoxCollider:

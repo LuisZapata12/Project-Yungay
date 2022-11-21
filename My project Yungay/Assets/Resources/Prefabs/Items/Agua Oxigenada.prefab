@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8851661959084020962}
   m_Layer: 0
   m_Name: Agua Oxigenada
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: 916a62b47d553554185606c8ccf38189, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0
 --- !u!114 &-7125477290414772086
 MonoBehaviour:

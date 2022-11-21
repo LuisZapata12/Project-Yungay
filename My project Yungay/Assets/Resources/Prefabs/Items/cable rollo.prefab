@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -9143257147471194526}
   m_Layer: 0
   m_Name: cable rollo
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: abc6655494af5b949967c0721deff67a, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0
 --- !u!114 &4711531629778024631
 MonoBehaviour:

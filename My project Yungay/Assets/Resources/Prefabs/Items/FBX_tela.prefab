@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -7891234074715445910}
   m_Layer: 0
   m_Name: FBX_tela
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0
 --- !u!114 &8145312127831183675
 MonoBehaviour:

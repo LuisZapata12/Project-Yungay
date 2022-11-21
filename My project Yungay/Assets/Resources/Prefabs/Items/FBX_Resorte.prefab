@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -8646472038375147097}
   m_Layer: 0
   m_Name: FBX_Resorte
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: 988d004be9e3893499045d8ee2b4c638, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0
 --- !u!114 &-8646472038375147097
 MonoBehaviour:

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3711919396767751947}
   m_Layer: 0
   m_Name: FBX_madero
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7962955789571954622}
   m_Layer: 0
   m_Name: Submachine
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,4 +130,5 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: 2f3b4e2b2e3209641bf7b0ee8959ef16, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0

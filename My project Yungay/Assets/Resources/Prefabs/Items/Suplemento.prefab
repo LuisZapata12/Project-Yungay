@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7020395358139930277}
   m_Layer: 0
   m_Name: Suplemento
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: f0fa9460d49089a4ea35bd2b26307673, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0
 --- !u!65 &7373783537348191150
 BoxCollider:
