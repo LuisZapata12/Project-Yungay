@@ -248,7 +248,7 @@ public class Hand : MonoBehaviour
                 {
                     EquipmentMelee melee = (EquipmentMelee)currentItem;
 
-                    if (melee != null && melee.animation != null)
+                    if (melee != null && melee.animation != null && !isAttacking)
                     {
                         anim.Play(melee.animation.name);
                         isAttacking = true;
@@ -295,6 +295,7 @@ public class Hand : MonoBehaviour
     public void RemoveCollider()
     {
         Destroy(GetComponent<BoxCollider>());
+        isAttacking = false;
     }
 
     public void PlaySound()
@@ -309,6 +310,7 @@ public class Hand : MonoBehaviour
         inventory.slots[index].durability -= 1;
         inventory.RemoveSlotDurability();
     }
+
 
     public int GetMunitionIndex(ItemObject item)
     {

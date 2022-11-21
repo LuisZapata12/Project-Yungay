@@ -49,6 +49,7 @@ public class Box : MonoBehaviour
     {
         if (other.CompareTag("Axe"))
         {
+            Debug.Log("Hit");
             Destroy();
             int index = inventory.GetItemIndex(Hand.currentItem);
             inventory.slots[index].durability -= 1;
@@ -61,6 +62,8 @@ public class Box : MonoBehaviour
         if (collision.gameObject.CompareTag("Axe"))
         {
             Destroy();
+            Loot loot = collision.gameObject.GetComponent<Loot>();
+            loot.loot[0].durability--;
         }
     }
 }
