@@ -1236,7 +1236,7 @@ Transform:
   - {fileID: 2496656330427947937}
   - {fileID: 9114485048834371443}
   m_Father: {fileID: 0}
-  m_RootOrder: 84
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2496656329862639532
 CapsuleCollider:
@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637b9d07d3061df4686383b655698b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  life: 30
   staticItems: []
   Randomitems:
   - {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d, type: 2}

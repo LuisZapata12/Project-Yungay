@@ -32,11 +32,11 @@ Transform:
   m_GameObject: {fileID: 4538740350180716780}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 17.548822, y: -0.025249958, z: 0.6375074}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &151103085924558323
 MeshFilter:
@@ -99,8 +99,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11720848, y: 0.027535694, z: 0.15798688}
-  m_Center: {x: -0.006754875, y: 0.012641697, z: -0.007982552}
+  m_Size: {x: 0.05398321, y: 0.0275357, z: 0.09094015}
+  m_Center: {x: -0.01085639, y: 0.012641698, z: -0.006931722}
 --- !u!54 &6996470685707662511
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: 0dae7066b12fb004dba71fc221b48d71, type: 2}
     amount: 1
+    durability: 0
   isRandom: 0
 --- !u!114 &229706984230474951
 MonoBehaviour:

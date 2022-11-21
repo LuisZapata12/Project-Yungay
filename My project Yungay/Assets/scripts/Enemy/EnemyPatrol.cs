@@ -34,7 +34,7 @@ public class EnemyPatrol : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         UpdateDestination();
-
+        Target = GameObject.Find("Player");
 
         DetectPlayer = false;
     }

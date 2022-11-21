@@ -31,6 +31,7 @@ public class Enemy3 : MonoBehaviour
     {
         //Agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        Target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

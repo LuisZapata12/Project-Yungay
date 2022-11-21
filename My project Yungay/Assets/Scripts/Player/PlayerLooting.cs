@@ -58,14 +58,16 @@ public class PlayerLooting : MonoBehaviour
 
             if (CheckLoot(loot))
             {
-                if (!once)
+                if (!hit.collider.CompareTag("Enemy"))
                 {
-                    oldColor = hit.collider.GetComponent<Renderer>().material.color;
-                    once = true;
+                    if (!once)
+                    {
+                        oldColor = hit.collider.GetComponent<Renderer>().material.color;
+                        once = true;
+                    }
+                    item = hit.collider.gameObject;
+                    hit.collider.GetComponent<Renderer>().material.color = changeColor;
                 }
-
-                item = hit.collider.gameObject;
-                hit.collider.GetComponent<Renderer>().material.color = changeColor;
 
                 lootText.GetComponent<Animator>().SetBool("Show", true);
 

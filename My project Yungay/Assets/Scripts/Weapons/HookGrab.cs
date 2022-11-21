@@ -14,6 +14,7 @@ public class HookGrab : MonoBehaviour
     public float speedShoot, speedBack;
     private Inventory inventory;
     public float rayDistance;
+    private bool canShot = true;
 
     public Transform hookeableObject;
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class HookGrab : MonoBehaviour
         if (this.transform.position == hookParent.transform.position)
         {
             hookback = false;
+            canShot = true;
         }
         ShotStart();
 
@@ -82,7 +84,7 @@ public class HookGrab : MonoBehaviour
     private void ShotStart()
     {
 
-        if (Input.GetKeyDown(KeyCode.Q) && isGrab == false && isShot == false)
+        if (Input.GetKeyDown(KeyCode.Q) && isGrab == false && isShot == false && canShot)
         {
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, rayDistance))
             {
@@ -95,7 +97,8 @@ public class HookGrab : MonoBehaviour
                 }
                 
             }
-            
+
+            canShot = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && isGrab == true)
@@ -115,6 +118,7 @@ public class HookGrab : MonoBehaviour
             hookObject.transform.position = Vector3.MoveTowards(hookObject.transform.position, hitposition, speedShoot * Time.deltaTime);
             hookObject.transform.SetParent(null);
             this.GetComponent<BoxCollider>().enabled = true;
+            
         }
         else if (isShot == false && isGrab == false)
         {
@@ -151,12 +155,10 @@ public class HookGrab : MonoBehaviour
         this.transform.position = Vector3.MoveTowards(hookObject.transform.position, hookParent.transform.position, speedBack * Time.deltaTime);
         this.transform.localRotation = Quaternion.Euler(-90f, 0, 0);
         this.GetComponent<BoxCollider>().enabled = false;
-        AudioManager.Instance.PlaySFX("Hook_retraction");
         if (this.transform.position == hookParent.transform.position && hookback==true)
         {
             AudioManager.Instance.sfxSource.Stop();
         }
-
     }
  
 
