@@ -27,7 +27,6 @@ public class DestroyObjectPieces : MonoBehaviour
         
         yield return new WaitForSeconds(4f);
         this.GetComponent<Rigidbody>().isKinematic = true;
-        
         yield return new WaitForSeconds(0.25f);
         collider.isTrigger = true;
     }

@@ -112,5 +112,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxFullPieces: {fileID: 8136586195334732137, guid: 72c811a78a6570e4a8a65845a7174fc6,
     type: 3}
-  resources:
-  - {fileID: 1735745338477293402, guid: 52f0955757eeca443812e14958b0434e, type: 3}
+  lootPrefab: {fileID: 0}
+  items: []

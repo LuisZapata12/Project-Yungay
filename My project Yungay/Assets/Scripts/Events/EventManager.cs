@@ -10,6 +10,7 @@ public class EventManager : MonoBehaviour
     public event Action cutRopeEvent;
     public event Action<int> brokeWindowEvent;
     public event Action<int> useLeverEvent;
+    public event Action<int> kathyaVoiceEvent;
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,5 +44,10 @@ public class EventManager : MonoBehaviour
     public void StartUseLeverEvent(int id)
     {
         useLeverEvent?.Invoke(id);
+    }
+
+    public void StartkathyaVoiceEvent(int id)
+    {
+        kathyaVoiceEvent?.Invoke(id);
     }
 }
