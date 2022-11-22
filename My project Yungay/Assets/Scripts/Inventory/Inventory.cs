@@ -166,7 +166,6 @@ public class Inventory : MonoBehaviour
             {
                 EquipmentMelee item = (EquipmentMelee)recipe.result;
                 AddItem(null, recipe.result, recipe.amount, item.durability);
-                Debug.Log(item.durability);
             }
             else
             {

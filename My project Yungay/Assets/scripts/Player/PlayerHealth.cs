@@ -47,7 +47,6 @@ public class PlayerHealth : MonoBehaviour
             {
                 lifeHud.alpha = 0f;
                 timerDamage = 0;
-                Debug.Log("a");
             }
         }
         if (!takeDamage)
@@ -59,7 +58,6 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 lifeHud.alpha = 0f;
-                Debug.Log("b");
             }
         }
     
