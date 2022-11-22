@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -41782,6 +41782,12 @@ MonoBehaviour:
   checkpoint: {fileID: 0}
   rb: {fileID: 0}
   sourceSound: {fileID: 899008977}
+  lookMe: 0
+  cam: {fileID: 0}
+  _: {fileID: 0}
+  npc:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &8949097853262754768
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41882,7 +41888,7 @@ MonoBehaviour:
   numberLife: {fileID: 254176281}
   damageFeedback: {fileID: 8633890647217117620}
   lifeHud: {fileID: 1819363733493231009}
-  timeDamageMax: 3
+  timeDamageMax: 2
   takeDamage: 0
   takeHeal: 0
   deathPanel: {fileID: 162735635}

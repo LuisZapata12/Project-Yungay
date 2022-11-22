@@ -29,28 +29,43 @@ public class PlayerHealth : MonoBehaviour
         {
             mb.armor -= 1 * Time.deltaTime;
         }
-        if(takeDamage && !takeHeal)
+        if (!takeHeal)
         {
-            lifeHud.alpha = 1f;
-            timerDamage += 1* Time.deltaTime;
-            if(timerDamage >= timeDamageMax)
+            if (takeDamage)
             {
-                takeDamage = false;
+                timerDamage += 1 * Time.deltaTime;
+                if (timerDamage >= timeDamageMax)
+                {
+                    takeDamage = false;
+                }
+                else
+                {
+                    lifeHud.alpha = 1f;
+                }
+            }
+            else
+            {
+                lifeHud.alpha = 0f;
+                timerDamage = 0;
+                Debug.Log("a");
             }
         }
-        else
+        if (!takeDamage)
         {
-            lifeHud.alpha = 0f;
-            timerDamage = 0;
+            if (takeHeal)
+            {
+                lifeHud.alpha = 1f;
+            }
+            else
+            {
+                lifeHud.alpha = 0f;
+                Debug.Log("b");
+            }
         }
-
-        if (takeHeal && !takeDamage)
+    
+        if(takeHeal && takeDamage)
         {
             lifeHud.alpha = 1f;
-        }
-        else
-        {
-            lifeHud.alpha = 0f;
         }
 
     }

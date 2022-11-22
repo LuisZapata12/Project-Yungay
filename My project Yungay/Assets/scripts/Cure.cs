@@ -17,6 +17,7 @@ public class Cure : MonoBehaviour
     public float speedBar;
     private Image image;
     private bool a;
+    private bool b;
     private Coroutine coroutine;
 
     private void Start()
@@ -31,7 +32,7 @@ public class Cure : MonoBehaviour
     {
         itemHealing = Hand.currentItem as EquipmentHealing;
 
-        if (itemHealing && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0))
+        if (itemHealing && playerHealth.mb.health < playerHealth.mb.maxHealth && Input.GetMouseButtonDown(0) && !b)
         {
             coroutine = StartCoroutine(FillBar());
         }
@@ -46,6 +47,7 @@ public class Cure : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && a == false)
             {
              feed.gameObject.SetActive(false);
+             playerHealth.takeHeal = false;
             }
         }
     }
@@ -65,9 +67,11 @@ public class Cure : MonoBehaviour
             playerHealth.mb.health += speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
             a = true;
+            b = true;
         }
         feed.gameObject.SetActive(false);
         a = false;
+        b = false;
         playerHealth.takeHeal = false;
     }
 
@@ -78,6 +82,7 @@ public class Cure : MonoBehaviour
         feed.gameObject.SetActive(true);
         while (image.fillAmount < 1 )
         {
+            playerHealth.takeHeal = true;
             chargeBar.SetActive(true);
             image.fillAmount += speedBar * Time.deltaTime;
             yield return new WaitForEndOfFrame();
@@ -85,6 +90,5 @@ public class Cure : MonoBehaviour
         chargeBar.SetActive(false);
         Heal();
         image.fillAmount = 0;
-        playerHealth.takeHeal = true;
     }
 }
