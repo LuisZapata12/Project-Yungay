@@ -8,18 +8,22 @@ public class Dialogue : MonoBehaviour
     private GameObject dialoguePanel;
     private GameObject dialogueTextGame;
     private GameObject pressButtonDialogue;
+    [SerializeField]
     private GameObject pressInitDialogue;
     private TMP_Text dialogueText;
     private bool pressInit;
     [SerializeField, TextArea(3, 8)] private string[] dialogueLines;
     [Range(0, 1f)] [Min(0)] [Tooltip("Tiempo de tipeo de letras del dialogo")]
     [SerializeField] private float typingTime;
-    private bool isPlayerInrange;
+    public bool isPlayerInrange;
     private bool didDialogueStart;
+    private bool me;
     private int lineIndex;
+    private PlayerModel playerModel;
+    private GameObject player;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (dialoguePanel == null)
         {
@@ -29,21 +33,44 @@ public class Dialogue : MonoBehaviour
             pressInitDialogue = dialoguePanel.transform.GetChild(2).gameObject;
             dialogueText = dialogueTextGame.GetComponent<TMP_Text>();
         }
-        if (isPlayerInrange && Input.GetKeyDown(KeyCode.E))
+
+        if(playerModel == null)
         {
-            if (!didDialogueStart)
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerModel = player.GetComponent<PlayerModel>();
+        }
+        if (me)
+        {
+            if (isPlayerInrange)
             {
-                StartDialogue();
-                pressInitDialogue.SetActive(false);
-            }
-            else if (dialogueText.text == dialogueLines[lineIndex])
-            {
-                NextDialogueLine();
+                if (pressInit == false)
+                {
+                    pressInitDialogue.SetActive(true);
+                    Debug.Log(gameObject.name);
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (!didDialogueStart)
+                    {
+                        StartDialogue();
+                        pressInitDialogue.SetActive(false);
+                    }
+                    else if (dialogueText.text == dialogueLines[lineIndex])
+                    {
+                        NextDialogueLine();
+                    }
+                    else
+                    {
+                        StopAllCoroutines();
+                        dialogueText.text = dialogueLines[lineIndex];
+                    }
+                }
             }
             else
             {
-                StopAllCoroutines();
-                dialogueText.text = dialogueLines[lineIndex];
+                Debug.Log(gameObject.name);
+                pressInit = false;
+                pressInitDialogue.SetActive(false);
             }
         }
     }
@@ -59,6 +86,7 @@ public class Dialogue : MonoBehaviour
         {
             pressInitDialogue.SetActive(false);
             didDialogueStart = false;
+            pressInit = false;
             dialogueTextGame.SetActive(false);
             pressButtonDialogue.SetActive(false);
             pressInitDialogue.SetActive(true);
@@ -69,6 +97,8 @@ public class Dialogue : MonoBehaviour
 
     private void StartDialogue()
     {
+        pressInit = true;
+        pressInitDialogue.SetActive(false);
         didDialogueStart = true;
         dialogueTextGame.SetActive(true);
         pressButtonDialogue.SetActive(true);
@@ -92,23 +122,18 @@ public class Dialogue : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            isPlayerInrange = true;
-            if (pressInit == false)
-            {
-                pressInitDialogue.SetActive(true);
-                pressInit = true;
-            }
-            Debug.Log("Hola");
+            //isPlayerInrange = true;
+            playerModel.lookMe = true;
+            me = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            isPlayerInrange = true;
-            pressInit = false;
-            pressInitDialogue.SetActive(false);
-            Debug.Log("Hola");
+            isPlayerInrange = false;
+            playerModel.lookMe = false;
+            me = false;
         }
     }
 }

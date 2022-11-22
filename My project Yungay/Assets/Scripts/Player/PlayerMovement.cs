@@ -67,6 +67,29 @@ public class PlayerMovement : MonoBehaviour
             model.isRunning = false;
             //model.state = PlayerModel.State.idle;
         }
+        if(model.lookMe)
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit,3f,model.npc))
+            {
+                if(hit.collider.tag == "NPC")
+                {
+                    model._ = hit.collider.gameObject;
+                    model._.GetComponentInChildren< Dialogue>().isPlayerInrange = true;
+                }
+            }
+            else
+            {
+                if(model._ != null)
+                {
+                    model._.GetComponentInChildren<Dialogue>().isPlayerInrange = false;
+                }
+            }
+        }else
+        {
+            model._ = null;
+        }
     }
     void FixedUpdate()
     {
@@ -181,7 +204,6 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
-    
     private void Jump()
     {
         if (PlayerGroundCheck.jump)

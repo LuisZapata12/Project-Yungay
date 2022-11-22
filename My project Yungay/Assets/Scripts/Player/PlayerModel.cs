@@ -72,6 +72,11 @@ public class PlayerModel : MonoBehaviour
 
     public static PlayerModel instance;
 
+    //[HideInInspector]
+    public bool lookMe;
+    public GameObject _;
+    public LayerMask npc;
+
     private void Start()
     {
         instance = this;
