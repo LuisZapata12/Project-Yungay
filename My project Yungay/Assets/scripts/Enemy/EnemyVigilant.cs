@@ -74,6 +74,10 @@ public class EnemyVigilant : MonoBehaviour
             }
         }
 
+        if (Vector3.Distance(transform.position, originalPos) < 0.25f)
+        {
+            anim.SetBool("Run", false);
+        }
     }
     public void ToPlayerWithWeapon()
     {
