@@ -17,13 +17,14 @@ public class InventoryDisplay : MonoBehaviour
     void Awake()
     {
         instance = this;
-        imageSlots = GameObject.Find("InventoryPocket");
-        for (int i = 0; i < 5; i++)
-        {
-            slotsUI.Add(imageSlots.transform.GetChild(i).gameObject);
-        }
+        //imageSlots = GameObject.Find("InventoryPocket");
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    slotsUI.Add(imageSlots.transform.GetChild(i).gameObject);
+        //}
         imageSlots = GameObject.Find("InventoryPanel");
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < inventory.maxSlots; i++)
+        //for (int i = 0; i < 15; i++)
         {
             slotsUI.Add(imageSlots.transform.GetChild(i).gameObject);
         }
