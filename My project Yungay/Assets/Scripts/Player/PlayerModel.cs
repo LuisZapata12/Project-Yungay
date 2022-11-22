@@ -72,8 +72,10 @@ public class PlayerModel : MonoBehaviour
 
     public static PlayerModel instance;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool lookMe;
+    public Camera cam;
+    [HideInInspector]
     public GameObject _;
     public LayerMask npc;
 

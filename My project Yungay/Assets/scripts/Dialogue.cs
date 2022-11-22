@@ -8,13 +8,13 @@ public class Dialogue : MonoBehaviour
     private GameObject dialoguePanel;
     private GameObject dialogueTextGame;
     private GameObject pressButtonDialogue;
-    [SerializeField]
     private GameObject pressInitDialogue;
     private TMP_Text dialogueText;
     private bool pressInit;
     [SerializeField, TextArea(3, 8)] private string[] dialogueLines;
     [Range(0, 1f)] [Min(0)] [Tooltip("Tiempo de tipeo de letras del dialogo")]
     [SerializeField] private float typingTime;
+    [HideInInspector]
     public bool isPlayerInrange;
     private bool didDialogueStart;
     private bool me;
@@ -68,7 +68,6 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
-                Debug.Log(gameObject.name);
                 pressInit = false;
                 pressInitDialogue.SetActive(false);
             }
