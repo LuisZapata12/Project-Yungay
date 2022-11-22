@@ -70,9 +70,9 @@ public class PlayerMovement : MonoBehaviour
         if(model.lookMe)
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit,3f,model.npc))
+            if (Physics.Raycast(model.cam.transform.position, model.cam.transform.forward, out hit,3f,model.npc))
             {
+                Debug.LogWarning("WW"); 
                 if(hit.collider.tag == "NPC")
                 {
                     model._ = hit.collider.gameObject;

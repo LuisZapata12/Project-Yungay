@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 96894089}
   - component: {fileID: 96894088}
   - component: {fileID: 96894087}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Cube (3)
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -4360,6 +4360,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4283759661442754934}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &814939187 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4283759660644930895, guid: 32114e61cfc07574093f98f0009921c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4283759661442754934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &818925067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,7 +5383,7 @@ GameObject:
   - component: {fileID: 1004602503}
   - component: {fileID: 1004602502}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5654,7 +5660,7 @@ GameObject:
   - component: {fileID: 1021232034}
   - component: {fileID: 1021232033}
   - component: {fileID: 1021232032}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Cube (6)
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -9404,7 +9410,7 @@ GameObject:
   - component: {fileID: 1874886371}
   - component: {fileID: 1874886370}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11487,6 +11493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefabs Player Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4283759660644930895, guid: 32114e61cfc07574093f98f0009921c0,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 808695
+      objectReference: {fileID: 0}
     - target: {fileID: 4283759661924909595, guid: 32114e61cfc07574093f98f0009921c0,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -11502,6 +11513,16 @@ PrefabInstance:
       propertyPath: numberLife
       value: 
       objectReference: {fileID: 254176281}
+    - target: {fileID: 5135068544574069433, guid: 32114e61cfc07574093f98f0009921c0,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 814939187}
+    - target: {fileID: 5135068544574069433, guid: 32114e61cfc07574093f98f0009921c0,
+        type: 3}
+      propertyPath: npc.m_Bits
+      value: 524288
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 32114e61cfc07574093f98f0009921c0, type: 3}
