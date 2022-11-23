@@ -24,46 +24,46 @@ public class Level1Manager : MonoBehaviour
 
     private void MisionManager()
     {
-        switch (count)
-        {
-            case 0:
-                MisionText.currentMision = 0;
-                if (inventory.CheckItem(axe))
-                {
-                    count = 1;
-                }
-                break;
+        //switch (count)
+        //{
+        //    case 0:
+        //        MisionText.currentMision = 0;
+        //        if (inventory.CheckItem(axe))
+        //        {
+        //            count = 1;
+        //        }
+        //        break;
 
-            case 1:
-                if (Lever.endTravel)
-                {
-                    MisionText.currentMision = 1;
-                    if (inventory.CheckItem(axe))
-                    {
-                        count = 2;
-                    }
-                }
-                else
-                {
-                    MisionText.currentMision = 3;
-                }
-                break;
+        //    case 1:
+        //        if (Lever.endTravel)
+        //        {
+        //            MisionText.currentMision = 1;
+        //            if (inventory.CheckItem(axe))
+        //            {
+        //                count = 2;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MisionText.currentMision = 3;
+        //        }
+        //        break;
 
-            case 2:
-                MisionText.currentMision = 2;
-                if (inventory.CheckItem(pistol))
-                {
-                    count = 3;
-                }
-                break;
+        //    case 2:
+        //        MisionText.currentMision = 2;
+        //        if (inventory.CheckItem(pistol))
+        //        {
+        //            count = 3;
+        //        }
+        //        break;
 
-            case 3:
-                MisionText.currentMision = 4;
-                break;
+        //    case 3:
+        //        MisionText.currentMision = 4;
+        //        break;
 
-            default:
-                break;
-        }
+        //    default:
+        //        break;
+        //}
     }
 
     IEnumerator StartLv1()

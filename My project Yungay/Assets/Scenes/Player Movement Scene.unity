@@ -1820,21 +1820,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 8612214723159309256}
-    - target: {fileID: 2496656329862639532, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.3816856
-      objectReference: {fileID: 0}
-    - target: {fileID: 2496656329862639532, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.004893899
-      objectReference: {fileID: 0}
-    - target: {fileID: 2496656329862639532, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.050255537
-      objectReference: {fileID: 0}
     - target: {fileID: 2679464520985613738, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -4995,28 +4980,6 @@ Transform:
   m_Father: {fileID: 803657612}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &917274475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3342953390193528592, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 313131324}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &917274483
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917274475}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &926964452
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,16 +9,9 @@ public class CinematicController : MonoBehaviour
     private PlayableDirector currentDirector;
     private bool cinematicSkipped = true;
     private float timeToSkipTo;
-    private GameObject cursor;
+    public GameObject cursor;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        
-    }
-    void Start()
-    {
-        cursor = GameObject.FindGameObjectWithTag("Cursor");
-    }
+
 
     // Update is called once per frame
     void Update()

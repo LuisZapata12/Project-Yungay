@@ -14,7 +14,7 @@ public class TutorialManager : MonoBehaviour
     public bool moveBox = false;
 
     
-    private Transform cameraTransform;
+    public  Transform cameraTransform;
     public float timer = 0f;
     public float maxTime = 0f;
     private Vector3 oldRotation = new Vector3(0, 0, 0);
@@ -42,8 +42,6 @@ public class TutorialManager : MonoBehaviour
     }
     private void Update()
     {
-        if (CinematicTutorial.playTutorial)
-        {
             if (!moveCamera)
             {
                 CheckMoveCamera();
@@ -130,11 +128,7 @@ public class TutorialManager : MonoBehaviour
                 }
 
             }
-        }
-        else
-        {
-            MisionText.currentMision = 8;
-        }
+        
     }
 
     private void CheckMoveCamera()
