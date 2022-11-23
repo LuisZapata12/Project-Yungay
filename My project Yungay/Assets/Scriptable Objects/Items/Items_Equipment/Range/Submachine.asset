@@ -23,6 +23,7 @@ MonoBehaviour:
   itemMaterial: {fileID: 5561349426305759274, guid: c4d23ee469e137f47aeed4f98c356d04,
     type: 3}
   equipmentType: 1
+  idleClip: {fileID: 0}
   lastShootTime: 0
   shootDelay: 0.2
   bulletSpreadVarianceDis: 0.2
@@ -31,10 +32,12 @@ MonoBehaviour:
     charge: 20
   chargerNailsMax: 0
   chargerBulletsMax: 20
-  bulletSpreadVariance: {x: 0, y: 0}
+  bulletSpreadVariance: {x: 0.2, y: 0.2}
   damage: 5
   range: 20
   zoom: 1
   spark: {fileID: 92786460937822819, guid: 3fbd47da97cd9044bbe09eaeb04a600b, type: 3}
   look: {fileID: 21300000, guid: 57f74e2799893004e9adcd459b5dd878, type: 3}
-  shoot: {fileID: 0}
+  shoot: Submachine_Shoot
+  reload: Submachine_Reload
+  fail: Submachine_Fail

@@ -22,7 +22,9 @@ public class EquipmentRange : EquipmentItem
     public float zoom;
     public ParticleSystem spark;
     public Sprite look;
-    public AudioClip shoot;
+    public string shoot;
+    public string reload;
+    public string fail;
 
     private void Awake()
     {

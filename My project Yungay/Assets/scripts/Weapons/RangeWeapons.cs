@@ -88,7 +88,7 @@ public class RangeWeapons : MonoBehaviour
 
     public void Disparo(ItemObject item)
     {
-        EquipmentRange _ = (EquipmentRange)Hand.currentItem;
+        EquipmentRange _ = Hand.currentItem as EquipmentRange;
         Vector3 direction = GetDirection(_.bulletSpreadVarianceDis);
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -123,10 +123,10 @@ public class RangeWeapons : MonoBehaviour
                     switch (index)
                     {
                         case 1:
-                              AudioManager.Instance.PlaySFX("Pistol_fails");
+                              AudioManager.Instance.PlaySFX(_.fail);
                             break;
                         default:
-                            AudioManager.Instance.PlaySFX("Pistol");
+                            AudioManager.Instance.PlaySFX(_.shoot);
                             break;
                     }
                 }
@@ -137,7 +137,7 @@ public class RangeWeapons : MonoBehaviour
                     switch (index)
                     {
                         case 1:
-                            AudioManager.Instance.PlaySFX("Pistol_fails");
+                            AudioManager.Instance.PlaySFX(_.fail);
                             break;
                         default:
                             AudioManager.Instance.PlaySFX("Pistol-nails");
@@ -150,7 +150,34 @@ public class RangeWeapons : MonoBehaviour
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, beggin.transform.forward, false, hit, _));
                 lastShootTime = Time.time;
-                AudioManager.Instance.PlaySFX("Pistol");
+                if (Hand.munitionIndex == 1)
+                {
+                    int index;
+                    index = (int)Random.Range(0, 5);
+                    switch (index)
+                    {
+                        case 1:
+                            AudioManager.Instance.PlaySFX(_.fail);
+                            break;
+                        default:
+                            AudioManager.Instance.PlaySFX(_.shoot);
+                            break;
+                    }
+                }
+                else if (Hand.munitionIndex == 0)
+                {
+                    int index;
+                    index = (int)Random.Range(0, 5);
+                    switch (index)
+                    {
+                        case 1:
+                            AudioManager.Instance.PlaySFX(_.fail);
+                            break;
+                        default:
+                            AudioManager.Instance.PlaySFX("Pistol-nails");
+                            break;
+                    }
+                }
             }
 
             if (!ConsoleCheats.unlimitedAmmo)
