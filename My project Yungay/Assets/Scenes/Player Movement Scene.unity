@@ -3724,6 +3724,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 25.382, y: 108.314, z: 0}
+--- !u!114 &683733946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4283759661170003149, guid: 32114e61cfc07574093f98f0009921c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4283759661442754934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fd48a77e0ae874981028a923868108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &689681022
 GameObject:
   m_ObjectHideFlags: 0
@@ -11498,6 +11510,16 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 808695
       objectReference: {fileID: 0}
+    - target: {fileID: 4283759661170003144, guid: 32114e61cfc07574093f98f0009921c0,
+        type: 3}
+      propertyPath: timeSound
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283759661170003149, guid: 32114e61cfc07574093f98f0009921c0,
+        type: 3}
+      propertyPath: animatorPlayer
+      value: 
+      objectReference: {fileID: 8949097853262754787}
     - target: {fileID: 4283759661924909595, guid: 32114e61cfc07574093f98f0009921c0,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -12189,6 +12211,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4afaafde85783741a9897561501bd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8949097853262754787 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5135068544574069437, guid: 32114e61cfc07574093f98f0009921c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4283759661442754934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8949097853262754789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421363667948958475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc57c6e172e852041939231f2655812c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 683733946}
 --- !u!54 &9091250056893832616
 Rigidbody:
   m_ObjectHideFlags: 0
