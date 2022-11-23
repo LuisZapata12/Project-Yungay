@@ -10,32 +10,53 @@ public class KatyaVoice : MonoBehaviour
     [SerializeField, TextArea(3, 8)]
     public string text;
     public TMP_Text dialogueText;
+    private Collider m_Collider;
+    public float m_distance;
+    RaycastHit m_hit;
     void Start()
     {
-        
+        m_Collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+        if (Physics.BoxCast(m_Collider.bounds.center, transform.localScale, transform.forward, out m_hit, transform.rotation, m_distance))
         {
-            PanelD.SetActive(true);
-            dialogueText.text = ""+ text;
+            if (m_hit.transform.tag == "Player")
+            {
+                Debug.Log("hola");
+                PanelD.SetActive(true);
+                dialogueText.text = ""+ text;
+            }
+            //else
+            //{
+            //    PanelD.SetActive(false);
+            //}
+
         }
     }
-    public void OnTriggerExit(Collider other)
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        PanelD.SetActive(true);
+    //        dialogueText.text = ""+ text;
+    //    }
+    //}
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        PanelD.SetActive(false);
+
+    //    }
+
+    //}}
+    public void OnDrawGizmos()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            PanelD.SetActive(false);
-            
-        }
-       
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + transform.forward * m_distance, transform.localScale);
     }
 
 }
