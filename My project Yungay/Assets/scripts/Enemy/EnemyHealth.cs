@@ -15,6 +15,9 @@ public class EnemyHealth : MonoBehaviour
     private int count = 0;
 
     public Image healthBar;
+    public GameObject blood;
+    public float bloodTime;
+    private float timer2;
 
     private float healthActual, healthMax;
     void Start()
@@ -27,8 +30,6 @@ public class EnemyHealth : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = life / healthMax;
-
-        
         if (dead)
         {
             timer += Time.deltaTime;
@@ -41,10 +42,26 @@ public class EnemyHealth : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (blood.activeSelf)
+        {
+            timer2 += Time.deltaTime;
+            if (timer2 >= bloodTime)
+            {
+                timer2 = 0f;
+                blood.SetActive(false);
+            }
+        }
     }
     public void lifeE(float valor)
     {
         life-=valor;
+        if (blood.activeSelf)
+        {
+            blood.SetActive(false);
+            timer2 = 0f;
+        }
+        blood.SetActive(true);
         if (life <= 0 && !dead)
         {
             dead = true;
@@ -58,18 +75,16 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         if (other.CompareTag("Bala"))
         {
             lifeE(10);
         }
-        EquipmentMelee _ = (EquipmentMelee)Hand.currentItem;
 
-        if (_!=null)
+        if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
         {
-            if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
-            {
-                lifeE(_.damage);
-            }
+            EquipmentMelee _ = Hand.currentItem as EquipmentMelee;
+            lifeE(_.damage);
         }
     }
 
