@@ -96,7 +96,6 @@ public class Enemy3 : MonoBehaviour
                     if (Timer > Weapon.timeToShoot)
                     {
                         anim.SetBool("Shoot", true);
-                        Debug.Log("Shot");
                         TrailRenderer trail = Instantiate(bulletTrail, pointShoot.transform.position, Quaternion.identity);
                         StartCoroutine(SpawnTrail(trail, hit.point));
                         Weapon.Munition--;
@@ -125,7 +124,6 @@ public class Enemy3 : MonoBehaviour
                 Weapon.Munition += Weapon.charger;
                 Timer = 0;
                 anim.SetBool("Reload", false);
-                Debug.Log("Masmunicion");
             }
         }
     }

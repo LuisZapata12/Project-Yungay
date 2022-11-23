@@ -106,7 +106,6 @@ public class PlayerHealth : MonoBehaviour
                 time = 0;
             }
             mb.state = PlayerModel.State.death;
-            Debug.Log("Tiezo");
             
         }
     }

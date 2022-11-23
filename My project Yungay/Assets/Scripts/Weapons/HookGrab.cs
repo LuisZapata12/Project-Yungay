@@ -146,7 +146,6 @@ public class HookGrab : MonoBehaviour
             hookeableObject = other.gameObject.transform;
         }
         
-        Debug.Log("colision");
     }
 
     private void PickHook()

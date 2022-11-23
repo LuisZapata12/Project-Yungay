@@ -29,6 +29,7 @@ public class RangeWeapons : MonoBehaviour
     private string detect;
 
     private float timer;
+    bool a;
     private bool hasShoot;
     // Start is called before the first frame update
     void Start()
@@ -63,9 +64,21 @@ public class RangeWeapons : MonoBehaviour
                     timer = timer + Time.deltaTime;
                     if (timer >= 0.2f)
                     {
-                        timer = 0;
-                        AudioManager.Instance.PlaySFX("Pistol-case");
-                        hasShoot = false;
+                        if(Hand.munitionIndex == 0)
+                        {
+                            a = true;
+                            timer = 0;
+                        }
+                        if (Hand.munitionIndex == 1 && !a)
+                        {
+                            timer = 0;
+                            AudioManager.Instance.PlaySFX("Pistol-case");
+                            hasShoot = false;
+                        }
+                    }
+                    else if(timer == 0)
+                    {
+                        a = false;
                     }
                 }
             }
@@ -87,12 +100,10 @@ public class RangeWeapons : MonoBehaviour
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
                 hasShoot = true;
                 detect = hit.collider.tag;
-                Debug.Log(detect);
                 switch (detect)
                 {
                     case "Enemy":
                         StartCoroutine(SpawnTrail(trail, hit.point, true, hit, _));
-                        Debug.Log("si");
                         break;
                     case "Box":
                         StartCoroutine(SpawnTrail(trail, hit.point, true, hit, _));
@@ -107,19 +118,35 @@ public class RangeWeapons : MonoBehaviour
                 lastShootTime = Time.time;
                 if (Hand.munitionIndex == 1)
                 {
-                    AudioManager.Instance.PlaySFX("Pistol");
-                  
-                    
+                    int index;
+                    index = (int) Random.Range(0, 5); 
+                    switch (index)
+                    {
+                        case 1:
+                              AudioManager.Instance.PlaySFX("Pistol_fails");
+                            break;
+                        default:
+                            AudioManager.Instance.PlaySFX("Pistol");
+                            break;
+                    }
                 }
                 else if (Hand.munitionIndex == 0)
                 {
-                    AudioManager.Instance.PlaySFX("Pistol-nails");
+                    int index;
+                    index = (int)Random.Range(0,5);
+                    switch (index)
+                    {
+                        case 1:
+                            AudioManager.Instance.PlaySFX("Pistol_fails");
+                            break;
+                        default:
+                            AudioManager.Instance.PlaySFX("Pistol-nails");
+                            break;
+                    }
                 }
-                
             }
             else
             {
-                Debug.Log("e");
                 TrailRenderer trail = Instantiate(bulletTrail, beggin.transform.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, beggin.transform.forward, false, hit, _));
                 lastShootTime = Time.time;

@@ -34,7 +34,6 @@ public class Lever : MonoBehaviour
 
                 EventManager.current.StartUseLeverEvent(leverID);
                 anim.SetBool("isUse", true);
-                Debug.Log(inventory.CheckItem(axe));
             }
            
         }
@@ -45,9 +44,7 @@ public class Lever : MonoBehaviour
     {
         if (id == this.id)
         {
-            Debug.Log("Inicia la cinematica");
             StartCoroutine(Fading());
-            
         }
 
     }

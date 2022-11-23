@@ -138,7 +138,6 @@ public class EnemyPatrol : MonoBehaviour
                     Timer += Time.deltaTime;
                     if (Timer > Weapon.timeToShoot)
                     {
-                        Debug.Log("Shot");
                         Weapon.Munition--;
                         Timer = 0;
                         //Life.Damage(Weapon.damage);
@@ -159,7 +158,6 @@ public class EnemyPatrol : MonoBehaviour
             {
                 Weapon.Munition += Weapon.charger;
                 Timer = 0;
-                Debug.Log("Masmunicion");
             }
         }
     }

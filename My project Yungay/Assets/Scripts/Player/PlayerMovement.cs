@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(model.cam.transform.position, model.cam.transform.forward, out hit,3f,model.npc))
             {
-                Debug.LogWarning("WW"); 
                 if(hit.collider.tag == "NPC")
                 {
                     model._ = hit.collider.gameObject;

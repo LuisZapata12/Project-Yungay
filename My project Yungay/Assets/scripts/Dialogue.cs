@@ -46,7 +46,6 @@ public class Dialogue : MonoBehaviour
                 if (pressInit == false)
                 {
                     pressInitDialogue.SetActive(true);
-                    Debug.Log(gameObject.name);
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
