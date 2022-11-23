@@ -19,7 +19,7 @@ public class TutorialManager : MonoBehaviour
     public float maxTime = 0f;
     private Vector3 oldRotation = new Vector3(0, 0, 0);
     PlayerModel playerModel;
-    public ItemObject backpack,paper;
+    public ItemObject backpack,paper,axe;
     private Inventory inventory;
     private InventoryDisplay inventoryDisplay;
     private bool activateInventory = false;
@@ -27,6 +27,8 @@ public class TutorialManager : MonoBehaviour
     private GameObject[] paperObject;
     private bool once = false;
     public GameObject box;
+
+    public int index = 0;
     private void Start()
     {
         cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
@@ -42,93 +44,72 @@ public class TutorialManager : MonoBehaviour
     }
     private void Update()
     {
-            if (!moveCamera)
-            {
+        MisionText.currentMision = index;
+        switch (index)
+        {
+            case 0:
                 CheckMoveCamera();
-                MisionText.currentMision = 0;
-            }
-            else
-            {
-                if (!movePlayer)
+                if (moveCamera)
                 {
-                    MisionText.currentMision = 1;
-                    CheckMovement();
+                    index = 1;
                 }
-                else
+                break;
+            case 1:
+                CheckMovement();
+                if (movePlayer)
                 {
-                    if (!grabBackpack)
-                    {
-                        MisionText.currentMision = 2;
-                        grabBackpack = CheckGrabItem(backpack);
-
-                        if (!once)
-                        {
-                            backpackObjetc.AddComponent<Loot>().loot.Add(new Item(backpack, 1,0));
-                            once = true;
-                        }
-                    }
-                    else
-                    {
-                        if (!activateInventory)
-                        {
-                            inventory.RestItem(backpack, 1);
-                            inventory.RemoveSlot();
-                            inventoryDisplay.enabled = !inventoryDisplay.enabled;
-                            activateInventory = true;
-                        }
-
-                        if (!openInventory)
-                        {
-                            MisionText.currentMision = 3;
-                            if (Input.GetKeyDown(KeyCode.Tab))
-                            {
-                                openInventory = true; foreach (GameObject Papers in paperObject)
-                                {
-                                    Papers.AddComponent<Loot>().loot.Add(new Item(paper, 1,0));
-                                }
-                                
-                            }
-                        }
-                        else
-                        {
-                            if (!grabPaper)
-                            {
-                                MisionText.currentMision = 4;
-                                grabPaper = CheckGrabItem(paper);
-                            }
-                            else
-                            {
-                                if (!throwPaper)
-                                {
-                                    MisionText.currentMision = 5;
-
-                                    if (Input.GetMouseButtonDown(1))
-                                    {
-                                        throwPaper = true;
-                                    }
-
-                                }
-                                else
-                                {
-                                    if (!moveBox)
-                                    {
-                                        MisionText.currentMision = 6;
-                                        box.GetComponent<Rigidbody>().isKinematic = false;
-                                        CheckMoveBox();
-                                    }
-                                    else
-                                    {
-                                        MisionText.currentMision = 7;
-                                    }
-                                }
-
-                            }
-                        }
-                    }
+                    index = 2;
                 }
-
-            }
-        
+                break;
+            case 2:
+                if (!once)
+                {
+                    backpackObjetc.AddComponent<Loot>().loot.Add(new Item(backpack, 1, 0));
+                    once = true;
+                }
+                grabBackpack = CheckGrabItem(backpack);
+                if (grabBackpack)
+                {
+                    inventory.RestItem(backpack, 1);
+                    inventory.RemoveSlot();
+                    inventoryDisplay.enabled = !inventoryDisplay.enabled;
+                    index = 3;
+                }
+                break;
+            case 3:
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    foreach (GameObject Papers in paperObject)
+                    {
+                        Papers.AddComponent<Loot>().loot.Add(new Item(paper, 1, 0));
+                    }
+                    index = 4;
+                }
+                break;
+            case 4:
+                grabPaper = CheckGrabItem(paper);
+                if (grabPaper)
+                {
+                    index = 5;
+                }
+                break;
+            case 5:
+                if (Input.GetMouseButtonDown(1))
+                {
+                    index = 6;
+                }
+                break;
+            case 6:
+                if (inventory.CheckItem(axe))
+                {
+                    index = 7;
+                }
+                break;
+            case 7:
+                break;
+            default:
+                break;
+        }
     }
 
     private void CheckMoveCamera()
