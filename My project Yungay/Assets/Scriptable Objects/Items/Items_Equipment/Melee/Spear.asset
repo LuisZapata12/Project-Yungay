@@ -18,9 +18,9 @@ MonoBehaviour:
   maxStack: 1
   description: 
   itemName: Spear
-  itemMesh: {fileID: 4068373912626513877, guid: 9250b7ef6e445f54db772315e85eef8d,
+  itemMesh: {fileID: 5303923085450066343, guid: 72e9607d2117ae94e8de8d021d2ff08e,
     type: 3}
-  itemMaterial: {fileID: 8748892135801146194, guid: 9250b7ef6e445f54db772315e85eef8d,
+  itemMaterial: {fileID: 2770359204999231786, guid: 72e9607d2117ae94e8de8d021d2ff08e,
     type: 3}
   equipmentType: 0
   idleClip: {fileID: 7400000, guid: 9f6a5a132287e9a4a8bfea01adaebbfd, type: 2}
