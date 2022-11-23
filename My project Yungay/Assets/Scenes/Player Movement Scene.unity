@@ -7791,7 +7791,7 @@ PrefabInstance:
     - target: {fileID: 316921241, guid: fa9ca198d9416704780e5ee1bd7b755c, type: 3}
       propertyPath: spwanPos
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 843631892306574664}
     - target: {fileID: 316921241, guid: fa9ca198d9416704780e5ee1bd7b755c, type: 3}
       propertyPath: ObjectScroll
       value: 
