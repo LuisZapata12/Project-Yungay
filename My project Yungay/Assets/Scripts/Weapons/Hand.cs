@@ -26,6 +26,7 @@ public class Hand : MonoBehaviour
     private AudioSource audioSource;
     public Sprite defaultCursor, weaponsCursor, aimCursor;
     public static Image imageCursor;
+    public Animator animatorPlayer;
     private bool once = false;
 
     public ItemObject itemxd;
@@ -57,13 +58,16 @@ public class Hand : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                muni.ReloadMunition(currentMunition);
+                animatorPlayer.SetBool("isReload", true);
             }
         }
 
         UpdateText();
     }
-
+    public void Reload()
+    {
+        muni.ReloadMunition(currentMunition);
+    }
     private void ChangeItem()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))

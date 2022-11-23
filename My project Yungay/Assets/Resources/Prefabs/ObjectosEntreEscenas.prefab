@@ -2970,6 +2970,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ba5ed5834fb4b7e48a3bdd69ce94cf83, type: 3}
   - name: Pistol-case
     clip: {fileID: 8300000, guid: f2ec61dd3cf2fde43bc469e91000b8c0, type: 3}
+  - name: Pistol_Reload
+    clip: {fileID: 8300000, guid: 9ba4f1b9551241341816d87c5768be10, type: 3}
   - name: Axe
     clip: {fileID: 8300000, guid: 73e6401072c264a4fb0703be8819064c, type: 3}
   - name: Knife

@@ -230,7 +230,9 @@ public class Munition : MonoBehaviour
     //}
     #endregion
     public void ReloadMunition(ItemObject item)
-    {/*
+    {
+        #region basura
+        /*
         MunitonSlot result = item.munitions.Find();
         if(item.munitions[result].munition== hand.currentMunition)
         {
@@ -245,6 +247,7 @@ public class Munition : MonoBehaviour
             }
 
         }*/
+        #endregion
         if (inventory.CheckItem(item))
         {
             for (int i = 0; i < hand.weaponSlots.Count; i++)
@@ -265,6 +268,7 @@ public class Munition : MonoBehaviour
                                     break;
                                 }
                             }
+                            #region basura
                             /*
                             if (inventory.CheckAmount(hand.currentMunition) < maxCharge)
                             {
@@ -298,6 +302,7 @@ public class Munition : MonoBehaviour
                                 }
                             }
                             */
+                            #endregion
                             if (inventory.CheckAmount(hand.currentMunition) - (maxCharge - hand.weaponSlots[i].munitions[j].charge) > 0)
                             {
                                 inventory.RestItem(item, maxCharge - hand.weaponSlots[i].munitions[j].charge);
@@ -308,14 +313,13 @@ public class Munition : MonoBehaviour
                                 hand.weaponSlots[i].munitions[j].charge += inventory.CheckAmount(hand.currentMunition);
                                 inventory.RestItem(item, inventory.CheckAmount(hand.currentMunition));
                             }
-                                inventoryDisplay.UpdateDisplay();
-                                break;
+                            inventoryDisplay.UpdateDisplay();
+                            break;
                         }
                     }
                     break;
                 }
             }
-           
         }
     }
 
