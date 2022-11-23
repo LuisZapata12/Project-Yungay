@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8173437322802260201}
   - component: {fileID: 5091558858980077041}
   - component: {fileID: 5223090006451541622}
-  - component: {fileID: -6996562946460534662}
   m_Layer: 0
   m_Name: FBX_botiquin
   m_TagString: Untagged
@@ -133,16 +132,3 @@ MonoBehaviour:
     amount: 1
     durability: 0
   isRandom: 0
---- !u!114 &-6996562946460534662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3088418160210637385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newColor: {r: 0.9372549, g: 0.9607843, b: 0.3137255, a: 0}

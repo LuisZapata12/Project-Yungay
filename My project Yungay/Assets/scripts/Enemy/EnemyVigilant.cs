@@ -135,7 +135,7 @@ public class EnemyVigilant : MonoBehaviour
 
 
 
-                if ((Vector3.Distance(transform.position, Target.transform.position) < 1.5f))
+                if ((Vector3.Distance(transform.position, Target.transform.position) < 1f))
                 {
                     Near = true;
                     Agent.enabled = false;

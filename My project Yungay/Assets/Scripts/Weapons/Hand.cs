@@ -132,9 +132,6 @@ public class Hand : MonoBehaviour
             }
         }
     }
-    public void Desgaste()
-    {
-    }
     private void UpdateText()
     {
         if (canAim)

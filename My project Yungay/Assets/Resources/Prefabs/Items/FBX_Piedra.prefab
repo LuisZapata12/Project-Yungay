@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5166149738228124165}
   - component: {fileID: 1280772390961230098}
   - component: {fileID: 6947104447989185562}
-  - component: {fileID: 1703357494}
   m_Layer: 0
   m_Name: FBX_Piedra
   m_TagString: Hookeable
@@ -133,16 +132,3 @@ MonoBehaviour:
     amount: 1
     durability: 0
   isRandom: 0
---- !u!114 &1703357494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299538024013844753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d686264da808245b8cf35508071542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newColor: {r: 0.93590707, g: 0.9622642, b: 0.31318974, a: 0}
