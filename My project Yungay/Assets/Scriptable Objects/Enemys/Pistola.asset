@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pistola
   m_EditorClassIdentifier: 
   damage: 3
-  Range: 10
-  Munition: 4
+  Range: 5
+  Munition: 5
   charger: 10
   timeToShoot: 1.5
   timetoRecharge: 2
