@@ -87,41 +87,45 @@ public class EnemyVigilant : MonoBehaviour
     }
     public void ToPlayerWithWeapon()
     {
-        if (Vector3.Distance(transform.position, Target.position) < fov.viewRadius)
+        if (Target != null)
         {
-            var lookpos = Target.position - transform.position;
-            lookpos.y = 0;
-            var rotation = Quaternion.LookRotation(lookpos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
-            Agent.enabled = true;
-            Agent.SetDestination(Target.transform.position);
-            Agent.speed = speed;
-            DetectPlayer = true;
-            anim.SetBool("RunP", true);
-
-            if ((Vector3.Distance(transform.position, Target.transform.position) < 6f))
+            if (Vector3.Distance(transform.position, Target.position) < fov.viewRadius)
             {
-                Near = true;
-                Agent.enabled = false;
-                anim.SetBool("Iddlep",true);
-                anim.SetBool("RunP", false);
+                var lookpos = Target.position - transform.position;
+                lookpos.y = 0;
+                var rotation = Quaternion.LookRotation(lookpos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
+                Agent.enabled = true;
+                Agent.SetDestination(Target.transform.position);
+                Agent.speed = speed;
+                DetectPlayer = true;
+                anim.SetBool("RunP", true);
+
+                if ((Vector3.Distance(transform.position, Target.transform.position) < 6f))
+                {
+                    Near = true;
+                    Agent.enabled = false;
+                    anim.SetBool("Iddlep", true);
+                    anim.SetBool("RunP", false);
+                }
+                else
+                {
+                    Near = false;
+                    Agent.enabled = true;
+                    anim.SetBool("Iddlep", false);
+                    anim.SetBool("RunP", true);
+
+                }
             }
             else
             {
-                Near = false;
-                Agent.enabled = true;
-                anim.SetBool("Iddlep", false);
-                anim.SetBool("RunP", true);
+                DetectPlayer = false;
+                anim.SetBool("RunP", false);
+                Agent.enabled = false;
 
             }
         }
-        else
-        {
-            DetectPlayer = false;
-            anim.SetBool("RunP", false);
-            Agent.enabled = false;
-
-        }
+       
     }
     public void ToPlayWithouthWeapon()
     {
@@ -141,7 +145,7 @@ public class EnemyVigilant : MonoBehaviour
 
 
 
-                if ((Vector3.Distance(transform.position, Target.transform.position) < 1f))
+                if ((Vector3.Distance(transform.position, Target.transform.position) < 1.2f))
                 {
                     Near = true;
                     Agent.enabled = false;
