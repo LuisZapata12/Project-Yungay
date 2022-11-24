@@ -75,7 +75,7 @@ public class Sacks : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
         {
           
-            StartCoroutine(showText());
+            //StartCoroutine(showText());
         }
     }
 

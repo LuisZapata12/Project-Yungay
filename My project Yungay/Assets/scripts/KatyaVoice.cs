@@ -14,70 +14,86 @@ public class KatyaVoice : MonoBehaviour
     public float m_distance;
     RaycastHit m_hit;
     public bool xd;
+
+    
     void Start()
     {
         m_Collider = GetComponent<Collider>();
+  
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (xd)
+
+        //distance = CalculateDistance();
+        //if (distance < 5f)
+        //{
+        //    Debug.Log("activo");
+        //    //PanelD.SetActive(true);
+        //    //dialogueText.text = "" + text;
+        //}
+
+        //else
+        //{
+        //    Debug.Log("inactivo");
+        //    //PanelD.SetActive(false);
+        //}
+        //if (xd)
+        //{
+        //    PanelD.SetActive(true);
+        //    dialogueText.text = "" + text;
+        //}
+        //else
+        //{
+        //    PanelD.SetActive(false);
+        //}
+        if (Physics.SphereCast(transform.position, transform.lossyScale.x / 2, transform.right, out m_hit,  m_distance))
         {
-            PanelD.SetActive(true);
-            dialogueText.text = "" + text;
+            if (m_hit.transform.tag == "Player")
+            {
+                PanelD.SetActive(true);
+                dialogueText.text = "" + text;
+
+            }
+            
+
+
+
         }
         else
+
         {
             PanelD.SetActive(false);
+            //xd = false;
         }
-        if (Physics.BoxCast(m_Collider.bounds.center, transform.localScale, transform.forward, out m_hit, transform.rotation, m_distance))
-        {
-            if (m_hit.transform.tag =="Player")
-            {
-            
-                xd = true;
-            }
-            else
+        //public void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.gameObject.CompareTag("Player"))
+        //    {
+        //        PanelD.SetActive(true);
+        //        dialogueText.text = ""+ text;
+        //    }
+        //}
+        //public void OnTriggerExit(Collider other)
+        //{
+        //    if (other.gameObject.CompareTag("Player"))
+        //    {
+        //        PanelD.SetActive(false);
 
-            {
-                xd = false;
-            }
+        //    }
 
-
-
-        }
-        else
-
-        {
-            xd = false;
-        }
-
-
-        
-
+        //}}
     }
-    //public void OnTriggerEnter(Collider other)
+    //private float CalculateDistance()
     //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        PanelD.SetActive(true);
-    //        dialogueText.text = ""+ text;
-    //    }
+    //    return Vector3.Distance(transform.position, target.transform.position);
     //}
-    //public void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        PanelD.SetActive(false);
 
-    //    }
-
-    //}}
-    public void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(m_Collider.bounds.center + transform.forward * m_distance, transform.localScale);
+        Gizmos.DrawWireSphere(transform.position + transform.right * m_hit.distance, transform.lossyScale.x /2);
     }
 
 }
