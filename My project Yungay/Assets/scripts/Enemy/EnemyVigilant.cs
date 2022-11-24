@@ -24,7 +24,7 @@ public class EnemyVigilant : MonoBehaviour
     public float waitTime;
     private float timer;
     private Vector3 originalPos;
-    public float rangeWeapon;
+    //public float rangeWeapon;
 
     void Start()
     {
@@ -101,7 +101,7 @@ public class EnemyVigilant : MonoBehaviour
                 DetectPlayer = true;
                 anim.SetBool("RunP", true);
 
-                if ((Vector3.Distance(transform.position, Target.transform.position) < 6f))
+                if ((Vector3.Distance(transform.position, Target.transform.position) < Weapon.Range/*6f*/))
                 {
                     Near = true;
                     Agent.enabled = false;

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04edd9a3d1afd3247bc59e9b9c246524, type: 3}
   m_Name: Pistola
   m_EditorClassIdentifier: 
-  damage: 8
+  damage: 3
   Range: 10
-  Munition: 2
+  Munition: 4
   charger: 10
-  timeToShoot: 0.5
-  timetoRecharge: 0
+  timeToShoot: 1.5
+  timetoRecharge: 2
   Drop: []
