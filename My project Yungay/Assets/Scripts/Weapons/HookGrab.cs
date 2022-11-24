@@ -15,6 +15,10 @@ public class HookGrab : MonoBehaviour
     private Inventory inventory;
     public float rayDistance;
     private bool canShot = true;
+    [SerializeField]
+    private float distance;
+    [SerializeField]
+    private LayerMask hook;
 
     public Transform hookeableObject;
     // Start is called before the first frame update
@@ -86,13 +90,14 @@ public class HookGrab : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q) && isGrab == false && isShot == false && canShot)
         {
-            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, rayDistance))
+            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, rayDistance, hook))
             {
                 if (hit.transform.tag != "Hook")
                 {
                     //AudioManager.Instance.PlaySFX("Hook_shoot");
+                    Debug.Log(hit.collider.name);
                     AudioManager.Instance.PlaySFX("Hook_shootrope");
-                    isShot = true;
+                   isShot = true;
                     hitposition = hit.point;
                 }
                 
@@ -117,7 +122,10 @@ public class HookGrab : MonoBehaviour
         {
             hookObject.transform.position = Vector3.MoveTowards(hookObject.transform.position, hitposition, speedShoot * Time.deltaTime);
             hookObject.transform.SetParent(null);
-            this.GetComponent<BoxCollider>().enabled = true;
+            if(Vector3.Distance(hookObject.transform.position, hitposition) < distance)
+            {
+                this.GetComponent<BoxCollider>().enabled = true;
+            }
             
         }
         else if (isShot == false && isGrab == false)
