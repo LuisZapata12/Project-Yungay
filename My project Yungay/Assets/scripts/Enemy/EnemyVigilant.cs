@@ -40,8 +40,7 @@ public class EnemyVigilant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
+        Vision = fov.viewRadius;
         if (fov.visibleTargets.Count > 0)
         {
             Target = fov.visibleTargets[0];
@@ -161,8 +160,6 @@ public class EnemyVigilant : MonoBehaviour
                 }
             }
 
-
-
             else if (DetectPlayer)
             {
                 distance = Vector3.Distance(transform.position, lastPosition);
@@ -187,9 +184,33 @@ public class EnemyVigilant : MonoBehaviour
                 }
 
             }
+
+        }
+        else if (DetectPlayer && Target == null)
+        {
+            distance = Vector3.Distance(transform.position, lastPosition);
+            if (distance > 0.26f)
+            {
+                Agent.SetDestination(lastPosition);
+                anim.SetBool("Run", true);
+                followLast = true;
+            }
+            else
+            {
+                anim.SetBool("Run", false);
+                timer += Time.deltaTime;
+                if (timer >= waitTime)
+                {
+                    lastPosition = Vector3.zero;
+                    anim.SetBool("Run", true);
+                    DetectPlayer = false;
+                    Agent.SetDestination(originalPos);
+                    timer = 0f;
+                }
+            }
+
         }
 
-            
     }
     public void Shoot()
     {
