@@ -1115,7 +1115,7 @@ Transform:
   - {fileID: 254176280}
   - {fileID: 6245852952387425097}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3741045179470426403
 MonoBehaviour:
@@ -8079,7 +8079,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3741045181005002774
 MonoBehaviour:
@@ -9714,7 +9714,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: OpenCloseScroll
         m_Mode: 0
@@ -10278,7 +10278,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: SpawnObject
         m_Mode: 2
@@ -10782,7 +10782,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: SpawnObject
         m_Mode: 2
@@ -11549,7 +11549,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: SpawnObject
         m_Mode: 2
@@ -11725,7 +11725,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: SpawnObject
         m_Mode: 2
@@ -11825,7 +11825,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: ShowSl
         m_Mode: 0
@@ -12001,7 +12001,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: NoClip
         m_Mode: 0
@@ -12235,7 +12235,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: UnlimitedAmmo
         m_Mode: 0
@@ -12412,7 +12412,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 316921241}
         m_TargetAssemblyTypeName: ConsoleCheats, Assembly-CSharp
         m_MethodName: GodMode
         m_Mode: 0

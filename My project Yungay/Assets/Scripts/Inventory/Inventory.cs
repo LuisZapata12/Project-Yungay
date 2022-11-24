@@ -342,11 +342,13 @@ public class Inventory : MonoBehaviour
                 {
                     slots[i].item = slot.item;
                     slots[i].amount = slot.amount;
+                    slots[i].durability = slot.durability;
                 }
                 else
                 {
                     slots[i].item = null;
                     slots[i].amount = 0;
+                    slots[i].durability = 0;
                 }
             }
         }

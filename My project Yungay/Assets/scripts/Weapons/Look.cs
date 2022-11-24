@@ -22,6 +22,7 @@ public class Look : MonoBehaviour
     public CinemachineCameraOffset offset;
     public float zoomValue;
     private bool once;
+    private bool isback = false;
 
     private void Start()
     {
@@ -41,50 +42,33 @@ public class Look : MonoBehaviour
             float distance2 = Vector3.Distance(camera.transform.position, init.transform.position);
 
 
-            if (Input.GetMouseButtonDown(1) && weapon != null)
+            if (Input.GetMouseButtonDown(1) && weapon != null && !isback)
             {
-                IsPoint();
                 zoom = true;
                 anim.Play("Aim_Pistol");
                 anim.SetBool("isAim", true);
-                Hand.imageCursor.sprite = aimCursor;
             }
 
             if (Input.GetMouseButtonUp(1))
             {
                 zoom = false;
                 anim.SetBool("isAim", false);
-                Hand.imageCursor.sprite = weaponCursor;
             }
 
 
             if (zoom && !once)
             {
-                StartCoroutine(Zoom(zoomValue));
+                coroutine = StartCoroutine(Zoom(zoomValue));
                 once = true;
             }
 
             if (!zoom && once)
             {
+                StopCoroutine(coroutine);
                 StartCoroutine(Back());
+                isback = true;
                 once = false;
             }
-            //if (zoom && offset.m_Offset.z != zoomValue)
-            //{
-
-            //    offset.m_Offset.z += Time.deltaTime * smooth;
-
-            //}
-            //else if(!zoom && offset.m_Offset.z == zoomValue)
-            //{
-            //    //camera.transform.position = Vector3.Lerp(camera.transform.position, init.transform.position, Time.deltaTime * smooth);
-            //    //if (distance2 < 0.01f)
-            //    //{
-            //    //    camera.transform.position = init.transform.position;
-            //    //}
-
-            //    offset.m_Offset.z -= Time.deltaTime * smooth;
-            //}
         }
     }
 
@@ -131,6 +115,7 @@ public class Look : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         offset.m_Offset = Vector3.zero;
+        isback = false;
         yield break;
     }
 }
