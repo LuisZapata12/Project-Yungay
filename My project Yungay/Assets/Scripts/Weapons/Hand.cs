@@ -42,6 +42,7 @@ public class Hand : MonoBehaviour
         muni = GetComponent<Munition>();
         audioSource = GetComponent<AudioSource>();
         imageCursor = GameObject.Find("Cursor").GetComponent<Image>();
+        animatorPlayer = GameObject.Find("Player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
