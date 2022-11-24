@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -6876113848884568309}
   m_Layer: 14
   m_Name: Hacha
-  m_TagString: Axe
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

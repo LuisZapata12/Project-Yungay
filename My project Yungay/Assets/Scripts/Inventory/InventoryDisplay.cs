@@ -78,9 +78,12 @@ public class InventoryDisplay : MonoBehaviour
                     else
                     {
                         text.text = "";
-                        durability.gameObject.SetActive(true);
-                        EquipmentMelee _ = inventory.slots[i].item as EquipmentMelee;
 
+                        if (inventory.slots[i].durability != 0)
+                        {
+                            durability.gameObject.SetActive(true);
+                        }
+                        EquipmentMelee _ = inventory.slots[i].item as EquipmentMelee;
                         if (_ != null)
                         {
                             durability.fillAmount =  (float)inventory.slots[i].durability /(float)_.durability;
@@ -90,6 +93,7 @@ public class InventoryDisplay : MonoBehaviour
                 else
                 {
                     slotsUI[i].GetComponent<Slot>().slot.item = null;
+                    slotsUI[i].GetComponent<Slot>().slot.amount = 0;
                     slotsUI[i].GetComponent<Slot>().slot.amount = 0;
                     slotsUI[i].GetComponent<Image>().sprite = null;
                     text.text = null;

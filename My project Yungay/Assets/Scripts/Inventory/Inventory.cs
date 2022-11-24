@@ -8,6 +8,8 @@ public class Inventory : MonoBehaviour
     public List<InventorySlot> slots = new List<InventorySlot>();
     public InventoryDisplay inventoryDisplay;
     public HudTest hudTest;
+    public ItemObject gancho;
+    public GameObject ganchoMano;
 
     private void Awake()
     {
@@ -143,39 +145,51 @@ public class Inventory : MonoBehaviour
 
     private void Craft(CraftRecipes recipe, int count)
     {
-        for (int i = 0; i < recipe.materials.Count; i++)
+        if (InventorySpace())
         {
-            foreach (InventorySlot slot in slots)
+            for (int i = 0; i < recipe.materials.Count; i++)
             {
-                if (slot.item == recipe.materials[i].item)
+                foreach (InventorySlot slot in slots)
                 {
-                    slot.amount -= recipe.materials[i].amount;
+                    if (slot.item == recipe.materials[i].item)
+                    {
+                        slot.amount -= recipe.materials[i].amount;
+                    }
                 }
             }
-        }
 
-        for (int i = 0; i < count; i++)
-        {
-            RemoveSlot();
-        }
-
-        if (recipe.result.type == ItemType.Equipment)
-        {
-            EquipmentItem _ = (EquipmentItem)recipe.result;
-            if (_.equipmentType == EquipmentType.Melee)
+            for (int i = 0; i < count; i++)
             {
-                EquipmentMelee item = (EquipmentMelee)recipe.result;
-                AddItem(null, recipe.result, recipe.amount, item.durability);
+                RemoveSlot();
+            }
+
+            if (recipe.result == gancho)
+            {
+                ganchoMano.SetActive(true);
             }
             else
             {
-                AddItem(null, recipe.result, recipe.amount, 0);
+
+                if (recipe.result.type == ItemType.Equipment)
+                {
+                    EquipmentItem _ = recipe.result as EquipmentItem;
+                    if (_.equipmentType == EquipmentType.Melee)
+                    {
+                        EquipmentMelee item = (EquipmentMelee)recipe.result;
+                        AddItem(null, recipe.result, recipe.amount, item.durability);
+                    }
+                    else
+                    {
+                        AddItem(null, recipe.result, recipe.amount, 0);
+                    }
+                }
+                else
+                {
+                    AddItem(null, recipe.result, recipe.amount, 0);
+                }
             }
         }
-        else
-        {
-            AddItem(null, recipe.result, recipe.amount, 0);
-        }
+ 
     }
     public void RemoveSlot()
     {
