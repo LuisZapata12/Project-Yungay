@@ -13,6 +13,7 @@ public class KatyaVoice : MonoBehaviour
     private Collider m_Collider;
     public float m_distance;
     RaycastHit m_hit;
+    public bool xd;
     void Start()
     {
         m_Collider = GetComponent<Collider>();
@@ -21,20 +22,40 @@ public class KatyaVoice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (xd)
+        {
+            PanelD.SetActive(true);
+            dialogueText.text = "" + text;
+        }
+        else
+        {
+            PanelD.SetActive(false);
+        }
         if (Physics.BoxCast(m_Collider.bounds.center, transform.localScale, transform.forward, out m_hit, transform.rotation, m_distance))
         {
-            if (m_hit.transform.tag == "Player")
+            if (m_hit.transform.tag =="Player")
             {
-                Debug.Log("hola");
-                PanelD.SetActive(true);
-                dialogueText.text = ""+ text;
+            
+                xd = true;
             }
-            //else
-            //{
-            //    PanelD.SetActive(false);
-            //}
+            else
+
+            {
+                xd = false;
+            }
+
+
 
         }
+        else
+
+        {
+            xd = false;
+        }
+
+
+        
+
     }
     //public void OnTriggerEnter(Collider other)
     //{
