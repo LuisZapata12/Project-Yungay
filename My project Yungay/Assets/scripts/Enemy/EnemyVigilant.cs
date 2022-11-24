@@ -24,20 +24,24 @@ public class EnemyVigilant : MonoBehaviour
     public float waitTime;
     private float timer;
     private Vector3 originalPos;
+    public float rangeWeapon;
 
     void Start()
     {
+        
         Agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         fov = GetComponent<FieldOfView>();
         originalPos = transform.position;
         Life = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+       
+
         if (fov.visibleTargets.Count > 0)
         {
             Target = fov.visibleTargets[0];
@@ -82,45 +86,42 @@ public class EnemyVigilant : MonoBehaviour
         }
     }
     public void ToPlayerWithWeapon()
-    { if (Target != null)
+    {
+        if (Vector3.Distance(transform.position, Target.position) < fov.viewRadius)
         {
-            if (Vector3.Distance(transform.position, Target.position) < Vision)
+            var lookpos = Target.position - transform.position;
+            lookpos.y = 0;
+            var rotation = Quaternion.LookRotation(lookpos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
+            Agent.enabled = true;
+            Agent.SetDestination(Target.transform.position);
+            Agent.speed = speed;
+            DetectPlayer = true;
+            anim.SetBool("RunP", true);
+
+            if ((Vector3.Distance(transform.position, Target.transform.position) < 6f))
             {
-                var lookpos = Target.position - transform.position;
-                lookpos.y = 0;
-                var rotation = Quaternion.LookRotation(lookpos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
-                Agent.enabled = true;
-                Agent.SetDestination(Target.transform.position);
-                Agent.speed = speed;
-                DetectPlayer = true;
-                anim.SetBool("Iddlep", true);
-
-                if ((Vector3.Distance(transform.position, Target.transform.position) < Weapon.Range))
-                {
-                    Near = true;
-                    Agent.enabled = false;
-                    anim.SetBool("Iddlep", true);
-                    anim.SetBool("RunP", true);
-                }
-                else
-                {
-                    Near = false;
-                    Agent.enabled = true;
-                    anim.SetBool("Iddlep", false);
-                    anim.SetBool("RunP", false);
-
-                }
+                Near = true;
+                Agent.enabled = false;
+                anim.SetBool("Iddlep",true);
+                anim.SetBool("RunP", false);
             }
             else
             {
-                DetectPlayer = false;
-                anim.SetBool("RunP", false);
-                Agent.enabled = false;
+                Near = false;
+                Agent.enabled = true;
+                anim.SetBool("Iddlep", false);
+                anim.SetBool("RunP", true);
 
             }
         }
-       
+        else
+        {
+            DetectPlayer = false;
+            anim.SetBool("RunP", false);
+            Agent.enabled = false;
+
+        }
     }
     public void ToPlayWithouthWeapon()
     {
@@ -155,31 +156,36 @@ public class EnemyVigilant : MonoBehaviour
                     anim.SetBool("Atack", false);
                 }
             }
-        }
-        else if (DetectPlayer)
-        {
-            distance = Vector3.Distance(transform.position, lastPosition);
-            if (distance > 0.26f)
-            {
-                Agent.SetDestination(lastPosition);
-                anim.SetBool("Run", true);
-                followLast = true;
-            }
-            else
-            {
-                anim.SetBool("Run", false);
-                timer += Time.deltaTime;
-                if (timer >= waitTime)
-                {
-                    lastPosition = Vector3.zero;
-                    anim.SetBool("Run", true);
-                    DetectPlayer = false;
-                    Agent.SetDestination(originalPos);
-                    timer = 0f;
-                }
-            }
 
+
+
+            else if (DetectPlayer)
+            {
+                distance = Vector3.Distance(transform.position, lastPosition);
+                if (distance > 0.26f)
+                {
+                    Agent.SetDestination(lastPosition);
+                    anim.SetBool("Run", true);
+                    followLast = true;
+                }
+                else
+                {
+                    anim.SetBool("Run", false);
+                    timer += Time.deltaTime;
+                    if (timer >= waitTime)
+                    {
+                        lastPosition = Vector3.zero;
+                        anim.SetBool("Run", true);
+                        DetectPlayer = false;
+                        Agent.SetDestination(originalPos);
+                        timer = 0f;
+                    }
+                }
+
+            }
         }
+
+            
     }
     public void Shoot()
     {
@@ -200,17 +206,24 @@ public class EnemyVigilant : MonoBehaviour
                         Life.Damage(Weapon.damage);
 
                     }
+                    else
+
+                    {
+                        anim.SetBool("Shoot", false);
+                    }
                 }
             }
 
         }
         if (Weapon.Munition == 0)
         {
+            anim.SetBool("Reload", true);
             Timer += Time.deltaTime;
             if (Timer>=Weapon.timetoRecharge)
             {
                 Weapon.Munition +=Weapon.charger;
                 Timer = 0;
+                anim.SetBool("Reload", false);
             }
         }
     }

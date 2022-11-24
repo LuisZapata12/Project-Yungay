@@ -77,7 +77,7 @@ public class KatyaVoice : MonoBehaviour
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + transform.forward * m_distance, transform.localScale);
+        Gizmos.DrawWireCube(m_Collider.bounds.center + transform.forward * m_distance, transform.localScale);
     }
 
 }
