@@ -14,6 +14,9 @@ public class KatyaVoice : MonoBehaviour
     public float m_distance;
     RaycastHit m_hit;
     public bool xd;
+    public float range;
+    public Transform player;
+    public bool inRange;
 
     
     void Start()
@@ -25,6 +28,22 @@ public class KatyaVoice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (calculateDistante() < range)
+        {
+            inRange = true;
+            PanelD.SetActive(true);
+            dialogueText.text = "" + text;
+        }
+
+        if (calculateDistante() > range && inRange)
+        {
+            inRange = false;
+            PanelD.SetActive(false);
+        }
+
+
+
 
         //distance = CalculateDistance();
         //if (distance < 5f)
@@ -48,24 +67,24 @@ public class KatyaVoice : MonoBehaviour
         //{
         //    PanelD.SetActive(false);
         //}
-        if (Physics.SphereCast(transform.position, transform.lossyScale.x / 2, transform.right, out m_hit,  m_distance))
-        {
-            if (m_hit.transform.tag == "Player")
-            {
-                PanelD.SetActive(true);
-                dialogueText.text = "" + text;
+        //if (Physics.SphereCast(transform.position, transform.lossyScale.x / 2, transform.right, out m_hit,  m_distance))
+        //{
+        //    if (m_hit.transform.tag == "Player")
+        //    {
+        //        PanelD.SetActive(true);
+        //        dialogueText.text = "" + text;
 
-            }
+        //    }
             
 
 
 
-        }
-        else
+        //}
+        //else
 
-        {
-            PanelD.SetActive(false);
-            //xd = false;
+        //{
+        //    PanelD.SetActive(false);
+        //    //xd = false;
         }
         //public void OnTriggerEnter(Collider other)
         //{
@@ -84,16 +103,23 @@ public class KatyaVoice : MonoBehaviour
         //    }
 
         //}}
-    }
+    //}
+
     //private float CalculateDistance()
     //{
     //    return Vector3.Distance(transform.position, target.transform.position);
     //}
 
+    private float calculateDistante()
+    {
+        float distance = Vector3.Distance(transform.position, player.position);
+        return distance;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + transform.right * m_hit.distance, transform.lossyScale.x /2);
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
 }
