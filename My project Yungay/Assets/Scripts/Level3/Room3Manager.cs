@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Room3Manager : MonoBehaviour
 {
     public GameObject spawn;
     public GameObject obstaculos;
+    public PlayableDirector Cm;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,8 @@ public class Room3Manager : MonoBehaviour
         {
             obstaculos.SetActive(false);
             Debug.Log("Inicia cinematica");
+            Cm.Play();
         }
+        
     }
 }
