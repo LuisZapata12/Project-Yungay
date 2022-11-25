@@ -31,9 +31,9 @@ public class PickWeapon : MonoBehaviour
         {
             rdbd.isKinematic = true;
             loot.loot[0].durability--;
+            collision.gameObject.GetComponent<EnemyHealth>().lifeE(item.damage);
             if (loot.loot[0].durability <= 0)
             {
-                collision.gameObject.GetComponent<EnemyHealth>().lifeE(item.damage);
                 Destroy(gameObject);
             }
             transform.SetParent(collision.transform);            
