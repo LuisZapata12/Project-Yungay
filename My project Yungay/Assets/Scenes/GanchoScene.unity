@@ -14580,7 +14580,8 @@ MonoBehaviour:
   Target: {fileID: 2166216456115673790}
   Agent: {fileID: 7862666637531868806}
   speed: 3
-  Weapon: {fileID: 11400000, guid: 2c869f860b0385f4e9876a1e9ca1d4a8, type: 2}
+  pistol: {fileID: 11400000, guid: 30db6a4cbb3653c4cb54116005f260b1, type: 2}
+  dmr: {fileID: 11400000, guid: 2c869f860b0385f4e9876a1e9ca1d4a8, type: 2}
   anim: {fileID: 7862666637531868857}
   Near: 0
   DetectPlayer: 0

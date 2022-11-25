@@ -11,7 +11,6 @@ public class Reload : MonoBehaviour
     private void Update()
     {
         currentWeapon = Hand.currentItem as EquipmentRange;
-        Debug.Log(isReload); 
     }
     // Start is called before the first frame update
     public void Relo()

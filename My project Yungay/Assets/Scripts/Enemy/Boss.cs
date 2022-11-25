@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour
     public Transform Target;
     public NavMeshAgent Agent;
     public float speed;
-    public EnemyWeapon Weapon;
+    public EnemyWeapon pistol, dmr;
     public Animator anim;
     public bool Near;
     public bool DetectPlayer;
@@ -35,6 +35,7 @@ public class Boss : MonoBehaviour
     {
         distance = CalculateDistance();
 
+
         if (distance < nearDistance)
         {
             NearAttack();
@@ -42,10 +43,12 @@ public class Boss : MonoBehaviour
         else if (distance < midDistance && distance > nearDistance)
         {
             MidAttack();
+            Shoot(pistol);
         }
-        else
+        else if(distance > midDistance && distance < farDistance)
         {
-
+            FarAttack();
+            Shoot(dmr);
         }
     }
 
@@ -90,15 +93,18 @@ public class Boss : MonoBehaviour
 
     private void MidAttack()
     {
+        anim.SetBool("Run", false);
+        anim.SetBool("Walk", false);
+        anim.SetBool("Atack", false);
         var lookpos = Target.position - transform.position;
         lookpos.y = 0;
         var rotation = Quaternion.LookRotation(lookpos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
         Agent.enabled = true;
-        Agent.SetDestination(Target.transform.position);
         Agent.speed = speed;
         DetectPlayer = true;
         anim.SetBool("RunP", true);
+
         if ((Vector3.Distance(transform.position, Target.transform.position) < midDistance))
         {
             Near = true;
@@ -114,26 +120,55 @@ public class Boss : MonoBehaviour
             anim.SetBool("RunP", true);
 
         }
-        Shoot();
     }
 
-    public void Shoot()
+    private void FarAttack()
     {
+        anim.SetBool("Run", false);
+        anim.SetBool("Walk", false);
+        anim.SetBool("Atack", false);
+        var lookpos = Target.position - transform.position;
+        lookpos.y = 0;
+        var rotation = Quaternion.LookRotation(lookpos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
+        Agent.enabled = true;
+        Agent.speed = speed;
+        DetectPlayer = true;
+        anim.SetBool("RunP", true);
 
+        if ((Vector3.Distance(transform.position, Target.transform.position) < farDistance))
+        {
+            Near = true;
+            Agent.enabled = false;
+            anim.SetBool("Iddlep", true);
+            anim.SetBool("RunP", false);
+        }
+        else
+        {
+            Near = false;
+            Agent.enabled = true;
+            anim.SetBool("Iddlep", false);
+            anim.SetBool("RunP", true);
+
+        }
+    }
+
+    public void Shoot(EnemyWeapon weapon)
+    {
         RaycastHit hit;
-        if (Physics.Raycast(pointShoot.transform.position, pointShoot.transform.forward, out hit, Weapon.Range))
+        if (Physics.Raycast(pointShoot.transform.position, pointShoot.transform.forward, out hit, weapon.Range))
         {
             if (hit.transform.gameObject.CompareTag("Player"))
             {
-                if (Weapon.Munition > 0)
+                if (weapon.Munition > 0)
                 {
                     Timer += Time.deltaTime;
-                    if (Timer > Weapon.timeToShoot)
+                    if (Timer > weapon.timeToShoot)
                     {
                         anim.SetBool("Shoot", true);
-                        Weapon.Munition--;
+                        weapon.Munition--;
                         Timer = 0;
-                        Life.Damage(Weapon.damage);
+                        Life.Damage(weapon.damage);
 
                     }
                     else
@@ -145,13 +180,13 @@ public class Boss : MonoBehaviour
             }
 
         }
-        if (Weapon.Munition == 0)
+        if (weapon.Munition == 0)
         {
             anim.SetBool("Reload", true);
             Timer += Time.deltaTime;
-            if (Timer >= Weapon.timetoRecharge)
+            if (Timer >= weapon.timetoRecharge)
             {
-                Weapon.Munition += Weapon.charger;
+                weapon.Munition += weapon.charger;
                 Timer = 0;
                 anim.SetBool("Reload", false);
             }
