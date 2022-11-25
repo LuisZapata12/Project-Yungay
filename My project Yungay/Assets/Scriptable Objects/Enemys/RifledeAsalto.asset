@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04edd9a3d1afd3247bc59e9b9c246524, type: 3}
   m_Name: RifledeAsalto
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
   Range: 15
-  Munition: 24
+  Munition: 19
   charger: 25
-  timeToShoot: 1.25
+  timeToShoot: 1
   timetoRecharge: 2
   Drop: []

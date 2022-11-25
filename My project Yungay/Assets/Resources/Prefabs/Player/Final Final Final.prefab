@@ -2727,7 +2727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054668443568492796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.462526, y: 3.3328547, z: 0.2959869}
+  m_LocalPosition: {x: 0.0050001144, y: 4.135, z: 1.0139999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19959,10 +19959,10 @@ MonoBehaviour:
   speedShoot: 25
   speedBack: 25
   rayDistance: 20
-  distance: 0
+  distance: 0.2
   hook:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1048311
   hookeableObject: {fileID: 0}
 --- !u!54 &2572281190214524231
 Rigidbody:

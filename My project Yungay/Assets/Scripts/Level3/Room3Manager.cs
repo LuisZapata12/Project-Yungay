@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 public class Room3Manager : MonoBehaviour
 {
     public GameObject spawn;
-    public GameObject obstaculos;
+    public GameObject obstacles;
     public PlayableDirector Cm;
     public bool endcinematic =false;
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class Room3Manager : MonoBehaviour
     {
         if (spawn.transform.childCount <= 0 && endcinematic == false)
         {
-            obstaculos.SetActive(false);
+            obstacles.SetActive(false);
             Debug.Log("Inicia cinematica");
             Cm.Play();
 
