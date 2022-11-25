@@ -19645,6 +19645,37 @@ Transform:
   m_Father: {fileID: 1339916539139896364}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1923962518715441527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7184549097566588476}
+  m_Layer: 13
+  m_Name: CrounchCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7184549097566588476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923962518715441527}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.023, z: 0.272}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626538241887962492}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940513693363277734
 GameObject:
   m_ObjectHideFlags: 0
@@ -19675,6 +19706,37 @@ Transform:
   m_Children:
   - {fileID: 819771356119421580}
   m_Father: {fileID: 229070161906500429}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2002415617264617582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787569653380657356}
+  m_Layer: 13
+  m_Name: StandCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &787569653380657356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002415617264617582}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.543, z: 0.148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626538241887962492}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2078515439636888906
@@ -20475,7 +20537,9 @@ Transform:
   - {fileID: 699263312787213437}
   - {fileID: 8442622045291250744}
   - {fileID: 1054668444606716315}
+  - {fileID: 787569653380657356}
   - {fileID: 1054668444302480136}
+  - {fileID: 7184549097566588476}
   m_Father: {fileID: 1210160733481343789}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20632,9 +20696,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 8256076999975231234}
   playerHeadCheck: {fileID: 1054668443660831633}
-  cam: {fileID: 1054668443568492796}
-  standCam: {fileID: 0}
-  crouchCam: {fileID: 0}
+  cam: {fileID: 1054668444302480137}
+  standCam: {fileID: 2002415617264617582}
+  crouchCam: {fileID: 1923962518715441527}
 --- !u!114 &8256076999975231263
 MonoBehaviour:
   m_ObjectHideFlags: 0
