@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebecb383a522fd941802fcb36c559fd9, type: 3}
   m_Name: Botiquin
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  itemSprite: {fileID: 0}
-  type: 0
-  maxStack: 0
+  prefab: {fileID: 3088418160210637385, guid: 3e3f085ebc5446145822f369ba4a5114, type: 3}
+  itemSprite: {fileID: 21300000, guid: cf72655da7e8f944ea4eb213a5bc7130, type: 3}
+  type: 2
+  maxStack: 1
   description: 
-  itemName: 
-  itemMesh: {fileID: 0}
-  itemMaterial: {fileID: 0}
-  equipmentType: 0
-  idleClip: {fileID: 0}
-  restoreHealthPercentage: 0
-  animation: {fileID: 0}
+  itemName: Botiquin
+  itemMesh: {fileID: -3316519942470509949, guid: d26431853f0515d46ba2f67868576a01,
+    type: 3}
+  itemMaterial: {fileID: -4838933450186888610, guid: d26431853f0515d46ba2f67868576a01,
+    type: 3}
+  equipmentType: 2
+  idleClip: {fileID: 7400000, guid: 11dd2ae202fd12f4893d3b724700ef82, type: 2}
+  restoreHealthPercentage: 70
+  animation: {fileID: 7400000, guid: 11dd2ae202fd12f4893d3b724700ef82, type: 2}
