@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1832683385951604698}
   - component: {fileID: 709078636407660033}
   - component: {fileID: 4475271356092603024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pistola
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8333157149007542726}
   - component: {fileID: 5557319781692249989}
   - component: {fileID: 1903574319173130115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Agua Oxigenada
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

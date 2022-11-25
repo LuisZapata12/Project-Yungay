@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5115886081848436094}
   - component: {fileID: 2144340848004636700}
   - component: {fileID: 7373783537348191150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Suplemento
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

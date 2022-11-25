@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5166149738228124165}
   - component: {fileID: 1280772390961230098}
   - component: {fileID: 6947104447989185562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FBX_Piedra
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

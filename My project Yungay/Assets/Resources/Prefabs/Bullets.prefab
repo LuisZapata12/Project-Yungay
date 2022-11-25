@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3624401092017653769}
   m_Layer: 12
   m_Name: Bullets
-  m_TagString: Untagged
+  m_TagString: Hookeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,4 +130,5 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
     amount: 0
+    durability: 0
   isRandom: 0
