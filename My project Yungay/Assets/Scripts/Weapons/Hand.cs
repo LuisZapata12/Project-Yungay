@@ -29,6 +29,7 @@ public class Hand : MonoBehaviour
     public Animator animatorPlayer;
     private bool once = false;
     private int maxCharge;
+    bool isAttack;
 
     public ItemObject itemxd;
     // Start is called before the first frame update
@@ -50,7 +51,7 @@ public class Hand : MonoBehaviour
     void Update()
     {
         itemxd = currentItem;
-        if (Reload.isReload == false)
+        if (!Reload.isReload && !isAttacking)
         {
             ChangeItem();
             ChangeMesh();
@@ -265,7 +266,6 @@ public class Hand : MonoBehaviour
                     if (melee != null && melee.animation != null && !isAttacking)
                     {
                         anim.Play(melee.animation.name);
-                        isAttacking = true;
                     }
                 }
             }
@@ -304,12 +304,15 @@ public class Hand : MonoBehaviour
     {
         gameObject.AddComponent<BoxCollider>();
         GetComponent<BoxCollider>().isTrigger = true;
+        isAttacking = true;
     }
 
     public void RemoveCollider()
     {
         Destroy(GetComponent<BoxCollider>());
         isAttacking = false;
+        Debug.Log(isAttacking);
+        Debug.Log("remove");
     }
 
     public void PlaySound()

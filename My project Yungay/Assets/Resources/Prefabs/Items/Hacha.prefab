@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 365606492321712747}
   - component: {fileID: 792991904567621731}
   - component: {fileID: -6876113848884568309}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: Hacha
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 619559991684274263}
   - component: {fileID: 8515588167723603053}
   - component: {fileID: 7962955789571954622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Submachine
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

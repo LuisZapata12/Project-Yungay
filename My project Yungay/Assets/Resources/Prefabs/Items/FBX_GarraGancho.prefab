@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1527028256079370611}
   - component: {fileID: 4599553563115292606}
   - component: {fileID: 266457565521393530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FBX_GarraGancho
   m_TagString: Hookeable
   m_Icon: {fileID: 0}
