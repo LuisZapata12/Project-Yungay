@@ -881,7 +881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054668443368822103}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.462526, y: 3.3328547, z: 0.2959869}
+  m_LocalPosition: {x: -1.002, y: 4.474, z: 1.538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2681,6 +2681,7 @@ GameObject:
   - component: {fileID: 1054668443568492789}
   - component: {fileID: 1054668443568492794}
   - component: {fileID: 1054668443568492791}
+  - component: {fileID: 154182168}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2833,6 +2834,36 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &154182168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054668443568492796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 3e2a79a67fecc014c9e40ebd6fdd2bf7, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Room3Manager, Assembly-CSharp
+          m_MethodName: EndCinematic
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1054668443572128607
 GameObject:
   m_ObjectHideFlags: 0
@@ -11438,7 +11469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1054668444606716315}
   m_Layer: 13
-  m_Name: Spawn
+  m_Name: SpawnObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19841,7 +19872,7 @@ BoxCollider:
   m_GameObject: {fileID: 2258167244193826901}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.12944299, y: 0.1718829, z: 0.13238402}
   m_Center: {x: -0.000000029802322, y: -0.000000059604645, z: 0}
@@ -19866,6 +19897,10 @@ MonoBehaviour:
   speedShoot: 25
   speedBack: 25
   rayDistance: 20
+  distance: 0.2
+  hook:
+    serializedVersion: 2
+    m_Bits: 2147483647
   hookeableObject: {fileID: 0}
 --- !u!54 &2572281190214524231
 Rigidbody:
@@ -20303,8 +20338,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3241729150715149469}
-  m_LocalRotation: {x: -1.8189892e-12, y: -0.0000010728835, z: 0.00003462833, w: 1}
-  m_LocalPosition: {x: -0.0023692811, y: 0.9799841, z: 0.023946766}
+  m_LocalRotation: {x: -1.8758328e-12, y: -0.000001051987, z: 0.00003462833, w: 1}
+  m_LocalPosition: {x: -0.0023692846, y: 0.97998405, z: 0.023947239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20385,7 +20420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3402617067416215494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.462526, y: 1.7898548, z: 0.14798689}
+  m_LocalPosition: {x: -1.002, y: 2.931, z: 1.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20583,6 +20618,8 @@ MonoBehaviour:
   slots: []
   inventoryDisplay: {fileID: 1054668444395382430}
   hudTest: {fileID: 0}
+  gancho: {fileID: 0}
+  ganchoMano: {fileID: 0}
 --- !u!136 &8256076999975231260
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20631,8 +20668,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootText: {fileID: 1054668445155565960}
-  rayDistance: 5
+  rayDistance: 4
   changeColor: {r: 1, g: 0.951252, b: 0.28773582, a: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 1048311
 --- !u!114 &8256076999975231253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20751,7 +20791,7 @@ Transform:
   - {fileID: 1054668444395382431}
   - {fileID: 1054668443368822097}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3561395849503708538
 GameObject:

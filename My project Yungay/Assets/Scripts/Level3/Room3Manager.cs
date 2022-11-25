@@ -8,6 +8,7 @@ public class Room3Manager : MonoBehaviour
     public GameObject spawn;
     public GameObject obstaculos;
     public PlayableDirector Cm;
+    public bool endcinematic =false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,23 @@ public class Room3Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawn.transform.childCount<=0)
+        if (spawn.transform.childCount <= 0 && endcinematic == false)
         {
             obstaculos.SetActive(false);
             Debug.Log("Inicia cinematica");
             Cm.Play();
+
+        }
+        else if (endcinematic == true)
+        {
+            Cm.Stop();
         }
         
+    }
+
+
+    public void EndCinematic()
+    {
+        endcinematic = true;
     }
 }
