@@ -34,13 +34,14 @@ public class Boss : MonoBehaviour
     void Update()
     {
         distance = CalculateDistance();
+
         if (distance < nearDistance)
         {
             NearAttack();
         }
         else if (distance < midDistance && distance > nearDistance)
         {
-
+            MidAttack();
         }
         else
         {
@@ -55,7 +56,11 @@ public class Boss : MonoBehaviour
 
     private void NearAttack()
     {
-            var lookpos = Target.transform.position - transform.position;
+        anim.SetBool("RunP", false);
+        anim.SetBool("Iddlep", false);
+        anim.SetBool("Shoot", false);
+        anim.SetBool("Reload", false);
+        var lookpos = Target.transform.position - transform.position;
             lookpos.y = 0;
             var rotation = Quaternion.LookRotation(lookpos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
@@ -82,6 +87,76 @@ public class Boss : MonoBehaviour
                 anim.SetBool("Atack", false);
             }
     } 
+
+    private void MidAttack()
+    {
+        var lookpos = Target.position - transform.position;
+        lookpos.y = 0;
+        var rotation = Quaternion.LookRotation(lookpos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
+        Agent.enabled = true;
+        Agent.SetDestination(Target.transform.position);
+        Agent.speed = speed;
+        DetectPlayer = true;
+        anim.SetBool("RunP", true);
+        if ((Vector3.Distance(transform.position, Target.transform.position) < midDistance))
+        {
+            Near = true;
+            Agent.enabled = false;
+            anim.SetBool("Iddlep", true);
+            anim.SetBool("RunP", false);
+        }
+        else
+        {
+            Near = false;
+            Agent.enabled = true;
+            anim.SetBool("Iddlep", false);
+            anim.SetBool("RunP", true);
+
+        }
+        Shoot();
+    }
+
+    public void Shoot()
+    {
+
+        RaycastHit hit;
+        if (Physics.Raycast(pointShoot.transform.position, pointShoot.transform.forward, out hit, Weapon.Range))
+        {
+            if (hit.transform.gameObject.CompareTag("Player"))
+            {
+                if (Weapon.Munition > 0)
+                {
+                    Timer += Time.deltaTime;
+                    if (Timer > Weapon.timeToShoot)
+                    {
+                        anim.SetBool("Shoot", true);
+                        Weapon.Munition--;
+                        Timer = 0;
+                        Life.Damage(Weapon.damage);
+
+                    }
+                    else
+
+                    {
+                        anim.SetBool("Shoot", false);
+                    }
+                }
+            }
+
+        }
+        if (Weapon.Munition == 0)
+        {
+            anim.SetBool("Reload", true);
+            Timer += Time.deltaTime;
+            if (Timer >= Weapon.timetoRecharge)
+            {
+                Weapon.Munition += Weapon.charger;
+                Timer = 0;
+                anim.SetBool("Reload", false);
+            }
+        }
+    }
 
     private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint)
     {

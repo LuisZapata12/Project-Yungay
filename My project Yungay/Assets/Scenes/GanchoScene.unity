@@ -14490,7 +14490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637b9d07d3061df4686383b655698b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
+  life: 50
   staticItems: []
   Randomitems:
   - {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d, type: 2}
@@ -14573,13 +14573,14 @@ MonoBehaviour:
   midDistance: 13.62
   farDistance: 20.39
   target: {fileID: 2166216456115673790}
-  bulletTrail: {fileID: 0}
-  Life: {fileID: 0}
-  pointShoot: {fileID: 0}
-  Target: {fileID: 0}
+  bulletTrail: {fileID: 434358359375337746, guid: 4d6a9de6ae7201d4890431ff4d03a33f,
+    type: 3}
+  Life: {fileID: 2166216456115673798}
+  pointShoot: {fileID: 7862666638040292018}
+  Target: {fileID: 2166216456115673790}
   Agent: {fileID: 7862666637531868806}
   speed: 3
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 11400000, guid: 2c869f860b0385f4e9876a1e9ca1d4a8, type: 2}
   anim: {fileID: 7862666637531868857}
   Near: 0
   DetectPlayer: 0
