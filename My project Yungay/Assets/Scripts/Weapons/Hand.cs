@@ -79,26 +79,32 @@ public class Hand : MonoBehaviour
         {
             slotIndex = 0;
             once = false;
+            RemoveCollider();
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             slotIndex = 1;
             once = false;
+            RemoveCollider();
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             slotIndex = 2;
             once = false;
+            RemoveCollider();
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             slotIndex = 3;
             once = false;
+            RemoveCollider();
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             slotIndex = 4;
             once = false;
+            RemoveCollider();
         }
 
         canAim = false;
