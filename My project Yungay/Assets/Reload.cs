@@ -5,17 +5,20 @@ using UnityEngine;
 public class Reload : MonoBehaviour
 {
     public Hand hand;
+    public static bool isReload;
     public EquipmentRange currentWeapon;
 
     private void Update()
     {
         currentWeapon = Hand.currentItem as EquipmentRange;
+        Debug.Log(isReload); 
     }
     // Start is called before the first frame update
     public void Relo()
    {
-        hand.Reload();
-   }
+        hand.Reloa();
+        isReload = false;
+    }
 
     public void Sound()
     {
@@ -25,5 +28,6 @@ public class Reload : MonoBehaviour
     public void ExitAni()
     {
        hand.animatorPlayer.SetBool("isReload", false);
+        isReload = true;
     }
 }

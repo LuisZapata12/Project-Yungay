@@ -30,59 +30,61 @@ public class HookGrab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position == hookParent.transform.position)
+        if (!GameManager.inPause)
         {
-            hookback = false;
-            canShot = true;
-        }
-        ShotStart();
-
-        if (hookeableObject != null && isShot==true)
-        {
-            PickHook();
-        }
-
-        if (this.transform.position == hookParent.transform.position && this.transform.parent != null && hookeableObject!= null)
-        {
-            PickHook();
-            Loot loot = hookeableObject.GetComponent<Loot>();
-            ItemObject item = loot.loot[0].item;
-            
-            if (item.type == ItemType.Equipment)
+            if (this.transform.position == hookParent.transform.position)
             {
-                EquipmentItem equipment = (EquipmentItem)item;
-                if (equipment.equipmentType == EquipmentType.Melee || equipment.equipmentType == EquipmentType.Range)
+                hookback = false;
+                canShot = true;
+            }
+            ShotStart();
+
+            if (hookeableObject != null && isShot == true)
+            {
+                PickHook();
+            }
+
+            if (this.transform.position == hookParent.transform.position && this.transform.parent != null && hookeableObject != null)
+            {
+                PickHook();
+                Loot loot = hookeableObject.GetComponent<Loot>();
+                ItemObject item = loot.loot[0].item;
+
+                if (item.type == ItemType.Equipment)
                 {
-                    if (inventory.InventorySpace())
+                    EquipmentItem equipment = (EquipmentItem)item;
+                    if (equipment.equipmentType == EquipmentType.Melee || equipment.equipmentType == EquipmentType.Range)
                     {
-                        inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
-                        AudioManager.Instance.PlaySFX("Hook_releaseobject");
-                        Destroy(hookeableObject.gameObject);
-                        isGrab = false;
-                    }
-                    else
-                    {
-                        Instantiate(Hand.currentItem.prefab, transform.position, Quaternion.identity);
-                        int a = inventory.CheckAmount(Hand.currentItem);
-                        inventory.RestItem(Hand.currentItem, a);
-                        inventory.RemoveSlot();
-                        inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
-                        AudioManager.Instance.PlaySFX("Hook_releaseobject");
-                        Destroy(hookeableObject.gameObject);
-                        isGrab = false;
+                        if (inventory.InventorySpace())
+                        {
+                            inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
+                            AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                            Destroy(hookeableObject.gameObject);
+                            isGrab = false;
+                        }
+                        else
+                        {
+                            Instantiate(Hand.currentItem.prefab, transform.position, Quaternion.identity);
+                            int a = inventory.CheckAmount(Hand.currentItem);
+                            inventory.RestItem(Hand.currentItem, a);
+                            inventory.RemoveSlot();
+                            inventory.AddItem(null, item, loot.loot[0].amount, loot.loot[0].durability);
+                            AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                            Destroy(hookeableObject.gameObject);
+                            isGrab = false;
+                        }
                     }
                 }
+                else
+                {
+                    AudioManager.Instance.PlaySFX("Hook_releaseobject");
+                    hookeableObject.SetParent(null);
+                    hookeableObject = null;
+                    isGrab = false;
+                }
+
             }
-            else
-            {
-                AudioManager.Instance.PlaySFX("Hook_releaseobject");
-                hookeableObject.SetParent(null);
-                hookeableObject = null;
-                isGrab = false;
-            }
-            
-        }   
-        
+        }
     }
 
     private void ShotStart()

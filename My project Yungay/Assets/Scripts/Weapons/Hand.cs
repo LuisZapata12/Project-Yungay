@@ -28,6 +28,7 @@ public class Hand : MonoBehaviour
     public static Image imageCursor;
     public Animator animatorPlayer;
     private bool once = false;
+    private int maxCharge;
 
     public ItemObject itemxd;
     // Start is called before the first frame update
@@ -49,23 +50,26 @@ public class Hand : MonoBehaviour
     void Update()
     {
         itemxd = currentItem;
-        ChangeItem();
-        ChangeMesh();
-        if (canAttack)
+        if (Reload.isReload == false)
         {
-            UseItem();
-            Throw();
-            ChangeMunition();
-
-            if (Input.GetKeyDown(KeyCode.R))
+            ChangeItem();
+            ChangeMesh();
+            if (canAttack)
             {
-                animatorPlayer.SetBool("isReload", true);
+                UseItem();
+                Throw();
+                ChangeMunition();
+
+                if (Input.GetKeyDown(KeyCode.R) && GetCharge(currentMunition) < inventory.CheckAmount(currentMunition) && GetCharge(currentMunition) < maxCharge)
+                {
+                    animatorPlayer.SetBool("isReload", true);
+                }
             }
         }
 
         UpdateText();
     }
-    public void Reload()
+    public void Reloa()
     {
         muni.ReloadMunition(currentMunition);
     }
@@ -152,6 +156,7 @@ public class Hand : MonoBehaviour
     public int GetCharge(ItemObject item)
     {
         int charge = 0;
+        EquipmentRange _ = (EquipmentRange)Hand.currentItem;
         for (int i = 0; i < weaponSlots.Count; i++)
         {
             if (weaponSlots[i].weapon == currentItem)
@@ -161,6 +166,7 @@ public class Hand : MonoBehaviour
                     if (weaponSlots[i].munitions[j].munition == item)
                     {
                         charge = weaponSlots[i].munitions[j].charge;
+                        maxCharge = _.munitions[j].charge;
                         break;
                     }
                 }
@@ -171,7 +177,7 @@ public class Hand : MonoBehaviour
     }
     private void ChangeMunition()
     {
-        if (canAim)
+        if (canAim && Reload.isReload == false)
         {
             EquipmentItem _ = (EquipmentItem)currentItem;
             if (_.name == "Pistol")
