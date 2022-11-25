@@ -66,9 +66,11 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         if (slot == null)
         {
             GameObject clone = Instantiate(prefabItem, spawPos.position, spawPos.rotation);
-            clone.GetComponent<Loot>().loot[0].amount = GetComponent<Slot>().slot.amount;
-            GetComponent<Slot>().slot.item = null;
-            GetComponent<Slot>().slot.amount = 0;
+            Slot _ = GetComponent<Slot>();
+            clone.GetComponent<Loot>().loot[0].amount = _.slot.amount;
+            clone.GetComponent<Loot>().loot[0].durability = _.slot.amount;
+            _.slot.item = null;
+            _.slot.amount = 0;
             inventory.UpdateInventory();
             inventoryDisplay.UpdateDisplay();
         }
