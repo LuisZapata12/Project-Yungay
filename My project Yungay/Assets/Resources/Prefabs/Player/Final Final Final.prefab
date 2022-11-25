@@ -506,6 +506,37 @@ Transform:
   m_Father: {fileID: 8223507405820073983}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &851827969143095351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699263312787213437}
+  m_Layer: 13
+  m_Name: StandCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &699263312787213437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851827969143095351}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5110002, z: 0.12099999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626538241887962492}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &958325946953369361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,7 +2727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054668443568492796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.002, y: 4.474, z: 1.538}
+  m_LocalPosition: {x: -2.462526, y: 3.3328547, z: 0.2959869}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19866,6 +19897,10 @@ MonoBehaviour:
   speedShoot: 25
   speedBack: 25
   rayDistance: 20
+  distance: 0
+  hook:
+    serializedVersion: 2
+    m_Bits: 0
   hookeableObject: {fileID: 0}
 --- !u!54 &2572281190214524231
 Rigidbody:
@@ -20280,6 +20315,37 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 2147483647
+--- !u!1 &3064362418847593981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8442622045291250744}
+  m_Layer: 13
+  m_Name: CrounchCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8442622045291250744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3064362418847593981}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.003000021, y: 1.02, z: 0.281}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2626538241887962492}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3241729150715149469
 GameObject:
   m_ObjectHideFlags: 0
@@ -20406,6 +20472,8 @@ Transform:
   - {fileID: 1054668443517838623}
   - {fileID: 1054668445328485298}
   - {fileID: 1054668444481173754}
+  - {fileID: 699263312787213437}
+  - {fileID: 8442622045291250744}
   - {fileID: 1054668444606716315}
   - {fileID: 1054668444302480136}
   m_Father: {fileID: 1210160733481343789}
@@ -20583,6 +20651,8 @@ MonoBehaviour:
   slots: []
   inventoryDisplay: {fileID: 1054668444395382430}
   hudTest: {fileID: 0}
+  gancho: {fileID: 0}
+  ganchoMano: {fileID: 0}
 --- !u!136 &8256076999975231260
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20633,6 +20703,9 @@ MonoBehaviour:
   lootText: {fileID: 1054668445155565960}
   rayDistance: 5
   changeColor: {r: 1, g: 0.951252, b: 0.28773582, a: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &8256076999975231253
 MonoBehaviour:
   m_ObjectHideFlags: 0
