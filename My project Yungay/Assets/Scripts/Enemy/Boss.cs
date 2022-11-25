@@ -158,10 +158,14 @@ public class Boss : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(pointShoot.transform.position, pointShoot.transform.forward, out hit, weapon.Range))
         {
+            Debug.Log("Rayo");
             if (hit.transform.gameObject.CompareTag("Player"))
             {
+                Debug.Log("Player");
                 if (weapon.Munition > 0)
                 {
+
+                    Debug.Log("Municion");
                     Timer += Time.deltaTime;
                     if (Timer > weapon.timeToShoot)
                     {

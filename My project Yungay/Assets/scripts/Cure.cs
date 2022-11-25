@@ -7,9 +7,7 @@ public class Cure : MonoBehaviour
     public PlayerHealth playerHealth;
     public Inventory inventory;
     public InventoryDisplay inventoryDisplay;
-    public ItemObject bandageItem;
     private float health;
-    public float percentageCure;
     public float speed;
     public EquipmentHealing itemHealing;
     public GameObject chargeBar;
@@ -58,6 +56,7 @@ public class Cure : MonoBehaviour
         inventory.RestItem(Hand.currentItem, 1);
         inventory.RemoveSlot();
         inventoryDisplay.UpdateDisplay();
+        
     }
 
     IEnumerator healing(float heal)
