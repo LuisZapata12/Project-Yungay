@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30862,6 +30862,10 @@ MonoBehaviour:
   speedShoot: 25
   speedBack: 25
   rayDistance: 20
+  distance: 0
+  hook:
+    serializedVersion: 2
+    m_Bits: 0
   hookeableObject: {fileID: 0}
 --- !u!33 &2784726492391717273
 MeshFilter:
@@ -33367,8 +33371,6 @@ MonoBehaviour:
   playerHealth: {fileID: 8612214723159309256}
   inventory: {fileID: 8612214723159309260}
   inventoryDisplay: {fileID: 0}
-  bandageItem: {fileID: 11400000, guid: db7f453e65333654880eaab7026e1f1d, type: 2}
-  percentageCure: 30
   speed: 3
   itemHealing: {fileID: 0}
   chargeBar: {fileID: 843631890744680627}
@@ -33410,6 +33412,9 @@ MonoBehaviour:
   lootText: {fileID: 843631891797558619}
   rayDistance: 5
   changeColor: {r: 1, g: 0.951252, b: 0.28773582, a: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 2147483647
 --- !u!114 &8612214723159309258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33449,6 +33454,8 @@ MonoBehaviour:
   slots: []
   inventoryDisplay: {fileID: 843631892112032333}
   hudTest: {fileID: 0}
+  gancho: {fileID: 0}
+  ganchoMano: {fileID: 0}
 --- !u!114 &8612214723159309261
 MonoBehaviour:
   m_ObjectHideFlags: 0
