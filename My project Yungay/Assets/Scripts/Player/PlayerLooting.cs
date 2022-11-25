@@ -12,6 +12,7 @@ public class PlayerLooting : MonoBehaviour
     private Color oldColor;
     private bool once;
     private GameObject item;
+    public LayerMask layer;
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,7 +53,7 @@ public class PlayerLooting : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, rayDistance) && hit.collider.gameObject.GetComponent<Loot>())
+        if (Physics.Raycast(ray, out hit, rayDistance,layer) && hit.collider.gameObject.GetComponent<Loot>())
         {
             var loot = hit.collider.gameObject.GetComponent<Loot>();
 
