@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Backpack
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  itemSprite: {fileID: 21300000, guid: cfbd8f3d8b2227b40b9a08366e60d84d, type: 3}
+  itemSprite: {fileID: 21300000, guid: d56659c7a8a80dc42b9753e4a5a4a1b9, type: 3}
   type: 1
   maxStack: 1
   description: 
