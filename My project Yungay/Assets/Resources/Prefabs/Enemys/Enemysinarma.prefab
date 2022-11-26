@@ -1111,6 +1111,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 1883368660203475148}
   healthBar: {fileID: 5843151973818397449}
   blood: {fileID: 2796135425210464547}
   bloodTime: 0.5
