@@ -24,7 +24,7 @@ public class PlayerGroundCheck : MonoBehaviour
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, height * 0.5f + 0.2f, Ground);
 
-        jump = Physics.Raycast(transform.position, Vector3.down, 1f, Ground);
+        jump = Physics.Raycast(transform.position, Vector3.down, prueba, Ground);
 
         if (grounded)
         {

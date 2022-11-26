@@ -9726,8 +9726,9 @@ MonoBehaviour:
   sprite:
   - {fileID: 21300000, guid: c07e2c3e10c3b584d8603b1697ca308e, type: 3}
   - {fileID: 21300000, guid: d56e9c95c37d1f34d850a2887e8fe2ed, type: 3}
-  - {fileID: 21300000, guid: 533bdd5b9028a004d8040cb39b3cbd85, type: 3}
-  - {fileID: 21300000, guid: 55765e1e9ccbe8f4fbaa8de3fda512c2, type: 3}
+  - {fileID: 21300000, guid: c361e8367e61fe14ea07abe4fc39854a, type: 3}
+  - {fileID: 21300000, guid: 5977eb08d19f2ef4a902d311e1fb19bc, type: 3}
+  - {fileID: 21300000, guid: 43339b7eddbe1ea488a4940c9c1c3aba, type: 3}
   - {fileID: 21300000, guid: 0751f0858d3b38945b59b6e7e7e34e56, type: 3}
   prefabText: {fileID: 1505502437196463106, guid: 15b87602776074044815eb1cbc20bc03,
     type: 3}
