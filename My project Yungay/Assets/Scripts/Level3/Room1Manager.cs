@@ -25,13 +25,13 @@ public class Room1Manager : MonoBehaviour
     {
         if (Cajas.transform.childCount <=0)
         {
-            textMesh.text = "mmm, puedo usar el gancho para alcanzar eso";
+            textMesh.text = "Kathya: mmm, puedo usar el gancho para alcanzar eso";
         }
         hasSubmachine = inventoryPlayer.CheckItem(submachineItem);
         if (hasSubmachine)
         {
             SpawnEnemys.SetActive(true);
-            textMesh.text = "Que ah sido ese rui... ¡Intrusos!";
+            textMesh.text = "Soldado: Que ah sido ese rui... ¡Intrusos!";
 
             timer += Time.deltaTime;
             if (timer>= 3)

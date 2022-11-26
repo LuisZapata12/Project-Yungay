@@ -9,6 +9,7 @@ public class Room5Manager : MonoBehaviour
     public GameObject audio;
     public TMP_Text textMesh;
     public float timer;
+    public bool isEnd;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,15 @@ public class Room5Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isEnd)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 3)
+            {
+                textMesh.text = "";
+                Destroy(this.gameObject);
+            }
+        }
         
     }
     private void OnTriggerExit(Collider other)
@@ -26,14 +36,9 @@ public class Room5Manager : MonoBehaviour
         {
             spawnEnemysRoom3.SetActive(true);
             audio.SetActive(true);
-            textMesh.text = "Cuidado, puede que este cerca";
-
-            timer += Time.deltaTime;
-            if (timer >= 3)
-            {
-                textMesh.text = "";
-                Destroy(this.gameObject);
-            }
+            textMesh.text = "Soldado: Cuidado, puede que este cerca";
+            isEnd = true;
+            
         }
         
     }

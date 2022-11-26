@@ -7,7 +7,6 @@ public class Boss : MonoBehaviour
 {
     public float distance;
     public float nearDistance, midDistance, farDistance;
-    public Transform target;
     [SerializeField]
     private TrailRenderer bulletTrail;
     private float BulletSpeed = 100f;
@@ -27,7 +26,7 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
-
+        Target = GameObject.Find("Player").transform;
     }
 
 
@@ -54,7 +53,7 @@ public class Boss : MonoBehaviour
 
     private float CalculateDistance()
     {
-        return Vector3.Distance(transform.position, target.transform.position);
+        return Vector3.Distance(transform.position, Target.transform.position);
     }
 
     private void NearAttack()

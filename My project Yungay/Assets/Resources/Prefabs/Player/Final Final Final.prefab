@@ -750,7 +750,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668443359339243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668443408916530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +2025,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668443517838620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668443609640062
 GameObject:
   m_ObjectHideFlags: 0
@@ -4265,7 +4265,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668443701606940
 GameObject:
   m_ObjectHideFlags: 0
@@ -5757,7 +5757,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!114 &1054668443881952916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7183,7 +7183,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444133137122
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,7 +7297,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444146024432
 GameObject:
   m_ObjectHideFlags: 0
@@ -7788,7 +7788,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444230909132
 GameObject:
   m_ObjectHideFlags: 0
@@ -8733,7 +8733,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!114 &1054668444314780091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8939,7 +8939,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444367843047
 GameObject:
   m_ObjectHideFlags: 0
@@ -9959,7 +9959,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444451106914
 GameObject:
   m_ObjectHideFlags: 0
@@ -10057,7 +10057,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!114 &1054668444451106942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10171,7 +10171,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!114 &1054668444453745864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10424,7 +10424,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!114 &1054668444487193492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11144,7 +11144,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444576084079
 GameObject:
   m_ObjectHideFlags: 0
@@ -11619,7 +11619,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!114 &1054668444614755324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13860,7 +13860,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444915134815
 GameObject:
   m_ObjectHideFlags: 0
@@ -14717,7 +14717,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!1 &1054668444958784542
 GameObject:
   m_ObjectHideFlags: 0
@@ -16263,7 +16263,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 1054668444395382430}
   inventory: {fileID: 8256076999975231263}
   inventoryPanel: {fileID: 1054668443534583987}
-  spawPos: {fileID: 0}
+  spawPos: {fileID: 1054668444606716315}
 --- !u!114 &1054668445115403416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20674,6 +20674,7 @@ MonoBehaviour:
   canRun: 0
   canUpLedge: 0
   checkpoint: {fileID: 0}
+  dataChekpoint: {fileID: 0}
   rb: {fileID: 0}
   sourceSound: {fileID: 1054668443517838620}
   lookMe: 0
@@ -20682,6 +20683,7 @@ MonoBehaviour:
   npc:
     serializedVersion: 2
     m_Bits: 524288
+  timer: 0
 --- !u!114 &8256076999975231232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20834,8 +20836,6 @@ MonoBehaviour:
   playerHealth: {fileID: 8256076999975231259}
   inventory: {fileID: 8256076999975231263}
   inventoryDisplay: {fileID: 0}
-  bandageItem: {fileID: 11400000, guid: db7f453e65333654880eaab7026e1f1d, type: 2}
-  percentageCure: 30
   speed: 3
   itemHealing: {fileID: 0}
   chargeBar: {fileID: 1054668443648803936}
