@@ -25,7 +25,11 @@ public class LoadLevel2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            data.GetComponent<DataChekpoint>().CheckInventory();
+            if (data !=null)
+            {
+                data.GetComponent<DataChekpoint>().CheckInventory();
+            }
+            
             StartCoroutine(Fading());
 
         }
