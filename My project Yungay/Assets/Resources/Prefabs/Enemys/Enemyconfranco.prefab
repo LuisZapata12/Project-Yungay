@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8158866801960294070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -862,7 +862,7 @@ Transform:
   - {fileID: 8158866801960294070}
   - {fileID: 3925815702019395788}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.089, y: 177.855, z: -15.302}
 --- !u!136 &3306449480504759913
 CapsuleCollider:
@@ -917,6 +917,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 762659882880104740}
   healthBar: {fileID: 4729229364948572897}
   blood: {fileID: 3925815702019395787}
   bloodTime: 0.5

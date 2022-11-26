@@ -38,6 +38,16 @@ public class Enemy3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DetectPlayer == true)
+        {
+            dead.CanvaHealth.SetActive(true);
+        }
+        else
+        {
+            dead.CanvaHealth.SetActive(false);
+        }
+
+
         if (!dead.dead)
         {
             if (DetectPlayer)

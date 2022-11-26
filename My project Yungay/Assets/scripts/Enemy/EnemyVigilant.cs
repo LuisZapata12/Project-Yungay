@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class EnemyVigilant : MonoBehaviour
@@ -40,6 +41,14 @@ public class EnemyVigilant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DetectPlayer == true)
+        {
+            dead.CanvaHealth.SetActive(true);
+        }
+        else
+        {
+            dead.CanvaHealth.SetActive(false);
+        }
         Vision = fov.viewRadius;
         if (fov.visibleTargets.Count > 0)
         {
