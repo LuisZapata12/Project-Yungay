@@ -4574,9 +4574,9 @@ RectTransform:
   m_Father: {fileID: 1054668444395382431}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 646.99994, y: -468.00003}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -313.00006, y: 71.99997}
   m_SizeDelta: {x: 540, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1054668443701606937
@@ -21138,8 +21138,8 @@ MonoBehaviour:
   armor: 0
   isJump: 0
   actualSpeed: 0
-  speedWalk: 3
-  speedRun: 10
+  speedWalk: 2.8
+  speedRun: 4.8
   speedCrouch: 0
   jumpForce: 4.87
   jumpCooldown: 0.25
