@@ -40,11 +40,11 @@ public class Enemy3 : MonoBehaviour
     {
         if (DetectPlayer == true)
         {
-            dead.healthBar.enabled = true;
+            dead.CanvaHealth.SetActive(true);
         }
         else
         {
-            dead.healthBar.enabled = false;
+            dead.CanvaHealth.SetActive(false);
         }
 
 

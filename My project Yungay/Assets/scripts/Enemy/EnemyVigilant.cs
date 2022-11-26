@@ -43,11 +43,11 @@ public class EnemyVigilant : MonoBehaviour
     {
         if (DetectPlayer == true)
         {
-            dead.healthBar.enabled = true;
+            dead.CanvaHealth.SetActive(true);
         }
         else
         {
-            dead.healthBar.enabled = false;
+            dead.CanvaHealth.SetActive(false);
         }
         Vision = fov.viewRadius;
         if (fov.visibleTargets.Count > 0)
