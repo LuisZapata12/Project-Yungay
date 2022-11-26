@@ -33516,7 +33516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  health: 50
+  health: 80
   maxHealth: 100
   isDeath: 0
   armor: 0

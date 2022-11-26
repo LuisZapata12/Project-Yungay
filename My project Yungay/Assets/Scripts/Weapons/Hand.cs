@@ -311,8 +311,6 @@ public class Hand : MonoBehaviour
     {
         Destroy(GetComponent<BoxCollider>());
         isAttacking = false;
-        Debug.Log(isAttacking);
-        Debug.Log("remove");
     }
 
     public void PlaySound()
