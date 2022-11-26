@@ -17,6 +17,7 @@ public class Cure : MonoBehaviour
     private bool a;
     private bool b;
     private Coroutine coroutine;
+    public float count;
 
     private void Start()
     {
@@ -61,8 +62,9 @@ public class Cure : MonoBehaviour
 
     IEnumerator healing(float heal)
     {
-        while (playerHealth.mb.health < heal)
+        while (count < heal)
         {
+            count += speed * Time.deltaTime;
             playerHealth.mb.health += speed * Time.deltaTime;
             yield return new WaitForEndOfFrame();
             a = true;
@@ -86,6 +88,7 @@ public class Cure : MonoBehaviour
             image.fillAmount += speedBar * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        count = playerHealth.mb.health;
         chargeBar.SetActive(false);
         Heal();
         image.fillAmount = 0;
