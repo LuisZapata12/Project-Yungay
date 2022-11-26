@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LoadLevel2 : MonoBehaviour
 {
     public Animator fade;
+    private GameObject data;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,14 +15,17 @@ public class LoadLevel2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!data)
+        {
+            data = GameObject.FindGameObjectWithTag("Checkpoint");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-
+            data.GetComponent<DataChekpoint>().CheckInventory();
             StartCoroutine(Fading());
 
         }

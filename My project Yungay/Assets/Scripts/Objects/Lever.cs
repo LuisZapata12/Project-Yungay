@@ -13,6 +13,7 @@ public class Lever : MonoBehaviour
     public ItemObject axe;
     public Inventory inventory;
     public InventoryDisplay inventoryDisplay;
+    public DataChekpoint dataChekpoint;
     public static bool endTravel = false;
     private void Start()
     {
@@ -33,6 +34,7 @@ public class Lever : MonoBehaviour
                 inventory.RemoveSlot();
                 inventoryDisplay.UpdateDisplay();
 
+                dataChekpoint.Check();
                 EventManager.current.StartUseLeverEvent(leverID);
                 anim.SetBool("isUse", true);
             }

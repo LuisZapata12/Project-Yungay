@@ -40,13 +40,20 @@ public class DataChekpoint : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         foreach (GameObject enemysSingle in enemigos)
         {
-            Debug.Log(enemysSingle.name);
             dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<Transform>().position, enemysSingle.GetComponent<EnemyHealth>().life));
         }
         players.Add(new Player(player.GetComponent<Transform>().position, player.GetComponent<PlayerModel>().health));
         for(int i = 0; i < player.GetComponent<Inventory>().slots.Count; i++)
         {
-            inventories.Add(new InventorySlot(player.GetComponent<Inventory>().slots[i].item, player.GetComponent<Inventory>().slots[i].amount));
+            inventories.Add(new InventorySlot(player.GetComponent<Inventory>().slots[i].item, player.GetComponent<Inventory>().slots[i].amount, player.GetComponent<Inventory>().slots[i].durability));
+        }
+    }
+    public void CheckInventory()
+    {
+        inventories.Clear(); 
+        for (int i = 0; i < player.GetComponent<Inventory>().slots.Count; i++)
+        {
+            inventories.Add(new InventorySlot(player.GetComponent<Inventory>().slots[i].item, player.GetComponent<Inventory>().slots[i].amount, player.GetComponent<Inventory>().slots[i].durability));
         }
     }
 
@@ -63,6 +70,7 @@ public class DataChekpoint : MonoBehaviour
         {
             player.GetComponent<Inventory>().slots[i].item = inventories[i].item;
             player.GetComponent<Inventory>().slots[i].amount = inventories[i].amount;
+            player.GetComponent<Inventory>().slots[i].durability = inventories[i].durability;
         }
         inventoryDisplay.UpdateDisplay();
     }
@@ -72,6 +80,7 @@ public class DataChekpoint : MonoBehaviour
         {
             player.GetComponent<Inventory>().slots[i].item = inventories[i].item;
             player.GetComponent<Inventory>().slots[i].amount = inventories[i].amount;
+            player.GetComponent<Inventory>().slots[i].durability = inventories[i].durability;
         }
         inventoryDisplay.UpdateDisplay();
 
@@ -107,11 +116,13 @@ public class DataChekpoint : MonoBehaviour
     {
         public ItemObject item;
         public int amount;
+        public int durability;
 
-        public InventorySlot(ItemObject item, int amount)
+        public InventorySlot(ItemObject item, int amount, int durability)
         {
             this.item = item;
             this.amount = amount;
+            this.durability = durability;
         }
     }
 }

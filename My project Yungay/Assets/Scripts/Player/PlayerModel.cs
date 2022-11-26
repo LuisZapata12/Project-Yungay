@@ -115,7 +115,6 @@ public class PlayerModel : MonoBehaviour
             if (dataChekpoint.inventories != null)
             {
                 timer += Time.deltaTime;
-                Debug.Log(timer);
                 if (timer >= 2f)
                 {
                     dataChekpoint.Inventory();
@@ -126,7 +125,6 @@ public class PlayerModel : MonoBehaviour
             else
             {
                 timer += Time.deltaTime;
-                Debug.Log(timer);
                 if (timer >= 2f)
                 {
                     dataChekpoint.Inventory();
