@@ -12,6 +12,8 @@ public class Room8Manager : MonoBehaviour
     public GameObject enemys;
     public bool isShaking;
     public float timer;
+    public CameraShake cameraShake;
+    int i = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,11 @@ public class Room8Manager : MonoBehaviour
 
         if (enemys.transform.childCount <=0)
         {
-            Debug.Log("temblor");
+            if (i == 0)
+            {
+                StartCoroutine(cameraShake.Shake());
+                i++;
+            }
             isShaking = true;
 
         }
