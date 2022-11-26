@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
     private Loot enemyLoot;
     private int count = 0;
 
+    public GameObject CanvaHealth;
     public Image healthBar;
     public GameObject blood;
     public float bloodTime;

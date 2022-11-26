@@ -10,10 +10,25 @@ public class DataChekpoint : MonoBehaviour
     public List<InventorySlot> inventories = new List<InventorySlot>();
     public GameObject player;
     public InventoryDisplay inventoryDisplay;
+    private GameObject canvas;
 
     private void Start()
     {
         inventoryDisplay = InventoryDisplay.instance;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        if(!player)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        if (!inventoryDisplay)
+        {
+            canvas = GameObject.FindGameObjectWithTag("UI");
+            inventoryDisplay = canvas.GetComponent<InventoryDisplay>();
+        }
     }
 
     public void Check()
@@ -50,6 +65,16 @@ public class DataChekpoint : MonoBehaviour
             player.GetComponent<Inventory>().slots[i].amount = inventories[i].amount;
         }
         inventoryDisplay.UpdateDisplay();
+    }
+    public void Inventory()
+    {
+        for (int i = 0; i < inventories.Count; i++)
+        {
+            player.GetComponent<Inventory>().slots[i].item = inventories[i].item;
+            player.GetComponent<Inventory>().slots[i].amount = inventories[i].amount;
+        }
+        inventoryDisplay.UpdateDisplay();
+
     }
 
     [System.Serializable]

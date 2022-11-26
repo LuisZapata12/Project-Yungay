@@ -62,7 +62,9 @@ public class PlayerModel : MonoBehaviour
 
     [Header("Checkpoint")]
     [SerializeField]
-    public GameObject checkpoint;
+    private GameObject checkpoint;
+    [SerializeField]
+    public DataChekpoint dataChekpoint;
 
     public Rigidbody rb;
 
@@ -78,15 +80,24 @@ public class PlayerModel : MonoBehaviour
     [HideInInspector]
     public GameObject _;
     public LayerMask npc;
+    public float timer;
+    private bool a;
 
     private void Start()
     {
+        timer = 0;
+        a = true;
         instance = this;
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
+        checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
+        if (!dataChekpoint)
+        {
+            dataChekpoint = checkpoint.GetComponent<DataChekpoint>();
+        }
+        
     }
     private void Awake()
     {
-        checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
         cap = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
         playerTransform = GetComponent<Transform>();
@@ -99,13 +110,37 @@ public class PlayerModel : MonoBehaviour
         {
             Noclip();
         }
+        if (a)
+        {
+            if (dataChekpoint.inventories != null)
+            {
+                timer += Time.deltaTime;
+                Debug.Log(timer);
+                if (timer >= 2f)
+                {
+                    dataChekpoint.Inventory();
+                    a = false;
+                }
+
+            }
+            else
+            {
+                timer += Time.deltaTime;
+                Debug.Log(timer);
+                if (timer >= 2f)
+                {
+                    dataChekpoint.Inventory();
+                    a = false;
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Checkpoint"))
+        if (other.CompareTag("Save"))
         {
-            checkpoint.GetComponent<DataChekpoint>().Check(); 
+            dataChekpoint.Check(); 
         }
     }
 
@@ -116,4 +151,5 @@ public class PlayerModel : MonoBehaviour
             transform.Translate(Vector3.forward * 10 * Time.deltaTime, Camera.main.transform);
         }
     }
+
 }

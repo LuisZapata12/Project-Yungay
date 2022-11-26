@@ -61,6 +61,10 @@ public class Cure : MonoBehaviour
 
     IEnumerator healing(float heal)
     {
+        if(heal > playerHealth.mb.maxHealth)
+        {
+            heal =  playerHealth.mb.maxHealth;
+        }
         while (playerHealth.mb.health < heal)
         {
             playerHealth.mb.health += speed * Time.deltaTime;

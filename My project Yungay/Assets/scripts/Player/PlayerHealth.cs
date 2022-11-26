@@ -102,7 +102,7 @@ public class PlayerHealth : MonoBehaviour
             time += 1 * Time.deltaTime;
             if (time >= 1)
             {
-                mb.checkpoint.GetComponent<DataChekpoint>().ReturnPoint();
+                mb.dataChekpoint.ReturnPoint();
                 time = 0;
             }
             mb.state = PlayerModel.State.death;

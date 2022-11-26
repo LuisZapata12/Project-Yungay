@@ -25,7 +25,7 @@ MonoBehaviour:
   equipmentType: 1
   idleClip: {fileID: 7400000, guid: efe821b6c3f995744927a3946d639f58, type: 2}
   lastShootTime: 0
-  shootDelay: 1
+  shootDelay: 0.6
   bulletSpreadVarianceDis: 0
   munitions:
   - munition: {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
