@@ -26,13 +26,13 @@ MonoBehaviour:
   idleClip: {fileID: 0}
   lastShootTime: 0
   shootDelay: 0.2
-  bulletSpreadVarianceDis: 0.15
+  bulletSpreadVarianceDis: 0.1
   munitions:
   - munition: {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
     charge: 20
   chargerNailsMax: 0
   chargerBulletsMax: 20
-  bulletSpreadVariance: {x: 0.2, y: 0.2}
+  bulletSpreadVariance: {x: 0.15, y: 0.15}
   damage: 10
   range: 20
   zoom: 1
