@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9131054301058522257}
   - component: {fileID: 2039615875284922237}
   - component: {fileID: 1660408932200035811}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: metal
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

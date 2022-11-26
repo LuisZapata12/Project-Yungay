@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6833453748299008153}
   - component: {fileID: 481840067639731645}
   - component: {fileID: 7131801976574911642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FBX_Resorte
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

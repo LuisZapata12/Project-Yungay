@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6405616433989943215}
   - component: {fileID: 5703564332411424230}
   - component: {fileID: 5010225145030588910}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cuchillo
   m_TagString: Hookeable
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8429942867942046050}
   - component: {fileID: 6996470685707662511}
   - component: {fileID: 1300342672178940687}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FBX_Boton
   m_TagString: Hookeable
   m_Icon: {fileID: 0}
