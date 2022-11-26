@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -729,6 +729,12 @@ MonoBehaviour:
     durability: 0
   - item: {fileID: 11400000, guid: 13f2223c0fe26b74b8caef09e3a9d0f2, type: 2}
     amount: 1
+    durability: 0
+  - item: {fileID: 11400000, guid: abc6655494af5b949967c0721deff67a, type: 2}
+    amount: 9
+    durability: 0
+  - item: {fileID: 11400000, guid: 556547e8dd672d94aa04105d52ec430f, type: 2}
+    amount: 9
     durability: 0
   isRandom: 0
 --- !u!1 &200611218 stripped
@@ -3478,6 +3484,7 @@ MonoBehaviour:
   Randomitems: []
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 0}
   healthBar: {fileID: 0}
   blood: {fileID: 0}
   bloodTime: 0
@@ -6113,6 +6120,7 @@ MonoBehaviour:
   axe: {fileID: 0}
   inventory: {fileID: 0}
   inventoryDisplay: {fileID: 0}
+  dataChekpoint: {fileID: 0}
 --- !u!1 &1064650087
 GameObject:
   m_ObjectHideFlags: 0
@@ -6560,6 +6568,7 @@ MonoBehaviour:
   Randomitems: []
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 0}
   healthBar: {fileID: 0}
   blood: {fileID: 0}
   bloodTime: 0
@@ -10658,6 +10667,7 @@ MonoBehaviour:
   Randomitems: []
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 0}
   healthBar: {fileID: 0}
   blood: {fileID: 0}
   bloodTime: 0
@@ -11728,6 +11738,7 @@ MonoBehaviour:
   Randomitems: []
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 0}
   healthBar: {fileID: 0}
   blood: {fileID: 0}
   bloodTime: 0
@@ -14542,6 +14553,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 0}
   healthBar: {fileID: 1451101239}
   blood: {fileID: 200611218}
   bloodTime: 0.5
@@ -14617,7 +14629,6 @@ MonoBehaviour:
   nearDistance: 5.48
   midDistance: 13.62
   farDistance: 20.39
-  target: {fileID: 2166216456115673790}
   bulletTrail: {fileID: 434358359375337746, guid: 4d6a9de6ae7201d4890431ff4d03a33f,
     type: 3}
   Life: {fileID: 2166216456115673798}
