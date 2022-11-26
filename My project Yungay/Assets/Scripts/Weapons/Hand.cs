@@ -61,7 +61,7 @@ public class Hand : MonoBehaviour
                 Throw();
                 ChangeMunition();
 
-                if (Input.GetKeyDown(KeyCode.R) && GetCharge(currentMunition) < inventory.CheckAmount(currentMunition) && GetCharge(currentMunition) < maxCharge)
+                if (Input.GetKeyDown(KeyCode.R) &&  inventory.CheckAmount(currentMunition) > 0 && GetCharge(currentMunition) < GetMaxCharge(currentMunition))
                 {
                     animatorPlayer.SetBool("isReload", true);
                 }
@@ -163,7 +163,7 @@ public class Hand : MonoBehaviour
     public int GetCharge(ItemObject item)
     {
         int charge = 0;
-        EquipmentRange _ = (EquipmentRange)Hand.currentItem;
+        EquipmentRange _ = Hand.currentItem as EquipmentRange;
         for (int i = 0; i < weaponSlots.Count; i++)
         {
             if (weaponSlots[i].weapon == currentItem)
@@ -181,6 +181,23 @@ public class Hand : MonoBehaviour
             }
         }
         return charge;
+    }
+
+    public int GetMaxCharge(ItemObject item)
+    {
+        int maxCharge = 0;
+        EquipmentRange _ = Hand.currentItem as EquipmentRange;
+
+        for (int i = 0; i < _.munitions.Count; i++)
+        {
+            if (_.munitions[i].munition == item)
+            {
+                maxCharge = _.munitions[i].charge;
+                break;
+            }
+        }
+
+        return maxCharge;
     }
     private void ChangeMunition()
     {
