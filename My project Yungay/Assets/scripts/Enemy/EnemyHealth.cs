@@ -63,6 +63,11 @@ public class EnemyHealth : MonoBehaviour
             timer2 = 0f;
         }
         blood.SetActive(true);
+        if (!dead)
+        {
+            anim.Play("Enemy_Reaction");
+        }
+        
         if (life <= 0 && !dead)
         {
             dead = true;
