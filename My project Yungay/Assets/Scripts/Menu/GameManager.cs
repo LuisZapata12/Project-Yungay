@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
-        
+        Hand.isAttacking = false;
     }
 
     // Update is called once per frame

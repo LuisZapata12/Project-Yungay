@@ -28,8 +28,6 @@ public class Hand : MonoBehaviour
     public static Image imageCursor;
     public Animator animatorPlayer;
     private bool once = false;
-    private int maxCharge;
-    bool isAttack;
 
     public ItemObject itemxd;
     // Start is called before the first frame update
@@ -173,7 +171,6 @@ public class Hand : MonoBehaviour
                     if (weaponSlots[i].munitions[j].munition == item)
                     {
                         charge = weaponSlots[i].munitions[j].charge;
-                        maxCharge = _.munitions[j].charge;
                         break;
                     }
                 }

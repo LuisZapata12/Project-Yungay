@@ -22,6 +22,11 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         rectTransform = GetComponent<RectTransform>();
     }
 
+    private void Start()
+    {
+        spawPos = GameObject.Find("Spawn").GetComponent<Transform>();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (GetComponent<Slot>().slot.item != null)
