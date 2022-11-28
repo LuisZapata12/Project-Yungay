@@ -2962,6 +2962,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 080a62f36fc3c834db657c99e190b683, type: 3}
   - name: Nivel1-ica
     clip: {fileID: 8300000, guid: 1a24af185aaf2d940ba545b6fb5e1f32, type: 3}
+  - name: Nivel1-Lima
+    clip: {fileID: 8300000, guid: 1933510e91183344c9f9895dd2aa4dff, type: 3}
   sfxSounds:
   - name: Pistol
     clip: {fileID: 8300000, guid: 7c90ebd51dad82544b9fe781f8e9ece4, type: 3}
@@ -2999,6 +3001,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0d23705de06d09c4f9e65b6b6f52ffe5, type: 3}
   - name: Hook_hitchsurface
     clip: {fileID: 8300000, guid: 443c3a27f5f6b6e4fb6f18b863554279, type: 3}
+  - name: BreakWood
+    clip: {fileID: 8300000, guid: c5255ec2475307847881b414f1a5a544, type: 3}
   musicSource: {fileID: 3741045180704199342}
   sfxSource: {fileID: 3741045179750391223}
   sliderMaster: {fileID: 3741045179739275454}

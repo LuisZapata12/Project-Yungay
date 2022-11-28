@@ -7,9 +7,13 @@ public class LoadLevel2 : MonoBehaviour
     public Animator fade;
     private GameObject data;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        AudioManager.Instance.musicSource.Stop();
+    }
     void Start()
     {
-        
+        AudioManager.Instance.PlayMusic("Nivel1-Lima");
     }
 
     // Update is called once per frame

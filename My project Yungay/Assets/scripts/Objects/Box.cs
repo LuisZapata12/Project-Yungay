@@ -35,6 +35,7 @@ public class Box : MonoBehaviour
             }
             
         }
+        AudioManager.Instance.PlaySFX("BreakWood");
         Instantiate(boxFullPieces, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
@@ -50,6 +51,7 @@ public class Box : MonoBehaviour
         if (other.CompareTag("Axe"))
         {
             Destroy();
+            
             int index = inventory.GetItemIndex(Hand.currentItem);
             inventory.slots[index].durability -= 1;
             inventory.RemoveSlotDurability();

@@ -33,6 +33,7 @@ public class Window : MonoBehaviour
     {
         if (id == windowId)
         {
+            AudioManager.Instance.PlaySFX("BreakWood");
             Instantiate(windowPieces, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
