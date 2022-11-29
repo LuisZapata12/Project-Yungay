@@ -27,6 +27,8 @@ public class EnemyVigilant : MonoBehaviour
     private Vector3 originalPos;
     private Vector3 directionToTarget;
 
+    public GameObject shootStart;
+
     [SerializeField]
     private TrailRenderer bulletTrail;
 
@@ -242,7 +244,7 @@ public class EnemyVigilant : MonoBehaviour
                     {
                         anim.SetBool("Shoot", true);
                         AudioManager.Instance.PlaySFX("Dmr_Shoot");
-                        TrailRenderer trail = Instantiate(bulletTrail, pointShoot.transform.position, Quaternion.identity);
+                        TrailRenderer trail = Instantiate(bulletTrail, shootStart.transform.position, Quaternion.identity);
                         StartCoroutine(SpawnTrail(trail, hit.point));
                         Weapon.Munition--;
                         Timer = 0;

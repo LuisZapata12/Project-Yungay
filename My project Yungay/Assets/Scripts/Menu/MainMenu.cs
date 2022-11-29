@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
         if (panelMainMenu.activeSelf)
         {
             Time.timeScale = 0f;
@@ -34,7 +35,15 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (sceneName == "Credits")
+            {
+                panelMainMenu.SetActive(true);
+            }
+        }
     }
 
 
@@ -53,7 +62,9 @@ public class MainMenu : MonoBehaviour
 
     public void ButtonCredits()
     {
-        SceneManager.LoadScene("Creditos");
+        panelMainMenu.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Credits");
     }
 
     public void ButtonExitGame()

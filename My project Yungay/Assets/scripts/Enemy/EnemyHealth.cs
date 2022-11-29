@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour
     public float bloodTime;
     private float timer2;
 
-    private float healthActual, healthMax;
+    public float healthActual, healthMax;
     void Start()
     {
         healthMax = life;

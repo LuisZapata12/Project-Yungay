@@ -22,6 +22,7 @@ public class Boss : MonoBehaviour
     public float Timer;
     public EnemyHealth dead;
 
+    public GameObject wawe;
 
 
     void Start()
@@ -33,7 +34,7 @@ public class Boss : MonoBehaviour
     void Update()
     {
         distance = CalculateDistance();
-
+        LifeEvents();
 
         if (distance < nearDistance)
         {
@@ -48,6 +49,25 @@ public class Boss : MonoBehaviour
         {
             FarAttack();
             Shoot(dmr);
+        }
+    }
+    private void LifeEvents()
+    {
+        if (dead.life <= (dead.healthMax*75)/100 && dead.life > (dead.healthMax * 50) / 100)
+        {
+            wawe.SetActive(true);
+            Debug.Log("75%");
+            Debug.Log(dead.healthMax * 75 / 100);
+        }
+        if (dead.life <= (dead.healthMax * 50) / 100 && dead.life > (dead.healthMax * 25) / 100)
+        {
+            Debug.Log("50%");
+            Debug.Log(dead.healthMax * 50 / 100);
+        }
+        if (dead.life <= (dead.healthMax * 25 /100))
+        {
+            Debug.Log("25%");
+            Debug.Log(dead.healthMax * 25 / 100);
         }
     }
 
