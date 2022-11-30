@@ -6,9 +6,9 @@ using Cinemachine;
 
 public class Look : MonoBehaviour
 {
-    public Camera camera;
+    public Camera mainCamera;
     private EquipmentRange weapon;
-    public GameObject init;
+    public Transform cameraObject, init,limit;
     private Vector3 end;
     private Vector3 endPosition;
     public GameObject look;
@@ -27,6 +27,7 @@ public class Look : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        init.position = cameraObject.position;
     }
 
     // Update is called once per frame
@@ -38,11 +39,11 @@ public class Look : MonoBehaviour
 
             UpdateLimit();
 
-            float distance1 = Vector3.Distance(camera.transform.position, endPosition);
-            float distance2 = Vector3.Distance(camera.transform.position, init.transform.position);
+            float distance1 = Vector3.Distance(mainCamera.transform.position, endPosition);
+            float distance2 = Vector3.Distance(mainCamera.transform.position, init.transform.position);
 
 
-            if (Input.GetMouseButtonDown(1) && weapon != null && !isback)
+            if (Input.GetMouseButtonDown(1) && weapon != null)
             {
                 zoom = true;
                 anim.Play("Aim_Pistol");
@@ -56,18 +57,35 @@ public class Look : MonoBehaviour
             }
 
 
-            if (zoom && !once)
+            if (zoom)
             {
-                coroutine = StartCoroutine(Zoom(zoomValue));
-                once = true;
+                if (distance1 < 0.01f)
+                {
+                    cameraObject.position = endPosition;
+                    once = true;
+                }
+
+                if (!once)
+                {
+                    cameraObject.position = Vector3.Lerp(cameraObject.position, endPosition, Time.deltaTime * smooth);
+                }
+                else
+                {
+                    cameraObject.position = endPosition;
+                }
             }
 
-            if (!zoom && once)
+
+            if(!zoom)
             {
-                StopCoroutine(coroutine);
-                StartCoroutine(Back());
-                isback = true;
+                if (distance1 < 0.01f)
+                {
+                    cameraObject.position = init.position;
+                }
+
+                cameraObject.position = Vector3.Lerp(cameraObject.position, init.position, Time.deltaTime * smooth);
                 once = false;
+
             }
         }
     }
@@ -86,11 +104,13 @@ public class Look : MonoBehaviour
             Ray ray = new Ray(init.transform.position, init.transform.forward * weapon.zoom);
             end = ray.origin + ray.direction * weapon.zoom;
             endPosition = end;
+            limit.position = end;
             if (Physics.Raycast(init.transform.position, init.transform.forward, out hit, weapon.zoom, collision))
             {
                 if (hit.point != null)
                 {
                     endPosition = hit.point;
+                    limit.position = endPosition;
                 }
             }
         }
@@ -109,6 +129,8 @@ public class Look : MonoBehaviour
 
     IEnumerator Back()
     {
+
+
         while (offset.m_Offset.z > 0)
         {
             offset.m_Offset.z -= Time.deltaTime * smooth;
