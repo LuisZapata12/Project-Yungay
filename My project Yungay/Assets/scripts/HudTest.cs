@@ -31,7 +31,16 @@ public class HudTest : MonoBehaviour
     public void TextHud(ItemObject itemObject, int cantidad)
     {
         GameObject Text = Instantiate(prefabText, viewPort);
-        Text.GetComponent<TMP_Text>(). text = "Recogido: " + itemObject.name + " (X" + cantidad.ToString() + ")";
+
+        if (cantidad != 0 )
+        {
+            Text.GetComponent<TMP_Text>().text = "Recogido: " + itemObject.name + " (X" + cantidad.ToString() + ")";
+        }
+        else
+        {
+            Text.GetComponent<TMP_Text>().text = "No puedes recoger más " + itemObject.name;
+        }
+
 
         //testing = false;
         //for (int i = 0; i < texto.Count; i++)
