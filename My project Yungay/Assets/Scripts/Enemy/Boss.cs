@@ -29,6 +29,7 @@ public class Boss : MonoBehaviour
     public GameObject spawnDebris;
     public GameObject[] prefabDebris;
     public float timerDebris;
+    public CameraShake cameraShake;
 
     void Start()
     {
@@ -247,6 +248,7 @@ public class Boss : MonoBehaviour
         timerDebris += Time.deltaTime;
         if (timerDebris >= 2f)
         {
+            StartCoroutine(cameraShake.Shake());
             int randomNumber = Random.Range(0, prefabDebris.Length);
             var debris = Instantiate(prefabDebris[randomNumber], spawnDebris.transform.position, Quaternion.identity);
             debris.transform.parent = spawnDebris.transform;

@@ -105,10 +105,6 @@ public class RangeWeapons : MonoBehaviour
                     case "Enemy":
                         StartCoroutine(SpawnTrail(trail, hit.point, true, hit, _));
                         break;
-                    case "Box":
-                        StartCoroutine(SpawnTrail(trail, hit.point, true, hit, _));
-                        hit.collider.gameObject.GetComponent<Box>().DestroyByOthers();
-                        break;
 
                     default:
                         StartCoroutine(SpawnTrail(trail, hit.point, false, hit, _));
@@ -140,7 +136,11 @@ public class RangeWeapons : MonoBehaviour
                             AudioManager.Instance.PlaySFX(_.fail);
                             break;
                         default:
-                            AudioManager.Instance.PlaySFX("Pistol-nails");
+                            if (Hand.currentItem == hand.weaponSlots[0].weapon)
+                            {
+                                AudioManager.Instance.PlaySFX("Pistol-nails");
+                            }
+                            Debug.Log("01");
                             break;
                     }
                 }
@@ -175,6 +175,7 @@ public class RangeWeapons : MonoBehaviour
                             break;
                         default:
                             AudioManager.Instance.PlaySFX("Pistol-nails");
+                            Debug.Log("02");
                             break;
                     }
                 }
