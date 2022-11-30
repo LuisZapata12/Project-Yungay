@@ -73,14 +73,7 @@ public class Boss : MonoBehaviour
         }
         if (dead.life <= (dead.healthMax * 50 /100))
         {
-            timerDebris += Time.deltaTime;
-            if (timerDebris >= 2f)
-            {
-               int randomNumber = Random.Range(0, prefabDebris.Length);
-                var debris = Instantiate(prefabDebris[randomNumber], spawnDebris.transform.position, Quaternion.identity);
-                debris.transform.parent = spawnDebris.transform;
-                timerDebris = 0f;
-            }
+            Debris();
         }
     }
 
@@ -248,4 +241,16 @@ public class Boss : MonoBehaviour
         Destroy(Trail.gameObject, Trail.time);
     }
 
+
+    private void Debris()
+    {
+        timerDebris += Time.deltaTime;
+        if (timerDebris >= 2f)
+        {
+            int randomNumber = Random.Range(0, prefabDebris.Length);
+            var debris = Instantiate(prefabDebris[randomNumber], spawnDebris.transform.position, Quaternion.identity);
+            debris.transform.parent = spawnDebris.transform;
+            timerDebris = 0f;
+        }
+    }
 }
