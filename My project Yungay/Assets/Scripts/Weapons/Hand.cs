@@ -21,7 +21,9 @@ public class Hand : MonoBehaviour
     public float force;
     public static bool canAim = false;
     private Munition muni;
+    public GameObject munitionHUD;
     public Image munitionImage;
+    public Sprite nails, bullets;
     public TMP_Text ammotext;
     private AudioSource audioSource;
     public Sprite defaultCursor, weaponsCursor, aimCursor;
@@ -146,15 +148,21 @@ public class Hand : MonoBehaviour
     {
         if (canAim)
         {
-            munitionImage.gameObject.SetActive(true);
-            ammotext.gameObject.SetActive(true);
-            munitionImage.sprite = currentMunition.itemSprite;
+            munitionHUD.SetActive(true);
+            if (currentMunition.name == "Nails")
+            {
+                munitionImage.sprite = nails;
+            }
+            else
+            {
+                munitionImage.sprite = bullets;
+            }
+            
             ammotext.text = GetCharge(currentMunition).ToString() + " / " + inventory.CheckAmount(currentMunition);
         }
         else
         {
-            munitionImage.gameObject.SetActive(false);
-            ammotext.gameObject.SetActive(false);
+            munitionHUD.SetActive(false);
         }
     }
 

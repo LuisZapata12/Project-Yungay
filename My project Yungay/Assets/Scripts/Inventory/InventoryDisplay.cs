@@ -92,10 +92,11 @@ public class InventoryDisplay : MonoBehaviour
                 }
                 else
                 {
-                    slotsUI[i].GetComponent<Slot>().slot.item = null;
-                    slotsUI[i].GetComponent<Slot>().slot.amount = 0;
-                    slotsUI[i].GetComponent<Slot>().slot.amount = 0;
-                    slotsUI[i].GetComponent<Image>().sprite = null;
+                    var _ = slotsUI[i].GetComponent<Slot>();
+                    _.slot.item = null;
+                    _.slot.amount = 0;
+                    _.slot.amount = 0;
+                    slotsUI[i].GetComponent<Image>().sprite = _.slotSprite;
                     text.text = null;
                     durability.gameObject.SetActive(false);
                 }
