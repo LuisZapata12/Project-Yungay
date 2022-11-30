@@ -35,6 +35,7 @@ public class HudTest : MonoBehaviour
         if (cantidad != 0 )
         {
             Text.GetComponent<TMP_Text>().text = "Recogido: " + itemObject.name + " (X" + cantidad.ToString() + ")";
+            AudioManager.Instance.PlaySFX(itemObject.pickSoundName);
         }
         else
         {

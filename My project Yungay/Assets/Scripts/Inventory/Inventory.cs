@@ -45,8 +45,8 @@ public class Inventory : MonoBehaviour
                 {
                     item.amount = (slots[index].amount + amount) - slots[index].item.maxStack;
                 }
-                slots[index].amount = slots[index].item.maxStack;
                 hudTest.TextHud(itemObject, slots[index].item.maxStack - slots[index].amount);
+                slots[index].amount = slots[index].item.maxStack;
             }
         }
         else
