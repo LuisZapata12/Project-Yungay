@@ -8622,7 +8622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelMainMenu: {fileID: 3741045180577099354}
-  Niveles: {fileID: 4961913949554964948}
+  panelNivel: {fileID: 4961913949554964948}
   panelOptions: {fileID: 3741045179868651546}
 --- !u!114 &3741045181025640168
 MonoBehaviour:
