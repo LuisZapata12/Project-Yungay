@@ -57,6 +57,20 @@ public class Sacks : MonoBehaviour
             inventory.slots[index].durability -= 1;
             inventory.RemoveSlotDurability();
         }
+        if (other.CompareTag("Axe"))
+        {
+            Destroy();
+            int index = inventory.GetItemIndex(Hand.currentItem);
+            inventory.slots[index].durability -= 1;
+            inventory.RemoveSlotDurability();
+        }
+        if (other.CompareTag("Spear"))
+        {
+            Destroy();
+            int index = inventory.GetItemIndex(Hand.currentItem);
+            inventory.slots[index].durability -= 1;
+            inventory.RemoveSlotDurability();
+        }
         if (!other.CompareTag("Player"))
         {
            

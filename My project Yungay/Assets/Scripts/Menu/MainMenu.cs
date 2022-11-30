@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject panelMainMenu;
+    public GameObject panelNivel;
     public GameObject panelOptions;
     private void Awake()
     {
@@ -65,6 +66,24 @@ public class MainMenu : MonoBehaviour
         panelMainMenu.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Credits");
+    }
+    public void ButtonBackMenu()
+    {
+        panelMainMenu.SetActive(true);
+        panelNivel.SetActive(false);
+    }
+    public void ButtonNiveles()
+    {
+        panelMainMenu.SetActive(false);
+        panelNivel.SetActive(true);
+    }
+
+    public void Scene(string a)
+    {
+        SceneManager.LoadScene(a);
+        Time.timeScale = 1f;
+        panelMainMenu.SetActive(false);
+        panelNivel.SetActive(false);
     }
 
     public void ButtonExitGame()

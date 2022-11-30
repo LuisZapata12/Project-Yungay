@@ -3,18 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class Sensibility : MonoBehaviour
 {
     public Slider slider;
     public float slidervalue;
     public TMP_Text textValue;
+    private GameObject camera;
+    private CinemachinePOV cinemachine;
+    private CinemachineVirtualCamera cinemachineVirtual;
     // Start is called before the first frame update
     void Start()
     {
+        if(!cinemachine)
+        {
+            camera = GameObject.FindGameObjectWithTag("ControladorCM");
+            cinemachineVirtual = camera.GetComponent<CinemachineVirtualCamera>();
+            cinemachine = cinemachineVirtual.AddCinemachineComponent<CinemachinePOV>();
+        }
         slider.value = PlayerPrefs.GetFloat("Sensibility", 125f);
-        PlayerCam.sensX = slider.value;
-        PlayerCam.sensY = slider.value;
+        //PlayerCam.sensX = slider.value;
+        //PlayerCam.sensY = slider.value;
+        cinemachine.m_HorizontalAxis.m_MaxSpeed = slider.value;
+        cinemachine.m_VerticalAxis.m_MaxSpeed = slider.value;
     }
 
     // Update is called once per frame
@@ -27,8 +39,10 @@ public class Sensibility : MonoBehaviour
     {
         slidervalue = value;
         PlayerPrefs.SetFloat("Sensibility", slidervalue);
-        PlayerCam.sensX = slider.value;
-        PlayerCam.sensY = slider.value;
+        //PlayerCam.sensX = slider.value;
+        //PlayerCam.sensY = slider.value;
+        cinemachine.m_HorizontalAxis.m_MaxSpeed = slider.value;
+        cinemachine.m_VerticalAxis.m_MaxSpeed = slider.value;
         ShowValue();
 
     }
