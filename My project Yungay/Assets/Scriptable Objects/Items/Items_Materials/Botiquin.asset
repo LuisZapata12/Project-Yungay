@@ -17,6 +17,7 @@ MonoBehaviour:
   type: 2
   maxStack: 1
   description: 
+  pickSoundName: pickup_meds
   itemName: Botiquin
   itemMesh: {fileID: -3316519942470509949, guid: d26431853f0515d46ba2f67868576a01,
     type: 3}

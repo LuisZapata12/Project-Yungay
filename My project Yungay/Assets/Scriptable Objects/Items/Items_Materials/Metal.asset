@@ -17,4 +17,4 @@ MonoBehaviour:
   type: 1
   maxStack: 10
   description: 
-  pickSoundName: PickMetal
+  pickSoundName: pickup_metal

@@ -17,3 +17,4 @@ MonoBehaviour:
   type: 1
   maxStack: 10
   description: 
+  pickSoundName: pickup_wood
