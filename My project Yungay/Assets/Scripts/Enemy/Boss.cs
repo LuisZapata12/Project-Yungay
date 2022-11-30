@@ -26,6 +26,10 @@ public class Boss : MonoBehaviour
     public GameObject prefabWawe2;
     public GameObject spawnWawe2;
 
+    public GameObject spawnDebris;
+    public GameObject[] prefabDebris;
+    public float timerDebris;
+
     void Start()
     {
         Target = GameObject.Find("Player").transform;
@@ -69,7 +73,14 @@ public class Boss : MonoBehaviour
         }
         if (dead.life <= (dead.healthMax * 50 /100))
         {
-            
+            timerDebris += Time.deltaTime;
+            if (timerDebris >= 2f)
+            {
+               int randomNumber = Random.Range(0, prefabDebris.Length);
+                var debris = Instantiate(prefabDebris[randomNumber], spawnDebris.transform.position, Quaternion.identity);
+                debris.transform.parent = spawnDebris.transform;
+                timerDebris = 0f;
+            }
         }
     }
 
