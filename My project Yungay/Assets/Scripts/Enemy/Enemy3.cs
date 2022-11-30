@@ -107,6 +107,7 @@ public class Enemy3 : MonoBehaviour
                     if (Timer > Weapon.timeToShoot)
                     {
                         anim.SetBool("Shoot", true);
+                        AudioManager.Instance.PlaySFX("Dmr_Shoot");
                         TrailRenderer trail = Instantiate(bulletTrail, pointShoot.transform.position, Quaternion.identity);
                         StartCoroutine(SpawnTrail(trail, hit.point));
                         Weapon.Munition--;

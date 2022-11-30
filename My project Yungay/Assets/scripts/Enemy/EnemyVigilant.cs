@@ -25,6 +25,14 @@ public class EnemyVigilant : MonoBehaviour
     public float waitTime;
     private float timer;
     private Vector3 originalPos;
+    private Vector3 directionToTarget;
+
+    public GameObject shootStart;
+
+    [SerializeField]
+    private TrailRenderer bulletTrail;
+
+    private float BulletSpeed = 100f;
     //public float rangeWeapon;
 
     void Start()
@@ -223,9 +231,9 @@ public class EnemyVigilant : MonoBehaviour
     }
     public void Shoot()
     {
-
+        directionToTarget = (Target.transform.position - transform.position).normalized;
         RaycastHit hit;
-        if  (Physics.Raycast (pointShoot.transform.position,pointShoot.transform.forward,out hit ,Weapon.Range))
+        if (Physics.Raycast(pointShoot.transform.position, directionToTarget, out hit, Weapon.Range))
         {
             if (hit.transform.gameObject.CompareTag("Player"))
             {
@@ -235,17 +243,23 @@ public class EnemyVigilant : MonoBehaviour
                     if (Timer > Weapon.timeToShoot)
                     {
                         anim.SetBool("Shoot", true);
+                        AudioManager.Instance.PlaySFX("Dmr_Shoot");
+                        TrailRenderer trail = Instantiate(bulletTrail, shootStart.transform.position, Quaternion.identity);
+                        StartCoroutine(SpawnTrail(trail, hit.point));
                         Weapon.Munition--;
                         Timer = 0;
                         Life.Damage(Weapon.damage);
 
                     }
                     else
-
                     {
                         anim.SetBool("Shoot", false);
                     }
+
+
                 }
+
+
             }
 
         }
@@ -253,12 +267,31 @@ public class EnemyVigilant : MonoBehaviour
         {
             anim.SetBool("Reload", true);
             Timer += Time.deltaTime;
-            if (Timer>=Weapon.timetoRecharge)
+            if (Timer >= Weapon.timetoRecharge)
             {
-                Weapon.Munition +=Weapon.charger;
+                Weapon.Munition += Weapon.charger;
                 Timer = 0;
                 anim.SetBool("Reload", false);
             }
         }
+    }
+
+    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint)
+    {
+        Vector3 startPosition = Trail.transform.position;
+        float distance = Vector3.Distance(Trail.transform.position, HitPoint);
+        float remainingDistance = distance;
+
+        while (remainingDistance > 0)
+        {
+            Trail.transform.position = Vector3.Lerp(startPosition, HitPoint, 1 - (remainingDistance / distance));
+
+            remainingDistance -= BulletSpeed * Time.deltaTime;
+
+            yield return null;
+        }
+        Trail.transform.position = HitPoint;
+
+        Destroy(Trail.gameObject, Trail.time);
     }
 }

@@ -170,6 +170,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &428085599147112670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9182392462933592741}
+  m_Layer: 10
+  m_Name: shootStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9182392462933592741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428085599147112670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.195, z: 0.171}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2679464520985613738}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &493271962759684287
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2496656330427947942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.039, y: 1.13, z: 0.034}
+  m_LocalPosition: {x: 0, y: 0.27, z: 0.264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1237,8 +1268,9 @@ Transform:
   - {fileID: 2496656330427947937}
   - {fileID: 9114485048834371443}
   - {fileID: 4124300449483843849}
+  - {fileID: 9182392462933592741}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2496656329862639532
 CapsuleCollider:
@@ -1297,6 +1329,8 @@ MonoBehaviour:
   healthBar: {fileID: 5685408538796008228}
   blood: {fileID: 4124300449483843854}
   bloodTime: 0.5
+  healthActual: 0
+  healthMax: 0
 --- !u!195 &2496656329862639506
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1346,6 +1380,9 @@ MonoBehaviour:
   distance: 0
   followLast: 0
   waitTime: 0
+  shootStart: {fileID: 428085599147112670}
+  bulletTrail: {fileID: 434358359375337746, guid: 4d6a9de6ae7201d4890431ff4d03a33f,
+    type: 3}
 --- !u!114 &7091712323453493586
 MonoBehaviour:
   m_ObjectHideFlags: 0

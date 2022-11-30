@@ -14,19 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel1Prototipo.unity
     guid: 42947ea45fabfb545b707cad5d7add05
-  - enabled: 0
-    path: Assets/Scenes/Nivel2.unity
-    guid: 35860495b2094964fa8f6ea40e388a61
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 5e1271a62d8ed51478aee810eddf5b62
-  - enabled: 0
-    path: Assets/Scenes/Nivel 1.unity
-    guid: 88f3da854f5c708419bed63adddd4e6e
-  - enabled: 0
-    path: Assets/Scenes/Player Movement Scene.unity
-    guid: 713fbc8cf135e3447a7ad71b7c77b26e
-  - enabled: 0
-    path: Assets/Scenes/GanchoScene.unity
-    guid: fa5309dc62c94e243b53a1be88049342
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 44b530fe5bd209445a417e130338db67
   m_configObjects: {}

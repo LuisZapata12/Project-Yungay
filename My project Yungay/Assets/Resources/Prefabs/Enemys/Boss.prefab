@@ -761,6 +761,37 @@ Transform:
   m_Father: {fileID: 7140900927803572926}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1821966945007705121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5402964059827025532}
+  m_Layer: 10
+  m_Name: ShootStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5402964059827025532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821966945007705121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.195, z: 0.171}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7454711420117300767}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1913278166600026275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,7 +2155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6989250133671868435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.039, y: 1.13, z: 0.034}
+  m_LocalPosition: {x: 0, y: 0.27, z: 0.034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2383,7 +2414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7800133565589744805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.5, y: 0.67, z: -18.75}
+  m_LocalPosition: {x: 20.5, y: 0, z: -18.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2393,8 +2424,9 @@ Transform:
   - {fileID: 6989250133671868436}
   - {fileID: 1000643892104905060}
   - {fileID: 1619768151722914426}
+  - {fileID: 5402964059827025532}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &6989250134094564377
 CapsuleCollider:
@@ -2449,9 +2481,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
   timer: 0
   dead: 0
+  CanvaHealth: {fileID: 1000643892104905061}
   healthBar: {fileID: 1000643891073265302}
   blood: {fileID: 1619768151722914429}
   bloodTime: 0.5
+  healthActual: 0
+  healthMax: 0
 --- !u!195 &6989250134094564391
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2490,7 +2525,6 @@ MonoBehaviour:
   nearDistance: 5.48
   midDistance: 13.62
   farDistance: 20.39
-  target: {fileID: 0}
   bulletTrail: {fileID: 434358359375337746, guid: 4d6a9de6ae7201d4890431ff4d03a33f,
     type: 3}
   Life: {fileID: 0}

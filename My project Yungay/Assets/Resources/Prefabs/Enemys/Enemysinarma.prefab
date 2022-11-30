@@ -1055,8 +1055,9 @@ Transform:
   - {fileID: 4419241276669070220}
   - {fileID: 7029148076335464286}
   - {fileID: 2796135425210464548}
+  - {fileID: 8781769653802565035}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 237.52701, z: 0}
 --- !u!136 &4419241276227501953
 CapsuleCollider:
@@ -1115,6 +1116,8 @@ MonoBehaviour:
   healthBar: {fileID: 5843151973818397449}
   blood: {fileID: 2796135425210464547}
   bloodTime: 0.5
+  healthActual: 0
+  healthMax: 0
 --- !u!195 &4419241276227502015
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1164,6 +1167,9 @@ MonoBehaviour:
   distance: 0
   followLast: 0
   waitTime: 0
+  shootStart: {fileID: 3882683387411948527}
+  bulletTrail: {fileID: 434358359375337746, guid: 4d6a9de6ae7201d4890431ff4d03a33f,
+    type: 3}
 --- !u!114 &9050961992613720447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1238,37 @@ Transform:
   m_Children:
   - {fileID: 7041080076387538672}
   m_Father: {fileID: 5163321884819846071}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3882683387411948527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8781769653802565035}
+  m_Layer: 10
+  m_Name: ShootStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8781769653802565035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882683387411948527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4242098360039097735}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4094398437073620452
@@ -1539,7 +1576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4419241276669070219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.039, y: 1.13, z: 0.034}
+  m_LocalPosition: {x: 0, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
