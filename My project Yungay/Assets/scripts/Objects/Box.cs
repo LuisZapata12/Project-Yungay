@@ -48,6 +48,13 @@ public class Box : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Knife"))
+        {
+            Destroy();
+            int index = inventory.GetItemIndex(Hand.currentItem);
+            inventory.slots[index].durability -= 1;
+            inventory.RemoveSlotDurability();
+        }
         if (other.CompareTag("Axe"))
         {
             Destroy();
@@ -56,15 +63,22 @@ public class Box : MonoBehaviour
             inventory.slots[index].durability -= 1;
             inventory.RemoveSlotDurability();
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Axe"))
+        if (other.CompareTag("Spear"))
         {
             Destroy();
-            Loot loot = collision.gameObject.GetComponent<Loot>();
-            loot.loot[0].durability--;
+            int index = inventory.GetItemIndex(Hand.currentItem);
+            inventory.slots[index].durability -= 1;
+            inventory.RemoveSlotDurability();
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Axe"))
+    //    {
+    //        Destroy();
+    //        Loot loot = collision.gameObject.GetComponent<Loot>();
+    //        loot.loot[0].durability--;
+    //    }
+    //}
 }
