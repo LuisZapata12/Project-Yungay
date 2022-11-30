@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 1054668443368822096}
   m_Layer: 0
   m_Name: CM vcam1
-  m_TagString: Untagged
+  m_TagString: ControladorCM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8727,7 +8727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db574e065370f4147a43b192f6488698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitud: 2
+  magnitud: 0.6
   duration: 1
   playerModel: {fileID: 0}
 --- !u!1 &1054668444307070547
