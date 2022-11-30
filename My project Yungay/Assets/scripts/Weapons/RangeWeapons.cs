@@ -140,7 +140,10 @@ public class RangeWeapons : MonoBehaviour
                             {
                                 AudioManager.Instance.PlaySFX("Pistol-nails");
                             }
-                            Debug.Log("01");
+                            else
+                            {
+                                AudioManager.Instance.PlaySFX(_.shoot);
+                            }
                             break;
                     }
                 }
@@ -174,8 +177,14 @@ public class RangeWeapons : MonoBehaviour
                             AudioManager.Instance.PlaySFX(_.fail);
                             break;
                         default:
-                            AudioManager.Instance.PlaySFX("Pistol-nails");
-                            Debug.Log("02");
+                            if (Hand.currentItem == hand.weaponSlots[0].weapon)
+                            {
+                                AudioManager.Instance.PlaySFX("Pistol-nails");
+                            }
+                            else
+                            {
+                                AudioManager.Instance.PlaySFX(_.shoot);
+                            }
                             break;
                     }
                 }

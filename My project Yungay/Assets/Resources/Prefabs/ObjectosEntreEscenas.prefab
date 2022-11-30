@@ -3315,6 +3315,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 443c3a27f5f6b6e4fb6f18b863554279, type: 3}
   - name: BreakWood
     clip: {fileID: 8300000, guid: c5255ec2475307847881b414f1a5a544, type: 3}
+  - name: Submachine_Shoot
+    clip: {fileID: 8300000, guid: 7c90ebd51dad82544b9fe781f8e9ece4, type: 3}
   musicSource: {fileID: 3741045180704199342}
   sfxSource: {fileID: 3741045179750391223}
   sliderMaster: {fileID: 3741045179739275454}
