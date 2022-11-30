@@ -21,7 +21,6 @@ public class Boss : MonoBehaviour
     public bool DetectPlayer;
     public float Timer;
     public EnemyHealth dead;
-    //public EnemyWeapon Weapon;
 
     public GameObject wawe;
     public GameObject prefabWawe2;
@@ -30,12 +29,10 @@ public class Boss : MonoBehaviour
     public GameObject spawnDebris;
     public GameObject[] prefabDebris;
     public float timerDebris;
-    private Vector3 directionToTarget;
-    public GameObject shootStart;
+    public CameraShake cameraShake;
 
     void Start()
     {
-        Life = GameObject.Find("Player").GetComponent<PlayerHealth>();
         Target = GameObject.Find("Player").transform;
     }
 
@@ -184,36 +181,32 @@ public class Boss : MonoBehaviour
 
     public void Shoot(EnemyWeapon weapon)
     {
-
-        directionToTarget = (Target.transform.position - transform.position).normalized;
         RaycastHit hit;
-        if (Physics.Raycast(pointShoot.transform.position, directionToTarget, out hit, weapon.Range))
+        if (Physics.Raycast(pointShoot.transform.position, pointShoot.transform.forward, out hit, weapon.Range))
         {
+            Debug.Log("Rayo");
             if (hit.transform.gameObject.CompareTag("Player"))
             {
+                Debug.Log("Player");
                 if (weapon.Munition > 0)
                 {
+
+                    Debug.Log("Municion");
                     Timer += Time.deltaTime;
                     if (Timer > weapon.timeToShoot)
                     {
                         anim.SetBool("Shoot", true);
-                        AudioManager.Instance.PlaySFX("Dmr_Shoot");
-                        TrailRenderer trail = Instantiate(bulletTrail, shootStart.transform.position, Quaternion.identity);
-                        StartCoroutine(SpawnTrail(trail, hit.point));
                         weapon.Munition--;
                         Timer = 0;
                         Life.Damage(weapon.damage);
 
                     }
                     else
+
                     {
                         anim.SetBool("Shoot", false);
                     }
-
-
                 }
-
-
             }
 
         }
@@ -228,46 +221,6 @@ public class Boss : MonoBehaviour
                 anim.SetBool("Reload", false);
             }
         }
-        //RaycastHit hit;
-        //if (Physics.Raycast(pointShoot.transform.position, pointShoot.transform.forward, out hit, weapon.Range))
-        //{
-        //    Debug.Log("Rayo");
-        //    if (hit.transform.gameObject.CompareTag("Player"))
-        //    {
-        //        Debug.Log("Player");
-        //        if (weapon.Munition > 0)
-        //        {
-
-        //            Debug.Log("Municion");
-        //            Timer += Time.deltaTime;
-        //            if (Timer > weapon.timeToShoot)
-        //            {
-        //                anim.SetBool("Shoot", true);
-        //                weapon.Munition--;
-        //                Timer = 0;
-        //                Life.Damage(weapon.damage);
-
-        //            }
-        //            else
-
-        //            {
-        //                anim.SetBool("Shoot", false);
-        //            }
-        //        }
-        //    }
-
-        //}
-        //if (weapon.Munition == 0)
-        //{
-        //    anim.SetBool("Reload", true);
-        //    Timer += Time.deltaTime;
-        //    if (Timer >= weapon.timetoRecharge)
-        //    {
-        //        weapon.Munition += weapon.charger;
-        //        Timer = 0;
-        //        anim.SetBool("Reload", false);
-        //    }
-        //}
     }
 
     private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint)
@@ -295,6 +248,7 @@ public class Boss : MonoBehaviour
         timerDebris += Time.deltaTime;
         if (timerDebris >= 2f)
         {
+            StartCoroutine(cameraShake.Shake());
             int randomNumber = Random.Range(0, prefabDebris.Length);
             var debris = Instantiate(prefabDebris[randomNumber], spawnDebris.transform.position, Quaternion.identity);
             debris.transform.parent = spawnDebris.transform;
