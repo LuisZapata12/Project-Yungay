@@ -1287,7 +1287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851827969143095351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5110002, z: 0.12099999}
+  m_LocalPosition: {x: 0, y: 1.543, z: 0.204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20433,7 +20433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923962518715441527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.023, z: 0.272}
+  m_LocalPosition: {x: 0, y: 1.023, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20496,7 +20496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002415617264617582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.543, z: 0.148}
+  m_LocalPosition: {x: 0, y: 1.543, z: 0.204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21300,7 +21300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3064362418847593981}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003000021, y: 1.02, z: 0.281}
+  m_LocalPosition: {x: 0, y: 1.02, z: 0.326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21669,6 +21669,7 @@ MonoBehaviour:
   lootText: {fileID: 1054668445155565960}
   rayDistance: 4
   changeColor: {r: 1, g: 0.951252, b: 0.28773582, a: 0}
+  oldColor: {fileID: 0}
   layer:
     serializedVersion: 2
     m_Bits: 1048311
