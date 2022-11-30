@@ -9,7 +9,7 @@ public class PlayerLooting : MonoBehaviour
     public GameObject lootText;
     public float rayDistance;
     public Color changeColor;
-    private Color oldColor;
+    public Material oldColor;
     private bool once;
     private GameObject item;
     public LayerMask layer;
@@ -63,11 +63,13 @@ public class PlayerLooting : MonoBehaviour
                 {
                     if (!once)
                     {
-                        oldColor = hit.collider.GetComponent<Renderer>().material.color;
+                        oldColor = hit.collider.GetComponent<Renderer>().material; 
                         once = true;
                     }
                     item = hit.collider.gameObject;
-                    hit.collider.GetComponent<Renderer>().material.color = changeColor;
+                    var _ = new Material(oldColor);
+                    _.color = changeColor;
+                    hit.collider.GetComponent<Renderer>().material = _;
                 }
 
                 lootText.GetComponent<Animator>().SetBool("Show", true);
@@ -88,9 +90,9 @@ public class PlayerLooting : MonoBehaviour
         {
             lootText.GetComponent<Animator>().SetBool("Show", false);
 
-            if (once && item != null)
+            if (once && item != null && oldColor != null)
             {
-                item.GetComponent<Renderer>().material.color = oldColor;
+                item.GetComponent<Renderer>().material = oldColor;
                 once = false;
             }
         }

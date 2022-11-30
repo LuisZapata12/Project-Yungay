@@ -2432,7 +2432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381254806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.99, y: -0.022913514, z: 1.1682901}
+  m_LocalPosition: {x: 18.99, y: 0.106, z: 1.1682901}
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14250,7 +14250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7920680298693367506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.44923, y: -0.022913514, z: 1.1682901}
+  m_LocalPosition: {x: 18.44923, y: 0.13, z: 1.1682901}
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14603,6 +14603,10 @@ MonoBehaviour:
   wawe: {fileID: 0}
   prefabWawe2: {fileID: 0}
   spawnWawe2: {fileID: 0}
+  spawnDebris: {fileID: 0}
+  prefabDebris: []
+  timerDebris: 0
+  cameraShake: {fileID: 0}
 --- !u!1 &7862666638040292018
 GameObject:
   m_ObjectHideFlags: 0
