@@ -23,7 +23,8 @@ public class Boss : MonoBehaviour
     public EnemyHealth dead;
 
     public GameObject wawe;
-
+    public GameObject prefabWawe2;
+    public GameObject spawnWawe2;
 
     void Start()
     {
@@ -53,21 +54,22 @@ public class Boss : MonoBehaviour
     }
     private void LifeEvents()
     {
-        if (dead.life <= (dead.healthMax*75)/100 && dead.life > (dead.healthMax * 50) / 100)
+        if (dead.life <= dead.healthMax && dead.life > (dead.healthMax * 75) / 100)
         {
             wawe.SetActive(true);
-            Debug.Log("75%");
-            Debug.Log(dead.healthMax * 75 / 100);
+          
         }
-        if (dead.life <= (dead.healthMax * 50) / 100 && dead.life > (dead.healthMax * 25) / 100)
+        if (dead.life <= (dead.healthMax * 75) / 100 && dead.life > (dead.healthMax * 50) / 100)
         {
-            Debug.Log("50%");
-            Debug.Log(dead.healthMax * 50 / 100);
+            if (spawnWawe2.transform.childCount <=0)
+            {
+                var wawe = Instantiate(prefabWawe2, spawnWawe2.transform.position, Quaternion.identity);
+                wawe.transform.parent = spawnWawe2.transform;
+            }
         }
-        if (dead.life <= (dead.healthMax * 25 /100))
+        if (dead.life <= (dead.healthMax * 50 /100))
         {
-            Debug.Log("25%");
-            Debug.Log(dead.healthMax * 25 / 100);
+            
         }
     }
 
