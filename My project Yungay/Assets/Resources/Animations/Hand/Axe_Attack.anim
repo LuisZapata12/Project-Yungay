@@ -460,7 +460,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: ExiAttack
+    functionName: EntAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -480,15 +480,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.9166667
-    functionName: ExitAttack
+  - time: 0.71666664
+    functionName: RemoveCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1
-    functionName: RemoveCollider
+  - time: 0.8333333
+    functionName: ExiAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
