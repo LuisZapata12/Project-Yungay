@@ -17,7 +17,6 @@ public class Hand : MonoBehaviour
     private MeshRenderer meshRenderer;
     private Animator anim;
     public static bool isAttacking;
-    public bool a;
     private bool canAttack = false;
     public float force;
     public static bool canAim = false;
@@ -51,7 +50,6 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        a = isAttacking;
         itemxd = currentItem;
         if (!Reload.isReload && !isAttacking)
         {
@@ -327,9 +325,12 @@ public class Hand : MonoBehaviour
     public void AddCollider()
     {
         gameObject.AddComponent<BoxCollider>();
-        GetComponent<BoxCollider>().isTrigger = true;
+        GetComponent<BoxCollider>().isTrigger = true; 
     }
-
+    public void EntAttack()
+    {
+        isAttacking = !isAttacking;
+    }
     public void ExiAttack()
     {
         isAttacking = !isAttacking;
