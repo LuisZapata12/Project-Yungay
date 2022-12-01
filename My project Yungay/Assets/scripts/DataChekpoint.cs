@@ -33,15 +33,15 @@ public class DataChekpoint : MonoBehaviour
 
     public void Check()
     {
-        dataEnemys.Clear();
+        //dataEnemys.Clear();
         players.Clear();
         inventories.Clear();
-        enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+       // enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         player = GameObject.FindGameObjectWithTag("Player");
-        foreach (GameObject enemysSingle in enemigos)
+       /* foreach (GameObject enemysSingle in enemigos)
         {
             dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<Transform>().position, enemysSingle.GetComponent<EnemyHealth>().life));
-        }
+        }**/
         players.Add(new Player(player.GetComponent<Transform>().position, player.GetComponent<PlayerModel>().health));
         for(int i = 0; i < player.GetComponent<Inventory>().slots.Count; i++)
         {
@@ -55,6 +55,13 @@ public class DataChekpoint : MonoBehaviour
         {
             inventories.Add(new InventorySlot(player.GetComponent<Inventory>().slots[i].item, player.GetComponent<Inventory>().slots[i].amount, player.GetComponent<Inventory>().slots[i].durability));
         }
+        players.Clear();
+    }
+    public void CheckPosition()
+    {
+        players.Clear(); 
+        player = GameObject.FindGameObjectWithTag("Player");
+        players.Add(new Player(player.GetComponent<Transform>().position, player.GetComponent<PlayerModel>().health));
     }
 
     public void ReturnPoint()
@@ -74,7 +81,7 @@ public class DataChekpoint : MonoBehaviour
         }
         inventoryDisplay.UpdateDisplay();
     }
-    public void Inventory()
+    public void ReturnInventory()
     {
         for (int i = 0; i < inventories.Count; i++)
         {
@@ -84,6 +91,11 @@ public class DataChekpoint : MonoBehaviour
         }
         inventoryDisplay.UpdateDisplay();
 
+    }
+    public void ReturnPosition()
+    {
+        player.transform.position = players[0].position;
+        player.GetComponent<PlayerModel>().health = players[0].health;
     }
 
     [System.Serializable]

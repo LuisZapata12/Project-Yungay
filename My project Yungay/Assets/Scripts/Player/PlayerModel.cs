@@ -81,7 +81,7 @@ public class PlayerModel : MonoBehaviour
     public GameObject _;
     public LayerMask npc;
     public float timer;
-    private bool a;
+    public bool a;
 
     private void Start()
     {
@@ -93,6 +93,10 @@ public class PlayerModel : MonoBehaviour
         if (!dataChekpoint)
         {
             dataChekpoint = checkpoint.GetComponent<DataChekpoint>();
+            if(dataChekpoint.players.Count == 0)
+            {
+                dataChekpoint.CheckPosition();
+            }
         }
         
     }
@@ -112,23 +116,37 @@ public class PlayerModel : MonoBehaviour
         }
         if (a)
         {
-            if (dataChekpoint.inventories != null)
+            if (dataChekpoint.players.Count == 1 && dataChekpoint.inventories != null)
             {
                 timer += Time.deltaTime;
                 if (timer >= 2f)
                 {
-                    dataChekpoint.Inventory();
+                    dataChekpoint.ReturnInventory();
+                    dataChekpoint.ReturnPosition();
                     a = false;
                 }
-
             }
-            else
+            
+            if(dataChekpoint.inventories != null)
             {
-                timer += Time.deltaTime;
-                if (timer >= 2f)
+                if (dataChekpoint.inventories != null)
                 {
-                    dataChekpoint.Inventory();
-                    a = false;
+                    timer += Time.deltaTime;
+                    if (timer >= 2f)
+                    {
+                        dataChekpoint.ReturnInventory();
+                        a = false;
+                    }
+
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+                    if (timer >= 2f)
+                    {
+                        dataChekpoint.ReturnInventory();
+                        a = false;
+                    }
                 }
             }
         }
@@ -138,7 +156,7 @@ public class PlayerModel : MonoBehaviour
     {
         if (other.CompareTag("Save"))
         {
-            dataChekpoint.Check(); 
+            dataChekpoint.Check();
         }
     }
 

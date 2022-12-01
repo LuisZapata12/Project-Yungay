@@ -99,12 +99,6 @@ public class PlayerHealth : MonoBehaviour
         {
             mb.isDeath = true;
             DeathPanel();
-            time += 1 * Time.deltaTime;
-            if (time >= 1)
-            {
-                mb.dataChekpoint.ReturnPoint();
-                time = 0;
-            }
             mb.state = PlayerModel.State.death;
             
         }

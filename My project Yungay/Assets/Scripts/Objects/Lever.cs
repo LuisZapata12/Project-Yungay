@@ -34,7 +34,7 @@ public class Lever : MonoBehaviour
                 inventory.RemoveSlot();
                 inventoryDisplay.UpdateDisplay();
 
-                dataChekpoint.Check();
+                dataChekpoint.CheckInventory();
                 EventManager.current.StartUseLeverEvent(leverID);
                 anim.SetBool("isUse", true);
             }
