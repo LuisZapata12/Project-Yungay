@@ -65,7 +65,7 @@ public class EnemyHealth : MonoBehaviour
         blood.SetActive(true);
         if (!dead)
         {
-            anim.Play("Enemy_Reaction");
+            //anim.Play("Enemy_Reaction");
         }
         
         if (life <= 0 && !dead)
@@ -88,6 +88,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
         {
+            if (other.CompareTag("Axe"))
+            {
+                anim.Play("Enemy_Reaction");
+            }
             EquipmentMelee _ = Hand.currentItem as EquipmentMelee;
             lifeE(_.damage);
         }
