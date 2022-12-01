@@ -83,6 +83,10 @@ public class InventoryDisplay : MonoBehaviour
                         {
                             durability.gameObject.SetActive(true);
                         }
+                        else
+                        {
+                            durability.gameObject.SetActive(false);
+                        }
                         EquipmentMelee _ = inventory.slots[i].item as EquipmentMelee;
                         if (_ != null)
                         {
