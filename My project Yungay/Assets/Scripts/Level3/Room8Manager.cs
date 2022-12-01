@@ -5,9 +5,6 @@ using TMPro;
 
 public class Room8Manager : MonoBehaviour
 {
-    public GameObject sacks;
-    public GameObject obstacle1;
-    public GameObject obstacle2;
     public TMP_Text textMesh;
     public GameObject enemys;
     public bool isShaking;
@@ -45,17 +42,6 @@ public class Room8Manager : MonoBehaviour
             isShaking = true;
 
         }
-        if (sacks.transform.childCount <= 0)
-        {
-            obstacle1.GetComponent<Window>().enabled = true;
-            obstacle2.GetComponent<Window>().enabled = true;
-            textMesh.text = "Kathya: esto deberia ayudarme a continuar";
-            timer += Time.deltaTime;
-            if (timer >= 3)
-            {
-                textMesh.text = "";
-                Destroy(this.gameObject);
-            }
-        }
+        
     }
 }

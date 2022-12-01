@@ -2155,7 +2155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6989250133671868435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.388, z: 0.034}
+  m_LocalPosition: {x: 0, y: 0.73, z: 0.034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2426,7 +2426,7 @@ Transform:
   - {fileID: 1619768151722914426}
   - {fileID: 5402964059827025532}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &6989250134094564377
 CapsuleCollider:
@@ -2550,7 +2550,7 @@ MonoBehaviour:
   - {fileID: 7724390255591834608, guid: 48fa88b9f476cf244a1cf41e9d5d1ecb, type: 3}
   - {fileID: 2580607422927220129, guid: 9c0928f69b0ebdb4385a63036e1bafbc, type: 3}
   timerDebris: 0
-  shootStart: {fileID: 1821966945007705121}
+  cameraShake: {fileID: 0}
 --- !u!1 &8138828636758149183
 GameObject:
   m_ObjectHideFlags: 0

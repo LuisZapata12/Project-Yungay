@@ -88,7 +88,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
         {
-            if (other.CompareTag("Axe"))
+            if (other.CompareTag("Axe") && dead == false)
             {
                 anim.Play("Enemy_Reaction");
             }

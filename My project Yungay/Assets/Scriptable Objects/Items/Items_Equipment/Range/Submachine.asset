@@ -17,6 +17,7 @@ MonoBehaviour:
   type: 2
   maxStack: 1
   description: 
+  pickSoundName: 
   itemName: Submachine
   itemMesh: {fileID: -3099183463934272234, guid: c4d23ee469e137f47aeed4f98c356d04,
     type: 3}
@@ -32,12 +33,12 @@ MonoBehaviour:
     charge: 20
   chargerNailsMax: 0
   chargerBulletsMax: 20
-  bulletSpreadVariance: {x: 0.15, y: 0.15}
+  bulletSpreadVariance: {x: 0.1, y: 0.1}
   damage: 10
   range: 20
   zoom: 1
   spark: {fileID: 92786460937822819, guid: 3fbd47da97cd9044bbe09eaeb04a600b, type: 3}
   look: {fileID: 21300000, guid: 57f74e2799893004e9adcd459b5dd878, type: 3}
-  shoot: Submachine_Shoot
-  reload: Submachine_Reload
-  fail: Submachine_Fail
+  shoot: Pistol
+  reload: Pistol_Reload
+  fail: Pistol_fails

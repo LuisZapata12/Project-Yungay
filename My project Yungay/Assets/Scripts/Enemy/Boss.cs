@@ -34,6 +34,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         Target = GameObject.Find("Player").transform;
+        Life = GameObject.Find("Player").GetComponent<PlayerHealth>();
     }
 
 
@@ -59,9 +60,15 @@ public class Boss : MonoBehaviour
     }
     private void LifeEvents()
     {
-        if (dead.life <= dead.healthMax && dead.life > (dead.healthMax * 75) / 100)
+        if (dead.life <= dead.healthMax && dead.life > (dead.healthMax * 75) / 100 && DetectPlayer == true && !wawe.activeSelf)
         {
-            wawe.SetActive(true);
+            Timer += Time.deltaTime;
+            if (Timer >= 5f)
+            {
+                wawe.SetActive(true);
+                Timer = 0f;
+            }
+            
           
         }
         if (dead.life <= (dead.healthMax * 75) / 100 && dead.life > (dead.healthMax * 50) / 100)
@@ -196,6 +203,7 @@ public class Boss : MonoBehaviour
                     if (Timer > weapon.timeToShoot)
                     {
                         anim.SetBool("Shoot", true);
+                        AudioManager.Instance.PlaySFX("Dmr_Shoot");
                         weapon.Munition--;
                         Timer = 0;
                         Life.Damage(weapon.damage);
