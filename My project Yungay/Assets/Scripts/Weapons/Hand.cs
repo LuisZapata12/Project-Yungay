@@ -328,10 +328,9 @@ public class Hand : MonoBehaviour
     {
         gameObject.AddComponent<BoxCollider>();
         GetComponent<BoxCollider>().isTrigger = true;
-        isAttacking = !isAttacking;
     }
 
-    public void ExitAttack()
+    public void ExiAttack()
     {
         isAttacking = !isAttacking;
     }
