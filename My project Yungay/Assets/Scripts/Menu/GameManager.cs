@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public GameObject panelPause;
     public GameObject panelOptions;
+    private GameObject player;
+    private PlayerModel model;
     private string sceneName;
     public static bool inPause = false;
     public bool inPase = false;
@@ -31,9 +33,14 @@ public class GameManager : MonoBehaviour
         inPase = inPause;
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
+        if(!player)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            model = player.GetComponent<PlayerModel>();
+        }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !InventoryDisplay.isOpen)
+        if (Input.GetKeyDown(KeyCode.Escape) && !InventoryDisplay.isOpen && model.state != PlayerModel.State.death)
         {
             if (sceneName != "Menu" && inPause == false)
             {

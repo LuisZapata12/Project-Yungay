@@ -10,6 +10,7 @@ public class Sensibility : MonoBehaviour
     public Slider slider;
     public float slidervalue;
     public TMP_Text textValue;
+    [SerializeField]
     private GameObject camera;
     private CinemachinePOV cinemachine;
     private CinemachineVirtualCamera cinemachineVirtual;

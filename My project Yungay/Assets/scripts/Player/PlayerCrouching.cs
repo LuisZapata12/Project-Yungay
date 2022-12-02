@@ -19,7 +19,7 @@ public class PlayerCrouching : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+        if (PlayerGroundCheck.grounded && model.state != PlayerModel.State.death/*playerGroundCheck.grounded*/)
         {
             Crouch();
         }

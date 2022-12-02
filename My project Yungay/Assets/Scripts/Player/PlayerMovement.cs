@@ -30,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
             { PlayerModel.State.move, Movement },
             { PlayerModel.State.walk, Walk },
             { PlayerModel.State.run, Run },
-            {PlayerModel.State.cinematica, Cinema}
+            {PlayerModel.State.cinematica, Cinema},
+            {PlayerModel.State.death, Death}
         };
     }
 
@@ -42,7 +43,10 @@ public class PlayerMovement : MonoBehaviour
             
         model.actualSpeed = model.rb.velocity.magnitude;
 
-        Iddle();
+        if (model.state != PlayerModel.State.death)
+        {
+            Iddle();
+        }
         
 
         if (GameManager.inPause)
@@ -94,6 +98,10 @@ public class PlayerMovement : MonoBehaviour
     {
     }
 
+    private void Death()
+    {
+
+    }
     private void Cinema()
     {
         
