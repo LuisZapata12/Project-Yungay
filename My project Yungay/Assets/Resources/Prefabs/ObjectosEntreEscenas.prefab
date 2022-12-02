@@ -1425,7 +1425,7 @@ Transform:
   - {fileID: 254176280}
   - {fileID: 6245852952387425097}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3741045179470426403
 MonoBehaviour:
@@ -3315,8 +3315,34 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 443c3a27f5f6b6e4fb6f18b863554279, type: 3}
   - name: BreakWood
     clip: {fileID: 8300000, guid: c5255ec2475307847881b414f1a5a544, type: 3}
-  - name: Submachine_Shoot
-    clip: {fileID: 8300000, guid: 7c90ebd51dad82544b9fe781f8e9ece4, type: 3}
+  - name: pickup_cloth
+    clip: {fileID: 8300000, guid: dc3bd406f5fc968469531554b1914ebe, type: 3}
+  - name: pickup_meds
+    clip: {fileID: 8300000, guid: d56f157114508e346bb28aa88fedebef, type: 3}
+  - name: pickup_metal
+    clip: {fileID: 8300000, guid: 3300653493b220d499407449f9545462, type: 3}
+  - name: pickup_nails
+    clip: {fileID: 8300000, guid: e3f18f76e24cea44199f800da62f1893, type: 3}
+  - name: pickup_rubber
+    clip: {fileID: 8300000, guid: fe72bc43aa4ff194590405f052918049, type: 3}
+  - name: pickup_stone
+    clip: {fileID: 8300000, guid: 66d78dbcc9bb8f049a9cad0adc09997b, type: 3}
+  - name: pickup_wood
+    clip: {fileID: 8300000, guid: 8ca90a8842b82da499d5a9c7ba20ed97, type: 3}
+  - name: Box1
+    clip: {fileID: 8300000, guid: 4c0772390595d3748b3e3c169cb70a5e, type: 3}
+  - name: Box2
+    clip: {fileID: 8300000, guid: fde643cf42bab1c47869b259f6cc8a06, type: 3}
+  - name: Box3
+    clip: {fileID: 8300000, guid: 532cc976ef41b244aa7118353195f150, type: 3}
+  - name: Abrir
+    clip: {fileID: 8300000, guid: 1ad6af3d9667c39429ede0eb534046b9, type: 3}
+  - name: Cerrar
+    clip: {fileID: 8300000, guid: 20b0500fc47f23342a6703dcfa9320e1, type: 3}
+  - name: Slot
+    clip: {fileID: 8300000, guid: 3ab236a03adce7f47a376aea64ff1deb, type: 3}
+  - name: Drop
+    clip: {fileID: 8300000, guid: 51f3bc7c060d014469b8f973972d2595, type: 3}
   musicSource: {fileID: 3741045180704199342}
   sfxSource: {fileID: 3741045179750391223}
   sliderMaster: {fileID: 3741045179739275454}

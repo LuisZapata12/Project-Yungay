@@ -8,6 +8,7 @@ public class Box : MonoBehaviour
     public GameObject lootPrefab;
     public List<ItemObject> items = new List<ItemObject>();
     private Inventory inventory;
+    public string[] audioNames;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,9 @@ public class Box : MonoBehaviour
             }
             
         }
-        AudioManager.Instance.PlaySFX("BreakWood");
+
+        int random = (int)Random.Range(0, audioNames.Length);
+        AudioManager.Instance.PlaySFX(audioNames[random]);
         Instantiate(boxFullPieces, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }

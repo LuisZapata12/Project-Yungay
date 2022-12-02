@@ -17,6 +17,7 @@ MonoBehaviour:
   type: 2
   maxStack: 1
   description: 
+  pickSoundName: 
   itemName: Pistol
   itemMesh: {fileID: -9010193167645078742, guid: 6e74603fdba2bf740a5d678063c594aa,
     type: 3}
@@ -35,7 +36,7 @@ MonoBehaviour:
   chargerNailsMax: 10
   chargerBulletsMax: 10
   bulletSpreadVariance: {x: 0, y: 0}
-  damage: 5
+  damage: 30
   range: 20
   zoom: 1
   spark: {fileID: 92786460937822819, guid: 3fbd47da97cd9044bbe09eaeb04a600b, type: 3}

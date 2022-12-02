@@ -131,6 +131,10 @@ MonoBehaviour:
   hits: 1
   textKathyaVoice: {fileID: 0}
   dialogo: hola
+  audioNames:
+  - Box1
+  - Box2
+  - Box3
 --- !u!54 &7482862972209794016
 Rigidbody:
   m_ObjectHideFlags: 0

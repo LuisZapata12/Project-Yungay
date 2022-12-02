@@ -78,6 +78,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
             _.slot.amount = 0;
             inventory.UpdateInventory();
             inventoryDisplay.UpdateDisplay();
+            AudioManager.Instance.PlaySFX("Drop");
         }
 
         Destroy(ghost);
@@ -145,6 +146,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
                 slot1.slot = new InventorySlot(item2,amount2,durability2);
             }
         }
+        AudioManager.Instance.PlaySFX("Slot");
         inventory.UpdateInventory();
         inventoryDisplay.UpdateDisplay();
     }

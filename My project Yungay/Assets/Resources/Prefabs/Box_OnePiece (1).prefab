@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6482031189453387108}
   - component: {fileID: 6482031189453387109}
   - component: {fileID: 6482031189453387106}
+  - component: {fileID: 1636949724}
   m_Layer: 9
   m_Name: Box_OnePiece (1)
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6482031189453387107}
-  m_LocalRotation: {x: 0.000000019737314, y: -0.42948472, z: -0.000000009386685, w: 0.90307415}
+  m_LocalRotation: {x: 0, y: -0.4294869, z: 0, w: 0.90307313}
   m_LocalPosition: {x: 2.64, y: 0.00999999, z: 8.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -112,5 +113,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxFullPieces: {fileID: 8136586195334732137, guid: 72c811a78a6570e4a8a65845a7174fc6,
     type: 3}
-  lootPrefab: {fileID: 0}
-  items: []
+  lootPrefab: {fileID: 8899441439988601919, guid: 31850fe793b2d2a46b57b42bca6b0711,
+    type: 3}
+  items:
+  - {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
+  - {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
+  - {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
+  audioNames:
+  - Box1
+  - Box2
+  - Box3
+--- !u!54 &1636949724
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6482031189453387107}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

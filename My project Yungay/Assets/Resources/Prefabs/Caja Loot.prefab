@@ -119,6 +119,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 916a62b47d553554185606c8ccf38189, type: 2}
   - {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d, type: 2}
   - {fileID: 11400000, guid: abc6655494af5b949967c0721deff67a, type: 2}
+  audioNames:
+  - Box1
+  - Box2
+  - Box3
 --- !u!54 &3612273017054157930
 Rigidbody:
   m_ObjectHideFlags: 0

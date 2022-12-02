@@ -34,7 +34,7 @@ MonoBehaviour:
   chargerNailsMax: 0
   chargerBulletsMax: 20
   bulletSpreadVariance: {x: 0.1, y: 0.1}
-  damage: 10
+  damage: 25
   range: 20
   zoom: 1
   spark: {fileID: 92786460937822819, guid: 3fbd47da97cd9044bbe09eaeb04a600b, type: 3}

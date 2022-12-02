@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using TMPro;
 
 public class Window : MonoBehaviour
@@ -13,6 +12,7 @@ public class Window : MonoBehaviour
 
     public TMP_Text textKathyaVoice;
     public string dialogo;
+    public string[] audioNames;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,8 @@ public class Window : MonoBehaviour
     {
         if (id == windowId)
         {
-            AudioManager.Instance.PlaySFX("BreakWood");
+            int random = (int)Random.Range(0, audioNames.Length);
+            AudioManager.Instance.PlaySFX(audioNames[random]);
             Instantiate(windowPieces, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
