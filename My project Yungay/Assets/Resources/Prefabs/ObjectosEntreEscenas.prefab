@@ -8782,8 +8782,6 @@ MonoBehaviour:
   slidervalue: 400
   textValue: {fileID: 8922858417644004416}
   camera: {fileID: 0}
-  cinemachine: {fileID: 0}
-  cinemachineVirtual: {fileID: 0}
 --- !u!1 &3741045181073128760
 GameObject:
   m_ObjectHideFlags: 0
@@ -13775,7 +13773,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3741045181025640173}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ButtonBackNiveles
+        m_MethodName: ButtonBackMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
