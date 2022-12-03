@@ -83,7 +83,7 @@ public class TutorialManager : MonoBehaviour
                     {
                         Papers.AddComponent<Loot>().loot.Add(new Item(paper, 1, 0));
                     }
-                    index = 4;
+                    index = 6;
                 }
                 break;
             case 4:
