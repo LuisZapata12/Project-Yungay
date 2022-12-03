@@ -1405,8 +1405,9 @@ Transform:
   - {fileID: 4124300449483843849}
   - {fileID: 9182392462933592741}
   - {fileID: 1549411297}
+  - {fileID: 2046147149889920544}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2496656329862639532
 CapsuleCollider:
@@ -1438,11 +1439,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig1:Neck'\n\tTransform 'mixamorig1:Head'\n\tTransform
-    'mixamorig1:Neck'\n\tTransform 'mixamorig1:Head'\n\tTransform 'mixamorig1:Neck'\n\tTransform
-    'mixamorig1:Head'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -3005,6 +3002,88 @@ Transform:
   m_Father: {fileID: 8617915738442660633}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2013080998402636235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 2679464520985613738}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0451
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.423
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1765
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ae9957c128cb3b84c90941f294bd0b0a, type: 2}
+    - target: {fileID: 919132149155446097, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+        type: 3}
+      propertyPath: m_Name
+      value: mascara_3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc, type: 3}
+--- !u!4 &2046147149889920544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7a0ca8d0664f4e4aaf5ffceb6bef4dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013080998402636235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2496656329733694677
 PrefabInstance:
   m_ObjectHideFlags: 0
