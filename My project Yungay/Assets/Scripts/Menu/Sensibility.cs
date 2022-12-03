@@ -33,7 +33,15 @@ public class Sensibility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!cinemachine)
+        {
+            camera = GameObject.FindGameObjectWithTag("ControladorCM");
+            cinemachineVirtual = camera.GetComponent<CinemachineVirtualCamera>();
+            cinemachine = cinemachineVirtual.AddCinemachineComponent<CinemachinePOV>();
+            slider.value = PlayerPrefs.GetFloat("Sensibility", 125f);
+            cinemachine.m_HorizontalAxis.m_MaxSpeed = slider.value;
+            cinemachine.m_VerticalAxis.m_MaxSpeed = slider.value;
+        }
     }
 
     public void ChangeSlider(float value)
