@@ -7468,7 +7468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054668444101429626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.265, y: -0.329, z: 0.426}
+  m_LocalPosition: {x: 0.244, y: -0.329, z: 0.426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10072,12 +10072,12 @@ RectTransform:
   - {fileID: 8464678367553888368}
   - {fileID: 1943692868013016657}
   - {fileID: 4214424764742380353}
-  - {fileID: 951634175522993903}
   - {fileID: 597123534}
   - {fileID: 1520091040}
   - {fileID: 404081821}
   - {fileID: 439394960}
   - {fileID: 821637553}
+  - {fileID: 951634175522993903}
   m_Father: {fileID: 1210160733481343789}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10106,7 +10106,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1054668444395382429
 MonoBehaviour:
@@ -20823,7 +20823,7 @@ MonoBehaviour:
   distance: 0.2
   hook:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 4185847
   hookeableObject: {fileID: 0}
 --- !u!54 &2572281190214524231
 Rigidbody:
@@ -21770,7 +21770,7 @@ MonoBehaviour:
   oldColor: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 1048311
+    m_Bits: 3145463
 --- !u!114 &8256076999975231253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21889,7 +21889,7 @@ Transform:
   - {fileID: 1054668444395382431}
   - {fileID: 1054668443368822097}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3561395849503708538
 GameObject:
@@ -22055,7 +22055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1

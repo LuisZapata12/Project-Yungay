@@ -76,6 +76,9 @@ public class EnemyHealth : MonoBehaviour
             RandomLoot();
             StaticItems();
             CheckItem();
+            GetComponent<CapsuleCollider>().isTrigger = true;
+            //int _ = LayerMask.NameToLayer("Ignore Player");
+            //gameObject.layer = _;
         }
     }
 

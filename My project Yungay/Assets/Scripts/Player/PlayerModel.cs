@@ -111,6 +111,11 @@ public class PlayerModel : MonoBehaviour
 
     private void Update()
     {
+        if (isDeath)
+        {
+            sourceSound.SetActive(false);
+        }
+        
         if (ConsoleCheats.noClip)
         {
             Noclip();

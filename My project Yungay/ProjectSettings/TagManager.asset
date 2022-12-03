@@ -27,6 +27,11 @@ TagManager:
   - Hookeable
   - Hook
   - NPC
+  - Save
+  - Paper
+  - ControladorCM
+  - Suplemento
+  - reset
   layers:
   - Default
   - TransparentFX
@@ -49,7 +54,7 @@ TagManager:
   - Obstacle
   - NPC
   - Ignore
-  - 
+  - Ignore Player
   - 
   - 
   - 

@@ -108,7 +108,7 @@ public class HookGrab : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q) && isGrab == false && isShot == false && canShot)
         {
-            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, rayDistance, hook))
+            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, rayDistance, hook, QueryTriggerInteraction.Ignore))
             {
                 if (hit.transform.tag != "Hook")
                 {

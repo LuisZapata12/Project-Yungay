@@ -37,61 +37,65 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        model.states[model.state]?.Invoke();
-
-        ControlSpeed();
-            
-        model.actualSpeed = model.rb.velocity.magnitude;
-
-        if (model.state != PlayerModel.State.death)
+        if (!model.isDeath)
         {
-            Iddle();
-        }
-        
+            model.states[model.state]?.Invoke();
 
-        if (GameManager.inPause)
-        {
-            model.sourceSound.SetActive(false);
-        }
+            ControlSpeed();
 
+            model.actualSpeed = model.rb.velocity.magnitude;
 
-
-        if (model.actualSpeed >= model.speedRun -0.5f)
-        {
-            model.isRunning = true;
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            model.isRunning = false;
-            //model.state = PlayerModel.State.idle;
-        }
-        else
-        {
-            model.isRunning = false;
-            //model.state = PlayerModel.State.idle;
-        }
-        if(model.lookMe)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(model.cam.transform.position, model.cam.transform.forward, out hit,3f,model.npc))
+            if (model.state != PlayerModel.State.death)
             {
-                if(hit.collider.tag == "NPC")
+                Iddle();
+            }
+
+
+            if (GameManager.inPause)
+            {
+                model.sourceSound.SetActive(false);
+            }
+
+
+
+            if (model.actualSpeed >= model.speedRun - 0.5f)
+            {
+                model.isRunning = true;
+            }
+
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                model.isRunning = false;
+                //model.state = PlayerModel.State.idle;
+            }
+            else
+            {
+                model.isRunning = false;
+                //model.state = PlayerModel.State.idle;
+            }
+            if (model.lookMe)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(model.cam.transform.position, model.cam.transform.forward, out hit, 3f, model.npc))
                 {
-                    model._ = hit.collider.gameObject;
-                    model._.GetComponentInChildren< Dialogue>().isPlayerInrange = true;
+                    if (hit.collider.tag == "NPC")
+                    {
+                        model._ = hit.collider.gameObject;
+                        model._.GetComponentInChildren<Dialogue>().isPlayerInrange = true;
+                    }
+                }
+                else
+                {
+                    if (model._ != null)
+                    {
+                        model._.GetComponentInChildren<Dialogue>().isPlayerInrange = false;
+                    }
                 }
             }
             else
             {
-                if(model._ != null)
-                {
-                    model._.GetComponentInChildren<Dialogue>().isPlayerInrange = false;
-                }
+                model._ = null;
             }
-        }else
-        {
-            model._ = null;
         }
     }
     void FixedUpdate()

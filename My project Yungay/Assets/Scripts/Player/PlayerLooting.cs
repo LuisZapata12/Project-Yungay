@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerLooting : MonoBehaviour
 {
-    private Camera cam;
     private Inventory inventory;
     public GameObject lootText;
     public float rayDistance;
@@ -17,7 +16,6 @@ public class PlayerLooting : MonoBehaviour
     void Awake()
     {
         inventory = GetComponent<Inventory>();
-        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -25,13 +23,6 @@ public class PlayerLooting : MonoBehaviour
     {
         Loot();
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-       // Gizmos.DrawRay(cam.transform.position, cam.transform.forward * rayDistance);
-
-    }
-
     private bool CheckLoot(Loot loot)
     {
         bool canloot = false;
@@ -49,12 +40,11 @@ public class PlayerLooting : MonoBehaviour
 
     private void Loot()
     {
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, rayDistance,layer) && hit.collider.gameObject.GetComponent<Loot>())
+        if (Physics.Raycast(ray, out hit, rayDistance) && hit.collider.gameObject.GetComponent<Loot>())
         {
+            Debug.Log(hit.collider.gameObject.name);
             var loot = hit.collider.gameObject.GetComponent<Loot>();
 
             if (CheckLoot(loot))
