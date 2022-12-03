@@ -19,6 +19,8 @@ public class HookGrab : MonoBehaviour
     private float distance;
     [SerializeField]
     private LayerMask hook;
+    private float scope;
+    private bool offLimits;
 
     public Transform hookeableObject;
     // Start is called before the first frame update
@@ -30,18 +32,32 @@ public class HookGrab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distance = CalculateDistance();
+
         if (!GameManager.inPause)
         {
             if (this.transform.position == hookParent.transform.position)
             {
                 hookback = false;
                 canShot = true;
+                offLimits = false;
             }
             ShotStart();
 
             if (hookeableObject != null && isShot == true)
             {
                 PickHook();
+            }
+
+            if (distance >=rayDistance + 1f)
+            {
+                offLimits = true;
+            }
+
+            if (offLimits == true)
+            {
+                PickHook();
+                isGrab = false;
             }
 
             if (this.transform.position == hookParent.transform.position && this.transform.parent != null && hookeableObject != null)
@@ -138,7 +154,7 @@ public class HookGrab : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isShot = false;
-        if (other.gameObject.tag != "Hookeable")
+        if (other.gameObject.tag != "Hookeable" && other.gameObject.tag != "Box")
         {
             if (hookback==false)
             {
@@ -169,6 +185,11 @@ public class HookGrab : MonoBehaviour
             AudioManager.Instance.sfxSource.Stop();
         }
     }
- 
+
+    private float CalculateDistance()
+    {
+        return Vector3.Distance(transform.position, hookParent.transform.position);
+    }
+
 
 }
