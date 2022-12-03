@@ -64,7 +64,6 @@ public class OptionsMenu : MonoBehaviour
             panelOptions.SetActive(false);
             panelMainMenu.SetActive(true);
         }
-        
         else
         {
             panelOptions.SetActive(false);

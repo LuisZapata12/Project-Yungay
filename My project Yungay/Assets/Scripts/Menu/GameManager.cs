@@ -10,10 +10,11 @@ public class GameManager : MonoBehaviour
     public GameObject panelOptions;
     private GameObject player;
     private PlayerModel model;
-    private string sceneName;
+    [SerializeField] private string sceneName;
     public static bool inPause = false;
     public bool inPase = false;
     public static string actualScene;
+    
 
 
     public bool pause;
@@ -32,8 +33,9 @@ public class GameManager : MonoBehaviour
 
         inPase = inPause;
         Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
-        if(!player)
+        sceneName = currentScene.name;
+        actualScene = sceneName;
+        if (!player)
         {
             player = GameObject.FindGameObjectWithTag("Player");
             model = player.GetComponent<PlayerModel>();
@@ -75,10 +77,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             inPause = true;
         }
-
-        
-
-        actualScene = sceneName;
 
         pause = inPause;
     }
