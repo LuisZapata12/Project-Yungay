@@ -15,13 +15,13 @@ public class Look : MonoBehaviour
     public LayerMask collision;
     public LayerMask no;
     public float smooth;
-    public bool zoom = false;
+    public static bool zoom = false;
     private Coroutine coroutine;
     private Animator anim;
     public Sprite weaponCursor,aimCursor;
     public CinemachineCameraOffset offset;
     public float zoomValue;
-    private bool once;
+    public bool once;
     private bool isback = false;
 
     private void Start()
@@ -33,13 +33,13 @@ public class Look : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float distance1 = Vector3.Distance(mainCamera.transform.position, endPosition);
         if (Hand.canAim)
         {
             weapon = Hand.currentItem as EquipmentRange;
 
             UpdateLimit();
 
-            float distance1 = Vector3.Distance(mainCamera.transform.position, endPosition);
             float distance2 = Vector3.Distance(mainCamera.transform.position, init.transform.position);
 
 
@@ -55,7 +55,6 @@ public class Look : MonoBehaviour
                 zoom = false;
                 anim.SetBool("isAim", false);
             }
-
 
             if (zoom)
             {
@@ -75,8 +74,7 @@ public class Look : MonoBehaviour
                 }
             }
 
-
-            if(!zoom)
+            if (!zoom)
             {
                 if (distance1 < 0.01f)
                 {
@@ -87,6 +85,17 @@ public class Look : MonoBehaviour
                 once = false;
 
             }
+        }
+        else
+        {
+                if (distance1 < 0.01f)
+                {
+                    cameraObject.position = init.position;
+                }
+
+                cameraObject.position = Vector3.Lerp(cameraObject.position, init.position, Time.deltaTime * smooth);
+                once = false;
+
         }
     }
 

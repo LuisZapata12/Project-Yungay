@@ -7666,6 +7666,7 @@ MonoBehaviour:
   aimCursor: {fileID: 21300000, guid: 8c89ed5746a4faa48bb97701cc2f2e35, type: 3}
   offset: {fileID: 1054668443368822096}
   zoomValue: 3
+  once: 0
 --- !u!1 &1054668444105454363
 GameObject:
   m_ObjectHideFlags: 0

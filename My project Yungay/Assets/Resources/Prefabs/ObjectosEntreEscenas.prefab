@@ -6753,6 +6753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelPause: {fileID: 3741045179549996600}
   panelOptions: {fileID: 3741045179868651546}
+  sceneName: 
   inPase: 0
   pause: 0
 --- !u!114 &316921241
@@ -7204,7 +7205,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
