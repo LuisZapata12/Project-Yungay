@@ -21,7 +21,7 @@ public class PlayerModel : MonoBehaviour
     public float health;
     public float maxHealth;
     public bool isDeath;
-    [HideInInspector]
+    //[HideInInspector]
     public float armor;
 
     [Header("Jump")]

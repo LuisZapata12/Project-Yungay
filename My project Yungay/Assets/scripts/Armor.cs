@@ -8,7 +8,7 @@ public class Armor : MonoBehaviour
     public PlayerModel playerHealth;
     public Inventory inventory;
     public InventoryDisplay inventoryDisplay;
-    public ItemObject armorItem;
+    public EquipmentBuff armorItem;
     private bool hasArmor;
     public float timeArmor;
     public float timer;
@@ -17,42 +17,60 @@ public class Armor : MonoBehaviour
     public GameObject chargeBar;
     private Image image;
     public float speedBar;
+    private Coroutine coroutine;
 
     private void Start()
     {
         inventoryDisplay = InventoryDisplay.instance;
+        chargeBar.SetActive(false);
+        image = chargeBar.transform.GetChild(0).GetComponent<Image>();
     }
     private void Update()
     {
-        hasArmor = inventory.CheckItem(armorItem);
-        if (hasArmor && Input.GetMouseButtonDown(0))
+        //if (hasArmor && Input.GetMouseButtonDown(0))
+        //{
+        //    charge = true;
+        //}
+        //else if (Input.GetMouseButtonUp(0))
+        //{
+        //    if (timer < maxTime)
+        //    {
+        //        timer = 0;
+        //        charge = false;
+        //    }
+        //}
+
+        //if (timer >= maxTime)
+        //{
+        //    timer = 0;
+        //    charge = false;
+        //    Doped();
+        //}
+
+        //if (charge)
+        //{
+        //    timer += Time.deltaTime;
+        //}
+
+        armorItem = Hand.currentItem as EquipmentBuff;
+
+        if (armorItem && Input.GetMouseButtonDown(0))
         {
-            charge = true;
+            coroutine = StartCoroutine(FillBar());
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if(coroutine != null)
         {
-            if (timer < maxTime)
+            if (Input.GetMouseButtonUp(0))
             {
-                timer = 0;
-                charge = false;
+                StopCoroutine(coroutine);
+                image.fillAmount = 0;
+                chargeBar.SetActive(false);
             }
         }
-
-        if (timer >= maxTime)
-        {
-            timer = 0;
-            charge = false;
-            Doped();
-        }
-
-        if (charge)
-        {
-            timer += Time.deltaTime;
-        }
     }
-    public void Doped()
+    public void Doped(float value)
     {
-        playerHealth.armor = timeArmor;
+        playerHealth.armor = value;
         inventory.RestItem(armorItem, 1);
         inventory.RemoveSlot();
         inventoryDisplay.UpdateDisplay();
@@ -66,6 +84,7 @@ public class Armor : MonoBehaviour
             image.fillAmount += speedBar * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        Doped(armorItem.armor);
         chargeBar.SetActive(false);
         image.fillAmount = 0;
     }

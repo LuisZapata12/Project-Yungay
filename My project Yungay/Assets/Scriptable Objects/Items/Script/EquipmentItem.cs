@@ -6,7 +6,8 @@ public enum EquipmentType
 {
     Melee,
     Range,
-    Healing
+    Healing,
+    Buff
 }
 //[CreateAssetMenu(fileName = "New Equipment Item", menuName = "Inventory System/Items/Equipment")]
 public class EquipmentItem : ItemObject

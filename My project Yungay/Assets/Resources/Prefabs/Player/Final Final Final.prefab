@@ -21822,11 +21822,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 8256076999975231234}
   inventory: {fileID: 8256076999975231263}
-  inventoryDisplay: {fileID: 0}
+  inventoryDisplay: {fileID: 1054668444395382430}
   armorItem: {fileID: 11400000, guid: f0fa9460d49089a4ea35bd2b26307673, type: 2}
   timeArmor: 20
   timer: 0
   maxTime: 3
+  chargeBar: {fileID: 1054668443648803936}
+  speedBar: 0.5
 --- !u!114 &8256076999975231254
 MonoBehaviour:
   m_ObjectHideFlags: 0
