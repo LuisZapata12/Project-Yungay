@@ -20,8 +20,15 @@ public class Lever : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         inventoryDisplay = GameObject.Find("Canvas").GetComponent<InventoryDisplay>();
         EventManager.current.useLeverEvent += StartCinematic;
-    }
 
+    }
+    private void Update()
+    {
+        if (!dataChekpoint)
+        {
+            dataChekpoint = GameObject.Find("Checkpoint").GetComponent<DataChekpoint>();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))

@@ -32,6 +32,15 @@ public class ConsoleCheats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!player)
+        {
+            player = GameObject.Find("Player");
+            inventory = player.GetComponent<Inventory>();
+            movement = player.GetComponent<PlayerMovement>();
+            jump = player.GetComponent<PlayerJump>();
+            crouching = player.GetComponent<PlayerCrouching>();
+            spwanPos = GameObject.Find("Spawn").GetComponent<Transform>();
+        }
         if (Input.GetKeyDown(KeyCode.F5) && !isOpen)
         {
             consoleCanvas.SetActive(true);

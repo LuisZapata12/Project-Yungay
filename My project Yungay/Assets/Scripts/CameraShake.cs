@@ -20,16 +20,18 @@ public class CameraShake : MonoBehaviour
     {
         original = transform.localPosition;
         float elapse = 0f;
-
-        while(elapse<duration)
+        AudioManager.Instance.PlaySFX("Shake");
+        while (elapse<duration)
         {
             float x = Random.Range(-0.5f, 0.5f) * magnitud;
             float y = Random.Range(-0.1f,0.1f) * magnitud;
             transform.localPosition = new Vector3(original.x - x,original.y - y, original.z);
             elapse += 1 * Time.deltaTime;
             Debug.Log(elapse);
+            
             yield return null;
         }
+
 
         transform.localPosition = original;
     }
