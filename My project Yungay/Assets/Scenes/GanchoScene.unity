@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -953,6 +953,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &233529564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1262,6 +1263,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &252283180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1920,6 +1922,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &317905476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2034,6 +2037,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &328102879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2796,6 +2800,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &405622047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2977,6 +2982,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &429767187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3106,6 +3112,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &431920589
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4501,6 +4508,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &721695662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5730,6 +5738,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &977591287
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7622,6 +7631,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &1319708520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8895,6 +8905,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &1515899114
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10179,6 +10190,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 916a62b47d553554185606c8ccf38189, type: 2}
   - {fileID: 11400000, guid: 157c94ec010615448a7e622bf9ca479d, type: 2}
   - {fileID: 11400000, guid: abc6655494af5b949967c0721deff67a, type: 2}
+  audioNames: []
 --- !u!65 &1840345600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10808,6 +10820,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &1942819970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11063,6 +11076,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &2010564341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11994,6 +12008,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &2145161115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12915,6 +12930,7 @@ MonoBehaviour:
     type: 3}
   lootPrefab: {fileID: 0}
   items: []
+  audioNames: []
 --- !u!65 &2537313920447301310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13482,10 +13498,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 70653299, guid: 6d1afbef7a98c3a4f90d17c07504f5ae, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1210160733481343789, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
         type: 3}
       propertyPath: m_RootOrder
@@ -14978,6 +14990,7 @@ MonoBehaviour:
   hits: 0
   textKathyaVoice: {fileID: 0}
   dialogo: 
+  audioNames: []
 --- !u!65 &8351919947981472438
 BoxCollider:
   m_ObjectHideFlags: 0

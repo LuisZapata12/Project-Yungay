@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerModel : MonoBehaviour
 {
@@ -116,24 +117,34 @@ public class PlayerModel : MonoBehaviour
         }
         if (a)
         {
+            timer += Time.deltaTime;
+            if (timer >= 1f)
+            {
+                Debug.Log("1");
+                dataChekpoint.ReturnInventory();
+                dataChekpoint.ReturnPosition();
+                a = false;
+            }/*
             if (dataChekpoint.players.Count == 1 && dataChekpoint.inventories != null)
             {
                 timer += Time.deltaTime;
                 if (timer >= 2f)
                 {
+                    Debug.Log("1"); 
                     dataChekpoint.ReturnInventory();
                     dataChekpoint.ReturnPosition();
                     a = false;
                 }
             }
             
-            if(dataChekpoint.inventories != null)
+            if(dataChekpoint.inventories != null && dataChekpoint.players.Count == 0)
             {
                 if (dataChekpoint.inventories != null)
                 {
                     timer += Time.deltaTime;
                     if (timer >= 2f)
                     {
+                        Debug.Log("2");
                         dataChekpoint.ReturnInventory();
                         a = false;
                     }
@@ -144,11 +155,23 @@ public class PlayerModel : MonoBehaviour
                     timer += Time.deltaTime;
                     if (timer >= 2f)
                     {
+                        Debug.Log("3");
                         dataChekpoint.ReturnInventory();
                         a = false;
                     }
                 }
             }
+            else
+            {
+                timer += Time.deltaTime;
+                if (timer >= 2f)
+                {
+                    Debug.Log("4");
+                    dataChekpoint.ReturnPosition();
+                    a = false;
+                }
+
+            }*/
         }
     }
 
@@ -157,6 +180,10 @@ public class PlayerModel : MonoBehaviour
         if (other.CompareTag("Save"))
         {
             dataChekpoint.Check();
+        }
+        if (other.CompareTag("reset"))
+        {
+            SceneManager.LoadScene("Level3");
         }
     }
 

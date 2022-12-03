@@ -30,11 +30,13 @@ public class Hand : MonoBehaviour
     public static Image imageCursor;
     public Animator animatorPlayer;
     private bool once = false;
+    public bool a;
 
     public ItemObject itemxd;
     // Start is called before the first frame update
     void Start()
     {
+        isAttacking = false;
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -50,6 +52,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        a = isAttacking;
         itemxd = currentItem;
         if (!Reload.isReload && !isAttacking)
         {
