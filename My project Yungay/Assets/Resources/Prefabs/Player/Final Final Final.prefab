@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -2070,7 +2070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -2858,7 +2858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -3583,7 +3583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054668443568492796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.462526, y: 3.398, z: 0.20198688}
+  m_LocalPosition: {x: 0, y: 1.543, z: 0.0539999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3919,7 +3919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -4965,7 +4965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -6493,7 +6493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -7893,7 +7893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -8008,7 +8008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -8500,7 +8500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -9481,7 +9481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -9654,7 +9654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -10682,7 +10682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -10815,7 +10815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -10930,7 +10930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -11184,7 +11184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -11871,7 +11871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -12381,7 +12381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -14588,7 +14588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -15446,7 +15446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
@@ -17027,7 +17027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff85011ca67acc843b3ba6f32dd584f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotSprite: {fileID: 0}
+  slotSprite: {fileID: 21300000, guid: e6ac21515a2addd459c63c3bd0645364, type: 3}
   slot:
     item: {fileID: 0}
     amount: 0
