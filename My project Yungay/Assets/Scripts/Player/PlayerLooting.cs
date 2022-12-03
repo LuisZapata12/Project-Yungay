@@ -63,13 +63,13 @@ public class PlayerLooting : MonoBehaviour
                 {
                     if (!once)
                     {
-                        oldColor = hit.collider.GetComponent<Renderer>().material; 
+                        oldColor = hit.collider.GetComponent<Renderer>().material;
+                        var _ = new Material(oldColor);
+                        _.color = changeColor;
+                        hit.collider.GetComponent<Renderer>().material = _;
                         once = true;
                     }
                     item = hit.collider.gameObject;
-                    var _ = new Material(oldColor);
-                    _.color = changeColor;
-                    hit.collider.GetComponent<Renderer>().material = _;
                 }
 
                 lootText.GetComponent<Animator>().SetBool("Show", true);

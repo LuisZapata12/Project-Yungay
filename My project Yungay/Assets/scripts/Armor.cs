@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Armor : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Armor : MonoBehaviour
     public float timer;
     public float maxTime;
     private bool charge;
+    public GameObject chargeBar;
+    private Image image;
+    public float speedBar;
 
     private void Start()
     {
@@ -52,5 +56,17 @@ public class Armor : MonoBehaviour
         inventory.RestItem(armorItem, 1);
         inventory.RemoveSlot();
         inventoryDisplay.UpdateDisplay();
+    }
+
+    IEnumerator FillBar()
+    {
+        while (image.fillAmount < 1)
+        {
+            chargeBar.SetActive(true);
+            image.fillAmount += speedBar * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        chargeBar.SetActive(false);
+        image.fillAmount = 0;
     }
 }
