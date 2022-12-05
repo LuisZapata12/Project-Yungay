@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 2
   maxStack: 1
   description: 
-  pickSoundName: 
+  pickSoundName: Axe_pickup
   itemName: Axe
   itemMesh: {fileID: 5451499792267123037, guid: dd4a3e4c1166b1c499824f63286c0ed5,
     type: 3}

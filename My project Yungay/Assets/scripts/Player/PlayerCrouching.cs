@@ -27,9 +27,9 @@ public class PlayerCrouching : MonoBehaviour
 
     private void Crouch()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl) /*&& !model.isCrouching*/)
         {
-            if (!model.isCrouching)
+            //if (!model.isCrouching)
             {
                 model.isCrouching = true;
                 model.state = PlayerModel.State.crounching;

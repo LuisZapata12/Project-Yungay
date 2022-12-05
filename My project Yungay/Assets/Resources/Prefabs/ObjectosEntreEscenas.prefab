@@ -1476,7 +1476,7 @@ Transform:
   - {fileID: 7689475353873410042}
   - {fileID: 254176280}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3741045179470426403
 MonoBehaviour:
@@ -3339,31 +3339,33 @@ MonoBehaviour:
   - name: Dmr_Shoot
     clip: {fileID: 8300000, guid: 8dfcd3e6d6702bf4d83efe6ac08db817, type: 3}
   - name: Axe
-    clip: {fileID: 8300000, guid: 73e6401072c264a4fb0703be8819064c, type: 3}
+    clip: {fileID: 8300000, guid: e052c53e750857047abb3b7baf66697d, type: 3}
   - name: Knife
     clip: {fileID: 8300000, guid: 0999d077c0f5ab24d8a7f22dd5c012d1, type: 3}
   - name: Spear
     clip: {fileID: 8300000, guid: 433733621d2208e408c1a844a75d74d9, type: 3}
   - name: Abrir
-    clip: {fileID: 8300000, guid: 8fe58fa0b2274b24a8ac3e43c8ac4d23, type: 3}
+    clip: {fileID: 8300000, guid: 1ad6af3d9667c39429ede0eb534046b9, type: 3}
+  - name: Cerrar
+    clip: {fileID: 8300000, guid: 20b0500fc47f23342a6703dcfa9320e1, type: 3}
   - name: Mochila
     clip: {fileID: 8300000, guid: 4661d080d5fa70a41993f1697ad11371, type: 3}
   - name: Throw
-    clip: {fileID: 8300000, guid: 3687b10bfef5a2a4e82fc326c8240955, type: 3}
+    clip: {fileID: 8300000, guid: 15169363fb8f65b48a9669c1eb2e3f46, type: 3}
   - name: Car
     clip: {fileID: 8300000, guid: 027c0ce8e941d7f42b5431cebd3d28bd, type: 3}
   - name: Hook_releaseobject
-    clip: {fileID: 8300000, guid: 7539e7b7fa3e90743827806226ab05a4, type: 3}
+    clip: {fileID: 8300000, guid: eb1fd660d78b1184b924affab01cc50b, type: 3}
   - name: Hook_shootrope
-    clip: {fileID: 8300000, guid: 395752cc0ef8e6c4fbb35b127f94b756, type: 3}
+    clip: {fileID: 8300000, guid: bc956c0c860406743a39bdd6103c757e, type: 3}
   - name: Hook_releasesurface
-    clip: {fileID: 8300000, guid: 665ac20b1805f9d4d951f031d3d5814d, type: 3}
+    clip: {fileID: 8300000, guid: dc85f6ab827de8543a454af46814c6ab, type: 3}
   - name: Hook_retraction
-    clip: {fileID: 8300000, guid: f1554a4636328db429b7c2797024c4f7, type: 3}
+    clip: {fileID: 8300000, guid: c95bb29830a8fc9449f61f4336643eab, type: 3}
   - name: Hook-hitchobject
-    clip: {fileID: 8300000, guid: 0d23705de06d09c4f9e65b6b6f52ffe5, type: 3}
+    clip: {fileID: 8300000, guid: 94c087e8d3928664c849822a070fb85e, type: 3}
   - name: Hook_hitchsurface
-    clip: {fileID: 8300000, guid: 443c3a27f5f6b6e4fb6f18b863554279, type: 3}
+    clip: {fileID: 8300000, guid: 3ecf699beeb2988469f3435ec42d3da3, type: 3}
   - name: BreakWood
     clip: {fileID: 8300000, guid: c5255ec2475307847881b414f1a5a544, type: 3}
   - name: pickup_cloth
@@ -3380,8 +3382,28 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 66d78dbcc9bb8f049a9cad0adc09997b, type: 3}
   - name: pickup_wood
     clip: {fileID: 8300000, guid: 8ca90a8842b82da499d5a9c7ba20ed97, type: 3}
+  - name: pickup_bullets
+    clip: {fileID: 8300000, guid: 02c14206448247841a8bdf5514c7886c, type: 3}
+  - name: pickup_cable
+    clip: {fileID: 8300000, guid: 5fd4f23badbaae0419477c2d5ab89f7a, type: 3}
+  - name: pickup_hook
+    clip: {fileID: 8300000, guid: 8c0f3fabff63c9c45a5e61788ccc14e8, type: 3}
   - name: Shake
-    clip: {fileID: 8300000, guid: 268d968002fd0e74098411bdb6fc64f6, type: 3}
+    clip: {fileID: 8300000, guid: b7ef561598420ba478e23758e253f5fb, type: 3}
+  - name: Box1
+    clip: {fileID: 8300000, guid: 4c0772390595d3748b3e3c169cb70a5e, type: 3}
+  - name: Box2
+    clip: {fileID: 8300000, guid: fde643cf42bab1c47869b259f6cc8a06, type: 3}
+  - name: Box3
+    clip: {fileID: 8300000, guid: 532cc976ef41b244aa7118353195f150, type: 3}
+  - name: Axe_pickup
+    clip: {fileID: 8300000, guid: 06101f4973ace6040a2b29eef19e840b, type: 3}
+  - name: Slot
+    clip: {fileID: 8300000, guid: ce92578eac93f7b4581dc90ab78091a1, type: 3}
+  - name: Sacar
+    clip: {fileID: 8300000, guid: 51f3bc7c060d014469b8f973972d2595, type: 3}
+  - name: ChangeSlot
+    clip: {fileID: 8300000, guid: 3ab236a03adce7f47a376aea64ff1deb, type: 3}
   musicSource: {fileID: 3741045180704199342}
   sfxSource: {fileID: 3741045179750391223}
   sliderMaster: {fileID: 3741045179739275454}
@@ -8768,7 +8790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 8922858418575370842}
-  slidervalue: 400
+  slidervalue: 200
   textValue: {fileID: 8922858417644004416}
   camera: {fileID: 0}
 --- !u!1 &3741045181073128760
@@ -10278,7 +10300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6245852952387425097
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10396,10 +10418,10 @@ RectTransform:
   m_Father: {fileID: 6245852952547773932}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -90}
-  m_SizeDelta: {x: 200, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6245852952444465774
 MonoBehaviour:
@@ -12507,10 +12529,10 @@ RectTransform:
   m_Father: {fileID: 6245852952547773932}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -70}
-  m_SizeDelta: {x: 200, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6245852953745062057
 MonoBehaviour:
@@ -12683,10 +12705,10 @@ RectTransform:
   m_Father: {fileID: 6245852952547773932}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -50}
-  m_SizeDelta: {x: 200, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6245852953785092154
 MonoBehaviour:
@@ -12917,10 +12939,10 @@ RectTransform:
   m_Father: {fileID: 6245852952547773932}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -30}
-  m_SizeDelta: {x: 200, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6245852953810718225
 MonoBehaviour:
@@ -13094,10 +13116,10 @@ RectTransform:
   m_Father: {fileID: 6245852952547773932}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -10}
-  m_SizeDelta: {x: 200, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6245852953940364833
 MonoBehaviour:

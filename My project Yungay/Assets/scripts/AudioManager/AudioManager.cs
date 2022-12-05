@@ -33,10 +33,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    public void Start()
-    {
         sliderMaster.value = PlayerPrefs.GetFloat("volumenMaster", 0.5f);
         AudioListener.volume = sliderMaster.value;
         CheckMuteMaster();
@@ -48,6 +45,11 @@ public class AudioManager : MonoBehaviour
         sliderSfx.value = PlayerPrefs.GetFloat("volumenSfx", 0.5f);
         sfxSource.volume = sliderSfx.value;
         CheckMuteSfx();
+    }
+
+    public void Start()
+    {
+        
     }
 
     #region "Menu Opciones"
