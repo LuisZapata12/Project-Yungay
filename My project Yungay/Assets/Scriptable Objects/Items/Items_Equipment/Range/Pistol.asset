@@ -31,8 +31,6 @@ MonoBehaviour:
   munitions:
   - munition: {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
     charge: 10
-  - munition: {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
-    charge: 10
   chargerNailsMax: 12
   chargerBulletsMax: 12
   bulletSpreadVariance: {x: 0, y: 0}

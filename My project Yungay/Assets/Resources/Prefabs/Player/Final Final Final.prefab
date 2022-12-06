@@ -7496,8 +7496,6 @@ MonoBehaviour:
     munitions:
     - munition: {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
       charge: 0
-    - munition: {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
-      charge: 0
   - weapon: {fileID: 11400000, guid: 2f3b4e2b2e3209641bf7b0ee8959ef16, type: 2}
     munitions:
     - munition: {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}

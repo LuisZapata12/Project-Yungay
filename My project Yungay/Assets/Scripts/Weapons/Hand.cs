@@ -216,23 +216,26 @@ public class Hand : MonoBehaviour
     {
         if (canAim && Reload.isReload == false)
         {
-            EquipmentItem _ = (EquipmentItem)currentItem;
-            if (_.name == "Pistol")
-            {
-                if (Input.GetKeyDown(KeyCode.T))
-                {
-                    munitionIndex++;
-                    if (munitionIndex > itemsMunition.Count-1)
-                    {
-                        munitionIndex = 0;
-                    }
-                    currentMunition = itemsMunition[munitionIndex];
-                }
-            }
-            else if(_.name == "Submachine")
-            {
-                currentMunition = itemsMunition[1];
-            }
+            EquipmentRange _ = currentItem as EquipmentRange;
+
+            currentMunition = _.munitions[0].munition;
+
+            //if (_.name == "Pistol")
+            //{
+            //    currentMunition = itemsMunition[0];
+            //    //if (Input.GetKeyDown(KeyCode.T))
+            //    //{
+            //    //    munitionIndex++;
+            //    //    if (munitionIndex > itemsMunition.Count-1)
+            //    //    {
+            //    //        munitionIndex = 0;
+            //    //    }
+            //    //    currentMunition = itemsMunition[munitionIndex];
+            //}
+            //else if(_.name == "Submachine")
+            //{
+            //    currentMunition = itemsMunition[1];
+            //}
         }
     }
 
