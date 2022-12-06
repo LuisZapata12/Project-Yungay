@@ -98,6 +98,12 @@ public class DataChekpoint : MonoBehaviour
         player.GetComponent<PlayerModel>().health = players[0].health;
     }
 
+    public void Clean()
+    {
+        players.Clear(); inventories.Clear();
+    }
+
+
     [System.Serializable]
 
     public class DataEnemys
