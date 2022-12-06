@@ -65,17 +65,19 @@ public class Cure : MonoBehaviour
         {
             heal =  playerHealth.mb.maxHealth;
         }
-        while (playerHealth.mb.health < heal)
-        {
-            playerHealth.mb.health += speed * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-            a = true;
-            b = true;
-        }
+        //while (playerHealth.mb.health < heal)
+        //{
+        //    playerHealth.mb.health += speed * Time.deltaTime;
+        //    yield return new WaitForEndOfFrame();
+        //    a = true;
+        //    b = true;
+        //}
+        playerHealth.mb.health = heal;
         feed.gameObject.SetActive(false);
         a = false;
         b = false;
         playerHealth.takeHeal = false;
+        yield return 0;
     }
 
     IEnumerator FillBar()
