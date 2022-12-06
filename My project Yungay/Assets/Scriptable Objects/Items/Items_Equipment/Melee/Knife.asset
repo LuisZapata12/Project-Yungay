@@ -25,8 +25,8 @@ MonoBehaviour:
     type: 3}
   equipmentType: 0
   idleClip: {fileID: 7400000, guid: 90d29d619364677458f90024662381e1, type: 2}
-  force: 10
-  damage: 17
+  force: 12
+  damage: 34
   animation: {fileID: 7400000, guid: 80f299b92008cdc4db1ea8a5f0a1d1ba, type: 2}
   attackClip: {fileID: 8300000, guid: 0999d077c0f5ab24d8a7f22dd5c012d1, type: 3}
-  durability: 5
+  durability: 10

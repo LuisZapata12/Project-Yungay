@@ -26,8 +26,8 @@ MonoBehaviour:
   equipmentType: 1
   idleClip: {fileID: 0}
   lastShootTime: 0
-  shootDelay: 0.2
-  bulletSpreadVarianceDis: 0.1
+  shootDelay: 0.15
+  bulletSpreadVarianceDis: 0.075
   munitions:
   - munition: {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
     charge: 20

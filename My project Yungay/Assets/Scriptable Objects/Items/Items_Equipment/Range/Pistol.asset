@@ -26,19 +26,19 @@ MonoBehaviour:
   equipmentType: 1
   idleClip: {fileID: 7400000, guid: efe821b6c3f995744927a3946d639f58, type: 2}
   lastShootTime: 0
-  shootDelay: 0.6
+  shootDelay: 0.4
   bulletSpreadVarianceDis: 0
   munitions:
   - munition: {fileID: 11400000, guid: 7572195227b61b64291ece32e684d54f, type: 2}
     charge: 10
   - munition: {fileID: 11400000, guid: 90e3d25ee62315f41bd96ceec0c764b9, type: 2}
     charge: 10
-  chargerNailsMax: 10
-  chargerBulletsMax: 10
+  chargerNailsMax: 12
+  chargerBulletsMax: 12
   bulletSpreadVariance: {x: 0, y: 0}
-  damage: 30
-  range: 20
-  zoom: 1
+  damage: 34
+  range: 25
+  zoom: 1.5
   spark: {fileID: 92786460937822819, guid: 3fbd47da97cd9044bbe09eaeb04a600b, type: 3}
   look: {fileID: 21300000, guid: 57f74e2799893004e9adcd459b5dd878, type: 3}
   shoot: Pistol
