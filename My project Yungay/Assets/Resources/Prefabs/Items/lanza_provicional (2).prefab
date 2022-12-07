@@ -118,7 +118,7 @@ MonoBehaviour:
   loot:
   - item: {fileID: 11400000, guid: 6bca4f8ee9c35ae4cbf30baac046a857, type: 2}
     amount: 1
-    durability: 0
+    durability: 15
   isRandom: 0
 --- !u!114 &9031768735067323866
 MonoBehaviour:
