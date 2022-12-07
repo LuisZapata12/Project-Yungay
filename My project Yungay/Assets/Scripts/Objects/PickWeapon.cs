@@ -30,7 +30,7 @@ public class PickWeapon : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             rdbd.isKinematic = true;
-            loot.loot[0].durability--;
+            loot.loot[0].durability -= 7;
             EnemyHealth _ = collision.gameObject.GetComponent<EnemyHealth>();
             transform.SetParent(collision.transform);
             if (gameObject.tag == "Axe" || gameObject.tag == "Spear")
