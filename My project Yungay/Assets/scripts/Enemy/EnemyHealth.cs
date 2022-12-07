@@ -75,6 +75,7 @@ public class EnemyHealth : MonoBehaviour
             enemyLoot = gameObject.AddComponent<Loot>();
             RandomLoot();
             StaticItems();
+            Debug.Log("Agregar arma");
             CheckItem();
             GetComponent<CapsuleCollider>().isTrigger = true;
             //int _ = LayerMask.NameToLayer("Ignore Player");
@@ -128,13 +129,13 @@ public class EnemyHealth : MonoBehaviour
 
     private void CheckItem()
     {
-
         for (int i = 0; i < transform.childCount; i++)
         {
+            Debug.Log(transform.GetChild(i));
             Loot _ = transform.GetChild(i).GetComponent<Loot>();
-            Loot loot = transform.GetComponent<Loot>();
-            if (_? true:false)
+            if (_ != null)
             {
+                Loot loot = transform.GetComponent<Loot>();
                 loot.loot.Add(new Item(_.loot[0].item, _.loot[0].amount, _.loot[0].durability));
                 _.gameObject.SetActive(false);
             }

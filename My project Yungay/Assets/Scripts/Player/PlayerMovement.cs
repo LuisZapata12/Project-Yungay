@@ -135,56 +135,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
-        move = orientation.forward * ver + orientation.right * hor;
-        if (!model.isCrouching)
+        if (!GameManager.inPause)
         {
-            if (move == checkMove)
-            {
-                model.state = PlayerModel.State.idle;
-                if (hor == 0 || ver == 0)
-                {
-                    model.sourceSound.SetActive(false);
-                }
-            }
-            else if (move != checkMove)
-            {
-                if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
-                {
-                    if (Input.GetKey(KeyCode.LeftShift) && model.staActual >= 0 && !model.isCrouching)
-                    {
-                        //Run();
-                        model.state = PlayerModel.State.run;
-                    }
-
-                    else
-                    {
-                        // Walk();
-                        model.state = PlayerModel.State.walk;
-                    }
-                    if (Input.GetKeyDown(KeyCode.Space) && model.canJump && PlayerGroundCheck.grounded && GameManager.inPause == false)/*playerGroundCheck.grounded*/
-                    {
-                        model.state = PlayerModel.State.jumping;
-                    }
-
-
-                    else if (!PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
-                    {
-                        model.rb.AddForce(move.normalized * model.speedWalk * 10f * airMultiplier, ForceMode.Force);
-                    }
-                    if (hor != 0 || ver != 0)
-                    {
-                        model.sourceSound.SetActive(true);
-                    }
-                    if (!PlayerGroundCheck.jump)
-                    {
-                        model.state = PlayerModel.State.jumping;
-                    }
-                }
-            }
-            else
+            move = orientation.forward * ver + orientation.right * hor;
+            if (!model.isCrouching)
             {
                 if (move == checkMove)
                 {
+                    model.state = PlayerModel.State.idle;
                     if (hor == 0 || ver == 0)
                     {
                         model.sourceSound.SetActive(false);
@@ -194,26 +152,72 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
                     {
-                        if (model.staActual <= 0)
+                        if (Input.GetKey(KeyCode.LeftShift) && model.staActual >= 0 && !model.isCrouching)
+                        {
+                            //Run();
+                            model.state = PlayerModel.State.run;
+                        }
+
+                        else
                         {
                             // Walk();
-                            model.state = PlayerModel.State.crounching;
+                            model.state = PlayerModel.State.walk;
+                        }
+                        if (Input.GetKeyDown(KeyCode.Space) && model.canJump && PlayerGroundCheck.grounded && GameManager.inPause == false)/*playerGroundCheck.grounded*/
+                        {
+                            model.state = PlayerModel.State.jumping;
+                        }
+
+
+                        else if (!PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+                        {
+                            model.rb.AddForce(move.normalized * model.speedWalk * 10f * airMultiplier, ForceMode.Force);
+                        }
+                        if (hor != 0 || ver != 0)
+                        {
+                            model.sourceSound.SetActive(true);
+                        }
+                        if (!PlayerGroundCheck.jump)
+                        {
+                            model.state = PlayerModel.State.jumping;
                         }
                     }
-
-
-                    else if (Input.GetKeyDown(KeyCode.Space) && model.canJump && PlayerGroundCheck.grounded && GameManager.inPause == false)/*playerGroundCheck.grounded*/
+                }
+                else
+                {
+                    if (move == checkMove)
                     {
-                        model.state = PlayerModel.State.jumping;
+                        if (hor == 0 || ver == 0)
+                        {
+                            model.sourceSound.SetActive(false);
+                        }
                     }
-                    if (hor != 0 || ver != 0)
+                    else if (move != checkMove)
                     {
-                        model.sourceSound.SetActive(true);
+                        if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
+                        {
+                            if (model.staActual <= 0)
+                            {
+                                // Walk();
+                                model.state = PlayerModel.State.crounching;
+                            }
+                        }
+
+
+                        else if (Input.GetKeyDown(KeyCode.Space) && model.canJump && PlayerGroundCheck.grounded && GameManager.inPause == false)/*playerGroundCheck.grounded*/
+                        {
+                            model.state = PlayerModel.State.jumping;
+                        }
+                        if (hor != 0 || ver != 0)
+                        {
+                            model.sourceSound.SetActive(true);
+                        }
                     }
                 }
-            }
 
+            }
         }
+        
     }
     private void Jump()
     {

@@ -17,6 +17,7 @@ public class EnemyLevel1Event : MonoBehaviour
         if (enemyHealth.dead)
         {
             Tutorial.instance.ShowTutoImage(0);
+            Destroy(this);
         }
     }
 }

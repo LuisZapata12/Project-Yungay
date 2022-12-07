@@ -72,6 +72,11 @@ public class GameManager : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.Space) && inPause == true)
+        {
+            Tutorial.instance.SkipTutoImage();
+        }
+
         if (InventoryDisplay.isOpen)
         {
             Time.timeScale = 0f;

@@ -41,15 +41,22 @@ public class Tutorial : MonoBehaviour
         Panel.SetActive(true);
         tutorialImag[x].SetActive(true);
         tmpText.text = tutorialText[x];
+        Time.timeScale = 0f;
         GameManager.inPause = true;
         
     }
 
-    public void SkipTutoImage(int x)
+    public void SkipTutoImage()
     {
+
         Panel.SetActive(false);
-        tutorialImag[x].SetActive(false);
+        for (int i = 0; i < tutorialImag.Length; i++)
+        {
+            tutorialImag[i].SetActive(false);
+        }
+        
         tmpText.text = null;
+        Time.timeScale = 1f;
         GameManager.inPause = false;
     }
 }
