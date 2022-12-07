@@ -185,6 +185,9 @@ public class PlayerModel : MonoBehaviour
         if (other.CompareTag("Save"))
         {
             dataChekpoint.Check();
+            //dataChekpoint.CheckEnemys();
+            //dataChekpoint.CheckInventory();
+            //dataChekpoint.CheckPosition();
         }
         if (other.CompareTag("reset"))
         {

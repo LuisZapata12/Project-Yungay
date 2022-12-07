@@ -33,19 +33,33 @@ public class DataChekpoint : MonoBehaviour
 
     public void Check()
     {
-        //dataEnemys.Clear();
+        dataEnemys.Clear();
         players.Clear();
         inventories.Clear();
-       // enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         player = GameObject.FindGameObjectWithTag("Player");
-       /* foreach (GameObject enemysSingle in enemigos)
+        for(int i = 0; i < enemigos.Length; i++)
         {
-            dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<Transform>().position, enemysSingle.GetComponent<EnemyHealth>().life));
-        }**/
+            dataEnemys.Add(new DataEnemys(enemigos[i].GetComponent<Transform>().position, enemigos[i].GetComponent<EnemyHealth>().life));
+            Debug.Log(enemigos[i].name);
+        }
+        //foreach (GameObject enemysSingle in enemigos)
+        //{
+        //    dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<Transform>().position, enemysSingle.GetComponent<EnemyHealth>().life));
+        //}
         players.Add(new Player(player.GetComponent<Transform>().position, player.GetComponent<PlayerModel>().health));
         for(int i = 0; i < player.GetComponent<Inventory>().slots.Count; i++)
         {
             inventories.Add(new InventorySlot(player.GetComponent<Inventory>().slots[i].item, player.GetComponent<Inventory>().slots[i].amount, player.GetComponent<Inventory>().slots[i].durability));
+        }
+    }
+    public void CheckEnemys()
+    {
+        dataEnemys.Clear();
+        enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemysSingle in enemigos)
+        {
+            dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<Transform>().position, enemysSingle.GetComponent<EnemyHealth>().life));
         }
     }
     public void CheckInventory()

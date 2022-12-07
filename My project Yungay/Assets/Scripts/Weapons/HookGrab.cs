@@ -7,6 +7,9 @@ public class HookGrab : MonoBehaviour
     public Camera playerCamera;
     [SerializeField] private GameObject hookObject;
     public GameObject hookParent;
+    public Collider hookCollider;
+    public LineRenderer hope;
+    public float overshootYAxis;
     public bool isShot;
     public bool isGrab;
     public bool hookback;
@@ -103,6 +106,13 @@ public class HookGrab : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if(hope.enabled)
+        {
+
+        }
+    }
     private void ShotStart()
     {
 
@@ -117,6 +127,7 @@ public class HookGrab : MonoBehaviour
                     AudioManager.Instance.PlaySFX("Hook_shootrope");
                    isShot = true;
                     hitposition = hit.point;
+                    hope.enabled = true;
                 }
                 
             }
@@ -128,7 +139,8 @@ public class HookGrab : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX("Hook_releasesurface");
             AudioManager.Instance.PlaySFX("Hook_retraction");
-            
+
+            hope.enabled = true;
             PickHook();
             isGrab = false;
             hookback = true;
@@ -142,13 +154,15 @@ public class HookGrab : MonoBehaviour
             hookObject.transform.SetParent(null);
             if(Vector3.Distance(hookObject.transform.position, hitposition) < distance)
             {
-                this.GetComponent<BoxCollider>().enabled = true;
+                hookCollider.GetComponent<BoxCollider>().enabled = true;
             }
             
         }
         else if (isShot == false && isGrab == false)
         {
             PickHook();
+
+            hope.enabled = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -179,7 +193,7 @@ public class HookGrab : MonoBehaviour
         this.transform.SetParent(hookParent.transform);
         this.transform.position = Vector3.MoveTowards(hookObject.transform.position, hookParent.transform.position, speedBack * Time.deltaTime);
         this.transform.localRotation = Quaternion.Euler(-90f, 0, 0);
-        this.GetComponent<BoxCollider>().enabled = false;
+        hookCollider.GetComponent<BoxCollider>().enabled = false;
         if (this.transform.position == hookParent.transform.position && hookback==true)
         {
             AudioManager.Instance.sfxSource.Stop();
