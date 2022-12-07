@@ -33,7 +33,14 @@ public class PickWeapon : MonoBehaviour
             loot.loot[0].durability--;
             EnemyHealth _ = collision.gameObject.GetComponent<EnemyHealth>();
             transform.SetParent(collision.transform);
-            _.lifeE(_.life);
+            if (gameObject.tag == "Axe" || gameObject.tag == "Spear")
+            {
+                _.lifeE(100);
+            }
+            else if (gameObject.tag == "Knife")
+            {
+                _.lifeE(75);
+            }
             if (loot.loot[0].durability <= 0)
             {
                 Destroy(gameObject);

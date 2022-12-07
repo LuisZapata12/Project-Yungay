@@ -3574,6 +3574,7 @@ MonoBehaviour:
   bloodTime: 0
   healthActual: 0
   healthMax: 0
+  maxDistance: 0
 --- !u!1 &547364284
 GameObject:
   m_ObjectHideFlags: 0
@@ -6662,6 +6663,7 @@ MonoBehaviour:
   bloodTime: 0
   healthActual: 0
   healthMax: 0
+  maxDistance: 0
 --- !u!114 &1137636715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10550,6 +10552,7 @@ MonoBehaviour:
   bloodTime: 0
   healthActual: 0
   healthMax: 0
+  maxDistance: 0
 --- !u!114 &1922625189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11625,6 +11628,7 @@ MonoBehaviour:
   bloodTime: 0
   healthActual: 0
   healthMax: 0
+  maxDistance: 0
 --- !u!114 &2088009197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12660,6 +12664,16 @@ PrefabInstance:
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 621058067}
+    - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+        type: 3}
+      propertyPath: life
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+        type: 3}
+      propertyPath: maxDistance
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2496656329862639533, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_WarningMessage
@@ -14373,6 +14387,7 @@ MonoBehaviour:
   bloodTime: 0.5
   healthActual: 0
   healthMax: 0
+  maxDistance: 0
 --- !u!195 &7862666637531868806
 NavMeshAgent:
   m_ObjectHideFlags: 0

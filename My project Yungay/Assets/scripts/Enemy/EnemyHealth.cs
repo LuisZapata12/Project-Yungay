@@ -19,8 +19,9 @@ public class EnemyHealth : MonoBehaviour
     public GameObject blood;
     public float bloodTime;
     private float timer2;
-
     public float healthActual, healthMax;
+    private GameObject player;
+    public float maxDistance;
     void Start()
     {
         healthMax = life;
@@ -31,17 +32,19 @@ public class EnemyHealth : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = life / healthMax;
-        if (dead)
-        {
-            timer += Time.deltaTime;
+        if (dead) 
+        { 
+
             if (enemyLoot?true:false)
             {
                 enemyLoot.Delete();
             }
-            if (timer > 5f)
+
+            if (Vector3.Distance(transform.position,player.transform.position) > maxDistance)
             {
                 Destroy(gameObject);
             }
+
         }
 
         if (blood.activeSelf)
@@ -80,6 +83,7 @@ public class EnemyHealth : MonoBehaviour
             GetComponent<CapsuleCollider>().isTrigger = true;
             //int _ = LayerMask.NameToLayer("Ignore Player");
             //gameObject.layer = _;
+            player = GameObject.Find("Player");
         }
     }
 
