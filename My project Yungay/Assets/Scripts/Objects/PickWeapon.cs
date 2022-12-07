@@ -31,8 +31,16 @@ public class PickWeapon : MonoBehaviour
         {
             rdbd.isKinematic = true;
             loot.loot[0].durability -= 7;
+            if (loot.loot[0].durability <= 0)
+            {
+                AudioManager.Instance.PlaySFX("Broke");
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.SetParent(collision.transform);
+            }
             EnemyHealth _ = collision.gameObject.GetComponent<EnemyHealth>();
-            transform.SetParent(collision.transform);
             if (gameObject.tag == "Axe" || gameObject.tag == "Spear")
             {
                 _.lifeE(100);
@@ -41,10 +49,6 @@ public class PickWeapon : MonoBehaviour
             {
                 _.lifeE(75);
             }
-            if (loot.loot[0].durability <= 0)
-            {
-                Destroy(gameObject);
-            }        
         }
     }
 }

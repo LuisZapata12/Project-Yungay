@@ -215,6 +215,7 @@ public class Inventory : MonoBehaviour
                 {
                     if (slots[i].durability <= 0)
                     {
+                        AudioManager.Instance.PlaySFX("Broke");
                         slots[i].item = null;
                         slots[i].amount = 0;
                         slots[i].durability = 0;
