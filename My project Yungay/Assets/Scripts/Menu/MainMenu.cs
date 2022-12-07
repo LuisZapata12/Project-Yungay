@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) )
         {
             if (sceneName == "Credits")
             {

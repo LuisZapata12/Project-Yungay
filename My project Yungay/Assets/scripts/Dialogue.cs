@@ -10,7 +10,7 @@ public class Dialogue : MonoBehaviour
     private GameObject pressButtonDialogue;
     private GameObject pressInitDialogue;
     private TMP_Text dialogueText;
-    private bool pressInit;
+    public static bool pressInit;
     [SerializeField, TextArea(3, 8)] private string[] dialogueLines;
     [Range(0, 1f)] [Min(0)] [Tooltip("Tiempo de tipeo de letras del dialogo")]
     [SerializeField] private float typingTime;

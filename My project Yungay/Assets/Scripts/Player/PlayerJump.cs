@@ -16,7 +16,7 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && model.canJump && PlayerGroundCheck.grounded && GameManager.inPause == false && model.state != PlayerModel.State.death)/*playerGroundCheck.grounded*/
+        if (Input.GetKeyDown(KeyCode.Space) && model.canJump && PlayerGroundCheck.grounded && GameManager.inPause == false && model.state != PlayerModel.State.death && !Dialogue.pressInit)/*playerGroundCheck.grounded*/
         {
             Jump();
             Invoke(nameof(ResetJump), model.jumpCooldown);
