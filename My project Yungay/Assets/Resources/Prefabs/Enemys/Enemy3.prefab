@@ -1314,6 +1314,7 @@ MonoBehaviour:
   bloodTime: 0.5
   healthActual: 0
   healthMax: 0
+  maxDistance: 20
 --- !u!114 &1206254949429332926
 MonoBehaviour:
   m_ObjectHideFlags: 0

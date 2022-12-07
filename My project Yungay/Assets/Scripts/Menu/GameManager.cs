@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !InventoryDisplay.isOpen && model.state != PlayerModel.State.death)
+        if (Input.GetKeyDown(KeyCode.Escape) && !InventoryDisplay.isOpen && model.state != PlayerModel.State.death && !Dialogue.pressInit)
         {
             if (sceneName != "Menu" && inPause == false)
             {

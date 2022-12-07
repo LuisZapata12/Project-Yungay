@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
             { PlayerModel.State.walk, Walk },
             { PlayerModel.State.run, Run },
             {PlayerModel.State.cinematica, Cinema},
-            {PlayerModel.State.death, Death}
+            {PlayerModel.State.death, Death},
+            {PlayerModel.State.dialogo, Dialogo}
         };
     }
 
@@ -45,9 +46,13 @@ public class PlayerMovement : MonoBehaviour
 
             model.actualSpeed = model.rb.velocity.magnitude;
 
-            if (model.state != PlayerModel.State.death)
+            if (model.state != PlayerModel.State.death && !Dialogue.pressInit)
             {
                 Iddle();
+            }
+            if (Dialogue.pressInit)
+            {
+                Dialogo();
             }
 
 
@@ -58,12 +63,12 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-            if (model.actualSpeed >= model.speedRun - 0.5f)
+            if (model.actualSpeed >= model.speedRun - 0.5f && !Dialogue.pressInit)
             {
                 model.isRunning = true;
             }
 
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.Space) && !Dialogue.pressInit)
             {
                 model.isRunning = false;
                 //model.state = PlayerModel.State.idle;
@@ -101,7 +106,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
     }
+    private void Dialogo()
+    {
 
+    }
     private void Death()
     {
 

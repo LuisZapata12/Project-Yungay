@@ -36,7 +36,7 @@ public class Cure : MonoBehaviour
         }
         else if (coroutine!=null)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && !Dialogue.pressInit)
             {
                 StopCoroutine(coroutine);
                 image.fillAmount = 0;
