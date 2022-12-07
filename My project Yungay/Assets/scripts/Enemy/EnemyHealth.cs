@@ -91,12 +91,15 @@ public class EnemyHealth : MonoBehaviour
 
         if (other.CompareTag("Axe") || other.CompareTag("Knife") || other.CompareTag("Spear"))
         {
-            if (other.CompareTag("Axe") && dead == false)
+            if (other.CompareTag("Axe") && !dead)
             {
                 anim.Play("Enemy_Reaction");
             }
             EquipmentMelee _ = Hand.currentItem as EquipmentMelee;
-            lifeE(_.damage);
+            if (_ != null)
+            {
+                lifeE(_.damage);
+            }
         }
     }
 

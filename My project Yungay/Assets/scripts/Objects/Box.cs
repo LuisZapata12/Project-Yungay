@@ -75,13 +75,28 @@ public class Box : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Axe"))
-    //    {
-    //        Destroy();
-    //        Loot loot = collision.gameObject.GetComponent<Loot>();
-    //        loot.loot[0].durability--;
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Axe"))
+        {
+            Debug.Log("Hit");
+            Destroy();
+            Loot loot = collision.gameObject.GetComponent<Loot>();
+            loot.loot[0].durability--;
+        }
+
+        if (collision.gameObject.CompareTag("Knife"))
+        {
+            Destroy();
+            Loot loot = collision.gameObject.GetComponent<Loot>();
+            loot.loot[0].durability--;
+        }
+
+        if (collision.gameObject.CompareTag("Spear"))
+        {
+            Destroy();
+            Loot loot = collision.gameObject.GetComponent<Loot>();
+            loot.loot[0].durability--;
+        }
+    }
 }

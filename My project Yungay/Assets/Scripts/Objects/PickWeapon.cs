@@ -20,18 +20,19 @@ public class PickWeapon : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             rdbd.isKinematic = true;
-            loot.loot[0].durability--;
-            if (loot.loot[0].durability <= 0)
-            {
-                Destroy(gameObject);
-            }
+            //loot.loot[0].durability--;
+            //if (loot.loot[0].durability <= 0)
+            //{
+            //    Destroy(gameObject);
+            //}
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             rdbd.isKinematic = true;
             loot.loot[0].durability--;
-            collision.gameObject.GetComponent<EnemyHealth>().lifeE(item.damage);
+            EnemyHealth _ = collision.gameObject.GetComponent<EnemyHealth>();
+            _.lifeE(_.life);
             if (loot.loot[0].durability <= 0)
             {
                 Destroy(gameObject);

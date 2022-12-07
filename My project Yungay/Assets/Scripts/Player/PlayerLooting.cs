@@ -44,7 +44,6 @@ public class PlayerLooting : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, rayDistance) && hit.collider.gameObject.GetComponent<Loot>())
         {
-            Debug.Log(hit.collider.gameObject.name);
             var loot = hit.collider.gameObject.GetComponent<Loot>();
 
             if (CheckLoot(loot))

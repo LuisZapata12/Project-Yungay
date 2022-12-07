@@ -154,7 +154,7 @@ public class HookGrab : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isShot = false;
-        if (other.gameObject.tag != "Hookeable" && other.gameObject.tag != "Box")
+        if (other.gameObject.tag != "Hookeable" && other.gameObject.tag != "Box" && other.gameObject.tag != "Axe" && other.gameObject.tag != "Knife" && other.gameObject.tag != "Spear")
         {
             if (hookback==false)
             {
