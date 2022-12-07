@@ -11,7 +11,10 @@ public class Room1Manager : MonoBehaviour
     public GameObject SpawnEnemys;
     public GameObject Cajas;
     public TMP_Text textMesh;
-    public float timer;
+    private float timer1;
+    private float timer2;
+    public float time;
+
     //private string textdialogue;
 
     // Start is called before the first frame update
@@ -30,11 +33,18 @@ public class Room1Manager : MonoBehaviour
         hasSubmachine = inventoryPlayer.CheckItem(submachineItem);
         if (hasSubmachine)
         {
-            SpawnEnemys.SetActive(true);
-            textMesh.text = "Soldado: Que ah sido ese rui... ¡Intrusos!";
+            timer1 += Time.deltaTime;
+            if (timer1 >= time)
+            {
+                SpawnEnemys.SetActive(true);
+                textMesh.text = "Soldado: Que ah sido ese rui... ¡Intrusos!";
+                timer1 = 0f;
+            }
 
-            timer += Time.deltaTime;
-            if (timer>= 3)
+            
+
+            timer2 += Time.deltaTime;
+            if (timer2>= 3)
             {
                 textMesh.text = "";
                 Destroy(this.gameObject);
