@@ -199,7 +199,7 @@ public class Boss : MonoBehaviour
     {
         directionToTarget = (Target.transform.position - transform.position).normalized;
         RaycastHit hit;
-        if (Physics.Raycast(pointShoot.transform.position, directionToTarget, out hit, weapon.Range))
+        if (Physics.Raycast(pointShoot.transform.position, directionToTarget, out hit/*, weapon.Range*/))
         {
             Debug.Log("Rayo");
             if (hit.transform.gameObject.CompareTag("Player"))
