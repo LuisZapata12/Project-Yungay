@@ -12664,6 +12664,11 @@ PrefabInstance:
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 621058067}
+    - target: {fileID: 1670430091767547034, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: life
@@ -12677,7 +12682,11 @@ PrefabInstance:
     - target: {fileID: 2496656329862639533, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig1:Neck'\n\tTransform 'mixamorig1:Head'\n\tTransform
+        'mixamorig1:Neck'\n\tTransform 'mixamorig1:Head'\n\tTransform 'mixamorig1:Neck'\n\tTransform
+        'mixamorig1:Head'"
       objectReference: {fileID: 0}
     - target: {fileID: 2496656329862639534, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
@@ -13360,10 +13369,15 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1054668443368822097, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.07
+      objectReference: {fileID: 0}
     - target: {fileID: 1054668443568492799, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.462526
+      value: 22.07
       objectReference: {fileID: 0}
     - target: {fileID: 1054668443568492799, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
         type: 3}
@@ -13434,6 +13448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626538241887962492, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.07
       objectReference: {fileID: 0}
     - target: {fileID: 3539021590184246204, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
         type: 3}
