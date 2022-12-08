@@ -31,6 +31,10 @@ public class Boss : MonoBehaviour
     public float timerDebris;
     public CameraShake cameraShake;
 
+    public GameObject escombros;
+
+    public GameObject shootStart;
+    private Vector3 directionToTarget;
     void Start()
     {
         Target = GameObject.Find("Player").transform;
@@ -40,6 +44,11 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        if (DetectPlayer)
+        {
+            escombros.SetActive(true);
+        }
+
         distance = CalculateDistance();
         LifeEvents();
 
@@ -188,8 +197,9 @@ public class Boss : MonoBehaviour
 
     public void Shoot(EnemyWeapon weapon)
     {
+        directionToTarget = (Target.transform.position - transform.position).normalized;
         RaycastHit hit;
-        if (Physics.Raycast(pointShoot.transform.position, pointShoot.transform.forward, out hit, weapon.Range))
+        if (Physics.Raycast(pointShoot.transform.position, directionToTarget, out hit, weapon.Range))
         {
             Debug.Log("Rayo");
             if (hit.transform.gameObject.CompareTag("Player"))
@@ -204,6 +214,8 @@ public class Boss : MonoBehaviour
                     {
                         anim.SetBool("Shoot", true);
                         AudioManager.Instance.PlaySFX("Dmr_Shoot");
+                        TrailRenderer trail = Instantiate(bulletTrail, shootStart.transform.position, Quaternion.identity);
+                        StartCoroutine(SpawnTrail(trail, hit.point));
                         weapon.Munition--;
                         Timer = 0;
                         Life.Damage(weapon.damage);
