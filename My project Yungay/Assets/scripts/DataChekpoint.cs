@@ -6,6 +6,9 @@ public class DataChekpoint : MonoBehaviour
 {
     public List<DataEnemys> dataEnemys = new List<DataEnemys>();
     public GameObject[] enemigos;
+    public GameObject[] check;
+    public GameObject[] check1;
+    public List<Checking> lastCheck;
     public List<Player> players = new List<Player>();
     public List<InventorySlot> inventories = new List<InventorySlot>();
     public GameObject player;
@@ -17,7 +20,6 @@ public class DataChekpoint : MonoBehaviour
         inventoryDisplay = InventoryDisplay.instance;
         DontDestroyOnLoad(gameObject);
     }
-
     private void Update()
     {
         if(!player)
@@ -33,33 +35,32 @@ public class DataChekpoint : MonoBehaviour
 
     public void Check()
     {
-        dataEnemys.Clear();
-        players.Clear();
-        inventories.Clear();
-        enemigos = GameObject.FindGameObjectsWithTag("Enemy");
-        player = GameObject.FindGameObjectWithTag("Player");
-        for(int i = 0; i < enemigos.Length; i++)
-        {
-            dataEnemys.Add(new DataEnemys(enemigos[i].GetComponent<Transform>().position, enemigos[i].GetComponent<EnemyHealth>().life));
-            Debug.Log(enemigos[i].name);
-        }
+        //dataEnemys.Clear();
+        //players.Clear();
+        //inventories.Clear();
+        //enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        //player = GameObject.FindGameObjectWithTag("Player");
+        Clean();
+       // CheckEnemys();
+        CheckInventory();
+        CheckPosition(); 
+        LastCheckPoint();
         //foreach (GameObject enemysSingle in enemigos)
         //{
-        //    dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<Transform>().position, enemysSingle.GetComponent<EnemyHealth>().life));
+        //    dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<EnemyHealth>().life)); Debug.Log(enemigos[i].name);
         //}
-        players.Add(new Player(player.GetComponent<Transform>().position, player.GetComponent<PlayerModel>().health));
-        for(int i = 0; i < player.GetComponent<Inventory>().slots.Count; i++)
-        {
-            inventories.Add(new InventorySlot(player.GetComponent<Inventory>().slots[i].item, player.GetComponent<Inventory>().slots[i].amount, player.GetComponent<Inventory>().slots[i].durability));
-        }
+        //players.Add(new Player(player.GetComponent<Transform>().position, player.GetComponent<PlayerModel>().health));
+        //for(int i = 0; i < player.GetComponent<Inventory>().slots.Count; i++)
+        //{
+        //    inventories.Add(new InventorySlot(player.GetComponent<Inventory>().slots[i].item, player.GetComponent<Inventory>().slots[i].amount, player.GetComponent<Inventory>().slots[i].durability));
+        //}
     }
     public void CheckEnemys()
     {
-        dataEnemys.Clear();
         enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemysSingle in enemigos)
         {
-            dataEnemys.Add(new DataEnemys(enemysSingle.GetComponent<Transform>().position, enemysSingle.GetComponent<EnemyHealth>().life));
+            dataEnemys.Add(new DataEnemys( enemysSingle.GetComponent<EnemyHealth>().life));
         }
     }
     public void CheckInventory()
@@ -78,13 +79,34 @@ public class DataChekpoint : MonoBehaviour
         players.Add(new Player(player.GetComponent<Transform>().position, player.GetComponent<PlayerModel>().health));
     }
 
+
+    public void CheckPoint() // start
+    {
+        check = GameObject.FindGameObjectsWithTag("Save");
+    }
+    public void LastCheckPoint() // Collider
+    {
+        lastCheck.Clear();
+        check1 = GameObject.FindGameObjectsWithTag("Save");
+        foreach (GameObject lastCheckSingle in check)
+        {
+           lastCheck.Add(new Checking(lastCheckSingle.gameObject,lastCheckSingle.GetComponent<Collider>().enabled));
+        }
+    }
     public void ReturnPoint()
     {
-        for (int i = 0; i < enemigos.LongLength; i++)
-        {
-            enemigos[i].transform.position = dataEnemys[i].position;
-            enemigos[i].GetComponent<EnemyHealth>().life = dataEnemys[i].health;
-        }
+        //for(int i = 0; i < check.Length; i++)
+        //{
+        //    if (check[i] != lastCheck[i])
+        //    {
+        //        Destroy(check[i].gameObject);
+        //    }
+        //}
+        //for (int i = 0; i < enemigos.LongLength; i++)
+        //{
+        //    //enemigos[i].transform.position = dataEnemys[i].position;
+        //    enemigos[i].GetComponent<EnemyHealth>().life = dataEnemys[i].health;
+        //}
         player.transform.position = players[0].position;
         player.GetComponent<PlayerModel>().health = players[0].health;
         for (int i = 0; i < inventories.Count; i++)
@@ -106,6 +128,14 @@ public class DataChekpoint : MonoBehaviour
         inventoryDisplay.UpdateDisplay();
 
     }
+    public void ReturnCheck()
+    {
+        for (int i = 0; i < check.Length; i++)
+        {
+            check[i].GetComponent<Collider>().enabled = lastCheck[i].collider;
+        }
+        
+    }
     public void ReturnPosition()
     {
         player.transform.position = players[0].position;
@@ -114,7 +144,7 @@ public class DataChekpoint : MonoBehaviour
 
     public void Clean()
     {
-        players.Clear(); inventories.Clear();
+        players.Clear(); inventories.Clear(); dataEnemys.Clear();
     }
 
 
@@ -122,12 +152,12 @@ public class DataChekpoint : MonoBehaviour
 
     public class DataEnemys
     {
-        public Vector3 position;
+       // public Vector3 position;
         public float health;
 
-        public DataEnemys(Vector3 pos, float health)
+        public DataEnemys( float health)
         {
-            this.position = pos;
+            //this.position = pos;
             this.health = health;
         }
     }
@@ -155,6 +185,18 @@ public class DataChekpoint : MonoBehaviour
             this.item = item;
             this.amount = amount;
             this.durability = durability;
+        }
+    }
+    [System.Serializable]
+    public class Checking
+    {
+        public GameObject checkPoint;
+        public bool collider;
+
+        public Checking(GameObject checkPoint,bool collider)
+        {
+            this.checkPoint = checkPoint;
+            this.collider = collider;
         }
     }
 }

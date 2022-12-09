@@ -99,7 +99,7 @@ public class PlayerModel : MonoBehaviour
                 dataChekpoint.CheckPosition();
             }
         }
-        
+        dataChekpoint.CheckPoint();
     }
     private void Awake()
     {
@@ -123,13 +123,18 @@ public class PlayerModel : MonoBehaviour
         if (a)
         {
             timer += Time.deltaTime;
-            if (timer >= 1f)
+            if (timer >= 0.5f)
             {
                 Debug.Log("1");
+                dataChekpoint.ReturnCheck();
                 dataChekpoint.ReturnInventory();
-                dataChekpoint.ReturnPosition();
-                a = false;
-            }/*
+                if (timer >= 0.6f)
+                {
+                    dataChekpoint.ReturnPosition();
+                    a = false;
+                }
+            }
+            /*
             if (dataChekpoint.players.Count == 1 && dataChekpoint.inventories != null)
             {
                 timer += Time.deltaTime;
@@ -185,6 +190,7 @@ public class PlayerModel : MonoBehaviour
         if (other.CompareTag("Save"))
         {
             dataChekpoint.Check();
+            other.gameObject.GetComponent<Collider>().enabled = false;
             //dataChekpoint.CheckEnemys();
             //dataChekpoint.CheckInventory();
             //dataChekpoint.CheckPosition();
