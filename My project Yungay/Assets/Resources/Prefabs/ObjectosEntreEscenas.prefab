@@ -261,6 +261,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataEnemys: []
   enemigos: []
+  check: []
+  check1: []
+  lastCheck: []
   players: []
   inventories: []
   player: {fileID: 0}
@@ -3409,11 +3412,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds:
   - name: Tutorial
-    clip: {fileID: 8300000, guid: 080a62f36fc3c834db657c99e190b683, type: 3}
+    clip: {fileID: 8300000, guid: 9d6125130a0872e4587be2d4ec21753d, type: 3}
   - name: Nivel1-ica
-    clip: {fileID: 8300000, guid: 1a24af185aaf2d940ba545b6fb5e1f32, type: 3}
+    clip: {fileID: 8300000, guid: 9d6125130a0872e4587be2d4ec21753d, type: 3}
   - name: Nivel1-Lima
     clip: {fileID: 8300000, guid: 1933510e91183344c9f9895dd2aa4dff, type: 3}
+  - name: Nivel3
+    clip: {fileID: 8300000, guid: 8cd2ac22d0aa57a46948514d93695f48, type: 3}
   sfxSounds:
   - name: Pistol
     clip: {fileID: 8300000, guid: 7c90ebd51dad82544b9fe781f8e9ece4, type: 3}
@@ -3434,9 +3439,9 @@ MonoBehaviour:
   - name: Spear
     clip: {fileID: 8300000, guid: 433733621d2208e408c1a844a75d74d9, type: 3}
   - name: Abrir
-    clip: {fileID: 8300000, guid: 1ad6af3d9667c39429ede0eb534046b9, type: 3}
+    clip: {fileID: 8300000, guid: 6526880b3ef314c4cafff990d9a46e8d, type: 3}
   - name: Cerrar
-    clip: {fileID: 8300000, guid: 20b0500fc47f23342a6703dcfa9320e1, type: 3}
+    clip: {fileID: 8300000, guid: a08bb5e40ec86ac4f85d9bac941dada3, type: 3}
   - name: Mochila
     clip: {fileID: 8300000, guid: 4661d080d5fa70a41993f1697ad11371, type: 3}
   - name: Throw
@@ -3444,17 +3449,17 @@ MonoBehaviour:
   - name: Car
     clip: {fileID: 8300000, guid: 027c0ce8e941d7f42b5431cebd3d28bd, type: 3}
   - name: Hook_releaseobject
-    clip: {fileID: 8300000, guid: eb1fd660d78b1184b924affab01cc50b, type: 3}
+    clip: {fileID: 8300000, guid: eb2b3625c682ac846bcee3c797694713, type: 3}
   - name: Hook_shootrope
-    clip: {fileID: 8300000, guid: bc956c0c860406743a39bdd6103c757e, type: 3}
+    clip: {fileID: 8300000, guid: 6d668ab187a17d04b9f0f258527d0997, type: 3}
   - name: Hook_releasesurface
-    clip: {fileID: 8300000, guid: dc85f6ab827de8543a454af46814c6ab, type: 3}
+    clip: {fileID: 8300000, guid: 9373504c4a684ad48bd49ff92a8acd5f, type: 3}
   - name: Hook_retraction
-    clip: {fileID: 8300000, guid: c95bb29830a8fc9449f61f4336643eab, type: 3}
+    clip: {fileID: 8300000, guid: dd2d2d26cb0e68d48b0b83d021b5b482, type: 3}
   - name: Hook-hitchobject
-    clip: {fileID: 8300000, guid: 94c087e8d3928664c849822a070fb85e, type: 3}
+    clip: {fileID: 8300000, guid: 030665f93cda7874d9282ac3b0f43bb0, type: 3}
   - name: Hook_hitchsurface
-    clip: {fileID: 8300000, guid: 3ecf699beeb2988469f3435ec42d3da3, type: 3}
+    clip: {fileID: 8300000, guid: 2e51d23571bc7fa4cb27b20af44ab852, type: 3}
   - name: BreakWood
     clip: {fileID: 8300000, guid: c5255ec2475307847881b414f1a5a544, type: 3}
   - name: pickup_cloth
@@ -3490,9 +3495,11 @@ MonoBehaviour:
   - name: Slot
     clip: {fileID: 8300000, guid: ce92578eac93f7b4581dc90ab78091a1, type: 3}
   - name: Sacar
-    clip: {fileID: 8300000, guid: 51f3bc7c060d014469b8f973972d2595, type: 3}
+    clip: {fileID: 8300000, guid: 11bd373b2af850f43be8056dd07482c5, type: 3}
   - name: ChangeSlot
-    clip: {fileID: 8300000, guid: 3ab236a03adce7f47a376aea64ff1deb, type: 3}
+    clip: {fileID: 8300000, guid: 40bbd8e25a91c4644bc199cb64f0cb4a, type: 3}
+  - name: Broke
+    clip: {fileID: 8300000, guid: b53ad6a3c1e3c8840865cec277be9d97, type: 3}
   musicSource: {fileID: 3741045180704199342}
   sfxSource: {fileID: 3741045179750391223}
   sliderMaster: {fileID: 3741045179739275454}
