@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DRM
   m_EditorClassIdentifier: 
   damage: 40
-  Range: 15
-  Munition: 6
+  Range: 70
+  Munition: 12
   charger: 12
   timeToShoot: 2.5
   timetoRecharge: 3.5

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   Range: 7
-  Munition: 3
-  charger: 3
-  timeToShoot: 2.5
-  timetoRecharge: 2.5
+  Munition: 15
+  charger: 15
+  timeToShoot: 1
+  timetoRecharge: 1.7
   Drop: []
