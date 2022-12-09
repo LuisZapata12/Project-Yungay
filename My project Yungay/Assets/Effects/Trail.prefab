@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2674764959141256312}
   - component: {fileID: 434358359375337746}
+  - component: {fileID: 8927690926291588732}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Bala
@@ -143,3 +144,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!65 &8927690926291588732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2674764959141256314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}

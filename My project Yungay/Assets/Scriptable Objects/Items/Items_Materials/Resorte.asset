@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c08865a1c2b60a49b85bd8c18175481, type: 3}
-  m_Name: Rubber
+  m_Name: Resorte
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5758199819769339440, guid: efe2c41d729445f44badea3eb45c812d, type: 3}
-  itemSprite: {fileID: 21300000, guid: b3699ae1bd219c6478b54bd45c498576, type: 3}
+  prefab: {fileID: 532150563355150936, guid: 38f4831e475bbd442a4cad15aa56e46b, type: 3}
+  itemSprite: {fileID: 21300000, guid: d4173b77ef4f16742929423aac9e4580, type: 3}
   type: 1
   maxStack: 10
-  description: Hule
-  pickSoundName: pickup_rubber
+  description: Resorte

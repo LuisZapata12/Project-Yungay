@@ -50,15 +50,15 @@ public class PlayerLooting : MonoBehaviour
             {
                 if (!hit.collider.CompareTag("Enemy"))
                 {
-                    if (!once)
-                    {
-                        oldColor = hit.collider.GetComponent<Renderer>().material;
-                        var _ = new Material(oldColor);
-                        _.color = changeColor;
-                        hit.collider.GetComponent<Renderer>().material = _;
-                        once = true;
-                    }
-                    item = hit.collider.gameObject;
+                    //if (!once)
+                    //{
+                    //    oldColor = hit.collider.GetComponent<Renderer>().material;
+                    //    var _ = new Material(oldColor);
+                    //    _.color = changeColor;
+                    //    hit.collider.GetComponent<Renderer>().material = _;
+                    //    once = true;
+                    //}
+                    //item = hit.collider.gameObject;
                 }
 
                 lootText.GetComponent<Animator>().SetBool("Show", true);
@@ -79,11 +79,12 @@ public class PlayerLooting : MonoBehaviour
         {
             lootText.GetComponent<Animator>().SetBool("Show", false);
 
-            if (once && item != null && oldColor != null)
-            {
-                item.GetComponent<Renderer>().material = oldColor;
-                once = false;
-            }
+            //if (once && item != null && oldColor != null)
+            //{
+            //    item.GetComponent<Renderer>().material = oldColor;
+            //    once = false;
+            //    oldColor = null;
+            //}
         }
     }
 }

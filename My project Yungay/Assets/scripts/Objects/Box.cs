@@ -73,6 +73,11 @@ public class Box : MonoBehaviour
             inventory.slots[index].durability -= 1;
             inventory.RemoveSlotDurability();
         }
+
+        if (other.CompareTag("Bala"))
+        {
+            Destroy();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

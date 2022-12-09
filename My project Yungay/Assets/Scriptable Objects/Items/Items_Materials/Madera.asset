@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c08865a1c2b60a49b85bd8c18175481, type: 3}
-  m_Name: Stone
+  m_Name: Madera
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3299538024013844753, guid: e1fb9868bb0d2ba42a7aaf9363ac12d0, type: 3}
-  itemSprite: {fileID: 21300000, guid: 22ba2d5dc1031d64d9c4bb8fae6c8f3e, type: 3}
+  prefab: {fileID: 7920680300304387660, guid: 4f975383eaf83714b917b726dbb43e5c, type: 3}
+  itemSprite: {fileID: 21300000, guid: 224f7e22a61f1a147b31c4fbef19b7f5, type: 3}
   type: 1
   maxStack: 10
   description: 
-  pickSoundName: pickup_stone
+  pickSoundName: pickup_wood

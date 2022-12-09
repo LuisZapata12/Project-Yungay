@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c08865a1c2b60a49b85bd8c18175481, type: 3}
-  m_Name: Button
+  m_Name: Clavos
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4538740350180716780, guid: 692581f5c1313bb4d9dc2ebe2fd15505, type: 3}
-  itemSprite: {fileID: 21300000, guid: 94052ab745a6bb74bb4e06927e8fda6c, type: 3}
+  prefab: {fileID: 1735745338477293402, guid: 52f0955757eeca443812e14958b0434e, type: 3}
+  itemSprite: {fileID: 21300000, guid: f16ad8519cfbf1141996fb84edb33843, type: 3}
   type: 1
-  maxStack: 10
-  description: "Bot\xF3n"
+  maxStack: 50
+  description: 
+  pickSoundName: pickup_nails

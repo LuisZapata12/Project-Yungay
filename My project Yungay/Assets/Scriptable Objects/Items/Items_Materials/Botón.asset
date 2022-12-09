@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c08865a1c2b60a49b85bd8c18175481, type: 3}
-  m_Name: Spring
+  m_Name: "Bot\xF3n"
   m_EditorClassIdentifier: 
-  prefab: {fileID: 532150563355150936, guid: 38f4831e475bbd442a4cad15aa56e46b, type: 3}
-  itemSprite: {fileID: 21300000, guid: d4173b77ef4f16742929423aac9e4580, type: 3}
+  prefab: {fileID: 4538740350180716780, guid: 692581f5c1313bb4d9dc2ebe2fd15505, type: 3}
+  itemSprite: {fileID: 21300000, guid: 94052ab745a6bb74bb4e06927e8fda6c, type: 3}
   type: 1
   maxStack: 10
-  description: Resorte
+  description: "Bot\xF3n"
