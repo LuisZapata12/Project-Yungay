@@ -25,7 +25,7 @@ public class ConsoleCheats : MonoBehaviour
         movement = player.GetComponent<PlayerMovement>();
         jump = player.GetComponent<PlayerJump>();
         crouching = player.GetComponent<PlayerCrouching>();
-        spwanPos = GameObject.Find("SpawnPos").GetComponent<Transform>();
+        spwanPos = GameObject.Find("Spawn").GetComponent<Transform>();
 
     }
 
