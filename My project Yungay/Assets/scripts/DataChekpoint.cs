@@ -130,14 +130,10 @@ public class DataChekpoint : MonoBehaviour
     }
     public void ReturnCheck()
     {
-        if (lastCheck.Count == 1)
+        for (int i = 0; i < check.Length; i++)
         {
-            for (int i = 0; i < check.Length; i++)
-            {
-                check[i].GetComponent<Collider>().enabled = lastCheck[i].collider;
-            }
+            check[i].GetComponent<Collider>().enabled = lastCheck[i].collider;
         }
-        
     }
     public void ReturnPosition()
     {
