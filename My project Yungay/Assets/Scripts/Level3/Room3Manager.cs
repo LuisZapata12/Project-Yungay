@@ -32,6 +32,7 @@ public class Room3Manager : MonoBehaviour
             Debug.Log("Inicia cinematica");
             if (timer >= 1.6f)
             {
+                GameManager.inPause = true;
                 Cm.Play();
             }else
             {
@@ -41,6 +42,7 @@ public class Room3Manager : MonoBehaviour
         }
         else if (endcinematic == true)
         {
+            GameManager.inPause = false;
             Cm.Stop();
         }
         
