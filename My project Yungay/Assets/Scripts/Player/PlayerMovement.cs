@@ -168,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
                     {
-                        if (Input.GetKey(KeyCode.LeftShift) && model.staActual >= 0 && !model.isCrouching)
+                        if (Input.GetKey(KeyCode.LeftShift) && model.staActual >= 0 && !model.isCrouching && !model.isJump)
                         {
                             //Run();
                             model.state = PlayerModel.State.run;
@@ -239,13 +239,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerGroundCheck.jump)
         {
-           // model.state = PlayerModel.State.idle;
+            // model.state = PlayerModel.State.idle;
+            model.isJump = false;
+
         }
         else
         {
             if (!GameManager.inPause)
             {
                 move = orientation.forward * ver + orientation.right * hor;
+                model.actualSpeed = 2.8f;
+                model.isJump = true;
             }
         }
     }
@@ -262,24 +266,26 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Run()
     {
-        model.state = PlayerModel.State.run;
-        model.rb.AddForce(move.normalized * model.speedRun * 10f, ForceMode.Force);
-        if (model.actualSpeed >= model.speedRun -0.5f)
+        if (!model.isJump)
         {
-            model.isRunning = true;
+            model.state = PlayerModel.State.run;
+            model.rb.AddForce(move.normalized * model.speedRun * 10f, ForceMode.Force);
+            if (model.actualSpeed >= model.speedRun - 0.5f)
+            {
+                model.isRunning = true;
+            }
+
+            //else if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    model.isRunning = false;
+            //    model.state = PlayerModel.State.idle;
+            //}
+            else
+            {
+                model.isRunning = false;
+                model.state = PlayerModel.State.idle;
+            }
         }
-        
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            model.isRunning = false;
-            model.state = PlayerModel.State.idle;
-        }
-        else
-        {
-            model.isRunning = false;
-            model.state = PlayerModel.State.idle;
-        }
-        
         
             
     }
