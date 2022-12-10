@@ -13517,6 +13517,11 @@ PrefabInstance:
       propertyPath: weaponSlots.Array.data[0].munitions.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1054668444395382428, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1210160733481343789, guid: 6d1afbef7a98c3a4f90d17c07504f5ae,
         type: 3}
       propertyPath: m_RootOrder
