@@ -32,6 +32,7 @@ TagManager:
   - ControladorCM
   - Suplemento
   - reset
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -54,8 +55,8 @@ TagManager:
   - Obstacle
   - NPC
   - Ignore
-  - Ignore Player
-  - 
+  - Ignore Bullets
+  - Bullets
   - 
   - 
   - 

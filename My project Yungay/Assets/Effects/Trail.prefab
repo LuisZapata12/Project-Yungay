@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2674764959141256312}
   - component: {fileID: 434358359375337746}
   - component: {fileID: 8927690926291588732}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Trail
   m_TagString: Bala
   m_Icon: {fileID: 0}

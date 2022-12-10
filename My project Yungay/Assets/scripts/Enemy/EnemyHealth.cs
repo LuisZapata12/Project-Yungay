@@ -22,10 +22,12 @@ public class EnemyHealth : MonoBehaviour
     public float healthActual, healthMax;
     private GameObject player;
     public float maxDistance;
+    private CapsuleCollider capsule;
     void Start()
     {
         healthMax = life;
         anim = GetComponent<Animator>();
+        capsule = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -65,9 +67,9 @@ public class EnemyHealth : MonoBehaviour
             blood.SetActive(false);
             timer2 = 0f;
         }
-        blood.SetActive(true);
         if (!dead)
         {
+            blood.SetActive(true);
             //anim.Play("Enemy_Reaction");
         }
         
@@ -81,9 +83,12 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log("Agregar arma");
             CheckItem();
             GetComponent<CapsuleCollider>().isTrigger = true;
-            //int _ = LayerMask.NameToLayer("Ignore Player");
-            //gameObject.layer = _;
+            int _ = LayerMask.NameToLayer("Ignore Bullets");
+            gameObject.layer = _;
             player = GameObject.Find("Player");
+            capsule.height = 0.77f;
+            capsule.center = new Vector3(capsule.center.x, 0.39f, capsule.center.z);
+            capsule.radius = 0.38f;
         }
     }
 
