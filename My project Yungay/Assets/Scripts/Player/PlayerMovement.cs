@@ -38,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        
+    }
+    void FixedUpdate()
+    {
         if (!model.isDeath)
         {
             model.states[model.state]?.Invoke();
@@ -102,9 +106,6 @@ public class PlayerMovement : MonoBehaviour
                 model._ = null;
             }
         }
-    }
-    void FixedUpdate()
-    {
     }
     private void Dialogo()
     {
