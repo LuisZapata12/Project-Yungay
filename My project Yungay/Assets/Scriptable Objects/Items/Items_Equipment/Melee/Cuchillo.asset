@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 2
   maxStack: 1
   description: 
-  pickSoundName: 
+  pickSoundName: pickup_knife
   itemName: Knife
   itemMesh: {fileID: 1736369988694656202, guid: 4bfcf88e14402a2439d632d1afce3e3b,
     type: 3}

@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     float timerDamage;
     public bool takeDamage;
     public bool takeHeal;
-    
+    public List<string> audioNames = new();
 
 
     public GameObject deathPanel;
@@ -87,6 +87,9 @@ public class PlayerHealth : MonoBehaviour
                 // StartCoroutine(FeedBackDamage());
             }
         }
+
+        int _ = (int)Random.Range(0, audioNames.Count);
+        AudioManager.Instance.PlaySFX(audioNames[_]);
     }
     public void LifeUpdate()
     {

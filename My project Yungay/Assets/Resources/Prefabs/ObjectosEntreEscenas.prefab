@@ -3499,7 +3499,15 @@ MonoBehaviour:
   - name: ChangeSlot
     clip: {fileID: 8300000, guid: 40bbd8e25a91c4644bc199cb64f0cb4a, type: 3}
   - name: Broke
-    clip: {fileID: 8300000, guid: b53ad6a3c1e3c8840865cec277be9d97, type: 3}
+    clip: {fileID: 8300000, guid: 84ce7a44ecb2df0448321446b5b8e9a3, type: 3}
+  - name: pickup_knife
+    clip: {fileID: 8300000, guid: 07273d282c930c641a9d87d0a1adcde3, type: 3}
+  - name: Damage1
+    clip: {fileID: 8300000, guid: a5adacb249d91f54e96ef93ebf2680e6, type: 3}
+  - name: Damage2
+    clip: {fileID: 8300000, guid: cf6f81b4cabab9644890ab8ffbefca73, type: 3}
+  - name: Healing
+    clip: {fileID: 8300000, guid: c9b79158bbc17fa42a02c082a13b1d86, type: 3}
   musicSource: {fileID: 3741045180704199342}
   sfxSource: {fileID: 3741045179750391223}
   sliderMaster: {fileID: 3741045179739275454}

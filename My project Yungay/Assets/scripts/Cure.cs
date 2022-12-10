@@ -95,5 +95,6 @@ public class Cure : MonoBehaviour
         chargeBar.SetActive(false);
         Heal();
         image.fillAmount = 0;
+        AudioManager.Instance.PlaySFX("Healing");
     }
 }

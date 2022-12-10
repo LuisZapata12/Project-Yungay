@@ -8654,26 +8654,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
-        type: 3}
-      propertyPath: sfxSounds.Array.size
-      value: 41
-      objectReference: {fileID: 0}
-    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
-        type: 3}
-      propertyPath: sfxSounds.Array.data[39].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 84ce7a44ecb2df0448321446b5b8e9a3, type: 3}
-    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
-        type: 3}
-      propertyPath: sfxSounds.Array.data[40].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 07273d282c930c641a9d87d0a1adcde3, type: 3}
-    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
-        type: 3}
-      propertyPath: sfxSounds.Array.data[40].name
-      value: pickup_knife
-      objectReference: {fileID: 0}
     - target: {fileID: 6245852952444465775, guid: fa9ca198d9416704780e5ee1bd7b755c,
         type: 3}
       propertyPath: m_AnchorMax.y

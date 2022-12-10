@@ -22000,6 +22000,9 @@ MonoBehaviour:
   timeDamageMax: 3
   takeDamage: 0
   takeHeal: 0
+  audioNames:
+  - Damage1
+  - Damage2
   deathPanel: {fileID: 3782315278444909065}
 --- !u!114 &8256076999975231258
 MonoBehaviour:
