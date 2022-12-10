@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04edd9a3d1afd3247bc59e9b9c246524, type: 3}
   m_Name: DRM
   m_EditorClassIdentifier: 
-  damage: 70
+  damage: 40
   Range: 70
   Munition: 5
   charger: 12
