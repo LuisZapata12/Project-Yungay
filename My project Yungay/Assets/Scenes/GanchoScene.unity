@@ -3575,6 +3575,7 @@ MonoBehaviour:
   healthActual: 0
   healthMax: 0
   maxDistance: 0
+  setpsSounds: []
 --- !u!1 &547364284
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,6 +6668,7 @@ MonoBehaviour:
   healthActual: 0
   healthMax: 0
   maxDistance: 0
+  setpsSounds: []
 --- !u!114 &1137636715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8651,6 +8653,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
+        type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
+        type: 3}
+      propertyPath: sfxSounds.Array.data[39].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 84ce7a44ecb2df0448321446b5b8e9a3, type: 3}
+    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
+        type: 3}
+      propertyPath: sfxSounds.Array.data[40].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 07273d282c930c641a9d87d0a1adcde3, type: 3}
+    - target: {fileID: 3741045179792130075, guid: fa9ca198d9416704780e5ee1bd7b755c,
+        type: 3}
+      propertyPath: sfxSounds.Array.data[40].name
+      value: pickup_knife
       objectReference: {fileID: 0}
     - target: {fileID: 6245852952444465775, guid: fa9ca198d9416704780e5ee1bd7b755c,
         type: 3}
@@ -10661,6 +10683,7 @@ MonoBehaviour:
   healthActual: 0
   healthMax: 0
   maxDistance: 0
+  setpsSounds: []
 --- !u!114 &1922625189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11737,6 +11760,7 @@ MonoBehaviour:
   healthActual: 0
   healthMax: 0
   maxDistance: 0
+  setpsSounds: []
 --- !u!114 &2088009197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12777,24 +12801,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
-        type: 3}
-      propertyPath: life
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2496656329862639504, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
-        type: 3}
-      propertyPath: maxDistance
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 2496656329862639533, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig1:Neck'\n\tTransform 'mixamorig1:Head'\n\tTransform
-        'mixamorig1:Neck'\n\tTransform 'mixamorig1:Head'\n\tTransform 'mixamorig1:Neck'\n\tTransform
-        'mixamorig1:Head'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2496656329862639534, guid: 3c1ecb675a2484c40bdfdbae1c4209e2,
         type: 3}
@@ -14520,6 +14530,7 @@ MonoBehaviour:
   healthActual: 0
   healthMax: 0
   maxDistance: 0
+  setpsSounds: []
 --- !u!195 &7862666637531868806
 NavMeshAgent:
   m_ObjectHideFlags: 0

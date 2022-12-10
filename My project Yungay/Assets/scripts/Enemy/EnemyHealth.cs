@@ -23,11 +23,15 @@ public class EnemyHealth : MonoBehaviour
     private GameObject player;
     public float maxDistance;
     private CapsuleCollider capsule;
+
+    public List<AudioClip> setpsSounds = new();
+    private AudioSource audioSource;
     void Start()
     {
         healthMax = life;
         anim = GetComponent<Animator>();
         capsule = GetComponent<CapsuleCollider>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -122,6 +126,12 @@ public class EnemyHealth : MonoBehaviour
             enemyLoot.loot[count].amount = staticItems[i].amount;
             count++;
         }
+    }
+
+    public void PlaySetpSound()
+    {
+        int _ = (int)Random.Range(0, setpsSounds.Count);
+        audioSource.PlayOneShot(setpsSounds[_]);
     }
 
     private void RandomLoot()
