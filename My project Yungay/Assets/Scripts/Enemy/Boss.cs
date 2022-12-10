@@ -39,32 +39,36 @@ public class Boss : MonoBehaviour
     {
         Target = GameObject.Find("Player").transform;
         Life = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        dead = GetComponent<EnemyHealth>();
     }
 
 
     void Update()
     {
-        if (DetectPlayer)
+        if (!dead.dead)
         {
-            escombros.SetActive(true);
-        }
+            if (DetectPlayer)
+            {
+                escombros.SetActive(true);
+            }
 
-        distance = CalculateDistance();
-        LifeEvents();
+            distance = CalculateDistance();
+            LifeEvents();
 
-        if (distance < nearDistance)
-        {
-            NearAttack();
-        }
-        else if (distance < midDistance && distance > nearDistance)
-        {
-            MidAttack();
-            Shoot(pistol);
-        }
-        else if(distance > midDistance && distance < farDistance)
-        {
-            FarAttack();
-            Shoot(dmr);
+            if (distance < nearDistance)
+            {
+                NearAttack();
+            }
+            else if (distance < midDistance && distance > nearDistance)
+            {
+                MidAttack();
+                Shoot(pistol);
+            }
+            else if (distance > midDistance && distance < farDistance)
+            {
+                FarAttack();
+                Shoot(dmr);
+            }
         }
     }
     private void LifeEvents()
