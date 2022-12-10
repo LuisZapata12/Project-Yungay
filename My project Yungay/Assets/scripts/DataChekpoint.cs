@@ -134,7 +134,6 @@ public class DataChekpoint : MonoBehaviour
         {
             check[i].GetComponent<Collider>().enabled = lastCheck[i].collider;
         }
-        
     }
     public void ReturnPosition()
     {

@@ -150,12 +150,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (move == checkMove)
                 {
-                    model.state = PlayerModel.State.idle;
-                    if (hor == 0 || ver == 0)
+                    if (PlayerGroundCheck.jump)
                     {
-                        model.sourceSound.SetActive(false);
+                        model.state = PlayerModel.State.idle;
+                        if (hor == 0 || ver == 0)
+                        {
+                            model.sourceSound.SetActive(false);
+                        }
+                    }
+                    else
+                    {
+                        model.state = PlayerModel.State.jumping;
                     }
                 }
+
                 else if (move != checkMove)
                 {
                     if (PlayerGroundCheck.grounded/*playerGroundCheck.grounded*/)
@@ -231,14 +239,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerGroundCheck.jump)
         {
-            model.state = PlayerModel.State.move;
+           // model.state = PlayerModel.State.idle;
         }
         else
         {
-            hor = Input.GetAxisRaw("Horizontal");
-            ver = Input.GetAxisRaw("Vertical");
-            model.rb.AddForce(move.normalized * model.speedWalk * 10f * airMultiplier, ForceMode.Force);
-            move = orientation.forward * ver + orientation.right * hor;
+            if (!GameManager.inPause)
+            {
+                move = orientation.forward * ver + orientation.right * hor;
+            }
         }
     }
 
