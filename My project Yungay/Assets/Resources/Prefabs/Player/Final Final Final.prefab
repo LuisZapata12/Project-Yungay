@@ -23119,6 +23119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a254eb0557c20142b4fbc078b1dd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSurface: 0
 --- !u!54 &9051717140424612996
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23287,6 +23288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a254eb0557c20142b4fbc078b1dd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSurface: 0
 --- !u!65 &5054800471964718465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24761,6 +24763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a254eb0557c20142b4fbc078b1dd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSurface: 0
 --- !u!54 &8657417704000662633
 Rigidbody:
   m_ObjectHideFlags: 0
