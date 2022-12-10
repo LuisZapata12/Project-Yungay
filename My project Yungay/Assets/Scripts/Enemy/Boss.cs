@@ -35,6 +35,7 @@ public class Boss : MonoBehaviour
 
     public GameObject shootStart;
     private Vector3 directionToTarget;
+    public GameObject victoria;
     void Start()
     {
         Target = GameObject.Find("Player").transform;
@@ -69,6 +70,11 @@ public class Boss : MonoBehaviour
                 FarAttack();
                 Shoot(dmr);
             }
+        }
+        else
+        {
+            victoria.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
     private void LifeEvents()
